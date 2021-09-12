@@ -6,12 +6,12 @@ import Header from './Pages/Header'
 import Home from './Pages/Home'
 import About from './Pages/About'
 import Support from './Pages/Support'
-import GameDetail from './Pages/GameDetail'
+import Detail from './Pages/Detail'
 import Footer from './Pages/Footer'
 import Error from './Pages/Error'
 //? import common components
 
-function App() {
+function App() { //remember there <body> before this div
   return (
     <div>
       <Router>
@@ -27,8 +27,8 @@ function App() {
           <Route path='/Support'>
             <Support />
           </Route>
-          <Route path='/GameDetail/:id'>
-            <GameDetail />
+          <Route path='/Detail/:id'>
+            <Detail />
           </Route>
           <Route path='*'>
             <Error />
