@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 //? import pages/component based on folder
 import Header from './Pages/Header'
@@ -13,9 +14,6 @@ import Error from './Pages/Error'
 function App() {
   return (
     <div>
-      <div>
-        <h1>iAHwidhawidhwaih</h1>
-      </div>
       <Router>
         <Header />
         <Switch>
