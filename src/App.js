@@ -7,6 +7,7 @@ import About from './Pages/About'
 import Support from './Pages/Support'
 import GameDetail from './Pages/GameDetail'
 import Footer from './Pages/Footer'
+import Error from './Pages/Error'
 //? import common components
 
 function App() {
@@ -19,17 +20,20 @@ function App() {
         <Header />
         <Switch>
 
-          <Route>
+          <Route exact path='/'>
             <Home />
           </Route>
-          <Route>
+          <Route path='/About'>
             <About />
           </Route>
-          <Route>
+          <Route path='/Support'>
             <Support />
           </Route>
-          <Route>
+          <Route path='/GameDetail/:id'>
             <GameDetail />
+          </Route>
+          <Route path='*'>
+            <Error />
           </Route>
 
         </Switch>
