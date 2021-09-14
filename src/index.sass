@@ -21,8 +21,13 @@ $ff-default: 'Roboto', sans-serif
 $fc-default: #fff
 // background color
 $bgc-default: #151515
+$bgc-Spot: #f2ecff
 
 //?mixins
+@mixin flex($flex: flex, $justify: space-between, $align: center)
+    display: $flex
+    justify-content: $justify
+    align-items: $align
 
 //? Resets
 html::-webkit-scrollbar /* Hide scrollbar for Chrome, Safari and Opera */
@@ -41,6 +46,53 @@ html
     padding: 0
     text-decoration: none
     white-space: nowrap // Stoping white space wraping. If you have paragraph then   set it to wrap as normal
+    outline: none
 body
     background-color: $bgc-default
     color: $fc-default
+
+//? Header
+body 
+    >div
+        padding: 0 .5em 0 .5em
+
+        header 
+            nav
+                @include flex()
+                margin-top: .5em
+
+                >div:nth-child(1)
+                    @include flex($justify: center)
+                    width: 20%
+                    >img
+                        width: 60%
+
+                >form
+                    @include flex($justify: space-around)
+                    width: 50%
+                    height: 1.5em
+                    background-color: #313438
+                    border-radius: 1em
+                    transition: 0.3s
+                    &:hover
+                        background-color: $bgc-Spot    
+                    >svg 
+                        color: $fc-default
+                    >input
+                        width: 80%
+                        background: none
+                        border: none
+                        color: $fc-default
+                    &:hover > input,&:hover > svg
+                        color: black
+
+                >div:nth-child(3)
+                    @include flex($justify: flex-end)
+                    width: 20%
+                    padding-right: .75em
+                    >img
+                        height: 2.5em
+                        border-radius: 25px
+                    >svg
+                        margin-left: .5em
+                        height: 2.5em

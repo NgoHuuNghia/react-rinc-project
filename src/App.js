@@ -13,9 +13,10 @@ import Error from './Pages/Error'
 
 function App() { //remember there <body> before this div
   return (
-    <div>
+    <>
       <Router>
         <Header />
+        <div className=''>
         <Switch>
 
           <Route exact path='/'>
@@ -35,9 +36,10 @@ function App() { //remember there <body> before this div
           </Route>
 
         </Switch>
+        </div>
         <Footer />
       </Router>
-    </div>
+    </>
   );
 }
 

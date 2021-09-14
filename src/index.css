@@ -19,11 +19,71 @@ html {
   padding: 0;
   text-decoration: none;
   white-space: nowrap;
+  outline: none;
 }
 
 body {
   background-color: #151515;
   color: #fff;
+}
+
+body > div {
+  padding: 0 0.5em 0 0.5em;
+}
+body > div header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5em;
+}
+body > div header nav > div:nth-child(1) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+}
+body > div header nav > div:nth-child(1) > img {
+  width: 60%;
+}
+body > div header nav > form {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+  height: 1.5em;
+  background-color: #313438;
+  border-radius: 1em;
+  transition: 0.3s;
+}
+body > div header nav > form:hover {
+  background-color: #f2ecff;
+}
+body > div header nav > form > svg {
+  color: #fff;
+}
+body > div header nav > form > input {
+  width: 80%;
+  background: none;
+  border: none;
+  color: #fff;
+}
+body > div header nav > form:hover > input, body > div header nav > form:hover > svg {
+  color: black;
+}
+body > div header nav > div:nth-child(3) {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 20%;
+  padding-right: 0.75em;
+}
+body > div header nav > div:nth-child(3) > img {
+  height: 2.5em;
+  border-radius: 25px;
+}
+body > div header nav > div:nth-child(3) > svg {
+  margin-left: 0.5em;
+  height: 2.5em;
 }
 
 /*# sourceMappingURL=index.css.map */
