@@ -11,7 +11,7 @@ const Header = () => {
                 </div>
                 <form action="">
                     <FaSearch />
-                    <input type="text" />
+                    <input type="text" placeholder='search'/>
                 </form>
                 <div>
                     <img src="https://media.rawg.io/media/resize/80/-/avatars/654/6549f85d93a1b4653d6030fe6bd407bf.jpg" alt="avatar" />

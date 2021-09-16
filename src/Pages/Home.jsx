@@ -4,16 +4,34 @@ import { FaChevronRight, FaWindows } from 'react-icons/fa'
 const Home = () => {
     return (
         <>
-            <section className='hero'></section>
-            <section className='main-section'>
+            <div className='hero'>
+                <a href="/">
+                    <video loop="yes" muted="yes" autoplay="yes" playsinline="" poster="https://cdn.cloudflare.steamstatic.com/steam/clusters/frontpage/f53c67a4c72cf00ced7afa3d/page_bg_mobile_english.jpg?t=1631553001" class="fullscreen-bg__video_mobile">
+                        <source src="https://cdn.cloudflare.steamstatic.com/steam/clusters/frontpage/f53c67a4c72cf00ced7afa3d/webm_page_bg_mobile_english.webm?t=1631553001" type="video/webm" />
+                        <source src="https://cdn.cloudflare.steamstatic.com/steam/clusters/frontpage/f53c67a4c72cf00ced7afa3d/mp4_page_bg_mobile_english.mp4?t=1631553001" type="video/mp4" />
+                    </video>                
+                </a>
+            </div>
+            <div className='main-section'>
 
                 <section className='main-card-container'>
-                    <h5>Featured &#38; Recommended</h5>
-                    <div className='main-card-slider'>
-                        <div> {/* map here 4 times */}
+                    <div>
+                        <h5>Featured &#38; Recommended</h5>
+                    </div>
+                    {/* map here 4 times */}
+                    <div className='slider'>
+                        <div>
                             <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/capsule_616x353.jpg?t=1631331996" alt="" />
-                            <h4>Tale of Arise</h4>
-                            <small>800.000d</small>
+                            <div>
+                                <h4>Tale of Arise</h4>
+                                <div>
+                                    <div>-91%</div>
+                                    <div>
+                                        <span>588.000d</span>
+                                        134.000d
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>  
@@ -21,21 +39,19 @@ const Home = () => {
                 <section className='secondary-card-container'>
                     <div>
                         <h5>Special offer</h5>
-                        <a href="/">more <FaChevronRight /></a>
+                        <a href="/"><p>More</p> <FaChevronRight /></a>
                     </div>
-                    <div className='secondary-card-slider'>
+                    <div className='slider'>
                          <div> {/* map here  8 times */}
                             <a href="/">
-                                <img src="https://cdn.akamai.steamstatic.com/steam/spotlights/b3a1549adf8ed85aade0ab16/spotlight_image_english.jpg?t=1630685626" alt="" />
+                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/header.jpg?t=1631331996" alt="" />
                             </a>
                             <div>
-                                <h6>Weekend deal</h6>
-                                <small>Offer ends 24 Sep @ 12:00am.</small>
                                 <div>
-                                    <h3>-33%</h3>
+                                    <div>-33%</div>
                                     <div>
-                                        <small>1.000.000d</small>
-                                        <p>670.000d</p>
+                                        <span>1.000.000d</span>
+                                        670.000d
                                     </div>
                                 </div>
                             </div>
@@ -49,25 +65,34 @@ const Home = () => {
                         <h5>Community recommended</h5>
                         <a href="/">more <FaChevronRight /></a>
                     </div>
-                    <div className='movie-card-slider'> {/* map here 3 times */}
-                        <img src="/" alt="" />
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti corrupti officiis, dolorum a totam quibusdam in adipisci voluptate aspernatur architecto magni, cum sint fuga laboriosam vitae quas vel assumenda doloribus.</p>
-                        <div className='movie-card-comment'>
-                            <img src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/2e/2ea08980f32ec568536bf791b0f3986e8b279ccb.jpg" alt="" />
-                            <div>
-                                <h6>comment name</h6>
-                                <p>comment</p>
-                            </div>
+                    <div> {/* map here 3 times */}
+                        <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/capsule_616x353.jpg?t=1631331996" alt="" />
+                        <div>
+                            <p>"Lorem ipsum dolor sit  amet consectetur adipisicing elit. Deleniti corrupti officiis, dolorum a totam quibusdam in adipisci voluptate aspernatur architecto magni, cum sint fuga laboriosam vitae quas vel assumenda doloribus."</p>
+                            <div className='movie-card-comment'>
+                                <img src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/2e/2ea08980f32ec568536bf791b0f3986e8b279ccb.jpg" alt="" />
+                                <div>
+                                    <h6>Zuluf</h6>
+                                    <p>
+                                        Played 10.1 hrs at review time<br />
+                                        127 people found this review helpful
+                                    </p>
+                                </div>
+                            </div>  
                         </div>
                     </div>
                 </section>
 
-                <section className='browse-container'>
-                    <h5>Browse Steam</h5>
-                    <a href="/">New releases</a>
-                    <a href="/">Special</a>
-                    <a href="/">Free games</a>
-                    <a href="/">By user tags</a>
+                <section className='page-browse'>
+                    <div>
+                        <h5>Browse Steam</h5>
+                    </div>
+                    <div>
+                        <a href="/"><p>New releases</p></a>
+                        <a href="/"><p>Special</p></a>
+                        <a href="/"><p>Free games</p></a>
+                        <a href="/"><p>By user tags</p></a>
+                    </div>
                 </section>
 
                 <section className='special-card-container'>
@@ -77,21 +102,24 @@ const Home = () => {
                     </div>
                     <div className='special-card-slider'> {/* map here 6 times */}
                         <a href='/' className='speical-card-btn'>
-                            <img src="https://cdn.akamai.steamstatic.com/steam/apps/1032430/header_292x136.jpg?t=1624419479" alt="" />
-                            <p>220.000d</p>
+                            <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/740130/header_292x136.jpg?t=1626370761" alt="" />
+                            <div>
+                                <p>220.000d</p>
+                            </div>
                         </a>
                     </div>
                 </section>
 
-            </section>
-            <div className='tab-selector'>
-                <a href="/">News and trending</a>
-                <a href="/">Top news</a>
-                <a href="/">Popular upcoming</a>
-                <a href="/">Special</a>
             </div>
-            <section className='subsidiary-section'>
-                <div className='tab-container'>
+
+            <div className='tab-selector'>
+                <a href="/"><p>Trending</p></a>
+                <a href="/"><p>Top news</p></a>
+                <a href="/"><p>Popular upcoming</p></a>
+                <a href="/"><p>Special</p></a>
+            </div>
+            <div className='subsidiary-section'>
+                <section className='tab-container'>
                     <div className='tab-expand'>
                         <p>See more: <a href="/">New releases</a></p>
                     </div>
@@ -105,10 +133,10 @@ const Home = () => {
                         </div>
                         <p>600.000d <small>500.000d</small></p>
                     </a>
-                </div>
+                </section>
 
                 {/*//todo Maybe a grid display here if we have the time wink wink */}
-            </section>
+            </div>
         </>
     )
 }

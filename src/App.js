@@ -16,7 +16,6 @@ function App() { //remember there <body> before this div
     <>
       <Router>
         <Header />
-        <div className=''>
         <Switch>
 
           <Route exact path='/'>
@@ -36,7 +35,6 @@ function App() { //remember there <body> before this div
           </Route>
 
         </Switch>
-        </div>
         <Footer />
       </Router>
     </>
