@@ -29,12 +29,14 @@ html body {
 
 body header nav {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin: 0.75em 0 0.75em 0;
 }
 body header nav > div:nth-child(1) {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 20%;
@@ -44,6 +46,7 @@ body header nav > div:nth-child(1) > img {
 }
 body header nav > form {
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
   align-items: center;
   width: 60%;
@@ -71,6 +74,7 @@ body header nav > form:hover > input, body header nav > form:hover > svg {
 }
 body header nav > div:nth-child(3) {
   display: flex;
+  flex-direction: row;
   justify-content: flex-end;
   align-items: center;
   width: 20%;
@@ -85,15 +89,15 @@ body header nav > div:nth-child(3) > svg {
   height: 2.5em;
 }
 
-section.hero > a {
+.hero > a {
   display: block;
 }
-section.hero > a > video {
+.hero > a > video {
   height: auto;
   width: 100%;
 }
 
-div#root > div > section {
+#root > div > section {
   margin-top: 2em;
 }
 
@@ -102,6 +106,7 @@ div#root > div > section {
 }
 .main-section > .main-card-container > div:first-child {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.5em;
@@ -113,6 +118,7 @@ div#root > div > section {
 .main-section > .main-card-container > div:first-child > a {
   color: #4c565d;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   transition: 0.3s;
@@ -140,6 +146,7 @@ div#root > div > section {
 }
 .main-section > .main-card-container > div.slider > div > div > div {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   display: inline-block;
@@ -150,8 +157,8 @@ div#root > div > section {
   padding: 0.3em 0.3em 0.3em 0.3em;
 }
 .main-section > .main-card-container > div.slider > div > div > div > div:nth-child(1) {
-  background-color: #228B22;
-  color: #fff;
+  background-color: #4c6b22;
+  color: #a4d007;
 }
 .main-section > .main-card-container > div.slider > div > div > div > div:nth-child(2) {
   font-size: 0.8em;
@@ -167,6 +174,7 @@ div#root > div > section {
 }
 .main-section > .secondary-card-container > div:first-child {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.5em;
@@ -178,6 +186,7 @@ div#root > div > section {
 .main-section > .secondary-card-container > div:first-child > a {
   color: #4c565d;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   transition: 0.3s;
@@ -202,6 +211,7 @@ div#root > div > section {
 .main-section > .secondary-card-container > div.slider > div > div {
   padding: 0.75em 0.5em 0.75em 0.5em;
   display: flex;
+  flex-direction: row;
   justify-content: flex-end;
   align-items: center;
 }
@@ -213,7 +223,8 @@ div#root > div > section {
   display: inline-block;
 }
 .main-section > .secondary-card-container > div.slider > div > div div > div:nth-child(1) {
-  background-color: #228B22;
+  background-color: #4c6b22;
+  color: #a4d007;
   font-size: 2em;
   padding: 0.1em;
 }
@@ -231,6 +242,7 @@ div#root > div > section {
 }
 .main-section > .movie-card-container > div:nth-child(1) {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.5em;
@@ -242,6 +254,7 @@ div#root > div > section {
 .main-section > .movie-card-container > div:nth-child(1) > a {
   color: #4c565d;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   transition: 0.3s;
@@ -269,6 +282,7 @@ div#root > div > section {
 .main-section > .movie-card-container > div:nth-child(2) > div > div.movie-card-comment {
   margin-top: 2em;
   display: flex;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: center;
 }
@@ -293,6 +307,7 @@ div#root > div > section {
 }
 .main-section > .page-browse > div:nth-child(1) {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.5em;
@@ -304,6 +319,7 @@ div#root > div > section {
 .main-section > .page-browse > div:nth-child(1) > a {
   color: #4c565d;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   transition: 0.3s;
@@ -313,6 +329,7 @@ div#root > div > section {
 }
 .main-section > .page-browse > div:nth-child(2) {
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
@@ -327,6 +344,7 @@ div#root > div > section {
   color: #fff;
   transition: 0.3s;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -340,6 +358,7 @@ div#root > div > section {
 }
 .main-section > .special-card-container > div:nth-child(1) {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.5em;
@@ -351,6 +370,7 @@ div#root > div > section {
 .main-section > .special-card-container > div:nth-child(1) > a {
   color: #4c565d;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   transition: 0.3s;
@@ -371,6 +391,7 @@ div#root > div > section {
 .main-section > .special-card-container > div:nth-child(2) > a > div {
   padding: 0.5em;
   display: flex;
+  flex-direction: row;
   justify-content: flex-end;
   align-items: center;
 }
@@ -389,6 +410,7 @@ div#root > div > section {
 
 .tab-selector {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   margin-top: 1em;
@@ -397,6 +419,7 @@ div#root > div > section {
 }
 .tab-selector > a {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   height: 2em;
@@ -413,6 +436,115 @@ div#root > div > section {
 }
 .tab-selector > a:hover > p {
   color: #302c3a;
+}
+
+.subsidiary-section > section {
+  margin-top: 0 !important;
+  background-color: #8b0023;
+  padding: 0.5em;
+}
+.subsidiary-section > section > div > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.4em;
+  background-color: #6f001c;
+}
+.subsidiary-section > section > div > div > p {
+  font-size: 0.8em;
+}
+.subsidiary-section > section > div > div > a {
+  font-size: 0.8em;
+  padding: 0.5em;
+  border: 1px solid #f2ecff;
+  color: #fff;
+  transition: 0.3s;
+}
+.subsidiary-section > section > div > div > a:hover {
+  background-color: #f2ecff;
+  color: #302c3a;
+}
+.subsidiary-section > section > div > a {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5em;
+  background-color: #6f001c;
+}
+.subsidiary-section > section > div > a:hover {
+  background-color: #151515;
+}
+.subsidiary-section > section > div > a > img {
+  height: auto;
+  max-width: 100%;
+  display: block;
+  height: 100%;
+  width: 40%;
+}
+.subsidiary-section > section > div > a > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3em 0.5em;
+  width: 60%;
+}
+.subsidiary-section > section > div > a > div > div:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  color: black;
+  width: 75%;
+}
+.subsidiary-section > section > div > a > div > div:nth-child(1) * {
+  display: inline-block;
+}
+.subsidiary-section > section > div > a > div > div:nth-child(1) > h4 {
+  width: 100%;
+  color: #fff;
+}
+.subsidiary-section > section > div > a > div > div:nth-child(1) > i {
+  width: 100%;
+  color: #6f6f6f;
+}
+.subsidiary-section > section > div > a > div > div:nth-child(1) > small {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  font-size: 0.8em;
+  color: #6f6f6f;
+}
+.subsidiary-section > section > div > a > div > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 25%;
+}
+.subsidiary-section > section > div > a > div > div:nth-child(2) > div:nth-child(1) {
+  background-color: #4c6b22;
+  display: inline;
+  padding: 0.1em 0.3em;
+  color: #a4d007;
+}
+.subsidiary-section > section > div > a > div > div:nth-child(2) > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.subsidiary-section > section > div > a > div > div:nth-child(2) > div:nth-child(2) > p:nth-child(1) {
+  text-decoration: line-through;
+  color: #6f6f6f;
+  font-size: 0.7em;
+}
+.subsidiary-section > section > div > a > div > div:nth-child(2) > div:nth-child(2) > p:nth-child(2) {
+  color: #fff;
+  font-size: 0.8em;
 }
 
 /*# sourceMappingURL=index.css.map */

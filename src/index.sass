@@ -21,18 +21,22 @@ $ff-default: 'Roboto', sans-serif
 $fc-default: #fff
 $fc-hilight: #302c3a
 $fc-unimportant: #4c565d
+$fc-discounted: #a4d007
+$fc-subsidiary-unimportant: #6f6f6f
 // background color
 $bgc-default: #151515
 $bgc-hilight: #f2ecff
 $bgc-important: black
 $bgc-subtle: #313438
-$bgc-discounted: #228B22
-$bgc-attention: #8b0023
+$bgc-discounted: #4c6b22
+$bgc-subsidiary: #8b0023
+$bgc-subsidiary-subtle: #6f001c
 
 //?mixins
 // common
-@mixin flex($flex: flex, $justify: space-between, $align: center)
-    display: $flex
+@mixin flex($direction: row, $justify: space-between, $align: center)
+    display: flex
+    flex-direction: $direction
     justify-content: $justify
     align-items: $align
 @mixin gradient($deg-gradient: 180deg, $first-gradient: $bgc-default,$first-percent: 65%, $second-gradient: $bgc-subtle, $second-percent: 100% )
@@ -52,7 +56,7 @@ $bgc-attention: #8b0023
         transition: .3s
         &:hover 
             color: $fc-default
-        >svg 
+        
 
 // card
 @mixin card-title
@@ -103,7 +107,7 @@ html
 body 
     header 
         nav
-            @include flex()
+            @include flex
             margin: .75em 0 .75em 0
 
             >div:nth-child(1)
@@ -145,13 +149,13 @@ body
                     height: 2.5em
     
 //? Home
-section.hero 
+.hero 
     >a
         display: block
         >video
             height: auto
             width: 100%
-div#root
+#root
     >div
         >section
             margin-top: 2em
@@ -180,7 +184,7 @@ div#root
                             padding: .3em .3em .3em .3em
                         >div:nth-child(1)
                             background-color: $bgc-discounted
-                            color: $fc-default
+                            color: $fc-discounted
                         >div:nth-child(2)
                             @include card-price
                             >span 
@@ -208,6 +212,7 @@ div#root
                             display: inline-block
                         >div:nth-child(1)
                             background-color: $bgc-discounted
+                            color: $fc-discounted
                             font-size: 2em
                             padding: .1em
                         >div:nth-child(2)
@@ -256,7 +261,7 @@ div#root
                 width: 48%
                 border-radius: 5px
                 border: solid 1px black
-                background-color: $bgc-attention
+                background-color: $bgc-subsidiary
                 color: $fc-default
                 transition: .3s
                 @include flex($justify: center)
@@ -272,7 +277,7 @@ div#root
             @include home-content-title
         >div:nth-child(2)
             width: 60%
-            @include gradient($deg-gradient: 90deg, $first-gradient: $bgc-attention, $first-percent: 20%, $second-gradient: $bgc-default )
+            @include gradient($deg-gradient: 90deg, $first-gradient: $bgc-subsidiary, $first-percent: 20%, $second-gradient: $bgc-default )
             >a
                 >img
                     @include card-img     
@@ -295,7 +300,7 @@ div#root
         @include flex( $justify: center )
         height: 2em
         padding: 1em .75em
-        background-color: $bgc-attention
+        background-color: $bgc-subsidiary
         transition: .3s
         &:hover
             background-color: $bgc-hilight
@@ -304,3 +309,75 @@ div#root
             color: $fc-default
         &:hover > p
             color: $fc-hilight
+//? subsidiary
+.subsidiary-section
+    >section
+        margin-top: 0!important
+        background-color: $bgc-subsidiary
+        padding: .5em
+        >div
+            >div
+                @include flex( $justify: flex-end )
+                padding: .4em
+                background-color: $bgc-subsidiary-subtle
+                >p
+                    font-size: .8em
+                >a
+                    font-size: .8em
+                    padding: .5em
+                    border: 1px solid $bgc-hilight
+                    color: $fc-default
+                    transition: .3s
+                    &:hover
+                        background-color: $bgc-hilight
+                        color: $fc-hilight
+            >a
+                @include flex
+                margin-bottom: .5em
+                background-color: $bgc-subsidiary-subtle
+                &:hover
+                    background-color: $bgc-default
+                >img
+                    @include card-img
+                    height: 100%
+                    width: 40%
+                >div
+                    @include flex
+                    padding: .3em .5em
+                    width: 60%
+                    >div:nth-child(1)
+                        @include flex($direction: column, $align: flex-start)
+                        flex-wrap: wrap
+                        color: black
+                        width: 75%
+                        *
+                            display: inline-block
+                        >h4
+                            width: 100%
+                            color: $fc-default
+                        >i
+                            width: 100%
+                            color: $fc-subsidiary-unimportant
+                        >small
+                            white-space: nowrap
+                            overflow: hidden
+                            width: 100%
+                            font-size: .8em
+                            color: $fc-subsidiary-unimportant
+                    >div:nth-child(2)
+                        @include flex( $direction: column, $align: flex-end)
+                        width: 25%
+                        >div:nth-child(1)
+                            background-color: $bgc-discounted
+                            display: inline
+                            padding: .1em .3em
+                            color: $fc-discounted
+                        >div:nth-child(2)
+                            @include flex($direction: column, $align: flex-end )
+                            >p:nth-child(1)
+                                text-decoration: line-through
+                                color: $fc-subsidiary-unimportant
+                                font-size: .7em
+                            >p:nth-child(2)
+                                color: $fc-default
+                                font-size: .8em

@@ -109,7 +109,6 @@ const Home = () => {
                         </a>
                     </div>
                 </section>
-
             </div>
 
             <div className='tab-selector'>
@@ -120,21 +119,48 @@ const Home = () => {
             </div>
             <div className='subsidiary-section'>
                 <section className='tab-container'>
-                    <div className='tab-expand'>
-                        <p>See more: <a href="/">New releases</a></p>
-                    </div>
-                    {/* map here 10 times*/}
-                    <a href='/' className='tab-item'>
-                        <img src="https://cdn.akamai.steamstatic.com/steam/apps/1462570/capsule_184x69.jpg?t=1631287776" alt="" />
-                        <div>
-                            <h4>Lost in random</h4>
-                            <i><FaWindows /></i>
-                            <small>Action, adventure, exploration</small>
+                    <div>
+                        <div className='tab-expand'>
+                            <p>See more:  &nbsp;</p> <a href="/"> New releases</a>
                         </div>
-                        <p>600.000d <small>500.000d</small></p>
-                    </a>
+                        {/* map here 10 times*/}
+                        <a href='/' className='tab-item'>
+                            <img src="https://cdn.akamai.steamstatic.com/steam/apps/1462570/capsule_184x69.jpg?t=1631287776" alt="" />
+                            <div>
+                                <div>
+                                    <h4>Lost in random</h4>
+                                    <i><FaWindows /></i>
+                                    <small>Action, adventure, exploration</small>
+                                </div>
+                                <div>
+                                    <div>-10%</div>
+                                    <div>
+                                        <p>495.000d</p>
+                                        <p>445.500d</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href='/' className='tab-item'>
+                            <img src="https://cdn.akamai.steamstatic.com/steam/apps/1462570/capsule_184x69.jpg?t=1631287776" alt="" />
+                            <div>
+                                <div>
+                                    <h4>Lost in random</h4>
+                                    <i><FaWindows /></i>
+                                    <small>Action, adventure, exploration</small>
+                                </div>
+                                <div>
+                                    <div>-10%</div>
+                                    <div>
+                                        <p>495.000d</p>
+                                        <p>445.500d</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </section>
-
+                {/* under 200.000d */}
                 {/*//todo Maybe a grid display here if we have the time wink wink */}
             </div>
         </>
