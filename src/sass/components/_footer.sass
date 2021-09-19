@@ -1,0 +1,41 @@
+@use '../abstracts' as *
+@use "../../../node_modules/breakpoint-slicer" as bs
+    
+footer
+    margin-top: 3em
+    padding: .5em
+    >div:nth-child(1)
+        @include flex
+        flex-wrap: wrap
+        >div:nth-child(1)
+            @include flex($justify: center)
+            width: 50%
+            >img
+                width: 4em
+        >div:nth-child(2)
+            @include flex($justify: center)
+            width: 50%
+            >img
+                width: 6em
+        >p
+            margin: 1em 0
+            width: 100%
+        >ul
+            @include flex( $direction: column, $align: flex-start)
+            width: 50%
+            >li
+                width: 80%
+                padding: .5em 0
+                display: inline-block
+                border-bottom: 1px solid white
+                &:hover
+                    background-color: $bgc-hilight
+                >a
+                    margin-left: .3em
+                    color: $fc-default
+                &:hover > a
+                    color: $fc-hilight
+        >ul:nth-child(5)
+            @include flex( $direction: column, $align: flex-end )
+            >li
+                text-align: right

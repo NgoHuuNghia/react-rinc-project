@@ -1,0 +1,47 @@
+@use '../abstracts' as *
+@use "../../../node_modules/breakpoint-slicer" as bs
+    
+//? Header
+body 
+    header 
+        nav
+            @include flex
+            margin: .75em 0 .75em 0
+
+            >div:nth-child(1)
+                @include flex($justify: center)
+                width: 20%
+                >img
+                    width: 3em
+
+            >form
+                @include flex($justify: space-around)
+                width: 60%
+                height: 1.5em
+                font-size: 1.25em
+                background-color: $bgc-subtle
+                border-radius: 1em
+                transition: 0.3s
+                &:hover
+                    background-color: $bgc-hilight    
+                >svg 
+                    color: $fc-default
+                >input
+                    width: 80%
+                    background: none
+                    border: none
+                    color: $fc-default
+                    font-size: .85em
+                &:hover > input,&:hover > svg
+                    color: $bgc-important
+
+            >div:nth-child(3)
+                @include flex($justify: flex-end)
+                width: 20%
+                padding-right: .75em
+                >img
+                    height: 2.5em
+                    border-radius: 25px
+                >svg
+                    margin-left: .5em
+                    height: 2.5em

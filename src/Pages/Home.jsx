@@ -5,6 +5,7 @@ const Home = () => {
     return (
         <>
             <div className='hero'>
+                {/* bg_mobile_english or bg_english to switch */}
                 <a href="/" className='hero-bg-mobile'>
                     <video loop="yes" muted="yes" autoplay="yes" playsinline="" poster="https://cdn.cloudflare.steamstatic.com/steam/clusters/frontpage/f53c67a4c72cf00ced7afa3d/page_bg_mobile_english.jpg?t=1631553001">
                         <source src="https://cdn.cloudflare.steamstatic.com/steam/clusters/frontpage/f53c67a4c72cf00ced7afa3d/webm_page_bg_mobile_english.webm?t=1631553001" type="video/webm" />
