@@ -1,30 +1,36 @@
 import React from 'react'
+import logo from '../assets/logo/rinc-white-v2.png'
 
 const Footer = () => {
     return (
         <footer>
             <div>
-                <img src="https://store.akamai.steamstatic.com/public/images/footerLogo_valve_new.png" alt="" />
+                <div>
+                    <img src={logo} alt="" />
+                </div>
+                <div>
+                    <img src="https://store.akamai.steamstatic.com/public/images/v6/logo_steam_footer.png" alt="" />
+                </div>
                 <p>
                     © 2021 Valve Corporation. All rights reserved. All trademarks are property of their respective owners in the US and other countries.
                     VAT included in all prices where applicable. 
-                    <a href="/">Privacy Policy</a>   |   
-                    <a href="/">Legal</a>   |   
-                    <a href="/">Steam Subscriber Agreement</a>   |   
-                    <a href="/">Refunds</a>   |   
-                    <a href="/">Cookies</a>
                 </p>
-                <img src="https://store.akamai.steamstatic.com/public/images/v6/logo_steam_footer.png" alt="" />
-            </div>
-            <div>
-                <a href="/">About Valve</a>   |  
-                <a href="/">Jobs</a>   |  
-                <a href="/">Steamworks</a>   |  
-                <a href="/">Steam Distribution</a>   |  
-                <a href="/">Support</a>   |  
-                <a href="/">Gift Cards</a>   |   
-                <a href="/">Rinc</a>   |   
-                <a href="/">@Rinc</a> 
+                <ul>
+                    <li><a href="/">Privacy Policy</a></li> 
+                    <li><a href="/">Legal</a></li>
+                    <li><a href="/">Subscriber Agreement</a></li>
+                    <li><a href="/">Subscriber Agreement</a></li>
+                    <li><a href="/">Cookies</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/">About Valve</a></li>
+                    <li><a href="/">Jobs</a></li>
+                    <li><a href="/">Steamworks</a></li>
+                    <li><a href="/">Steam Distribution</a></li>
+                    <li><a href="/">Support</a></li>
+                    <li><a href="/">Gift Cards</a></li>
+                    <li><a href="/">@Rinc</a></li>
+                </ul>
             </div>
         </footer>
     )

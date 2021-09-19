@@ -5,12 +5,18 @@ const Home = () => {
     return (
         <>
             <div className='hero'>
-                <a href="/">
-                    <video loop="yes" muted="yes" autoplay="yes" playsinline="" poster="https://cdn.cloudflare.steamstatic.com/steam/clusters/frontpage/f53c67a4c72cf00ced7afa3d/page_bg_mobile_english.jpg?t=1631553001" class="fullscreen-bg__video_mobile">
+                <a href="/" className='hero-bg-mobile'>
+                    <video loop="yes" muted="yes" autoplay="yes" playsinline="" poster="https://cdn.cloudflare.steamstatic.com/steam/clusters/frontpage/f53c67a4c72cf00ced7afa3d/page_bg_mobile_english.jpg?t=1631553001">
                         <source src="https://cdn.cloudflare.steamstatic.com/steam/clusters/frontpage/f53c67a4c72cf00ced7afa3d/webm_page_bg_mobile_english.webm?t=1631553001" type="video/webm" />
                         <source src="https://cdn.cloudflare.steamstatic.com/steam/clusters/frontpage/f53c67a4c72cf00ced7afa3d/mp4_page_bg_mobile_english.mp4?t=1631553001" type="video/mp4" />
-                    </video>                
+                    </video>
                 </a>
+                <a href="/"className='hero-bg'>
+                    <video loop="yes" muted="yes" autoplay="yes" playsinline="" poster="https://cdn.cloudflare.steamstatic.com/steam/clusters/frontpage/f53c67a4c72cf00ced7afa3d/page_bg_english.jpg?t=1631553001">
+                        <source src="https://cdn.cloudflare.steamstatic.com/steam/clusters/frontpage/f53c67a4c72cf00ced7afa3d/webm_page_bg_english.webm?t=1631553001" type="video/webm" />
+                        <source src="https://cdn.cloudflare.steamstatic.com/steam/clusters/frontpage/f53c67a4c72cf00ced7afa3d/mp4_page_bg_english.mp4?t=1631553001" type="video/mp4" />
+                    </video> 
+                </a>            
             </div>
             <div className='main-section'>
 
