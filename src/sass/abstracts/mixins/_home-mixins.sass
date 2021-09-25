@@ -1,16 +1,6 @@
-@use './fonts' as *
-@use './varibles' as *
-
-//?mixins
-// common
-@mixin flex($direction: row, $justify: space-between, $align: center)
-    display: flex
-    flex-direction: $direction
-    justify-content: $justify
-    align-items: $align
-@mixin gradient($deg-gradient: 180deg, $first-gradient: $bgc-default,$first-percent: 65%, $second-gradient: $bgc-subtle, $second-percent: 100% )
-    background: $first-gradient
-    background: linear-gradient($deg-gradient, $first-gradient $first-percent, $second-gradient $second-percent)
+@use '../_fonts' as *
+@use '../_varibles' as *
+@use './_common-mixins' as *
 
 // home
 @mixin home-content-title
@@ -47,4 +37,3 @@
         font-size: .95em
         text-decoration: line-through
         color: $fc-unimportant
-        

@@ -17,7 +17,7 @@ html {
 html body {
   height: 100%;
   background-color: #151515;
-  color: #fff;
+  color: #c6d4df;
 }
 
 *, *:before, *:after {
@@ -29,18 +29,27 @@ html body {
   outline: none;
 }
 
+#root {
+  position: relative;
+}
+
+body header {
+  padding-top: 0.5em;
+}
 body header nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 0.75em 0 0.75em 0;
+  gap: 0;
+  margin: 0 0 0.75em 0;
 }
 body header nav > div:nth-child(1) {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 0;
   width: 20%;
 }
 body header nav > div:nth-child(1) > img {
@@ -51,6 +60,7 @@ body header nav > form {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  gap: 0;
   width: 60%;
   height: 1.5em;
   font-size: 1.25em;
@@ -62,13 +72,13 @@ body header nav > form:hover {
   background-color: #f2ecff;
 }
 body header nav > form > svg {
-  color: #fff;
+  color: #c6d4df;
 }
 body header nav > form > input {
   width: 80%;
   background: none;
   border: none;
-  color: #fff;
+  color: #c6d4df;
   font-size: 0.85em;
 }
 body header nav > form:hover > input, body header nav > form:hover > svg {
@@ -79,6 +89,7 @@ body header nav > div:nth-child(3) {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+  gap: 0;
   width: 20%;
   padding-right: 0.75em;
 }
@@ -114,18 +125,19 @@ body header nav > div:nth-child(3) > svg {
   }
 }
 
-#root > div > section {
+#root > div.main-section > section {
   margin-top: 2em;
 }
 
 .main-section {
-  padding: 0 0.5em 0 0.5em;
+  margin: 0 0.5em;
 }
 .main-section > .main-card-container > div:first-child {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 0;
   margin-bottom: 0.5em;
 }
 .main-section > .main-card-container > div:first-child > h5 {
@@ -138,10 +150,11 @@ body header nav > div:nth-child(3) > svg {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 0;
   transition: 0.3s;
 }
 .main-section > .main-card-container > div:first-child > a:hover {
-  color: #fff;
+  color: #c6d4df;
 }
 .main-section > .main-card-container > div.slider > div {
   background: #151515;
@@ -162,10 +175,6 @@ body header nav > div:nth-child(3) > svg {
   margin: 0 0 0.3em 0;
 }
 .main-section > .main-card-container > div.slider > div > div > div {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
   display: inline-block;
   background-color: black;
 }
@@ -194,6 +203,7 @@ body header nav > div:nth-child(3) > svg {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 0;
   margin-bottom: 0.5em;
 }
 .main-section > .secondary-card-container > div:first-child > h5 {
@@ -206,10 +216,11 @@ body header nav > div:nth-child(3) > svg {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 0;
   transition: 0.3s;
 }
 .main-section > .secondary-card-container > div:first-child > a:hover {
-  color: #fff;
+  color: #c6d4df;
 }
 .main-section > .secondary-card-container > div.slider > div {
   width: 100%;
@@ -231,6 +242,7 @@ body header nav > div:nth-child(3) > svg {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+  gap: 0;
 }
 .main-section > .secondary-card-container > div.slider > div > div div {
   display: inline-block;
@@ -262,6 +274,7 @@ body header nav > div:nth-child(3) > svg {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 0;
   margin-bottom: 0.5em;
 }
 .main-section > .movie-card-container > div:nth-child(1) > h5 {
@@ -274,10 +287,11 @@ body header nav > div:nth-child(3) > svg {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 0;
   transition: 0.3s;
 }
 .main-section > .movie-card-container > div:nth-child(1) > a:hover {
-  color: #fff;
+  color: #c6d4df;
 }
 .main-section > .movie-card-container > div:nth-child(2) {
   background: #151515;
@@ -302,6 +316,7 @@ body header nav > div:nth-child(3) > svg {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  gap: 0;
 }
 .main-section > .movie-card-container > div:nth-child(2) > div > div.movie-card-comment > img {
   height: 38px;
@@ -327,6 +342,7 @@ body header nav > div:nth-child(3) > svg {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 0;
   margin-bottom: 0.5em;
 }
 .main-section > .page-browse > div:nth-child(1) > h5 {
@@ -339,16 +355,18 @@ body header nav > div:nth-child(3) > svg {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 0;
   transition: 0.3s;
 }
 .main-section > .page-browse > div:nth-child(1) > a:hover {
-  color: #fff;
+  color: #c6d4df;
 }
 .main-section > .page-browse > div:nth-child(2) {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  gap: 0;
   flex-wrap: wrap;
 }
 .main-section > .page-browse > div:nth-child(2) > a {
@@ -358,12 +376,13 @@ body header nav > div:nth-child(3) > svg {
   border-radius: 5px;
   border: solid 1px black;
   background-color: #8b0023;
-  color: #fff;
+  color: #c6d4df;
   transition: 0.3s;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 0;
 }
 .main-section > .page-browse > div:nth-child(2) > a:hover {
   background-color: #f2ecff;
@@ -378,6 +397,7 @@ body header nav > div:nth-child(3) > svg {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 0;
   margin-bottom: 0.5em;
 }
 .main-section > .special-card-container > div:nth-child(1) > h5 {
@@ -390,10 +410,11 @@ body header nav > div:nth-child(3) > svg {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 0;
   transition: 0.3s;
 }
 .main-section > .special-card-container > div:nth-child(1) > a:hover {
-  color: #fff;
+  color: #c6d4df;
 }
 .main-section > .special-card-container > div:nth-child(2) {
   width: 60%;
@@ -411,6 +432,7 @@ body header nav > div:nth-child(3) > svg {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+  gap: 0;
 }
 .main-section > .special-card-container > div:nth-child(2) > a > div > p {
   font-size: 0.8em;
@@ -430,6 +452,7 @@ body header nav > div:nth-child(3) > svg {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 0;
   margin-top: 1em;
   width: 100%;
   background-color: #151515;
@@ -439,6 +462,7 @@ body header nav > div:nth-child(3) > svg {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 0;
   height: 2em;
   padding: 1em 0.75em;
   background-color: #8b0023;
@@ -449,7 +473,7 @@ body header nav > div:nth-child(3) > svg {
 }
 .tab-selector > a > p {
   font-size: 0.9em;
-  color: #fff;
+  color: #c6d4df;
 }
 .tab-selector > a:hover > p {
   color: #302c3a;
@@ -465,6 +489,7 @@ body header nav > div:nth-child(3) > svg {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+  gap: 0;
   padding: 0.4em;
   background-color: #6f001c;
 }
@@ -475,7 +500,7 @@ body header nav > div:nth-child(3) > svg {
   font-size: 0.8em;
   padding: 0.5em;
   border: 1px solid #f2ecff;
-  color: #fff;
+  color: #c6d4df;
   transition: 0.3s;
 }
 .subsidiary-section > section > div > div > a:hover {
@@ -487,6 +512,7 @@ body header nav > div:nth-child(3) > svg {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 0;
   margin-bottom: 0.5em;
   background-color: #6f001c;
 }
@@ -505,6 +531,7 @@ body header nav > div:nth-child(3) > svg {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 0;
   padding: 0.3em 0.5em;
   width: 60%;
 }
@@ -513,6 +540,7 @@ body header nav > div:nth-child(3) > svg {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 0;
   flex-wrap: wrap;
   color: black;
   width: 75%;
@@ -522,7 +550,7 @@ body header nav > div:nth-child(3) > svg {
 }
 .subsidiary-section > section > div > a > div > div:nth-child(1) > h4 {
   width: 100%;
-  color: #fff;
+  color: #c6d4df;
 }
 .subsidiary-section > section > div > a > div > div:nth-child(1) > i {
   width: 100%;
@@ -540,6 +568,7 @@ body header nav > div:nth-child(3) > svg {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-end;
+  gap: 0;
   width: 25%;
 }
 .subsidiary-section > section > div > a > div > div:nth-child(2) > div:nth-child(1) {
@@ -553,6 +582,7 @@ body header nav > div:nth-child(3) > svg {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-end;
+  gap: 0;
 }
 .subsidiary-section > section > div > a > div > div:nth-child(2) > div:nth-child(2) > p:nth-child(1) {
   text-decoration: line-through;
@@ -560,7 +590,7 @@ body header nav > div:nth-child(3) > svg {
   font-size: 0.7em;
 }
 .subsidiary-section > section > div > a > div > div:nth-child(2) > div:nth-child(2) > p:nth-child(2) {
-  color: #fff;
+  color: #c6d4df;
   font-size: 0.8em;
 }
 
@@ -573,6 +603,7 @@ footer > div:nth-child(1) {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 0;
   flex-wrap: wrap;
 }
 footer > div:nth-child(1) > div:nth-child(1) {
@@ -580,6 +611,7 @@ footer > div:nth-child(1) > div:nth-child(1) {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 0;
   width: 50%;
 }
 footer > div:nth-child(1) > div:nth-child(1) > img {
@@ -590,6 +622,7 @@ footer > div:nth-child(1) > div:nth-child(2) {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 0;
   width: 50%;
 }
 footer > div:nth-child(1) > div:nth-child(2) > img {
@@ -604,6 +637,7 @@ footer > div:nth-child(1) > ul {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 0;
   width: 50%;
 }
 footer > div:nth-child(1) > ul > li {
@@ -617,7 +651,7 @@ footer > div:nth-child(1) > ul > li:hover {
 }
 footer > div:nth-child(1) > ul > li > a {
   margin-left: 0.3em;
-  color: #fff;
+  color: #c6d4df;
 }
 footer > div:nth-child(1) > ul > li:hover > a {
   color: #302c3a;
@@ -627,9 +661,689 @@ footer > div:nth-child(1) > ul:nth-child(5) {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-end;
+  gap: 0;
 }
 footer > div:nth-child(1) > ul:nth-child(5) > li {
   text-align: right;
+}
+
+div.detail-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80vh;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #151515 75%), url("https://cdn.akamai.steamstatic.com/steam/apps/740130/ss_094fd9b7124a4b0c825275285cd77d05efceb306.1920x1080.jpg?t=1631331996");
+  opacity: 0.5;
+  z-index: -100;
+}
+
+div.detail {
+  margin: 0 0.5em;
+  position: relative;
+}
+div.detail > * {
+  margin-top: 1em;
+}
+div.detail > section.breadcrumbs > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+}
+div.detail > section.breadcrumbs > div * {
+  color: #6f6f6f;
+}
+div.detail > section.breadcrumbs > div > a {
+  font-size: 0.7em;
+  transition: 0.2s;
+}
+div.detail > section.breadcrumbs > div > a:hover {
+  color: #c6d4df;
+}
+div.detail > section.trailer > * {
+  display: block;
+}
+div.detail > section.trailer > h1 {
+  font-size: 1.75em;
+  color: white;
+}
+div.detail > section.trailer > a.trailer-main {
+  margin-top: 1em;
+}
+div.detail > section.trailer > a.trailer-main > img {
+  width: 100%;
+  display: block;
+}
+div.detail > section.trailer > div.trailer-slider {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0;
+}
+div.detail > section.trailer > div.trailer-slider > a {
+  width: 26%;
+  display: block;
+  margin: 0.5em 0.25em 0 0.25em;
+}
+div.detail > section.trailer > div.trailer-slider > a:first-child {
+  margin: 0.5em 0.25em 0 0;
+}
+div.detail > section.trailer > div.trailer-slider > a:last-child {
+  margin: 0.5em 0 0 0.25em;
+}
+div.detail > section.trailer > div.trailer-slider img {
+  height: auto;
+  width: 100%;
+  display: block;
+}
+div.detail > section.glance {
+  margin-top: 1em !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1em;
+  align-items: stretch;
+}
+div.detail > section.glance > p {
+  font-size: 0.9em;
+}
+div.detail > section.glance > .glance-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0;
+  color: #939393;
+}
+div.detail > section.glance > .glance-info > div > * {
+  display: block;
+  margin-bottom: 0.3em;
+}
+div.detail > section.glance > .glance-info > div:nth-child(1) {
+  margin-right: 3em;
+}
+div.detail > section.glance > .glance-info > div:nth-child(2) > a {
+  color: #9b0027;
+}
+div.detail > section.glance > .glance-info > div:nth-child(2) > a:hover {
+  color: #d90037;
+}
+div.detail > section.glance > .glance-info > div:nth-child(2) > p {
+  color: white;
+}
+div.detail > section.glance > div.tag-container > p {
+  font-size: 1.2em;
+  color: #939393;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  display: block;
+}
+div.detail > section.glance > div.tag-container > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0;
+  gap: 0.5em;
+}
+div.detail > section.glance > div.tag-container > div > a {
+  padding: 0.5em 1.25em;
+  border-radius: 0.5em;
+  font-size: 0.9em;
+  background-color: #8b0023;
+  color: #c6d4df;
+  transition: 0.2s;
+}
+div.detail > section.glance > div.tag-container > div > a:hover {
+  background-color: #c0bbca;
+  color: #302c3a;
+}
+div.detail > section.glance > div.languages-container > p {
+  font-size: 1.2em;
+  color: #939393;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  display: block;
+}
+div.detail > section.glance > div.languages-container > a {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  padding: 0.5em 1.25em;
+  border-radius: 0.25em;
+  width: 100%;
+  font-size: 0.9em;
+  background-color: #8b0023;
+  color: #c6d4df;
+  transition: 0.2s;
+}
+div.detail > section.glance > div.languages-container > a:hover {
+  background-color: #c0bbca;
+  color: #302c3a;
+}
+div.detail > section.glance > div.languages-container > a > span {
+  font-size: 1.5em;
+}
+div.detail > section.glance > div.languages-container > table {
+  display: table;
+  margin-top: 0.5em;
+  width: 100%;
+  text-align: center;
+  font-size: 0.75em;
+  border-collapse: collapse;
+  color: #939393;
+}
+div.detail > section.glance > div.languages-container > table > tbody > tr {
+  height: 2em;
+}
+div.detail > section.glance > div.languages-container > table > tbody > tr > * {
+  font-weight: 400;
+}
+div.detail > section.glance > div.languages-container > table > tbody > tr > td {
+  border-top: 1px solid white;
+}
+div.detail > section.glance > div.languages-container > table > tbody > tr > td:first-child {
+  text-align: left;
+}
+div.detail > section.glance > div.ratings-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: normal;
+  gap: 0;
+  flex-wrap: wrap;
+}
+div.detail > section.glance > div.ratings-container > p {
+  font-size: 1.2em;
+  color: #939393;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+}
+div.detail > section.glance > div.ratings-container > div.ratings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0;
+}
+div.detail > section.glance > div.ratings-container > div.ratings > div:nth-child(1) {
+  width: 60%;
+  display: grid;
+  grid-template-rows: none;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: none;
+  row-gap: 0.25em;
+  text-align: center;
+}
+div.detail > section.glance > div.ratings-container > div.ratings > div:nth-child(1) > h4 {
+  grid-column: 1/span 2;
+  font-size: 1.3em;
+}
+div.detail > section.glance > div.ratings-container > div.ratings > div:nth-child(1) > div {
+  grid-column: 1/span 2;
+}
+div.detail > section.glance > div.ratings-container > div.ratings > div:nth-child(1) a {
+  color: #4c565d;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  text-decoration: underline;
+}
+div.detail > section.glance > div.ratings-container > div.ratings > div:nth-child(1) a:hover {
+  color: #c6d4df;
+}
+div.detail > section.glance > div.ratings-container > div.ratings > div:nth-child(1) > p {
+  font-size: 0.9em;
+}
+div.detail > section.glance > div.ratings-container > div.ratings > div:nth-child(2) {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  gap: 0.4em;
+}
+div.detail > section.glance > div.ratings-container > div.ratings > div:nth-child(2) > h4 {
+  font-size: 1.2em;
+}
+div.detail > section.glance > div.ratings-container > div.ratings > div:nth-child(2) > p {
+  font-size: 1.4em;
+  padding: 0.3em;
+  color: #6dc849;
+  border-radius: 0.2em;
+  border: 1px solid rgba(109, 200, 73, 0.4);
+}
+div.detail > section.glance > div.ratings-container > div.chart-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+}
+div.detail > section.glance > div.ratings-container > div.chart-container > p {
+  color: #939393;
+  display: block;
+  align-self: flex-start;
+}
+div.detail > section.glance > div.ratings-container > div.chart-container > div.chart {
+  margin: 0.25em 0 1em 0;
+  width: 100%;
+  height: 3em;
+}
+div.detail > section.glance > div.ratings-container > div.chart-container > div.chart > div {
+  height: 100%;
+  width: 25%;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+}
+div.detail > section.glance > div.ratings-container > div.chart-container > div.chart > div > img {
+  height: auto;
+  width: 3.5em;
+  position: absolute;
+  bottom: -0.75em;
+  left: -1em;
+}
+div.detail > section.glance > div.ratings-container > div.chart-container > div.chart .active {
+  box-shadow: 0 1px 10px white;
+}
+div.detail > section.glance > div.ratings-container > div.chart-container > div.chart > div:nth-child(1) {
+  background-image: linear-gradient(180deg, #b4ec51, #429321);
+  border-radius: 0.5em 0 0 0.5em;
+}
+div.detail > section.glance > div.ratings-container > div.chart-container > div.chart > div:nth-child(1) > img {
+  bottom: -0.5em;
+  left: -0.5em;
+}
+div.detail > section.glance > div.ratings-container > div.chart-container > div.chart > div:nth-child(2) {
+  background-image: linear-gradient(1800deg, #4354b9, #649bff);
+}
+div.detail > section.glance > div.ratings-container > div.chart-container > div.chart > div:nth-child(3) {
+  background-image: linear-gradient(180deg, #fad961, #f76b1c);
+}
+div.detail > section.glance > div.ratings-container > div.chart-container > div.chart > div:nth-child(4) {
+  background-image: linear-gradient(180deg, #ff5764, #f11a2a);
+  border-radius: 0 0.3em 0.3em 0;
+}
+div.detail > section.glance > div.ratings-container > div.chart-container > div.chart-label {
+  display: grid;
+  grid-template-rows: none;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: none;
+}
+div.detail > section.glance > div.ratings-container > div.chart-container > div.chart-label > div {
+  margin: 0 auto 0 0.75em;
+  padding: 0.5em 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  gap: 0.5em;
+  border-radius: 10px;
+  border: 3px solid transparent;
+}
+div.detail > section.glance > div.ratings-container > div.chart-container > div.chart-label > div > * {
+  display: inline;
+  font-size: 0.9em;
+}
+div.detail > section.glance > div.ratings-container > div.chart-container > div.chart-label > div > p:last-child {
+  color: #4c565d;
+}
+div.detail > section.glance > div.ratings-container > div.chart-container > div.chart-label .active {
+  border: 3px solid #c0bbca;
+}
+div.detail > section.glance > div.ratings-container > div.chart-container > div.chart-label > div:nth-child(1) > svg {
+  color: #429321;
+}
+div.detail > section.glance > div.ratings-container > div.chart-container > div.chart-label > div:nth-child(2) > svg {
+  color: #4354b9;
+}
+div.detail > section.glance > div.ratings-container > div.chart-container > div.chart-label > div:nth-child(3) > svg {
+  color: #f76b1c;
+}
+div.detail > section.glance > div.ratings-container > div.chart-container > div.chart-label > div:nth-child(4) > svg {
+  color: #f11a2a;
+}
+div.detail > section.action {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1.5em;
+}
+div.detail > section.action > div.action-action {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+}
+div.detail > section.action > div.action-action > a {
+  padding: 0.5em 0.75em 0.5em 0.5em;
+  background-color: #6f001c;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  transition: 0.2s;
+}
+div.detail > section.action > div.action-action > a > svg {
+  margin: auto;
+  font-size: 1.5em;
+  color: #c6d4df;
+}
+div.detail > section.action > div.action-action > a:hover {
+  background-color: #c0bbca;
+}
+div.detail > section.action > div.action-action > a:hover > svg {
+  color: #302c3a;
+}
+div.detail > section.action > div.action-play {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1em;
+}
+div.detail > section.action > div.action-play > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  background: #6f001c;
+  background: linear-gradient(60deg, #6f001c 5%, #3f0010 95%);
+  padding: 1.25em;
+}
+div.detail > section.action > div.action-play > div > div:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  margin-bottom: 0.75em;
+}
+div.detail > section.action > div.action-play > div > div:nth-child(1) > h5 {
+  font-size: 1em;
+}
+div.detail > section.action > div.action-play > div > div:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  background-color: black;
+  align-self: flex-end;
+  overflow: hidden;
+  border-radius: 4px;
+}
+div.detail > section.action > div.action-play > div > div:nth-child(2) > * {
+  display: inline-block;
+}
+div.detail > section.action > div.action-play > div > div:nth-child(2) > p {
+  padding: 0 0.5em;
+}
+div.detail > section.action > div.action-play > div > div:nth-child(2) > a {
+  padding: 0.5em;
+  background-color: #4c6b22;
+  color: #a4d007;
+  border: 4px solid black;
+  transition: 0.2s;
+}
+div.detail > section.action > div.action-play > div > div:nth-child(2) > a:hover {
+  background-color: #c0bbca;
+  color: #302c3a;
+}
+div.detail > section.action > div.action-play > div.play-demo {
+  background: linear-gradient(60deg, rgba(117, 176, 34, 0.7) 5%, rgba(88, 138, 27, 0.6) 95%);
+}
+div.detail > section.action > div.action-play > div.play-demo > div:nth-child(2) {
+  display: none;
+}
+div.detail > section.action > div.action-dlc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 0.5em;
+}
+div.detail > section.action > div.action-dlc > div:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+}
+div.detail > section.action > div.action-dlc > div:nth-child(1) > p {
+  font-size: 1.2em;
+  color: #939393;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  display: block;
+  margin: 0;
+}
+div.detail > section.action > div.action-dlc > div:nth-child(1) > a {
+  font-size: 0.9em;
+  color: #c6d4df;
+  padding: 0.5em 0.75em;
+  border: 1px #313438 solid;
+}
+div.detail > section.action > div.action-dlc > div:nth-child(1) > a:hover {
+  border: 1px #f2ecff solid;
+}
+div.detail > section.action > div.action-dlc > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 0.2em;
+}
+div.detail > section.action > div.action-dlc > div:nth-child(2) > a {
+  background: #6f001c;
+  background: linear-gradient(60deg, #6f001c 5%, #3f0010 95%);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  padding: 0.75em;
+}
+div.detail > section.action > div.action-dlc > div:nth-child(2) > a > * {
+  display: inline-block;
+  font-size: 0.85em;
+}
+div.detail > section.action > div.action-dlc > div:nth-child(2) > a > h6 {
+  color: #939393;
+}
+div.detail > section.action > div.action-dlc > div:nth-child(2) > a > p {
+  color: #c6d4df;
+}
+div.detail > section.action > div.action-dlc > div:nth-child(3) {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5em;
+}
+div.detail > section.action > div.action-dlc > div:nth-child(3) > p {
+  font-size: 1.1em;
+  color: #939393;
+}
+div.detail > section.action > div.action-dlc > div:nth-child(3) > a {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  padding: 0.3em;
+  background-color: #6f001c;
+  color: #c6d4df;
+}
+div.detail > section.action > div.action-dlc > div:nth-child(3) > a:hover {
+  background-color: #8b0023;
+}
+div.detail > section.action > div.action-dlc > div:nth-child(3) > a > p {
+  font-size: 0.9em;
+}
+div.detail > section.action > div.action-dlc > div:nth-child(3) > a > svg {
+  font-size: 1.2em;
+}
+div.detail > section.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 0.75em;
+}
+div.detail > section.description > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 0.75em;
+}
+div.detail > section.description > div > h4 {
+  color: #939393;
+  display: block;
+}
+div.detail > section.description > div > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 0.5em;
+}
+div.detail > section.description > div > div > img {
+  height: auto;
+  width: 100%;
+}
+div.detail > section.description > div > div > p {
+  color: #6f6f6f;
+  font-size: 0.95em;
+}
+div.detail > section.system {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 0.75em;
+}
+div.detail > section.system > h3 {
+  font-size: 1.2em;
+  color: #939393;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  display: block;
+}
+div.detail > section.system > div > strong {
+  color: #939393;
+  display: block;
+  margin-bottom: 0.5em;
+}
+div.detail > section.system > div > ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.3em;
+}
+div.detail > section.system > div > ul > li {
+  font-size: 0.9em;
+}
+div.detail > section.system > div > ul > li > strong {
+  color: #4c565d;
+}
+div.detail > section.recommended {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1em;
+}
+div.detail > section.recommended > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1em;
+}
+div.detail > section.recommended > div > div:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+}
+div.detail > section.recommended > div > div:nth-child(1) > h5 {
+  font-size: 1.2em;
+  color: #939393;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  display: block;
+  margin: 0;
+}
+div.detail > section.recommended > div > div:nth-child(1) > a {
+  white-space: nowrap;
+  font-size: 0.85em;
+  padding: 0.3em 0.6em;
+  background-color: #6f001c;
+  color: #c6d4df;
+}
+div.detail > section.recommended > div > div:nth-child(1) > a:hover {
+  background-color: #8b0023;
+}
+div.detail > section.recommended > div > div:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5em;
+}
+div.detail > section.recommended > div > div:nth-child(2) > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.2em;
+  width: 50%;
+}
+div.detail > section.recommended > div > div:nth-child(2) > div > img {
+  height: auto;
+  width: 100%;
+}
+div.detail > section.recommended > div > div:nth-child(2) > div > h4 {
+  color: #939393;
+  display: block;
+}
+div.detail > section.recommended > div > div:nth-child(2) > div > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5em;
+  background: black;
+  padding-right: 0.2em;
+}
+div.detail > section.recommended > div > div:nth-child(2) > div > div > p:nth-child(1) {
+  background-color: #4c6b22;
+  color: #a4d007;
+  font-size: 1.1em;
+  padding: 0.2em;
+}
+div.detail > section.recommended > div > div:nth-child(2) > div > div > p:nth-child(2) {
+  color: #4c565d;
+  text-decoration: line-through;
 }
 
 /*# sourceMappingURL=index.css.map */

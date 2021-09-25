@@ -1,0 +1,21 @@
+@use '../_fonts' as *
+@use '../varibles' as *
+
+//?mixins
+// common
+@mixin flex($direction: row, $justify: space-between, $align: center, $gap: 0 )
+    display: flex
+    flex-direction: $direction
+    justify-content: $justify
+    align-items: $align
+    gap: $gap
+@mixin grid( $rows: none, $columns: none, $areas: none )
+    display: grid
+    grid-template-rows: $rows
+    grid-template-columns: $columns
+    grid-template-areas: $areas
+@mixin gradient($deg-gradient: 180deg, $first-gradient: $bgc-default,$first-percent: 65%, $second-gradient: $bgc-subtle, $second-percent: 100% )
+    background: $first-gradient
+    background: linear-gradient($deg-gradient, $first-gradient $first-percent, $second-gradient $second-percent)
+@mixin box-shadow-solid
+    box-shadow: 0 1px 10px rgba(255, 255, 2555, 1)
