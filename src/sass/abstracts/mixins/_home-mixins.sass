@@ -15,7 +15,6 @@
         transition: .3s
         &:hover 
             color: $fc-default
-        
 
 // card
 @mixin card-title
@@ -26,12 +25,14 @@
     height: auto
     max-width: 100%
     display: block
+    box-shadow: $bs-card-img
 @mixin card-text
     font-size: .85em
     font-weight: 400
     display: block
 @mixin card-price
-    font-size: .8em
+    display: inline-flex
+    font-size: .85em
     padding: 0 .5em 0 .5em
     span
         font-size: .95em

@@ -9,13 +9,13 @@
     justify-content: $justify
     align-items: $align
     gap: $gap
-@mixin grid( $rows: none, $columns: none, $areas: none )
+@mixin grid( $rows: none, $columns: none, $gap: 0)
     display: grid
     grid-template-rows: $rows
     grid-template-columns: $columns
-    grid-template-areas: $areas
+    gap: $gap
 @mixin gradient($deg-gradient: 180deg, $first-gradient: $bgc-default,$first-percent: 65%, $second-gradient: $bgc-subtle, $second-percent: 100% )
     background: $first-gradient
     background: linear-gradient($deg-gradient, $first-gradient $first-percent, $second-gradient $second-percent)
 @mixin box-shadow-solid
-    box-shadow: 0 1px 10px rgba(255, 255, 2555, 1)
+    box-shadow: 0 1px 10px rgba(255, 255, 255, 1)

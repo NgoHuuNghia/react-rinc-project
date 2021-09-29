@@ -4,45 +4,72 @@
 //? Header
 body 
     header 
-        padding-top: .5em
+        margin: .5em
+        padding: 0 .5em
+        @include bs.from(xl)
+            padding: 0
         nav
-            @include flex
-            margin: 0 0 .75em 0
-
+            @include flex($gap: .5em)
+            @include bs.from(xl)
+                width: 975px
+                margin: 0 auto 0 auto
             >div:nth-child(1)
-                @include flex($justify: center)
-                width: 20%
+                @include flex($justify: center, $gap: 1em)
+                flex-grow: 1
                 >img
                     width: 3em
 
             >form
                 @include flex($justify: space-around)
-                width: 60%
-                height: 1.5em
-                font-size: 1.25em
+                flex-grow: 4
+                padding: .2em 0
                 background-color: $bgc-subtle
                 border-radius: 1em
                 transition: 0.3s
+                @include bs.from(xl)
+                    flex-grow: 2
                 &:hover
                     background-color: $bgc-hilight    
                 >svg 
+                    margin: 0 .75em
                     color: $fc-default
+                    height: 20px
+                    width: 20px
                 >input
-                    width: 80%
+                    width: 100%
                     background: none
                     border: none
                     color: $fc-default
-                    font-size: .85em
+                    font-size: 1.25em
                 &:hover > input,&:hover > svg
                     color: $bgc-important
 
             >div:nth-child(3)
-                @include flex($justify: flex-end)
-                width: 20%
-                padding-right: .75em
+                @include flex($justify: center, $gap: .5em)
+                flex-grow: 1
+                @include bs.from(xl)
+                    flex-grow: 2
+                    gap: 1em
+                >svg
+                    height: 2.5em
+                    order: 2
+                    @include bs.from(xl)
+                        display: none
+                >ul 
+                    display: none
+                    order: 1
+                    @include bs.from(xl)
+                        @include flex($gap: .8em)
+                    >li
+                        display: inline-block
+                        >a
+                            color: $fc-default
+                            text-transform: uppercase
+                            font-size: 1.1em
+                            font-weight: 700
+                            &:hover
+                                color: $fc-important
                 >img
                     height: 2.5em
                     border-radius: 25px
-                >svg
-                    margin-left: .5em
-                    height: 2.5em
+                    order: 1

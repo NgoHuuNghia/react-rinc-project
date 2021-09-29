@@ -14,14 +14,14 @@ const Header = () => {
                     <input type="text" placeholder='search'/>
                 </form>
                 <div>
-                    <img src="https://media.rawg.io/media/resize/80/-/avatars/654/6549f85d93a1b4653d6030fe6bd407bf.jpg" alt="avatar" />
                     <FaBars />
-                    {/* <ul>
-                        <li>Store</li>
-                        <li>Community</li>
-                        <li>About</li>
-                        <li>Support</li>
-                    </ul> */}
+                    <ul>
+                        <li><a href="/">Store</a></li>
+                        <li><a href="/">Community</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Support</a></li>
+                    </ul>
+                    <img src="https://media.rawg.io/media/resize/80/-/avatars/654/6549f85d93a1b4653d6030fe6bd407bf.jpg" alt="avatar" />
                 </div>
                 
             </nav>
