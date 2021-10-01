@@ -30,23 +30,28 @@ div.detail-background
     width: 100%
     height: 80vh
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0), $bgc-default 75%), url('https://cdn.akamai.steamstatic.com/steam/apps/740130/ss_094fd9b7124a4b0c825275285cd77d05efceb306.1920x1080.jpg?t=1631331996')
+    background-position: center
     opacity: .5
     z-index: -100
 div.detail 
     margin: 0 .5em
     position: relative
-    >*
-        margin-top: 1em
+    @include flex($direction: column, $gap: 1em)
+    @include bs.from(m)
+        width: 575px
+        margin: 0 auto
+    @include bs.from(xl)
+        width: 975px
     >section.breadcrumbs
         >div
             @include flex($justify: center)
             *
-                color: $fc-subsidiary-unimportant
+                color: $fc-tag
             >a
                 font-size: .7em
                 transition: .2s
                 &:hover
-                    color: $fc-default
+                    color: $fc-important
 
     >section.trailer
         >*
@@ -59,20 +64,23 @@ div.detail
             >img
                 width: 100%
                 display: block
+                box-shadow: $bs-card-lg
         >div.trailer-slider
             @include flex( $justify: flex-start )
+            margin-top: .5em
             >a
-                width: 26%
+                width: 25%
                 display: block
-                margin: .5em .25em 0 .25em
+                margin: 0 .25em 0 .25em
+                img
+                    height: auto
+                    width: 100%
+                    display: block 
+                    box-shadow: $bs-card-img
             >a:first-child
-                margin: .5em .25em 0 0
+                margin:0 .25em 0 0
             >a:last-child
-                margin: .5em 0 0 .25em
-            img
-                height: auto
-                width: 100%
-                display: block    
+                margin:0 0 0 .25em
 
     >section.glance
         margin-top: 1em !important
@@ -81,20 +89,18 @@ div.detail
         >p
             font-size: .9em
         >.glance-info
-            @include flex($justify: flex-start)
-            color: $fc-tag
-            >div > *
-                    display: block
-                    margin-bottom: .3em
-            >div:nth-child(1)
-                margin-right: 3em
-            >div:nth-child(2)
-                >a
-                    color: $fc-subsidiary
-                    &:hover
-                        color: $fc-subsidiary-hilight
-                >p
-                    color: $fc-important
+            @include grid($columns: 1fr 1fr 1fr)
+            >p:not(p:last-child)
+                grid-column: span 1
+                color: $fc-important
+            >a
+                grid-column: span 2
+                color: $fc-subsidiary
+                &:hover
+                    color: $fc-subsidiary-hilight
+            >p:last-child
+                grid-column: span 2
+                color: $fc-important
         >div.tag-container
             >p
                 @include label-md
@@ -147,10 +153,10 @@ div.detail
                         >td:first-child
                             text-align: left
         >div.ratings-container
-            @include flex($direction: column, $align: normal)
-            flex-wrap: wrap
+            @include flex($direction: column, $align: normal,$gap: 1em)
             >p
                 @include label-md
+                margin: 0
                 width: 100%
             >div.ratings
                 @include flex($align: flex-start)
@@ -186,7 +192,7 @@ div.detail
                         border-radius: .2em
                         border: 1px solid $bgc-meta
             >div.chart-container
-                @include flex( $direction: column )
+                @include flex( $direction: column, $gap: .5em)
                 >p
                     @include label-sm
                     align-self: flex-start
@@ -224,12 +230,11 @@ div.detail
                 >div.chart-label
                     @include grid( $columns: 1fr 1fr )
                     >div
-                        margin: 0 auto 0 .75em
-                        padding: .5em 1em
-                        @include flex( $justify: center)
+                        @include flex( $justify: flex-start)
+                        padding: .5em .75em
                         gap: .5em
                         border-radius: 10px
-                        border: 3px solid transparent
+                        border: 3px solzid transparent
                         >*
                             display: inline
                             font-size: .9em
@@ -394,13 +399,15 @@ div.detail
                     &:hover
                         background-color: $bgc-subsidiary
             >div:nth-child(2)
-                @include flex($justify: flex-start, $gap: .5em)
-                >div
-                    @include flex($direction: column, $align: flex-start, $gap: .2em)
-                    width: 50%
+                @include flex($justify: center, $gap: .5em)
+                >a
+                    @include flex($direction: column,$align: flex-start, $gap: .25em)
+                    overflow: hidden
                     >img
                         height: auto
-                        width: 100%
+                        max-width: 100%
+                        display: block
+                        box-shadow: $bs-card-img
                     >h4
                         @include label-sm
                     >div
@@ -413,6 +420,12 @@ div.detail
                             font-size: 1.1em
                             padding: .2em
                         >p:nth-child(2)
-                            color: $fc-unimportant
-                            text-decoration: line-through
-                        >p:nth-child(3)
+                            padding-right: .5em
+                    &:nth-child(3)
+                        display: none
+                        @include bs.from(l)
+                            @include flex($direction: column,$align: flex-start, $gap: .25em)
+                    &:nth-child(4)
+                        display: none
+                        @include bs.from(xl)
+                            @include flex($direction: column,$align: flex-start, $gap: .25em)
