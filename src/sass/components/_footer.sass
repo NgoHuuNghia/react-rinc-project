@@ -3,9 +3,10 @@
     
 footer
     margin-top: 1em
-    padding: 0 .5em
+    padding: 1em .5em 0 .5em
+    border-top: 1px solid white
     @include bs.from(xl)
-        padding: 0
+        padding: 1em 0 0 0
     >div
         @include grid($columns: repeat(6, 1fr), $gap: 1em)
         font-size: .9em
@@ -30,6 +31,7 @@ footer
                 width: 6em
         >p
             grid-column: span 6
+            padding: 0 10%
             @include bs.from(xl)
                 grid-column: span 4
                 order: 2
@@ -38,7 +40,7 @@ footer
             >li
                 padding: .5em 0
                 border-bottom: 1px solid $fc-default
-                width: 80%
+                width: 11em
                 display: inline-block
                 border-bottom: 1px solid white
                 &:hover
@@ -50,7 +52,7 @@ footer
                     color: $fc-hilight
 
         >ul:nth-child(4)
-            @include flex( $direction: column, $align: flex-start)
+            @include flex( $direction: column, $align: flex-end)
             @include bs.from(xl)
                 grid-column: span 4
                 order: 4
@@ -65,7 +67,7 @@ footer
                     border: none
 
         >ul:nth-child(5)
-            @include flex( $direction: column, $align: flex-end )
+            @include flex( $direction: column, $align: flex-start )
             @include bs.from(xl)
                 grid-column: span 4
                 order: 5

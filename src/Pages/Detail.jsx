@@ -16,27 +16,24 @@ const GameDetail = () => {
                     </div>
                 </section>
                 <section className='trailer'>
-                    <h1>Tales Of Arise</h1>
                     <a href='/' className="trailer-main"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/740130/ss_d3f44bb87db552da6f17bb31ba4144639b24ed2f.600x338.jpg?t=1631331996" alt="" /></a>
                     <div className='trailer-slider'>{/* map here 8 times */}
                         <a href="/"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/740130/ss_d3f44bb87db552da6f17bb31ba4144639b24ed2f.600x338.jpg?t=1631331996" alt="" /></a>
                         <a href="/"><img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/ss_094fd9b7124a4b0c825275285cd77d05efceb306.600x338.jpg?t=1631331996" alt="" /></a>
                         <a href="/"><img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/ss_3ca8447106ddb23b14e4e30db0b24cbb359e2a5f.600x338.jpg?t=1631331996" alt="" /></a>
+                        <a href="/"><img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/ss_3ca8447106ddb23b14e4e30db0b24cbb359e2a5f.600x338.jpg?t=1631331996" alt="" /></a>
                     </div>
                 </section>
                 <section className='glance'> {/* ADD AGE RATING AND WEBSITE */}
+                    <h1>Tales Of Arise</h1>
                     <p>300 years of tyranny. A mysterious mask. Lost pain and memories. Wield the Blazing Sword and join a mysterious, untouchable girl to fight your oppressors. Experience a tale of liberation, featuring characters with next-gen graphical expressiveness! </p>
                     <div className='glance-info'>
-                        <div>
-                            <p>Developer</p>
-                            <p>Publisher</p>
-                            <p>Publisher</p>
-                        </div>
-                        <div>
-                            <a href="/">BANDAI NAMCO Studios Inc.</a>
-                            <a href="/">BANDAI NAMCO Entertainment</a>
-                            <p>10 Sep, 2021</p>
-                        </div>
+                        <p>Developer</p>
+                        <a href="/">BANDAI NAMCO Studios Inc.</a>
+                        <p>Publisher</p>
+                        <a href="/">BANDAI NAMCO Entertainment</a>
+                        <p>Released</p>
+                        <p>10 Sep, 2021</p>
                     </div>
                     <div className='tag-container'>
                         <p>Tags</p>
@@ -274,25 +271,31 @@ const GameDetail = () => {
                         </div>
                         <div>
                             {/* map here 6 games */}
-                            <div>
+                            <a href='/'>
                                 <img src="https://cdn.akamai.steamstatic.com/steam/apps/570940/capsule_184x69.jpg?t=1605604948" alt="" />
                                 <h4>Dark soul</h4>
                                 <div>
                                     <p>-70%</p>
-                                    <p>650.000₫</p>
                                     <p>149.500₫</p>
                                     
                                 </div>
-                            </div>
-                            <div>
+                            </a>
+                            <a href='/'>
                                 <img src="https://cdn.akamai.steamstatic.com/steam/apps/570940/capsule_184x69.jpg?t=1605604948" alt="" />
                                 <h4>Dark soul</h4>
                                 <div>
                                     <p>-70%</p>
-                                    <p>650.000₫</p>
                                     <p>149.500₫</p>
                                 </div>
-                            </div>
+                            </a>
+                            <a href='/'>
+                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/570940/capsule_184x69.jpg?t=1605604948" alt="" />
+                                <h4>Dark soul</h4>
+                                <div>
+                                    <p>-70%</p>
+                                    <p>149.500₫</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <div>
@@ -302,15 +305,22 @@ const GameDetail = () => {
                         </div>
                         <div>
                             {/* map here 6 games */}
-                            <div>
+                            <a href='/'>
                                 <img src="https://cdn.akamai.steamstatic.com/steam/apps/570940/capsule_184x69.jpg?t=1605604948" alt="" />
                                 <h4>Soul</h4>
                                 <div>
                                     <p>-70%</p>
-                                    <p>650.000₫</p>
                                     <p>149.500₫</p>
                                 </div>
-                            </div>
+                            </a>
+                            <a href='/'>
+                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/570940/capsule_184x69.jpg?t=1605604948" alt="" />
+                                <h4>Soul</h4>
+                                <div>
+                                    <p>-70%</p>
+                                    <p>149.500₫</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </section>
