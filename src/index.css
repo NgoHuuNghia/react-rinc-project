@@ -39,11 +39,6 @@ html a {
 body header {
   padding: 0.5em 1em;
 }
-@media (min-width: 1000px) {
-  body header {
-    padding: 0;
-  }
-}
 body header nav {
   display: flex;
   flex-direction: row;
@@ -1121,53 +1116,80 @@ div.detail {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
   gap: 1em;
 }
 @media (min-width: 600px) {
   div.detail {
     width: 575px;
-    margin: 0 auto;
+    margin: 1em auto;
   }
 }
 @media (min-width: 1000px) {
   div.detail {
-    width: 975px;
+    width: 950px;
+    gap: 2em;
   }
 }
-div.detail > section.breadcrumbs > div {
+div.detail > div.detail-desktop-primary {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1em;
+  padding: 1em 0 1em 0.5em;
+  background: rgba(0, 0, 0, 0);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(21, 21, 21, 0.75) 100%);
+}
+@media (min-width: 1000px) {
+  div.detail > div.detail-desktop-primary {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 0.5em;
+  }
+}
+@media (min-width: 1000px) {
+  div.detail > div.detail-desktop-primary > section.trailer {
+    order: 2;
+    width: 60%;
+  }
+}
+div.detail > div.detail-desktop-primary > section.trailer > * {
+  display: block;
+}
+div.detail > div.detail-desktop-primary > section.trailer > div.breadcrumbs {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 0;
 }
-div.detail > section.breadcrumbs > div * {
+@media (min-width: 1000px) {
+  div.detail > div.detail-desktop-primary > section.trailer > div.breadcrumbs {
+    justify-content: flex-end;
+  }
+}
+div.detail > div.detail-desktop-primary > section.trailer > div.breadcrumbs * {
   color: #939393;
 }
-div.detail > section.breadcrumbs > div > a {
+div.detail > div.detail-desktop-primary > section.trailer > div.breadcrumbs > a {
   font-size: 0.7em;
   transition: 0.2s;
 }
-div.detail > section.breadcrumbs > div > a:hover {
+div.detail > div.detail-desktop-primary > section.trailer > div.breadcrumbs > a:hover {
   color: white;
 }
-div.detail > section.trailer > * {
-  display: block;
-}
-div.detail > section.trailer > h1 {
-  font-size: 1.75em;
-  color: white;
-}
-div.detail > section.trailer > a.trailer-main {
+div.detail > div.detail-desktop-primary > section.trailer > a.trailer-main {
   margin-top: 1em;
 }
-div.detail > section.trailer > a.trailer-main > img {
+div.detail > div.detail-desktop-primary > section.trailer > a.trailer-main > img {
   width: 100%;
   display: block;
   box-shadow: black 0px 20px 30px -10px;
 }
-div.detail > section.trailer > div.trailer-slider {
+div.detail > div.detail-desktop-primary > section.trailer > div.trailer-slider {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -1175,25 +1197,24 @@ div.detail > section.trailer > div.trailer-slider {
   gap: 0;
   margin-top: 0.5em;
 }
-div.detail > section.trailer > div.trailer-slider > a {
+div.detail > div.detail-desktop-primary > section.trailer > div.trailer-slider > a {
   width: 25%;
   display: block;
   margin: 0 0.25em 0 0.25em;
 }
-div.detail > section.trailer > div.trailer-slider > a img {
+div.detail > div.detail-desktop-primary > section.trailer > div.trailer-slider > a img {
   height: auto;
   width: 100%;
   display: block;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
-div.detail > section.trailer > div.trailer-slider > a:first-child {
+div.detail > div.detail-desktop-primary > section.trailer > div.trailer-slider > a:first-child {
   margin: 0 0.25em 0 0;
 }
-div.detail > section.trailer > div.trailer-slider > a:last-child {
+div.detail > div.detail-desktop-primary > section.trailer > div.trailer-slider > a:last-child {
   margin: 0 0 0 0.25em;
 }
-div.detail > section.glance {
-  margin-top: 1em !important;
+div.detail > div.detail-desktop-primary > section.glance {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1201,38 +1222,45 @@ div.detail > section.glance {
   gap: 1em;
   align-items: stretch;
 }
-div.detail > section.glance > p {
+@media (min-width: 1000px) {
+  div.detail > div.detail-desktop-primary > section.glance {
+    order: 1;
+    width: 40%;
+  }
+}
+div.detail > div.detail-desktop-primary > section.glance > p {
   font-size: 0.9em;
 }
-div.detail > section.glance > .glance-info {
+div.detail > div.detail-desktop-primary > section.glance > .glance-info {
   display: grid;
   grid-template-rows: none;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 0;
 }
-div.detail > section.glance > .glance-info > p:not(p:last-child) {
+div.detail > div.detail-desktop-primary > section.glance > .glance-info > p:not(p:last-child) {
   grid-column: span 1;
   color: white;
 }
-div.detail > section.glance > .glance-info > a {
+div.detail > div.detail-desktop-primary > section.glance > .glance-info > a {
   grid-column: span 2;
-  color: #9b0027;
+  color: #6dc849;
+  transition: 0.2s;
 }
-div.detail > section.glance > .glance-info > a:hover {
+div.detail > div.detail-desktop-primary > section.glance > .glance-info > a:hover {
   color: #d90037;
 }
-div.detail > section.glance > .glance-info > p:last-child {
+div.detail > div.detail-desktop-primary > section.glance > .glance-info > p:last-child {
   grid-column: span 2;
   color: white;
 }
-div.detail > section.glance > div.tag-container > p {
+div.detail > div.detail-desktop-primary > section.glance > div.tag-container > p {
   font-size: 1.2em;
   color: #939393;
   margin-bottom: 0.5em;
   text-transform: uppercase;
   display: block;
 }
-div.detail > section.glance > div.tag-container > div {
+div.detail > div.detail-desktop-primary > section.glance > div.tag-container > div {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -1240,7 +1268,7 @@ div.detail > section.glance > div.tag-container > div {
   gap: 0;
   gap: 0.5em;
 }
-div.detail > section.glance > div.tag-container > div > a {
+div.detail > div.detail-desktop-primary > section.glance > div.tag-container > div > a {
   padding: 0.5em 1.25em;
   border-radius: 0.5em;
   font-size: 0.9em;
@@ -1248,18 +1276,110 @@ div.detail > section.glance > div.tag-container > div > a {
   color: #c6d4df;
   transition: 0.2s;
 }
-div.detail > section.glance > div.tag-container > div > a:hover {
+div.detail > div.detail-desktop-primary > section.glance > div.tag-container > div > a:hover {
   background-color: #c0bbca;
   color: #302c3a;
 }
-div.detail > section.glance > div.languages-container > p {
+div.detail > div.detail-desktop-primary > section.glance > div.ratings-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: normal;
+  gap: 1em;
+}
+div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > p {
+  font-size: 1.2em;
+  color: #939393;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  display: block;
+  margin: 0;
+  width: 100%;
+}
+div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0;
+}
+div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) {
+  width: 60%;
+  display: grid;
+  grid-template-rows: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  row-gap: 0.25em;
+  text-align: center;
+}
+div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) > h4 {
+  grid-column: 1/span 2;
+  font-size: 1.3em;
+}
+div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) > div {
+  grid-column: 1/span 2;
+}
+div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) a {
+  color: #4c565d;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  text-decoration: underline;
+}
+div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) a:hover {
+  color: #c6d4df;
+}
+div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) > p {
+  font-size: 0.9em;
+}
+div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(2) {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  gap: 0.4em;
+}
+div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(2) > h4 {
+  font-size: 1.2em;
+}
+div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(2) > p {
+  font-size: 1.4em;
+  padding: 0.3em;
+  color: #6dc849;
+  border-radius: 0.2em;
+  border: 1px solid rgba(109, 200, 73, 0.4);
+}
+div.detail > div.detail-desktop-secondary {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1.5em;
+}
+@media (min-width: 1000px) {
+  div.detail > div.detail-desktop-secondary {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 0.5em;
+  }
+}
+@media (min-width: 1000px) {
+  div.detail > div.detail-desktop-secondary > div.interaction {
+    order: 2;
+    width: 60%;
+  }
+}
+div.detail > div.detail-desktop-secondary > div.interaction > div.languages-container > p {
   font-size: 1.2em;
   color: #939393;
   margin-bottom: 0.5em;
   text-transform: uppercase;
   display: block;
 }
-div.detail > section.glance > div.languages-container > a {
+div.detail > div.detail-desktop-secondary > div.interaction > div.languages-container > a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -1273,14 +1393,14 @@ div.detail > section.glance > div.languages-container > a {
   color: #c6d4df;
   transition: 0.2s;
 }
-div.detail > section.glance > div.languages-container > a:hover {
+div.detail > div.detail-desktop-secondary > div.interaction > div.languages-container > a:hover {
   background-color: #c0bbca;
   color: #302c3a;
 }
-div.detail > section.glance > div.languages-container > a > span {
+div.detail > div.detail-desktop-secondary > div.interaction > div.languages-container > a > span {
   font-size: 1.5em;
 }
-div.detail > section.glance > div.languages-container > table {
+div.detail > div.detail-desktop-secondary > div.interaction > div.languages-container > table {
   display: table;
   margin-top: 0.5em;
   width: 100%;
@@ -1289,147 +1409,77 @@ div.detail > section.glance > div.languages-container > table {
   border-collapse: collapse;
   color: #939393;
 }
-div.detail > section.glance > div.languages-container > table > tbody > tr {
+div.detail > div.detail-desktop-secondary > div.interaction > div.languages-container > table > tbody > tr {
   height: 2em;
 }
-div.detail > section.glance > div.languages-container > table > tbody > tr > * {
+div.detail > div.detail-desktop-secondary > div.interaction > div.languages-container > table > tbody > tr > * {
   font-weight: 400;
 }
-div.detail > section.glance > div.languages-container > table > tbody > tr > td {
+div.detail > div.detail-desktop-secondary > div.interaction > div.languages-container > table > tbody > tr > td {
   border-top: 1px solid white;
 }
-div.detail > section.glance > div.languages-container > table > tbody > tr > td:first-child {
+div.detail > div.detail-desktop-secondary > div.interaction > div.languages-container > table > tbody > tr > td:first-child {
   text-align: left;
 }
-div.detail > section.glance > div.ratings-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: normal;
-  gap: 1em;
-}
-div.detail > section.glance > div.ratings-container > p {
-  font-size: 1.2em;
-  color: #939393;
-  margin-bottom: 0.5em;
-  text-transform: uppercase;
-  display: block;
-  margin: 0;
-  width: 100%;
-}
-div.detail > section.glance > div.ratings-container > div.ratings {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 0;
-}
-div.detail > section.glance > div.ratings-container > div.ratings > div:nth-child(1) {
-  width: 60%;
-  display: grid;
-  grid-template-rows: none;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  row-gap: 0.25em;
-  text-align: center;
-}
-div.detail > section.glance > div.ratings-container > div.ratings > div:nth-child(1) > h4 {
-  grid-column: 1/span 2;
-  font-size: 1.3em;
-}
-div.detail > section.glance > div.ratings-container > div.ratings > div:nth-child(1) > div {
-  grid-column: 1/span 2;
-}
-div.detail > section.glance > div.ratings-container > div.ratings > div:nth-child(1) a {
-  color: #4c565d;
-  text-transform: uppercase;
-  font-size: 0.9em;
-  text-decoration: underline;
-}
-div.detail > section.glance > div.ratings-container > div.ratings > div:nth-child(1) a:hover {
-  color: #c6d4df;
-}
-div.detail > section.glance > div.ratings-container > div.ratings > div:nth-child(1) > p {
-  font-size: 0.9em;
-}
-div.detail > section.glance > div.ratings-container > div.ratings > div:nth-child(2) {
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0;
-  gap: 0.4em;
-}
-div.detail > section.glance > div.ratings-container > div.ratings > div:nth-child(2) > h4 {
-  font-size: 1.2em;
-}
-div.detail > section.glance > div.ratings-container > div.ratings > div:nth-child(2) > p {
-  font-size: 1.4em;
-  padding: 0.3em;
-  color: #6dc849;
-  border-radius: 0.2em;
-  border: 1px solid rgba(109, 200, 73, 0.4);
-}
-div.detail > section.glance > div.ratings-container > div.chart-container {
+div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   gap: 0.5em;
 }
-div.detail > section.glance > div.ratings-container > div.chart-container > p {
+div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > p {
   color: #939393;
   display: block;
   align-self: flex-start;
 }
-div.detail > section.glance > div.ratings-container > div.chart-container > div.chart {
+div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart {
   margin: 0.25em 0 1em 0;
   width: 100%;
   height: 3em;
 }
-div.detail > section.glance > div.ratings-container > div.chart-container > div.chart > div {
+div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart > div {
   height: 100%;
   width: 25%;
   display: inline-block;
   overflow: hidden;
   position: relative;
 }
-div.detail > section.glance > div.ratings-container > div.chart-container > div.chart > div > img {
+div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart > div > img {
   height: auto;
   width: 3.5em;
   position: absolute;
   bottom: -0.75em;
   left: -1em;
 }
-div.detail > section.glance > div.ratings-container > div.chart-container > div.chart .active {
+div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart .active {
   box-shadow: 0 1px 10px white;
 }
-div.detail > section.glance > div.ratings-container > div.chart-container > div.chart > div:nth-child(1) {
+div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart > div:nth-child(1) {
   background-image: linear-gradient(180deg, #b4ec51, #429321);
   border-radius: 0.5em 0 0 0.5em;
 }
-div.detail > section.glance > div.ratings-container > div.chart-container > div.chart > div:nth-child(1) > img {
+div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart > div:nth-child(1) > img {
   bottom: -0.5em;
   left: -0.5em;
 }
-div.detail > section.glance > div.ratings-container > div.chart-container > div.chart > div:nth-child(2) {
+div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart > div:nth-child(2) {
   background-image: linear-gradient(1800deg, #4354b9, #649bff);
 }
-div.detail > section.glance > div.ratings-container > div.chart-container > div.chart > div:nth-child(3) {
+div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart > div:nth-child(3) {
   background-image: linear-gradient(180deg, #fad961, #f76b1c);
 }
-div.detail > section.glance > div.ratings-container > div.chart-container > div.chart > div:nth-child(4) {
+div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart > div:nth-child(4) {
   background-image: linear-gradient(180deg, #ff5764, #f11a2a);
   border-radius: 0 0.3em 0.3em 0;
 }
-div.detail > section.glance > div.ratings-container > div.chart-container > div.chart-label {
+div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart-label {
   display: grid;
   grid-template-rows: none;
   grid-template-columns: 1fr 1fr;
   gap: 0;
 }
-div.detail > section.glance > div.ratings-container > div.chart-container > div.chart-label > div {
+div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart-label > div {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -1440,43 +1490,43 @@ div.detail > section.glance > div.ratings-container > div.chart-container > div.
   border-radius: 10px;
   border: 3px solzid transparent;
 }
-div.detail > section.glance > div.ratings-container > div.chart-container > div.chart-label > div > * {
+div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart-label > div > * {
   display: inline;
   font-size: 0.9em;
 }
-div.detail > section.glance > div.ratings-container > div.chart-container > div.chart-label > div > p:last-child {
+div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart-label > div > p:last-child {
   color: #4c565d;
 }
-div.detail > section.glance > div.ratings-container > div.chart-container > div.chart-label .active {
+div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart-label .active {
   border: 3px solid #c0bbca;
 }
-div.detail > section.glance > div.ratings-container > div.chart-container > div.chart-label > div:nth-child(1) > svg {
+div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart-label > div:nth-child(1) > svg {
   color: #429321;
 }
-div.detail > section.glance > div.ratings-container > div.chart-container > div.chart-label > div:nth-child(2) > svg {
+div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart-label > div:nth-child(2) > svg {
   color: #4354b9;
 }
-div.detail > section.glance > div.ratings-container > div.chart-container > div.chart-label > div:nth-child(3) > svg {
+div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart-label > div:nth-child(3) > svg {
   color: #f76b1c;
 }
-div.detail > section.glance > div.ratings-container > div.chart-container > div.chart-label > div:nth-child(4) > svg {
+div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart-label > div:nth-child(4) > svg {
   color: #f11a2a;
 }
-div.detail > section.action {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  gap: 1.5em;
+  gap: 1em;
 }
-div.detail > section.action > div.action-action {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-action {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 0;
 }
-div.detail > section.action > div.action-action > a {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-action > a {
   padding: 0.5em 0.75em 0.5em 0.5em;
   background-color: #6f001c;
   display: flex;
@@ -1486,25 +1536,25 @@ div.detail > section.action > div.action-action > a {
   gap: 0;
   transition: 0.2s;
 }
-div.detail > section.action > div.action-action > a > svg {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-action > a > svg {
   margin: auto;
   font-size: 1.5em;
   color: #c6d4df;
 }
-div.detail > section.action > div.action-action > a:hover {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-action > a:hover {
   background-color: #c0bbca;
 }
-div.detail > section.action > div.action-action > a:hover > svg {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-action > a:hover > svg {
   color: #302c3a;
 }
-div.detail > section.action > div.action-play {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-play {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
   gap: 1em;
 }
-div.detail > section.action > div.action-play > div {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-play > div {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1514,7 +1564,7 @@ div.detail > section.action > div.action-play > div {
   background: linear-gradient(60deg, #6f001c 5%, #3f0010 95%);
   padding: 1.25em;
 }
-div.detail > section.action > div.action-play > div > div:nth-child(1) {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-play > div > div:nth-child(1) {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -1523,10 +1573,10 @@ div.detail > section.action > div.action-play > div > div:nth-child(1) {
   width: 100%;
   margin-bottom: 0.75em;
 }
-div.detail > section.action > div.action-play > div > div:nth-child(1) > h5 {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-play > div > div:nth-child(1) > h5 {
   font-size: 1em;
 }
-div.detail > section.action > div.action-play > div > div:nth-child(2) {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-play > div > div:nth-child(2) {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -1537,44 +1587,44 @@ div.detail > section.action > div.action-play > div > div:nth-child(2) {
   overflow: hidden;
   border-radius: 4px;
 }
-div.detail > section.action > div.action-play > div > div:nth-child(2) > * {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-play > div > div:nth-child(2) > * {
   display: inline-block;
 }
-div.detail > section.action > div.action-play > div > div:nth-child(2) > p {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-play > div > div:nth-child(2) > p {
   padding: 0 0.5em;
 }
-div.detail > section.action > div.action-play > div > div:nth-child(2) > a {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-play > div > div:nth-child(2) > a {
   padding: 0.5em;
   background-color: #4c6b22;
   color: #a4d007;
   border: 4px solid black;
   transition: 0.2s;
 }
-div.detail > section.action > div.action-play > div > div:nth-child(2) > a:hover {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-play > div > div:nth-child(2) > a:hover {
   background-color: #c0bbca;
   color: #302c3a;
 }
-div.detail > section.action > div.action-play > div.play-demo {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-play > div.play-demo {
   background: linear-gradient(60deg, rgba(117, 176, 34, 0.7) 5%, rgba(88, 138, 27, 0.6) 95%);
 }
-div.detail > section.action > div.action-play > div.play-demo > div:nth-child(2) {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-play > div.play-demo > div:nth-child(2) {
   display: none;
 }
-div.detail > section.action > div.action-dlc {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
   gap: 0.5em;
 }
-div.detail > section.action > div.action-dlc > div:nth-child(1) {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(1) {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 0;
 }
-div.detail > section.action > div.action-dlc > div:nth-child(1) > p {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(1) > p {
   font-size: 1.2em;
   color: #939393;
   margin-bottom: 0.5em;
@@ -1582,23 +1632,23 @@ div.detail > section.action > div.action-dlc > div:nth-child(1) > p {
   display: block;
   margin: 0;
 }
-div.detail > section.action > div.action-dlc > div:nth-child(1) > a {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(1) > a {
   font-size: 0.9em;
   color: #c6d4df;
   padding: 0.5em 0.75em;
   border: 1px #313438 solid;
 }
-div.detail > section.action > div.action-dlc > div:nth-child(1) > a:hover {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(1) > a:hover {
   border: 1px #f2ecff solid;
 }
-div.detail > section.action > div.action-dlc > div:nth-child(2) {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(2) {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
   gap: 0.2em;
 }
-div.detail > section.action > div.action-dlc > div:nth-child(2) > a {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(2) > a {
   background: #6f001c;
   background: linear-gradient(60deg, #6f001c 5%, #3f0010 95%);
   display: flex;
@@ -1608,28 +1658,28 @@ div.detail > section.action > div.action-dlc > div:nth-child(2) > a {
   gap: 0;
   padding: 0.75em;
 }
-div.detail > section.action > div.action-dlc > div:nth-child(2) > a > * {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(2) > a > * {
   display: inline-block;
   font-size: 0.85em;
 }
-div.detail > section.action > div.action-dlc > div:nth-child(2) > a > h6 {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(2) > a > h6 {
   color: #939393;
 }
-div.detail > section.action > div.action-dlc > div:nth-child(2) > a > p {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(2) > a > p {
   color: #c6d4df;
 }
-div.detail > section.action > div.action-dlc > div:nth-child(3) {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(3) {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
   gap: 0.5em;
 }
-div.detail > section.action > div.action-dlc > div:nth-child(3) > p {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(3) > p {
   font-size: 1.1em;
   color: #939393;
 }
-div.detail > section.action > div.action-dlc > div:nth-child(3) > a {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(3) > a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -1639,102 +1689,115 @@ div.detail > section.action > div.action-dlc > div:nth-child(3) > a {
   background-color: #6f001c;
   color: #c6d4df;
 }
-div.detail > section.action > div.action-dlc > div:nth-child(3) > a:hover {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(3) > a:hover {
   background-color: #8b0023;
 }
-div.detail > section.action > div.action-dlc > div:nth-child(3) > a > p {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(3) > a > p {
   font-size: 0.9em;
 }
-div.detail > section.action > div.action-dlc > div:nth-child(3) > a > svg {
+div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(3) > a > svg {
   font-size: 1.2em;
 }
-div.detail > section.description {
+div.detail > div.detail-desktop-secondary > div.interaction > section.description {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
   gap: 0.75em;
 }
-div.detail > section.description > div {
+div.detail > div.detail-desktop-secondary > div.interaction > section.description > div {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
   gap: 0.75em;
 }
-div.detail > section.description > div > h4 {
+div.detail > div.detail-desktop-secondary > div.interaction > section.description > div > h4 {
   color: #939393;
   display: block;
 }
-div.detail > section.description > div > div {
+div.detail > div.detail-desktop-secondary > div.interaction > section.description > div > div {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
   gap: 0.5em;
 }
-div.detail > section.description > div > div > img {
+div.detail > div.detail-desktop-secondary > div.interaction > section.description > div > div > img {
   height: auto;
   width: 100%;
 }
-div.detail > section.description > div > div > p {
+div.detail > div.detail-desktop-secondary > div.interaction > section.description > div > div > p {
   color: #6f6f6f;
   font-size: 0.95em;
 }
-div.detail > section.system {
+@media (min-width: 1000px) {
+  div.detail > div.detail-desktop-secondary > div.more {
+    order: 1;
+    width: 40%;
+  }
+}
+div.detail > div.detail-desktop-secondary > div.more > section.system {
+  margin-bottom: 1em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
   gap: 0.75em;
 }
-div.detail > section.system > h3 {
+@media (min-width: 1000px) {
+  div.detail > div.detail-desktop-secondary > div.more > section.system {
+    padding-bottom: 1em;
+    border-bottom: 1px solid #c0bbca;
+  }
+}
+div.detail > div.detail-desktop-secondary > div.more > section.system > h3 {
   font-size: 1.2em;
   color: #939393;
   margin-bottom: 0.5em;
   text-transform: uppercase;
   display: block;
 }
-div.detail > section.system > div > strong {
+div.detail > div.detail-desktop-secondary > div.more > section.system > div > strong {
   color: #939393;
   display: block;
   margin-bottom: 0.5em;
 }
-div.detail > section.system > div > ul {
+div.detail > div.detail-desktop-secondary > div.more > section.system > div > ul {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   gap: 0.3em;
 }
-div.detail > section.system > div > ul > li {
+div.detail > div.detail-desktop-secondary > div.more > section.system > div > ul > li {
   font-size: 0.9em;
 }
-div.detail > section.system > div > ul > li > strong {
+div.detail > div.detail-desktop-secondary > div.more > section.system > div > ul > li > strong {
   color: #4c565d;
 }
-div.detail > section.recommended {
+div.detail > div.detail-desktop-secondary > div.more > section.recommended {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
   gap: 1em;
 }
-div.detail > section.recommended > div {
+div.detail > div.detail-desktop-secondary > div.more > section.recommended > div {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
   gap: 1em;
 }
-div.detail > section.recommended > div > div:nth-child(1) {
+div.detail > div.detail-desktop-secondary > div.more > section.recommended > div > div:nth-child(1) {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 0;
 }
-div.detail > section.recommended > div > div:nth-child(1) > h5 {
+div.detail > div.detail-desktop-secondary > div.more > section.recommended > div > div:nth-child(1) > h5 {
   font-size: 1.2em;
   color: #939393;
   margin-bottom: 0.5em;
@@ -1742,24 +1805,40 @@ div.detail > section.recommended > div > div:nth-child(1) > h5 {
   display: block;
   margin: 0;
 }
-div.detail > section.recommended > div > div:nth-child(1) > a {
+div.detail > div.detail-desktop-secondary > div.more > section.recommended > div > div:nth-child(1) > a {
   white-space: nowrap;
   font-size: 0.85em;
   padding: 0.3em 0.6em;
   background-color: #6f001c;
   color: #c6d4df;
 }
-div.detail > section.recommended > div > div:nth-child(1) > a:hover {
+div.detail > div.detail-desktop-secondary > div.more > section.recommended > div > div:nth-child(1) > a:hover {
   background-color: #8b0023;
 }
-div.detail > section.recommended > div > div:nth-child(2) {
+div.detail > div.detail-desktop-secondary > div.more > section.recommended > div > div:nth-child(2) {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 0.5em;
 }
-div.detail > section.recommended > div > div:nth-child(2) > a {
+@media (min-width: 1000px) {
+  div.detail > div.detail-desktop-secondary > div.more > section.recommended > div > div:nth-child(2) {
+    display: grid;
+    grid-template-rows: none;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5em;
+  }
+  div.detail > div.detail-desktop-secondary > div.more > section.recommended > div > div:nth-child(2) > a {
+    grid-column: span 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.25em;
+  }
+}
+div.detail > div.detail-desktop-secondary > div.more > section.recommended > div > div:nth-child(2) > a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1767,17 +1846,17 @@ div.detail > section.recommended > div > div:nth-child(2) > a {
   gap: 0.25em;
   overflow: hidden;
 }
-div.detail > section.recommended > div > div:nth-child(2) > a > img {
+div.detail > div.detail-desktop-secondary > div.more > section.recommended > div > div:nth-child(2) > a > img {
   height: auto;
   max-width: 100%;
   display: block;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
-div.detail > section.recommended > div > div:nth-child(2) > a > h4 {
+div.detail > div.detail-desktop-secondary > div.more > section.recommended > div > div:nth-child(2) > a > h4 {
   color: #939393;
   display: block;
 }
-div.detail > section.recommended > div > div:nth-child(2) > a > div {
+div.detail > div.detail-desktop-secondary > div.more > section.recommended > div > div:nth-child(2) > a > div {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -1786,20 +1865,20 @@ div.detail > section.recommended > div > div:nth-child(2) > a > div {
   background: black;
   padding-right: 0.2em;
 }
-div.detail > section.recommended > div > div:nth-child(2) > a > div > p:nth-child(1) {
+div.detail > div.detail-desktop-secondary > div.more > section.recommended > div > div:nth-child(2) > a > div > p:nth-child(1) {
   background-color: #4c6b22;
   color: #a4d007;
   font-size: 1.1em;
   padding: 0.2em;
 }
-div.detail > section.recommended > div > div:nth-child(2) > a > div > p:nth-child(2) {
+div.detail > div.detail-desktop-secondary > div.more > section.recommended > div > div:nth-child(2) > a > div > p:nth-child(2) {
   padding-right: 0.5em;
 }
-div.detail > section.recommended > div > div:nth-child(2) > a:nth-child(3) {
+div.detail > div.detail-desktop-secondary > div.more > section.recommended > div > div:nth-child(2) > a:nth-child(3) {
   display: none;
 }
-@media (min-width: 800px) {
-  div.detail > section.recommended > div > div:nth-child(2) > a:nth-child(3) {
+@media (min-width: 600px) {
+  div.detail > div.detail-desktop-secondary > div.more > section.recommended > div > div:nth-child(2) > a:nth-child(3) {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1807,17 +1886,8 @@ div.detail > section.recommended > div > div:nth-child(2) > a:nth-child(3) {
     gap: 0.25em;
   }
 }
-div.detail > section.recommended > div > div:nth-child(2) > a:nth-child(4) {
+div.detail > div.detail-desktop-secondary > div.more > section.recommended > div > div:nth-child(2) > a:nth-child(4) {
   display: none;
-}
-@media (min-width: 1000px) {
-  div.detail > section.recommended > div > div:nth-child(2) > a:nth-child(4) {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 0.25em;
-  }
 }
 
 /*# sourceMappingURL=index.css.map */
