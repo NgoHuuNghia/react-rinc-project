@@ -1,15 +1,17 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { useCallback } from 'react'
 
-const url = 'https://store.steampowered.com/api/appdetails?appids='
+const url = 'https://store.steampowered.com/api/appdetails?appids=740130'
 const AppContext = React.createContext()
 
-const AppProvider = ({ children }) => {
+export const AppProvider = ({ children }) => {
+  // States
+
 
   return (
     <AppContext.Provider
       value={{
-        text: 'hello'
+        url,
       }}>
         {children}
     </AppContext.Provider>
@@ -19,5 +21,3 @@ const AppProvider = ({ children }) => {
 export const useGlobalContext = () => {
   return useContext(AppContext)
 }
-
-export { AppContext, AppProvider }

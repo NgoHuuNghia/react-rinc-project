@@ -953,7 +953,6 @@ div.subsidiary-section div.subsidiary-container > section.tab-container > div.ta
 footer {
   margin-top: 1em;
   padding: 1em 0.5em 0 0.5em;
-  border-top: 1px solid white;
 }
 @media (min-width: 1000px) {
   footer {
@@ -1363,7 +1362,7 @@ div.detail > div.detail-desktop-secondary {
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
-    gap: 0.5em;
+    gap: 1em;
   }
 }
 @media (min-width: 1000px) {

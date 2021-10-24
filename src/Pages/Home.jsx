@@ -1,7 +1,12 @@
 import React from 'react'
 import { FaChevronRight, FaWindows } from 'react-icons/fa'
+import { useGlobalContext } from '../context'
 
 const Home = () => {
+    const { url } = useGlobalContext()
+
+    console.log(url)
+
     return (
         <>
             <div className='hero'>
