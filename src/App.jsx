@@ -1,4 +1,5 @@
 import React from 'react'
+import { useGlobalContext } from './context'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 //? import pages/component based on folder
@@ -12,6 +13,7 @@ import Error from './Pages/Error'
 //? import common components
 
 function App() { //remember there <body> before this div
+
   return (
     <>
       <Router>

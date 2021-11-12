@@ -1,24 +1,26 @@
 import React from 'react'
+import Featured from '../Components/Home/Featured'
 import { FaChevronRight, FaWindows } from 'react-icons/fa'
 import { useGlobalContext } from '../context'
 
 const Home = () => {
-    const { url } = useGlobalContext()
+    const { featuredList } = useGlobalContext()
 
-    console.log(url)
+    //! test
+    console.log(featuredList)
 
     return (
         <>
             <div className='hero'>
                 {/* bg_mobile_english or bg_english to switch */}
                 <a href="/" className='hero-bg-mobile'>
-                    <video loop="yes" muted="yes" autoplay="yes" playsinline="" poster="https://cdn.cloudflare.steamstatic.com/steam/clusters/frontpage/f53c67a4c72cf00ced7afa3d/page_bg_mobile_english.jpg?t=1631553001">
+                    <video loop="yes" muted="yes" autoPlay="yes" playsInline="" poster="https://cdn.cloudflare.steamstatic.com/steam/clusters/frontpage/f53c67a4c72cf00ced7afa3d/page_bg_mobile_english.jpg?t=1631553001">
                         <source src="https://cdn.cloudflare.steamstatic.com/steam/clusters/frontpage/f53c67a4c72cf00ced7afa3d/webm_page_bg_mobile_english.webm?t=1631553001" type="video/webm" />
                         <source src="https://cdn.cloudflare.steamstatic.com/steam/clusters/frontpage/f53c67a4c72cf00ced7afa3d/mp4_page_bg_mobile_english.mp4?t=1631553001" type="video/mp4" />
                     </video>
                 </a>
                 <a href="/"className='hero-bg'>
-                    <video loop="yes" muted="yes" autoplay="yes" playsinline="" poster="https://cdn.cloudflare.steamstatic.com/steam/clusters/frontpage/f53c67a4c72cf00ced7afa3d/page_bg_english.jpg?t=1631553001">
+                    <video loop="yes" muted="yes" autoPlay="yes" playsInline="" poster="https://cdn.cloudflare.steamstatic.com/steam/clusters/frontpage/f53c67a4c72cf00ced7afa3d/page_bg_english.jpg?t=1631553001">
                         <source src="https://cdn.cloudflare.steamstatic.com/steam/clusters/frontpage/f53c67a4c72cf00ced7afa3d/webm_page_bg_english.webm?t=1631553001" type="video/webm" />
                         <source src="https://cdn.cloudflare.steamstatic.com/steam/clusters/frontpage/f53c67a4c72cf00ced7afa3d/mp4_page_bg_english.mp4?t=1631553001" type="video/mp4" />
                     </video> 
@@ -65,76 +67,9 @@ const Home = () => {
                     </div>
                     <div className='slider'>
                         {/* map here  8 times */}
-                        <div> 
-                            <a href="/">
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/header.jpg?t=1631331996" alt="" />
-                            </a>
-                            <div>
-                                <div>
-                                    <div>-33%</div>
-                                    <div>
-                                        <span>1.000.000d</span>
-                                        <p>670.000d</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div> 
-                            <a href="/">
-                                <img src="https://cdn.cloudflare.steamstatic.com/steam/spotlights/26395560545494e397b37975/spotlight_image_english.jpg?t=1632262599" alt="" />
-                            </a>
-                            <div>
-                                <div>
-                                    <div>-33%</div>
-                                    <div>
-                                        <span>1.000.000d</span>
-                                        <p>670.000d</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div> 
-                            <a href="/">
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/header.jpg?t=1631331996" alt="" />
-                            </a>
-                            <div>
-                                <div>
-                                    <div>-33%</div>
-                                    <div>
-                                        <span>1.000.000d</span>
-                                        <p>670.000d</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div> 
-                            <a href="/">
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/header.jpg?t=1631331996" alt="" />
-                            </a>
-                            <div>
-                                <div>
-                                    <div>-33%</div>
-                                    <div>
-                                        <span>1.000.000d</span>
-                                        <p>670.000d</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div> 
-                            <a href="/">
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/header.jpg?t=1631331996" alt="" />
-                            </a>
-                            <div>
-                                <div>
-                                    <div>-33%</div>
-                                    <div>
-                                        <span>1.000.000d</span>
-                                        <p>670.000d</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {featuredList.map((item) => {
+                            return <Featured key={item.id} {...item}/>
+                        })}
                     </div>
                 </section>
 
