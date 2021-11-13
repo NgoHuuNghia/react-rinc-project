@@ -189,12 +189,15 @@ body header nav > div:nth-child(3) > img {
 }
 @media (min-width: 1000px) {
   .main-section {
-    width: 975px;
+    width: 950px;
     margin: 0 auto;
   }
   .main-section > * {
     width: 100%;
   }
+}
+.main-section > .main-card-container {
+  position: relative;
 }
 .main-section > .main-card-container > div:first-child {
   display: flex;
@@ -219,6 +222,13 @@ body header nav > div:nth-child(3) > img {
 }
 .main-section > .main-card-container > div:first-child > a:hover {
   color: #c6d4df;
+}
+.main-section > .main-card-container > div.previous {
+  position: absolute;
+  left: -5%;
+  width: 5%;
+  height: 2em;
+  background: red;
 }
 .main-section > .main-card-container > div.slider {
   box-shadow: black 0px 20px 30px -10px;
@@ -375,22 +385,34 @@ body header nav > div:nth-child(3) > img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   gap: 0;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .main-section > .secondary-card-container > div.slider > div > a {
   display: block;
+  min-height: 67%;
 }
 .main-section > .secondary-card-container > div.slider > div > a > img {
   height: auto;
   max-width: 100%;
   display: block;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  height: 100%;
+  object-fit: cover;
+}
+.main-section > .secondary-card-container > div.slider > div > h5 {
+  font-size: 1em;
+  text-align: right;
+  padding: 0.5em 0.5em 0.25em 0;
+}
+@media (min-width: 600px) {
+  .main-section > .secondary-card-container > div.slider > div > h5 {
+    font-size: 1.3em;
+  }
 }
 .main-section > .secondary-card-container > div.slider > div > div {
-  align-self: flex-end;
-  padding: 0.75em 0.5em 0.75em 0.5em;
+  padding: 0 0.5em 0.75em 0;
 }
 .main-section > .secondary-card-container > div.slider > div > div div {
   display: flex;
@@ -432,6 +454,9 @@ body header nav > div:nth-child(3) > img {
 }
 .main-section > .secondary-card-container > div.slider > div:nth-child(2) {
   grid-area: b;
+}
+.main-section > .secondary-card-container > div.slider > div:nth-child(2) > a {
+  min-height: 84%;
 }
 .main-section > .secondary-card-container > div.slider > div:nth-child(3) {
   grid-area: c;

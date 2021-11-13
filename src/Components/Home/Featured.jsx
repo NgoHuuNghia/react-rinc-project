@@ -6,10 +6,10 @@ const Featured = ({background_image, name}) => {
             <a href="/">
                 <img src={background_image} alt="" />
             </a>
+            <h5>
+                {name}
+            </h5>
             <div>
-                <h5>
-                    {name}
-                </h5>
                 <div>
                     <div>-33%</div>
                     <div>

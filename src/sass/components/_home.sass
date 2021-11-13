@@ -24,13 +24,22 @@
     @include flex($direction: column, $gap: 1.5em)
     margin: 0 .5em
     @include bs.from(xl)
-        width: 975px
+        width: 950px
         margin: 0 auto
         >*
             width: 100%
     >.main-card-container
+        position: relative
         >div:first-child
             @include home-content-title            
+        >div.previous
+            position: absolute
+            left: -5%
+            width: 5%
+            height: 2em
+            background: red
+        >div.next
+
         >div.slider
             box-shadow: $bs-card-lg
             overflow: hidden
@@ -88,7 +97,6 @@
                             >div:nth-child(2)
                                 @include flex($direction: row)
                                 @include card-price
-                        >svg
 
     >.secondary-card-container
         >div:first-child //image container
@@ -100,15 +108,23 @@
                 grid-template-areas: "a b d" "c b e"
             >div //map here
                 @include gradient
-                @include flex($direction: column, $justify: space-between)
+                @include flex($direction: column, $justify: space-between, $align: flex-end)
                 box-shadow: $bs-card-md
                 >a
                     display: block
+                    min-height: 67%
                     >img
                         @include card-img
+                        height: 100%
+                        object-fit: cover
+                >h5 
+                    font-size: 1em
+                    text-align: right
+                    padding: .5em .5em .25em 0
+                    @include bs.from(m)
+                        font-size: 1.3em
                 >div
-                    align-self: flex-end
-                    padding: .75em .5em .75em .5em         
+                    padding: 0 .5em .75em 0        
                     div
                         @include flex($justify: space-between)
                         background-color: $bgc-important
@@ -128,6 +144,8 @@
                 grid-area: a
             >div:nth-child(2)
                 grid-area: b
+                >a
+                    min-height: 84%
             >div:nth-child(3)
                 grid-area: c
             >div:nth-child(4)

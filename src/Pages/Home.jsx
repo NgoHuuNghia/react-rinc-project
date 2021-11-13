@@ -6,9 +6,6 @@ import { useGlobalContext } from '../context'
 const Home = () => {
     const { featuredList } = useGlobalContext()
 
-    //! test
-    console.log(featuredList)
-
     return (
         <>
             <div className='hero'>
@@ -31,9 +28,39 @@ const Home = () => {
                     <div>
                         <h5>Featured &#38; Recommended</h5>
                     </div>
+                    <div className='previous'>
+                        
+                    </div>
+                    <div className="next">
+
+                    </div>
                     <div className='slider'>
                         {/* map here 4 times */}
                         <a href='/' className='active'>
+                            <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/capsule_616x353.jpg?t=1631331996" alt="" />
+                            <div>
+                                <h4>Tale of Arise</h4>
+                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/ss_ff3e713e134572734fdc55adcb6043e2652f0506.600x338.jpg?t=1632698351" alt="" />
+                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/ss_3ca8447106ddb23b14e4e30db0b24cbb359e2a5f.600x338.jpg?t=1632698351" alt="" />
+                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/ss_7f7362042aff89d16cdf36c58b8c5674deb71d63.600x338.jpg?t=1632698351" alt="" />
+                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/ss_f14d3e50d12061fee9afa2f46718bc0e0538d286.600x338.jpg?t=1632698351" alt="" />
+                                <div>
+                                    <div>Now available</div>
+                                    <div>Top seller</div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <div>-91%</div>
+                                        <div>
+                                            <span>588.000d</span>
+                                            <p>134.000d</p>
+                                        </div>
+                                    </div>
+                                    <FaWindows />
+                                </div>
+                            </div>
+                        </a>
+                        <a href='/' className=''>
                             <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/capsule_616x353.jpg?t=1631331996" alt="" />
                             <div>
                                 <h4>Tale of Arise</h4>
