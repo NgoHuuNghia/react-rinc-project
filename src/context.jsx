@@ -1,4 +1,4 @@
-import React, { useContext, useReducer, useEffect } from 'react'
+import React, { useContext, useReducer, useEffect, useCallback } from 'react'
 import reducer from './reducer'
 
 const BasicUrl = 'https://api.rawg.io/api/games'
@@ -8,43 +8,93 @@ const AppContext = React.createContext()
 
 const initialState = {
   loading: false,
+  sliderIndexMain: (0),
+  sliderIndexRecomended: (0),
   featuredList: [],
+  featuredListRecent: [],
+  featuredListRecommended : [],
+  featuredListSim: [],
+  tabActives: {
+    tabToggle: '',
+    tabCurrent: (0),
+  },
 }
 
 export const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const fetchData = async (size, ) => {
+  useEffect(() => {
     try {
-      const size = '&page_size=5'
-      const rating = '&ordering=-rating'
-      const date = (peroid) => {
-        const today = new Date();
-        const dd = String(today.getDate()).padStart(2, '0')
-        const mm = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
-        const yyyy = today.getFullYear()
-        const yyyyPeroid = yyyy - peroid
-  
-        return '&dates=' + yyyyPeroid + '-' + mm + '-' + dd + ',' + yyyy + '-' + mm + '-' + dd
+      const response = async (listSize, listGenres, listOrder, listPeroid, reducerType, listType) => {
+        let size = (number) => '&page_size=' + number
+        let genres = (string) => {
+          if (typeof string === 'string' || string instanceof String){
+            return '&genres=' + string
+          } else {
+            return ''
+          }
+        }
+        let ordering = (string) => '&ordering=' + string
+        let date = (peroid) => {
+          const today  = new Date();
+          const dd = String(today.getDate()).padStart(2, '0')
+          const mm = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
+          const yyyy = today.getFullYear()
+          const yyyyPeroid = yyyy - peroid
+    
+          return '&dates=' + yyyyPeroid + '-' + mm + '-' + dd + ',' + yyyy + '-' + mm + '-' + dd
+        }
+
+        const response = await fetch(`${BasicUrl}${APIkey}${size(listSize)}${genres(listGenres)}${ordering(listOrder)}${date(listPeroid)}`)
+        const data = await response.json()
+        const {results} = data
+
+        dispatch({type: reducerType, payload: {results, listType}})
       }
-      const response = await fetch(`${BasicUrl}${APIkey}${size}${date(2)}`)
-      const data = await response.json()
-      const {results} = data
-      dispatch({type: 'DISPLAY_LIST', payload: results})
+
+      response(8, null, '-rating', 2, 'DISPLAY_FEATURED_LIST', 'featured')
+      response(8, null, '', 3 , 'DISPLAY_FEATURED_LIST', 'special')
+      response(8, null, '-metacritic', 3 , 'DISPLAY_FEATURED_LIST', 'recommended')
+      response(8, 'simulation', '', 3 , 'DISPLAY_FEATURED_LIST', 'sim')
+      
     }
     catch (error){
-      console.log(error)
+      throw new Error(error)
     }
-  }
+  }, [])
 
   useEffect(() => {
-    fetchData()
-  }, [])
+    dispatch({type: 'SET_LIST_POSITION', payload: 'sliderMain'})
+
+    let slider = setInterval(() => {
+      dispatch({type: 'TOGGLE_INDEX', payload: {toggleType: 'increase', sliderType: 'sliderMain'}})
+    }, 5000)
+    return () => {clearInterval(slider)}
+  }, [state.sliderIndexMain])
+
+  useEffect(() => {
+    dispatch({type: 'SET_LIST_POSITION', payload: 'sliderRecomended'})
+
+    let slider = setInterval(() => {
+      dispatch({type: 'TOGGLE_INDEX', payload: {toggleType: 'increase', sliderType: 'sliderRecomended'}})
+    }, 8000)
+    return () => {clearInterval(slider)}
+  }, [state.sliderIndexRecomended])
+
+  const toggleIndex = (toggleType, sliderType) => {
+    dispatch({type: 'TOGGLE_INDEX', payload: {toggleType, sliderType}})
+  }
+
+  const toggleTab = ( data, type ) => {
+    dispatch({type: 'TOGGLE_TAB', payload: {data, type}})
+  }
 
   return (
     <AppContext.Provider
       value={{
         ...state,
+        toggleIndex,
+        toggleTab,
       }}>
         {children}
     </AppContext.Provider>

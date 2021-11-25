@@ -1,10 +1,28 @@
 import React from 'react'
 import Featured from '../Components/Home/Featured'
-import { FaChevronRight, FaWindows } from 'react-icons/fa'
+import FeaturedSlider from '../Components/Home/FeaturedSlider'
+import FeaturedRecomended from '../Components/Home/FeaturedRecomended'
+import FeaturedSim from '../Components/Home/FeaturedSim'
+import Tabs from '../Components/Home/Tabs'
+import { FaChevronLeft, FaChevronRight, FaWindows } from 'react-icons/fa'
 import { useGlobalContext } from '../context'
+import { useEffect, useCallback } from 'react/cjs/react.development'
 
 const Home = () => {
-    const { featuredList } = useGlobalContext()
+    const { 
+        featuredList, 
+        featuredListRecent, 
+        featuredListRecommended, 
+        featuredListSim,
+        toggleIndex,
+        tabActives,
+        toggleTab,
+    } = useGlobalContext()
+    const { tabToggle, tabCurrent } = tabActives
+
+    //? Types
+    const sliderMain = 'sliderMain'
+    const sliderRecomended = 'sliderRecomended'
 
     return (
         <>
@@ -28,62 +46,17 @@ const Home = () => {
                     <div>
                         <h5>Featured &#38; Recommended</h5>
                     </div>
-                    <div className='previous'>
-                        
-                    </div>
-                    <div className="next">
-
-                    </div>
+                    <button className='previous' onClick={() => toggleIndex('decrease', sliderMain)}>
+                        <FaChevronLeft />
+                    </button>
+                    <button className="next" onClick={() => toggleIndex('increase', sliderMain)}>
+                        <FaChevronRight />
+                    </button>
                     <div className='slider'>
                         {/* map here 4 times */}
-                        <a href='/' className='active'>
-                            <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/capsule_616x353.jpg?t=1631331996" alt="" />
-                            <div>
-                                <h4>Tale of Arise</h4>
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/ss_ff3e713e134572734fdc55adcb6043e2652f0506.600x338.jpg?t=1632698351" alt="" />
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/ss_3ca8447106ddb23b14e4e30db0b24cbb359e2a5f.600x338.jpg?t=1632698351" alt="" />
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/ss_7f7362042aff89d16cdf36c58b8c5674deb71d63.600x338.jpg?t=1632698351" alt="" />
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/ss_f14d3e50d12061fee9afa2f46718bc0e0538d286.600x338.jpg?t=1632698351" alt="" />
-                                <div>
-                                    <div>Now available</div>
-                                    <div>Top seller</div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div>-91%</div>
-                                        <div>
-                                            <span>588.000d</span>
-                                            <p>134.000d</p>
-                                        </div>
-                                    </div>
-                                    <FaWindows />
-                                </div>
-                            </div>
-                        </a>
-                        <a href='/' className=''>
-                            <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/capsule_616x353.jpg?t=1631331996" alt="" />
-                            <div>
-                                <h4>Tale of Arise</h4>
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/ss_ff3e713e134572734fdc55adcb6043e2652f0506.600x338.jpg?t=1632698351" alt="" />
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/ss_3ca8447106ddb23b14e4e30db0b24cbb359e2a5f.600x338.jpg?t=1632698351" alt="" />
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/ss_7f7362042aff89d16cdf36c58b8c5674deb71d63.600x338.jpg?t=1632698351" alt="" />
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/ss_f14d3e50d12061fee9afa2f46718bc0e0538d286.600x338.jpg?t=1632698351" alt="" />
-                                <div>
-                                    <div>Now available</div>
-                                    <div>Top seller</div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div>-91%</div>
-                                        <div>
-                                            <span>588.000d</span>
-                                            <p>134.000d</p>
-                                        </div>
-                                    </div>
-                                    <FaWindows />
-                                </div>
-                            </div>
-                        </a>
+                        {featuredListRecent.map((item, index) => {
+                            return <FeaturedSlider key={item.id} index={index} {...item} />
+                        })}
                     </div>
                 </section>  
 
@@ -94,8 +67,8 @@ const Home = () => {
                     </div>
                     <div className='slider'>
                         {/* map here  8 times */}
-                        {featuredList.map((item) => {
-                            return <Featured key={item.id} {...item}/>
+                        {featuredList.slice(3).map((item) => {
+                            return <Featured key={item.id} {...item} />
                         })}
                     </div>
                 </section>
@@ -105,23 +78,16 @@ const Home = () => {
                         <h5>Community recommended</h5>
                         <a href="/">more <FaChevronRight /></a>
                     </div>
+                    <button className='previous' onClick={() => toggleIndex('decrease', sliderRecomended)}>
+                        <FaChevronLeft />
+                    </button>
+                    <button className="next" onClick={() => toggleIndex('increase', sliderRecomended)}>
+                        <FaChevronRight />
+                    </button>
                     <div className='slider'> 
-                        <div className='active'> {/* map here 3 times */}
-                            <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/capsule_616x353.jpg?t=1631331996" alt="" />
-                            <div>
-                                <p>"Lorem ipsum dolor sit  amet consectetur adipisicing elit. Deleniti corrupti officiis, dolorum a totam quibusdam in adipisci voluptate aspernatur architecto magni, cum sint fuga laboriosam vitae quas vel assumenda doloribus."</p>
-                                <div className='movie-card-comment'>
-                                    <img src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/2e/2ea08980f32ec568536bf791b0f3986e8b279ccb.jpg" alt="" />
-                                    <div>
-                                        <h6>Zuluf</h6>
-                                        <p>
-                                            Played 10.1 hrs at review time<br />
-                                            127 people found this review helpful
-                                        </p>
-                                    </div>
-                                </div>  
-                            </div>
-                        </div>
+                        {featuredListRecommended.map((item, index) => {
+                            return <FeaturedRecomended key={item.id} index={index} {...item}/>
+                        })}
                     </div>
                 </section>
 
@@ -139,45 +105,47 @@ const Home = () => {
 
                 <section className='special-card-container'>
                     <div>
-                        <h5>Popular Vr Game</h5>
+                        <h5>Popular Sim Game</h5>
                         <a href="/">more <FaChevronRight /></a>
                     </div>
                     <div className='special-card-slider'> {/* map here 6 times */}
                         {/* map like i mean 6 here? */}
-                        <a href='/' className='speical-card-btn'>
-                            <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/740130/header_292x136.jpg?t=1626370761" alt="" />
-                            <div>
-                                <p>220.000d</p>
-                            </div>
-                        </a>
-                        <a href='/' className='speical-card-btn'>
-                            <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/740130/header_292x136.jpg?t=1626370761" alt="" />
-                            <div>
-                                <p>220.000d</p>
-                            </div>
-                        </a>
-                        <a href='/' className='speical-card-btn'>
-                            <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/740130/header_292x136.jpg?t=1626370761" alt="" />
-                            <div>
-                                <p>220.000d</p>
-                            </div>
-                        </a>
-                        <a href='/' className='speical-card-btn'>
-                            <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/740130/header_292x136.jpg?t=1626370761" alt="" />
-                            <div>
-                                <p>220.000d</p>
-                            </div>
-                        </a>
+                        {featuredListSim.slice(3).map((item) => {
+                            return <FeaturedSim key={item.id} {...item}/>
+                        })}
                     </div>
                 </section>
             </div>
             <div className='subsidiary-section'>
                 <div className='subsidiary-container'>
                     <div className='tab-selector'>
-                        <a href="/" className='active'><p>Trending</p></a>
-                        <a href="/"><p>Top news</p></a>
-                        <a href="/"><p>Popular upcoming</p></a>
-                        <a href="/"><p>Special</p></a>
+                        <button 
+                            className={tabToggle === 'featured' ? 'active' : ''} 
+                            onClick={
+                                () => toggleTab('featured', 'tabToggle')
+                                //, toggleTab(featuredList[0].id, 'tabCurrent')
+                            }>
+                        <p>Trending</p></button>
+                        <button 
+                            className={tabToggle === 'special' ? 'active' : ''} 
+                            onClick={
+                                () => toggleTab('special', 'tabToggle')
+                                //, toggleTab(featuredListRecent[0].id, 'tabCurrent')
+                            }>
+                        <p>Top news</p></button>
+                        <button 
+                            className={tabToggle === 'recommended' ? 'active' : ''} 
+                            onClick={
+                                () => toggleTab('recommended', 'tabToggle')
+                                //, toggleTab(featuredListRecommended[0].id, 'tabCurrent')
+                            }>
+                                <p>Popular upcoming</p></button>
+                        <button 
+                            className={tabToggle === 'sim' ? 'active' : ''} 
+                            onClick={
+                                () => toggleTab('sim', 'tabToggle')
+                                //, toggleTab(featuredListSim[0].id, 'tabCurrent')
+                            }><p>Special</p></button>
                     </div>
                     <section className='tab-container'>
                         <div className='tab-list'>
@@ -185,142 +153,26 @@ const Home = () => {
                                 <p>See more:  &nbsp;</p> <a href="/"> New releases</a>
                             </div>
                             {/* map here 10 times*/}
-                            <a href='/' className='tab-item active'>
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/1462570/capsule_184x69.jpg?t=1631287776" alt="" />
-                                <div>
-                                    <div>
-                                        <h4>Lost in random</h4>
-                                        <i><FaWindows /></i>
-                                        <small>Action, adventure, exploration</small>
-                                    </div>
-                                    <div>
-                                        <div>-10%</div>
-                                        <div>
-                                            <p>495.000d</p>
-                                            <p>445.500d</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href='/' className='tab-item'>
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/1462570/capsule_184x69.jpg?t=1631287776" alt="" />
-                                <div>
-                                    <div>
-                                        <h4>Lost in random</h4>
-                                        <i><FaWindows /></i>
-                                        <small>Action, adventure, exploration</small>
-                                    </div>
-                                    <div>
-                                        <div>-10%</div>
-                                        <div>
-                                            <p>495.000d</p>
-                                            <p>445.500d</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href='/' className='tab-item'>
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/1462570/capsule_184x69.jpg?t=1631287776" alt="" />
-                                <div>
-                                    <div>
-                                        <h4>Lost in random</h4>
-                                        <i><FaWindows /></i>
-                                        <small>Action, adventure, exploration</small>
-                                    </div>
-                                    <div>
-                                        <div>-10%</div>
-                                        <div>
-                                            <p>495.000d</p>
-                                            <p>445.500d</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href='/' className='tab-item'>
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/1462570/capsule_184x69.jpg?t=1631287776" alt="" />
-                                <div>
-                                    <div>
-                                        <h4>Lost in random</h4>
-                                        <i><FaWindows /></i>
-                                        <small>Action, adventure, exploration</small>
-                                    </div>
-                                    <div>
-                                        <div>-10%</div>
-                                        <div>
-                                            <p>495.000d</p>
-                                            <p>445.500d</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href='/' className='tab-item'>
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/1462570/capsule_184x69.jpg?t=1631287776" alt="" />
-                                <div>
-                                    <div>
-                                        <h4>Lost in random</h4>
-                                        <i><FaWindows /></i>
-                                        <small>Action, adventure, exploration</small>
-                                    </div>
-                                    <div>
-                                        <div>-10%</div>
-                                        <div>
-                                            <p>495.000d</p>
-                                            <p>445.500d</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href='/' className='tab-item'>
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/1462570/capsule_184x69.jpg?t=1631287776" alt="" />
-                                <div>
-                                    <div>
-                                        <h4>Lost in random</h4>
-                                        <i><FaWindows /></i>
-                                        <small>Action, adventure, exploration</small>
-                                    </div>
-                                    <div>
-                                        <div>-10%</div>
-                                        <div>
-                                            <p>495.000d</p>
-                                            <p>445.500d</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href='/' className='tab-item'>
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/1462570/capsule_184x69.jpg?t=1631287776" alt="" />
-                                <div>
-                                    <div>
-                                        <h4>Lost in random</h4>
-                                        <i><FaWindows /></i>
-                                        <small>Action, adventure, exploration</small>
-                                    </div>
-                                    <div>
-                                        <div>-10%</div>
-                                        <div>
-                                            <p>495.000d</p>
-                                            <p>445.500d</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href='/' className='tab-item'>
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/1462570/capsule_184x69.jpg?t=1631287776" alt="" />
-                                <div>
-                                    <div>
-                                        <h4>Lost in random</h4>
-                                        <i><FaWindows /></i>
-                                        <small>Action, adventure, exploration</small>
-                                    </div>
-                                    <div>
-                                        <div>-10%</div>
-                                        <div>
-                                            <p>495.000d</p>
-                                            <p>445.500d</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
+                            <div className={tabToggle === 'featured' ? 'active' : ''}>
+                                {featuredList.map((item) => {
+                                    return <Tabs key={item.id} {...item}/>
+                                })}
+                            </div>
+                            <div className={tabToggle === 'special' ? 'active' : ''}>
+                                {featuredListRecent.map((item) => {
+                                    return <Tabs key={item.id} {...item}/>
+                                })}
+                            </div>
+                            <div className={tabToggle === 'recommended' ? 'active' : ''}>
+                                {featuredListRecommended.map((item) => {
+                                    return <Tabs key={item.id} {...item}/>
+                                })}
+                            </div>
+                            <div className={tabToggle === 'sim' ? 'active' : ''}>
+                                {featuredListSim.map((item) => {
+                                    return <Tabs key={item.id} {...item}/>
+                                })}
+                            </div>
                         </div>
                         <div className="tab-viewer">
                             <div className='active'>

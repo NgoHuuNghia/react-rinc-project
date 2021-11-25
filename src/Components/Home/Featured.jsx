@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Featured = ({background_image, name}) => {
+const Featured = ({ name, background_image }) => {
     return (
         <div> 
             <a href="/">

@@ -30,28 +30,33 @@
             width: 100%
     >.main-card-container
         position: relative
+        @include bs.from(xl)
+            height: 380px
+            max-width: 950px
         >div:first-child
             @include home-content-title            
-        >div.previous
-            position: absolute
-            left: -5%
-            width: 5%
-            height: 2em
-            background: red
-        >div.next
-
+        @include arrows
         >div.slider
             box-shadow: $bs-card-lg
             overflow: hidden
+            position: relative
             >a
-                display: none
-            >a.active //map here
+                position: absolute
+                top: 0
+                left: 0
+                transition: $trs-basic
                 @include gradient
                 @include flex($direction: column, $align: stretch)
+                @include bs.from(l)
+                    max-width: 70vw
                 @include bs.from(xl)
+                    max-width: unset
                     flex-direction: row
                 >img
                     @include card-img
+                    @include bs.from(xl)
+                        width: 620px
+                        height: 350px
                     z-index: 1
                 >div
                     @include grid($columns: 1fr 1fr, $gap: .5em)
@@ -60,24 +65,24 @@
                         grid-column: span 2
                         margin: .5em 0 0 20px
                         z-index: 1
-                        font-size: 1.5em
+                        font-size: 1.4em
                     >img
                         display: none
                         @include bs.from(xl)
                             grid-column: span 1
-                            height: auto
+                            height: 91px
                             width: 100%
                             display: inline-block
                     >div:nth-last-child(2)
                         display: none
                         @include bs.from(xl)
-                            @include flex($direction: column, $align: flex-start, $gap: .3em)
+                            @include flex($direction: column,$justify: none, $align: flex-start, $gap: .3em)
                             grid-column: span 2
                             margin-left: 20px
                             >div:first-child
-                                font-size: 1.3em
+                                font-size: 1.05em
                             >div:last-child
-                                font-size: .85em
+                                font-size: .8em
                                 padding: .2em .6em
                                 background-color: $bgc-subsidiary
                     >div:last-child
@@ -86,17 +91,30 @@
                         margin: 0 20px .5em 20px
                         z-index: 1
                         >div
-                            display: inline-block
+                            @include flex
                             background-color: $bgc-important
+                            font-size: .8em
                             * 
                                 display: inline-block
-                                padding: .3em
+                                padding: 0.2em .4em
                             >div:nth-child(1)
                                 background-color: $bgc-discounted
                                 color: $fc-discounted
                             >div:nth-child(2)
                                 @include flex($direction: row)
                                 @include card-price
+            >a.nextSlide
+                opacity: 0
+                pointer-events: none
+                transform: translateX(100%)
+            >a.activeSlide
+                opacity: 1
+                position: unset
+                transform: translateX(0)
+            >a.lastSlide
+                opacity: 0
+                pointer-events: none
+                transform: translateX(-100%)
 
     >.secondary-card-container
         >div:first-child //image container
@@ -118,11 +136,11 @@
                         height: 100%
                         object-fit: cover
                 >h5 
-                    font-size: 1em
+                    font-size: .8em
                     text-align: right
                     padding: .5em .5em .25em 0
                     @include bs.from(m)
-                        font-size: 1.3em
+                        font-size: 1em
                 >div
                     padding: 0 .5em .75em 0        
                     div
@@ -160,20 +178,34 @@
                     display: inline-flex
 
     >.movie-card-container
+        position: relative
+        @include bs.from(xl)
+            height: 380px
+            max-width: 950px
         >div:first-child
             @include home-content-title
+        @include arrows
         >div.slider
             box-shadow: $bs-card-lg
             overflow: hidden
-            >div
-                display: none
-            >div.active //map here
+            position: relative
+            >a
+                position: absolute
+                top: 0
+                left: 0
+                transition: $trs-basic
                 @include gradient
                 @include flex($direction: column, $align: stretch)
+                @include bs.from(l)
+                    max-width: 70vw
                 @include bs.from(xl)
+                    max-width: unset
                     flex-direction: row
                 >img
                     @include card-img
+                    @include bs.from(xl)
+                        width: 620px
+                        height: 350px
                     z-index: 1
                 >div
                     @include flex($direction: column, $justify: space-between, $align: flex-start, $gap: 2em)
@@ -202,6 +234,18 @@
                                 margin-top: .25em
                                 font-size: .6em
                                 font-weight: 300
+            >a.nextSlide
+                opacity: 0
+                pointer-events: none
+                transform: translateX(100%)
+            >a.activeSlide
+                opacity: 1
+                position: unset
+                transform: translateX(0)
+            >a.lastSlide
+                opacity: 0
+                pointer-events: none
+                transform: translateX(-100%)
 
     >.page-browse
         align-self: stretch
@@ -235,6 +279,8 @@
                 box-shadow: $bs-card-md
                 >img
                     @include card-img     
+                    height: 100px
+                    width: 200px
                 >div
                     padding: 0.5em
                     @include flex($justify: flex-end)  
@@ -280,18 +326,20 @@ div.subsidiary-section
                 height: 100%
                 width: 120vw
                 z-index: 1
-            >a
+            button
                 @include flex( $justify: center )
-                height: 2em
+                border: none
+                height: 2.5em
                 padding: 1em .75em
                 transition: .3s
                 z-index: 2
+                background: none
                 >p
-                    font-size: .9em
+                    font-size: 1em
                     color: $fc-default
                 &:hover > p:not(a.active > p) // can't belive this worked
                     color: $fc-subsidiary-hilight
-            >a.active
+            button.active
                 background-color: $bgc-subsidiary
 
         >section.tab-container
@@ -301,11 +349,14 @@ div.subsidiary-section
             >div.tab-list
                 @include flex($direction: column, $justify: flex-start, $align: stretch)
                 flex-grow: 1
-                >div
+                transition: $trs-basic
+                position: relative
+                >div:first-child
                     @include flex( $justify: flex-end )
                     z-index: 2
                     padding: .4em
                     background-color: $bgc-subsidiary-subtle
+                    height: 40px
                     >p
                         font-size: .8em
                     >a
@@ -317,64 +368,74 @@ div.subsidiary-section
                         &:hover
                             background-color: $bgc-hilight
                             color: $fc-hilight
-                >a.tab-item
-                    @include flex($justify: flex-start)
-                    background-color: $bgc-subsidiary-subtle
-                    margin-bottom: .5em
-                    >img
-                        @include card-img
-                        box-shadow: unset
-                        flex-grow: 1
-                        height: auto
-                        min-width: 4em
-                    >div
-                        @include flex
-                        flex-grow: 10
-                        padding: .3em .5em
-                        >div:nth-child(1)
-                            @include flex($direction: column, $align: flex-start, $gap: .3em)
-                            flex-wrap: wrap
-                            color: black
-                            width: 75%
-                            *
-                                display: inline-block
-                            >h4
-                                width: 100%
-                                color: $fc-default
-                            >i
-                                width: 100%
-                                color: $fc-subsidiary-unimportant
-                            >small
-                                white-space: nowrap
-                                overflow: hidden
-                                width: 100%
-                                font-size: .8em
-                                color: $fc-subsidiary-unimportant
-                        >div:nth-child(2)
-                            @include flex( $direction: column, $align: flex-end)
-                            width: 25%
-                            >div:nth-child(1)
-                                background-color: $bgc-discounted
-                                display: inline
-                                padding: .1em .3em
-                                color: $fc-discounted
-                            >div:nth-child(2)
-                                @include flex($direction: column, $align: flex-end )
-                                >p:nth-child(1)
-                                    text-decoration: line-through
-                                    color: $fc-subsidiary-unimportant
-                                    font-size: .7em
-                                >p:nth-child(2)
-                                    color: $fc-default
-                                    font-size: .8em
+                >div:not(:first-child)
+                    position: absolute
+                    top: 40px
+                    left: 0
+                    width: 100%
+                    opacity: 0
+                    transition: $trs-basic
                     &.active
-                        background-color: $bgc-subsidiary-hilight
-                        h4
-                            color: $fc-important !important
-                        i, small
-                            color: $fc-default !important
-                    &:last-child
-                        margin: 0
+                        opacity: 1
+                    >a.tab-item
+                        @include flex($justify: flex-start)
+                        background-color: $bgc-subsidiary-subtle
+                        margin-bottom: .5em
+                        transition: $trs-basic
+                        >img
+                            @include card-img
+                            box-shadow: unset
+                            height: auto
+                            height: 75px
+                            width: 180px
+                        >div
+                            @include flex
+                            flex-grow: 10
+                            padding: .3em .5em
+                            >div:nth-child(1)
+                                @include flex($direction: column, $align: flex-start, $gap: .3em)
+                                flex-wrap: wrap
+                                color: black
+                                width: 75%
+                                *
+                                    display: inline-block
+                                >h4
+                                    width: 100%
+                                    color: $fc-default
+                                >i
+                                    width: 100%
+                                    color: $fc-subsidiary-unimportant
+                                >small
+                                    white-space: nowrap
+                                    overflow: hidden
+                                    width: 100%
+                                    font-size: .8em
+                                    color: $fc-subsidiary-unimportant
+                            >div:nth-child(2)
+                                @include flex( $direction: column, $align: flex-end)
+                                width: 25%
+                                >div:nth-child(1)
+                                    background-color: $bgc-discounted
+                                    display: inline
+                                    padding: .1em .3em
+                                    color: $fc-discounted
+                                >div:nth-child(2)
+                                    @include flex($direction: column, $align: flex-end )
+                                    >p:nth-child(1)
+                                        text-decoration: line-through
+                                        color: $fc-subsidiary-unimportant
+                                        font-size: .7em
+                                    >p:nth-child(2)
+                                        color: $fc-default
+                                        font-size: .8em
+                        &.active
+                            background-color: $bgc-subsidiary-hilight
+                            h4
+                                color: $fc-important !important
+                            i, small
+                                color: $fc-default !important
+                        &:last-child
+                            margin: 0
 
             >div.tab-viewer
                 >div

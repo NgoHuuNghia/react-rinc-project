@@ -1,5 +1,6 @@
 import React from 'react'
-import { FaChevronRight, FaWindows, FaFlag, FaShareAlt, FaThumbsDown, FaThumbsUp, FaMeh, FaCircle } from 'react-icons/fa'
+import { FaChevronRight, FaWindows, FaFlag, FaShareAlt, FaThumbsUp, FaCircle } from 'react-icons/fa'
+//! not using: FaThumbsDown, FaMeh
 import { IoMdArrowDropdown } from 'react-icons/io'
 
 const GameDetail = () => {
@@ -226,7 +227,7 @@ const GameDetail = () => {
                                 {/* also this is like the template from the steam api - the img src is weird look into */}
                                 <h4>Deluxe Edition</h4>
                                 <div> 
-                                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/740130/extras/TOA_CustomImage_DeluxeEdition.gif?t=1631331996\" />
+                                    <img alt='temp' src="https://cdn.cloudflare.steamstatic.com/steam/apps/740130/extras/TOA_CustomImage_DeluxeEdition.gif?t=1631331996\" />
                                     <p>The Deluxe Edition includes the Tales of Arise full game, Premium Travel Pack, and Adventurer's Pack.</p>
                                 </div>
                             </div>
@@ -234,7 +235,7 @@ const GameDetail = () => {
                                 {/* also this is like the template from the steam api - the img src is weird look into */}
                                 <h4>Ultimate Edition</h4>
                                 <div> 
-                                    <img src="https://cdn.akamai.steamstatic.com/steam/apps/740130/extras/TOA_CustomImage_UltimateEdition.gif?t=1631331996" />
+                                    <img alt='temp' src="https://cdn.akamai.steamstatic.com/steam/apps/740130/extras/TOA_CustomImage_UltimateEdition.gif?t=1631331996" />
                                     <p>The Deluxe Edition includes the Tales of Arise full game, Premium Travel Pack, and Adventurer's Pack.</p>
                                 </div>
                             </div>

@@ -1,6 +1,7 @@
 @use '../_fonts' as *
 @use '../_varibles' as *
 @use './_common-mixins' as *
+@use '../../../../node_modules/breakpoint-slicer' as bs
 
 // home
 @mixin home-content-title
@@ -38,3 +39,29 @@
         font-size: .95em
         text-decoration: line-through
         color: $fc-unimportant
+
+// slider
+@mixin arrows
+    >button.previous, button.next
+        display: none
+        border: none
+        @include bs.from(xl)
+            @include flex($justify: center)
+            position: absolute
+            top: 38%
+            width: 7%
+            height: 7em
+            border-radius: 4px
+        >svg
+            font-size: 4em
+            color: $fc-default
+    >button.previous
+        left: -7%
+        @include gradient(270deg, transparent, 40%, $bgc-subtle, 100%)
+        &:hover
+            @include gradient(270deg, transparent, 15%, $bgc-hilight-subtle, 100%)
+    >button.next
+        right: -7%
+        @include gradient(90deg, transparent, 40%, $bgc-subtle, 100%)
+        &:hover
+            @include gradient(90deg, transparent, 15%, $bgc-hilight-subtle, 100%)
