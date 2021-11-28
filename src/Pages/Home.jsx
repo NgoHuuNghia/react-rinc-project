@@ -4,9 +4,9 @@ import FeaturedSlider from '../Components/Home/FeaturedSlider'
 import FeaturedRecomended from '../Components/Home/FeaturedRecomended'
 import FeaturedSim from '../Components/Home/FeaturedSim'
 import Tabs from '../Components/Home/Tabs'
+import TabViewer from '../Components/Home/TabViewer'
 import { FaChevronLeft, FaChevronRight, FaWindows } from 'react-icons/fa'
 import { useGlobalContext } from '../context'
-import { useEffect, useCallback } from 'react/cjs/react.development'
 
 const Home = () => {
     const { 
@@ -23,6 +23,14 @@ const Home = () => {
     //? Types
     const sliderMain = 'sliderMain'
     const sliderRecomended = 'sliderRecomended'
+    
+    //? Tabs
+    const tabList = featuredList.concat(featuredListRecent, featuredListRecommended, featuredListSim)
+    const tabFilter = tabList.filter((thing, index, self) =>
+        index === self.findIndex((t) => (
+            t.id === thing.id && t.name === thing.name
+        ))
+    )
 
     return (
         <>
@@ -121,31 +129,24 @@ const Home = () => {
                     <div className='tab-selector'>
                         <button 
                             className={tabToggle === 'featured' ? 'active' : ''} 
-                            onClick={
-                                () => toggleTab('featured', 'tabToggle')
-                                //, toggleTab(featuredList[0].id, 'tabCurrent')
-                            }>
-                        <p>Trending</p></button>
+                            onClick={() => toggleTab('featured', 'tabToggle')}>
+                                <p>Trending</p>
+                        </button>
                         <button 
                             className={tabToggle === 'special' ? 'active' : ''} 
-                            onClick={
-                                () => toggleTab('special', 'tabToggle')
-                                //, toggleTab(featuredListRecent[0].id, 'tabCurrent')
-                            }>
-                        <p>Top news</p></button>
+                            onClick={() => toggleTab('special', 'tabToggle')}>
+                                <p>Top news</p>
+                        </button>
                         <button 
                             className={tabToggle === 'recommended' ? 'active' : ''} 
-                            onClick={
-                                () => toggleTab('recommended', 'tabToggle')
-                                //, toggleTab(featuredListRecommended[0].id, 'tabCurrent')
-                            }>
-                                <p>Popular upcoming</p></button>
+                            onClick={() => toggleTab('recommended', 'tabToggle')}>
+                                <p>Popular upcoming</p>
+                        </button>
                         <button 
                             className={tabToggle === 'sim' ? 'active' : ''} 
-                            onClick={
-                                () => toggleTab('sim', 'tabToggle')
-                                //, toggleTab(featuredListSim[0].id, 'tabCurrent')
-                            }><p>Special</p></button>
+                            onClick={() => toggleTab('sim', 'tabToggle')}>
+                                <p>Special</p>
+                        </button>
                     </div>
                     <section className='tab-container'>
                         <div className='tab-list'>
@@ -155,44 +156,30 @@ const Home = () => {
                             {/* map here 10 times*/}
                             <div className={tabToggle === 'featured' ? 'active' : ''}>
                                 {featuredList.map((item) => {
-                                    return <Tabs key={item.id} {...item}/>
+                                    return <Tabs key={item.id} {...item} toggle={'featured'}/>
                                 })}
                             </div>
                             <div className={tabToggle === 'special' ? 'active' : ''}>
                                 {featuredListRecent.map((item) => {
-                                    return <Tabs key={item.id} {...item}/>
+                                    return <Tabs key={item.id} {...item} toggle={'special'}/>
                                 })}
                             </div>
                             <div className={tabToggle === 'recommended' ? 'active' : ''}>
                                 {featuredListRecommended.map((item) => {
-                                    return <Tabs key={item.id} {...item}/>
+                                    return <Tabs key={item.id} {...item} toggle={'recommended'}/>
                                 })}
                             </div>
                             <div className={tabToggle === 'sim' ? 'active' : ''}>
                                 {featuredListSim.map((item) => {
-                                    return <Tabs key={item.id} {...item}/>
+                                    return <Tabs key={item.id} {...item} toggle={'sim'}/>
                                 })}
                             </div>
                         </div>
                         <div className="tab-viewer">
-                            <div className='active'>
-                                <div>Lost In Random</div>
-                                <div>
-                                    <p>Overall user reviews</p>
-                                    <p><span>Positive </span>(13)</p>
-                                </div>
-                                <div>
-                                    <a href="/">RPG</a>
-                                    <a href="/">Indie</a>
-                                    <a href="/">Adventure</a>
-                                    <a href="/">Anime</a>
-                                    <a href="/">JRPG</a>
-                                </div>
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/1462570/ss_845c7dfe5ecf0fb9b50d48aef7875aafc43b9240.600x338.jpg?t=1631811672" alt="" />
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/1462570/ss_c8a5566056a7b1ee346d20e2f4a71eb691008115.600x338.jpg?t=1631811672" alt="" />
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/1462570/ss_ac25277f95e6dde71a5ddafd933edbd78f0b409c.600x338.jpg?t=1631811672" alt="" />
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/1462570/ss_7876f213935e449f1a754ff95c41f2fdf7dc9b66.600x338.jpg?t=1631811672" alt="" />
-                            </div>
+                            {tabFilter
+                                .map((item) => {
+                                    return <TabViewer key={item.id} {...item}/>
+                            })}
                         </div>
                     </section>
                 </div>

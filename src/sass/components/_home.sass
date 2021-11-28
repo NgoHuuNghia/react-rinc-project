@@ -369,14 +369,17 @@ div.subsidiary-section
                             background-color: $bgc-hilight
                             color: $fc-hilight
                 >div:not(:first-child)
+                    visibility: hidden
                     position: absolute
                     top: 40px
                     left: 0
                     width: 100%
                     opacity: 0
-                    transition: $trs-basic
+                    transition: opacity .5s linear
                     &.active
+                        visibility: visible
                         opacity: 1
+                        position: unset
                     >a.tab-item
                         @include flex($justify: flex-start)
                         background-color: $bgc-subsidiary-subtle
@@ -385,7 +388,6 @@ div.subsidiary-section
                         >img
                             @include card-img
                             box-shadow: unset
-                            height: auto
                             height: 75px
                             width: 180px
                         >div
@@ -438,13 +440,19 @@ div.subsidiary-section
                             margin: 0
 
             >div.tab-viewer
+                position: relative
+                width: 35%
                 >div
-                    display: none
-                >div.active
+                    position: absolute
+                    width: 100%
+                    top: 0
+                    right: 0
+                    opacity: 0
+                    transition: opacity .5s linear
                     @include bs.from(xl)
                         @include flex($direction: column, $justify: flex-start, $align: flex-start)
                         padding: .5em 1em .5em 1em
-                        background-color: $bgc-subsidiary-hilight
+                        background-color: $bgc-subsidiary
                         >div
                             margin-bottom: .5em
                         >div:nth-child(1)
@@ -465,11 +473,14 @@ div.subsidiary-section
                                 padding: .3em .6em
                                 background-color: $bgc-subsidiary
                                 color: $fc-important
-                                transition: .2s
                                 &:hover
                                     background-color: $bgc-hilight
                                     color: $fc-hilight
                         >img
                             margin-bottom: .25em
                             height: auto
-                            width: 275px
+                            width: 305px
+                        &.active
+                            opacity: 1
+                            background-color: $bgc-subsidiary-hilight
+                            position: unset

@@ -89,12 +89,17 @@ export const AppProvider = ({ children }) => {
     dispatch({type: 'TOGGLE_TAB', payload: {data, type}})
   }
 
+  const hoverTabItem = (id, toggle) => {
+    dispatch({type: 'HOVER_CURRENT_TAB_ITEM', payload: {id, toggle}})
+  }
+
   return (
     <AppContext.Provider
       value={{
         ...state,
         toggleIndex,
         toggleTab,
+        hoverTabItem,
       }}>
         {children}
     </AppContext.Provider>

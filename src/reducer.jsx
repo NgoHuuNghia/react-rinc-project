@@ -34,7 +34,6 @@ const reducer = (state, action) => {
                 return {...state, sliderIndexMain: 0}
             }
             else return {...state}
-            
         }
         if (action.payload === 'sliderRecomended'){
             const lastIndex = state.featuredListRecommended.length - 1
@@ -65,9 +64,6 @@ const reducer = (state, action) => {
                 return {...state, sliderIndexRecomended: state.sliderIndexRecomended - 1}
             }
         }
-        else {
-            return {...state}
-        }
     }
 
     if (action.type === 'TOGGLE_TAB'){
@@ -89,6 +85,10 @@ const reducer = (state, action) => {
         if (action.payload.type === 'tabCurrent'){  
             return {...state, tabActives:{tabCurrent: action.payload.data}}
         }
+    }
+
+    if (action.type === 'HOVER_CURRENT_TAB_ITEM'){
+        return {...state, tabActives:{tabToggle: action.payload.toggle, tabCurrent: action.payload.id}}
     }
 
 

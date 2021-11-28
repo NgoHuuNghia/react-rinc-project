@@ -2,14 +2,16 @@ import React from 'react'
 import { FaWindows } from 'react-icons/fa'
 import { useGlobalContext } from '../../context'
 
-const Tabs = ({name, background_image, genres, id}) => {
-    const { toggleTabCurrent, tabActives } = useGlobalContext()
+const Tabs = ({toggle, name, background_image, genres, id}) => {
+    const { hoverTabItem, tabActives } = useGlobalContext()
     const { tabCurrent } = tabActives
 
     return (
         <a 
             href='/' 
-            className={ tabCurrent === id ? 'tab-item active' : 'tab-item'}>
+            className={ tabCurrent === id ? 'tab-item active' : 'tab-item'}
+            onMouseEnter={() => hoverTabItem(id, toggle)}
+        >
             <img src={background_image} alt="" />
             <div>
                 <div>
