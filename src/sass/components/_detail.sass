@@ -60,13 +60,17 @@ div.detail
                 @include flex($justify: center)
                 @include bs.from(xl)
                     justify-content: flex-end
-                *
-                    color: $fc-tag
-                >a
-                    font-size: .7em
-                    transition: .2s
-                    &:hover
-                        color: $fc-important    
+                >div
+                    @include flex($justify: center) 
+                    *
+                        color: $fc-tag
+                    >a
+                        font-size: 1em
+                        transition: .2s
+                        @include bs.from(xl)
+                            font-size: .7em
+                        &:hover
+                            color: $fc-important
             >a.trailer-main
                 margin-top: 1em
                 >img

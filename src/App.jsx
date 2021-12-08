@@ -14,31 +14,35 @@ import Error from './Pages/Error'
 
 function App() { //remember there <body> before this div
 
+  const {expandNavLink} = useGlobalContext()
+
   return (
     <>
-      <Router>
-        <Header />
-        <Switch>
+      <div id='main-container' className={expandNavLink ? 'overlay' : ''}>
+        <Router>
+          <Header />
+          <Switch>
 
-          <Route exact path='/'>
-            <Home />
-          </Route>
-          <Route path='/About'>
-            <About />
-          </Route>
-          <Route path='/Support'>
-            <Support />
-          </Route>
-          <Route path='/Detail/:id'>
-            <Detail />
-          </Route>
-          <Route path='*'>
-            <Error />
-          </Route>
+            <Route exact path='/'>
+              <Home />
+            </Route>
+            <Route path='/About'>
+              <About />
+            </Route>
+            <Route path='/Support'>
+              <Support />
+            </Route>
+            <Route path='/Detail/:id'>
+              <Detail />
+            </Route>
+            <Route path='*'>
+              <Error />
+            </Route>
 
-        </Switch>
-        <Footer />
-      </Router>
+          </Switch>
+          <Footer />
+        </Router>
+      </div>
     </>
   );
 }

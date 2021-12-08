@@ -7,7 +7,8 @@ const APIkey = '?key=8988510ce7664ac580a6c3b238a28e69'
 const AppContext = React.createContext()
 
 const initialState = {
-  loading: false,
+  loading: true,
+  expandNavLink: false,
   sliderIndexMain: (0),
   sliderIndexRecomended: (0),
   featuredList: [],
@@ -93,6 +94,10 @@ export const AppProvider = ({ children }) => {
     dispatch({type: 'HOVER_CURRENT_TAB_ITEM', payload: {id, toggle}})
   }
 
+  const ToggleNavLink = () => {
+    dispatch({type: 'TOGGLE_NAV_LINK'})
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -100,6 +105,7 @@ export const AppProvider = ({ children }) => {
         toggleIndex,
         toggleTab,
         hoverTabItem,
+        ToggleNavLink,
       }}>
         {children}
     </AppContext.Provider>

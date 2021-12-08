@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { FaWindows } from 'react-icons/fa'
 import { useGlobalContext } from '../../context'
 
-const FeaturedSlider = ({name, background_image, short_screenshots, index}) => {
+const FeaturedSlider = ({id, name, background_image, short_screenshots, index}) => {
     const { sliderIndexMain, featuredList } = useGlobalContext()
 
     let position = 'nextSlide'
@@ -14,7 +15,7 @@ const FeaturedSlider = ({name, background_image, short_screenshots, index}) => {
     }
 
     return (
-        <a href='/' className={position}>
+        <Link to={`/Detail/${id}`} className={position}>
             <img src={background_image} alt="" />
             <div>
                 <h4>{name}</h4>
@@ -40,7 +41,7 @@ const FeaturedSlider = ({name, background_image, short_screenshots, index}) => {
                     <FaWindows />
                 </div>
             </div>
-        </a>
+        </Link>
     )
 }
 

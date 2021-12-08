@@ -91,6 +91,9 @@ const reducer = (state, action) => {
         return {...state, tabActives:{tabToggle: action.payload.toggle, tabCurrent: action.payload.id}}
     }
 
+    if (action.type === 'TOGGLE_NAV_LINK'){
+        return {...state, expandNavLink: !state.expandNavLink}
+    }
 
     throw new Error('no matching type')
 }

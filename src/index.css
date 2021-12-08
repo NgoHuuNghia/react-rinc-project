@@ -36,98 +36,183 @@ html a {
   position: relative;
 }
 
-body header {
-  padding: 0.5em 1em;
+body #main-container.overlay {
+  height: 100vh;
+  overflow: hidden;
 }
-body header nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+body #main-container header {
+  position: relative;
+  background: #151515;
+  padding: 0.5em 0;
+}
+body #main-container header::after {
+  opacity: 0;
+  content: "";
+  position: absolute;
+  transition: all 0.3s linear;
+  top: 70px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+}
+body #main-container header.overlay::after {
+  opacity: 1;
+  z-index: 1;
+}
+body #main-container header.dropdown-active {
+  height: 80vh;
+}
+body #main-container header nav {
+  position: relative;
+  display: grid;
+  grid-template-rows: none;
+  grid-template-columns: repeat(8, 1fr);
   gap: 0.5em;
+  align-items: center;
 }
 @media (min-width: 1000px) {
-  body header nav {
+  body #main-container header nav {
     width: 975px;
     margin: 0 auto 0 auto;
   }
 }
-body header nav > div:nth-child(1) {
+body #main-container header nav > div:nth-child(1) {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 1em;
-  flex-grow: 1;
+  grid-column: span 1;
+  padding-left: 1em;
 }
-body header nav > div:nth-child(1) > img {
+body #main-container header nav > div:nth-child(1) > img {
   width: 3em;
 }
-body header nav > form {
+body #main-container header nav > form {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   gap: 0;
-  flex-grow: 4;
+  grid-column: span 6;
   padding: 0.2em 0;
   background-color: #313438;
   border-radius: 1em;
   transition: 0.3s;
 }
 @media (min-width: 1000px) {
-  body header nav > form {
-    flex-grow: 2;
+  body #main-container header nav > form {
+    grid-column: span 3;
   }
 }
-body header nav > form:hover {
+body #main-container header nav > form:hover {
   background-color: #f2ecff;
 }
-body header nav > form > svg {
+body #main-container header nav > form > svg {
   margin: 0 0.75em;
   color: #c6d4df;
   height: 20px;
   width: 20px;
 }
-body header nav > form > input {
+body #main-container header nav > form > input {
   width: 100%;
   background: none;
   border: none;
   color: #c6d4df;
   font-size: 1.25em;
 }
-body header nav > form:hover > input, body header nav > form:hover > svg {
+body #main-container header nav > form:hover > input, body #main-container header nav > form:hover > svg {
   color: black;
 }
-body header nav > div:nth-child(3) {
+body #main-container header nav > div:nth-child(3) {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 0.5em;
-  flex-grow: 1;
+  grid-column: span 1;
+  padding-right: 1em;
 }
 @media (min-width: 1000px) {
-  body header nav > div:nth-child(3) {
-    flex-grow: 2;
+  body #main-container header nav > div:nth-child(3) {
+    grid-column: span 4;
     gap: 1em;
   }
 }
-body header nav > div:nth-child(3) > svg {
-  height: 2.5em;
+body #main-container header nav > div:nth-child(3) #bars {
+  width: 30px;
+  height: 22.5px;
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+body #main-container header nav > div:nth-child(3) #bars span {
+  display: block;
+  position: absolute;
+  height: 4.5px;
+  width: 100%;
+  background: #9b0027;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+body #main-container header nav > div:nth-child(3) #bars span:nth-child(1) {
+  top: 0px;
+}
+body #main-container header nav > div:nth-child(3) #bars span:nth-child(2) {
+  top: 9px;
+}
+body #main-container header nav > div:nth-child(3) #bars span:nth-child(3) {
+  top: 18px;
+}
+body #main-container header nav > div:nth-child(3) #bars.open span:nth-child(1) {
+  top: 9px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+body #main-container header nav > div:nth-child(3) #bars.open span:nth-child(2) {
+  opacity: 0;
+  left: -30px;
+}
+body #main-container header nav > div:nth-child(3) #bars.open span:nth-child(3) {
+  top: 9px;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+body #main-container header nav > div:nth-child(3) #bars {
   order: 2;
 }
 @media (min-width: 1000px) {
-  body header nav > div:nth-child(3) > svg {
+  body #main-container header nav > div:nth-child(3) #bars {
     display: none;
   }
 }
-body header nav > div:nth-child(3) > ul {
+body #main-container header nav > div:nth-child(3) > ul {
   display: none;
   order: 1;
 }
 @media (min-width: 1000px) {
-  body header nav > div:nth-child(3) > ul {
+  body #main-container header nav > div:nth-child(3) > ul {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -135,22 +220,59 @@ body header nav > div:nth-child(3) > ul {
     gap: 0.8em;
   }
 }
-body header nav > div:nth-child(3) > ul > li {
+body #main-container header nav > div:nth-child(3) > ul > li {
   display: inline-block;
 }
-body header nav > div:nth-child(3) > ul > li > a {
+body #main-container header nav > div:nth-child(3) > ul > li > a {
   color: #c6d4df;
   text-transform: uppercase;
   font-size: 1.1em;
   font-weight: 700;
 }
-body header nav > div:nth-child(3) > ul > li > a:hover {
+body #main-container header nav > div:nth-child(3) > ul > li > a:hover {
   color: white;
 }
-body header nav > div:nth-child(3) > img {
+body #main-container header nav > div:nth-child(3) > img {
   height: 2.5em;
   border-radius: 25px;
   order: 1;
+}
+body #main-container header nav > div:nth-child(4) {
+  position: absolute;
+  top: 62px;
+  right: 0;
+  transition: all 0.3s linear;
+  grid-column: span 8;
+  height: 0;
+  z-index: 10;
+  overflow: hidden;
+}
+body #main-container header nav > div:nth-child(4) > ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+}
+body #main-container header nav > div:nth-child(4) > ul > li {
+  width: 60vw;
+  background: #151515;
+}
+body #main-container header nav > div:nth-child(4) > ul > li:nth-child(1n+2) {
+  border-top: 1px solid white;
+}
+body #main-container header nav > div:nth-child(4) > ul > li > a {
+  text-align: center;
+  display: block;
+  padding: 0.75em 0;
+  width: 100%;
+  height: 100%;
+  font-size: 1.3em;
+}
+@media (min-width: 1000px) {
+  body #main-container header nav > div:nth-child(4) {
+    height: 0 !important;
+  }
 }
 
 .hero {
@@ -994,6 +1116,7 @@ div.subsidiary-section div.subsidiary-container > section.tab-container > div.ta
   visibility: visible;
   opacity: 1;
   position: unset;
+  z-index: 1;
 }
 div.subsidiary-section div.subsidiary-container > section.tab-container > div.tab-list > div:not(:first-child) > a.tab-item {
   display: flex;
@@ -1011,7 +1134,7 @@ div.subsidiary-section div.subsidiary-container > section.tab-container > div.ta
   display: block;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   box-shadow: unset;
-  height: 75px;
+  height: auto;
   width: 180px;
 }
 div.subsidiary-section div.subsidiary-container > section.tab-container > div.tab-list > div:not(:first-child) > a.tab-item > div {
@@ -1095,11 +1218,10 @@ div.subsidiary-section div.subsidiary-container > section.tab-container > div.ta
 }
 div.subsidiary-section div.subsidiary-container > section.tab-container > div.tab-viewer {
   position: relative;
-  width: 35%;
 }
 div.subsidiary-section div.subsidiary-container > section.tab-container > div.tab-viewer > div {
   position: absolute;
-  width: 100%;
+  width: 360px;
   top: 0;
   right: 0;
   opacity: 0;
@@ -1151,7 +1273,7 @@ div.subsidiary-section div.subsidiary-container > section.tab-container > div.ta
   div.subsidiary-section div.subsidiary-container > section.tab-container > div.tab-viewer > div > img {
     margin-bottom: 0.25em;
     height: auto;
-    width: 305px;
+    max-width: 100%;
   }
   div.subsidiary-section div.subsidiary-container > section.tab-container > div.tab-viewer > div.active {
     opacity: 1;
@@ -1380,14 +1502,26 @@ div.detail > div.detail-desktop-primary > section.trailer > div.breadcrumbs {
     justify-content: flex-end;
   }
 }
-div.detail > div.detail-desktop-primary > section.trailer > div.breadcrumbs * {
+div.detail > div.detail-desktop-primary > section.trailer > div.breadcrumbs > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+}
+div.detail > div.detail-desktop-primary > section.trailer > div.breadcrumbs > div * {
   color: #939393;
 }
-div.detail > div.detail-desktop-primary > section.trailer > div.breadcrumbs > a {
-  font-size: 0.7em;
+div.detail > div.detail-desktop-primary > section.trailer > div.breadcrumbs > div > a {
+  font-size: 1em;
   transition: 0.2s;
 }
-div.detail > div.detail-desktop-primary > section.trailer > div.breadcrumbs > a:hover {
+@media (min-width: 1000px) {
+  div.detail > div.detail-desktop-primary > section.trailer > div.breadcrumbs > div > a {
+    font-size: 0.7em;
+  }
+}
+div.detail > div.detail-desktop-primary > section.trailer > div.breadcrumbs > div > a:hover {
   color: white;
 }
 div.detail > div.detail-desktop-primary > section.trailer > a.trailer-main {

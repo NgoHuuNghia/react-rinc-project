@@ -380,6 +380,7 @@ div.subsidiary-section
                         visibility: visible
                         opacity: 1
                         position: unset
+                        z-index: 1
                     >a.tab-item
                         @include flex($justify: flex-start)
                         background-color: $bgc-subsidiary-subtle
@@ -388,7 +389,7 @@ div.subsidiary-section
                         >img
                             @include card-img
                             box-shadow: unset
-                            height: 75px
+                            height: auto
                             width: 180px
                         >div
                             @include flex
@@ -441,10 +442,9 @@ div.subsidiary-section
 
             >div.tab-viewer
                 position: relative
-                width: 35%
                 >div
                     position: absolute
-                    width: 100%
+                    width: 360px
                     top: 0
                     right: 0
                     opacity: 0
@@ -479,7 +479,7 @@ div.subsidiary-section
                         >img
                             margin-bottom: .25em
                             height: auto
-                            width: 305px
+                            max-width: 100%
                         &.active
                             opacity: 1
                             background-color: $bgc-subsidiary-hilight
