@@ -2,13 +2,14 @@ import React, {useRef, useEffect} from 'react'
 import { FaBars, FaSearch } from 'react-icons/fa'
 import logo from '../assets/logo/rinc-white-v2.png'
 import { useGlobalContext } from '../context'
+import {useLocation} from 'react-router-dom'
+
 
 const Header = () => {
-    const {expandNavLink, ToggleNavLink} = useGlobalContext()
 
+    const {expandNavLink, ToggleNavLink} = useGlobalContext()
     const mobileNavContainerRef = useRef(null)
     const mobileNavRef = useRef(null)
-
     useEffect(() => {
     const mobileNavsHeight = mobileNavRef.current.getBoundingClientRect().height //method to get elements attributes like width, height, cordinates
     if (expandNavLink) { //if showLinks state is true then change container height to equal of the links height
@@ -19,8 +20,27 @@ const Header = () => {
     }
     }, [expandNavLink]) //run every time showLinks state changed
 
+    const location = useLocation().pathname
+    const detailHeader = () => {
+        if (location.includes('Detail')) {
+            if(expandNavLink){
+                return 'overlay'
+            }
+            if (!expandNavLink){
+                return 'transparent'
+            }
+        } else {
+            if(expandNavLink){
+                return 'overlay'
+            }
+            if (!expandNavLink){
+                return ''
+            }
+        }
+    }
+
     return (
-        <header className={expandNavLink ? 'overlay' : ''}>
+        <header className={detailHeader()}>
             <nav>
                 <div>
                     <img src={logo} alt="" />
