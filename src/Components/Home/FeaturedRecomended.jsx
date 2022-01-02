@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useGlobalContext } from '../../context'
 
-const FeaturedRecomended = ({background_image, index}) => {
+const FeaturedRecomended = ({id, background_image, index}) => {
     const { sliderIndexRecomended, featuredList } = useGlobalContext()
 
     let position = 'nextSlide'
@@ -13,7 +14,7 @@ const FeaturedRecomended = ({background_image, index}) => {
     }
     
     return (
-        <a className={position}> {/* map here 3 times */}
+        <Link to={`/Detail/${id}`} className={position}> {/* map here 3 times */}
             <div>
                 <p>"Lorem ipsum dolor sit  amet consectetur adipisicing elit. Deleniti corrupti officiis, dolorum a totam quibusdam in adipisci voluptate aspernatur architecto magni, cum sint fuga laboriosam vitae quas vel assumenda doloribus."</p>
                 <div className='movie-card-comment'>
@@ -28,7 +29,7 @@ const FeaturedRecomended = ({background_image, index}) => {
                 </div>  
             </div>
             <img src={background_image} alt="" />
-        </a>
+        </Link>
     )
 }
 

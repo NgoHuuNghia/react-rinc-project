@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Featured = ({ name, background_image }) => {
+const Featured = ({ name, id, background_image }) => {
     return (
         <div> 
-            <a href="/">
+            <Link to={`/Detail/${id}`}>
                 <img src={background_image} alt="" />
-            </a>
+            </Link>
             <h5>
                 {name}
             </h5>

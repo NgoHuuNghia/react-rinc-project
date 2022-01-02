@@ -8,10 +8,12 @@ body
             height: 100vh
             overflow: hidden
         header 
+            transition: $trs-basic
             position: relative
             background: $bgc-default
             padding: .5em 0
             &::after
+                position: relative
                 opacity: 0
                 content: ''
                 position: absolute
@@ -34,13 +36,17 @@ body
                 @include grid( $columns: repeat(8, 1fr), $gap: .5em)
                 align-items: center
                 @include bs.from(xl)
-                    width: 975px
-                    margin: 0 auto 0 auto
+                    width: 950px
+                    margin: 0 auto
+                    @include grid( $columns: repeat(16, 1fr), $gap: .5em)
                 >div:nth-child(1)
-                    @include flex($justify: center, $gap: 1em)
-                    //! flex-grow: 1
+                    @include flex($justify: center)
                     grid-column: span 1
                     padding-left: 1em
+                    @include bs.from(xl)
+                        grid-column: span 1
+                        @include flex($justify: flex-start)
+                        padding: 0
                     >img
                         width: 3em
 
@@ -54,7 +60,7 @@ body
                     transition: 0.3s
                     @include bs.from(xl)
                         //! flex-grow: 2
-                        grid-column: span 3
+                        grid-column: span 8
                     &:hover
                         background-color: $bgc-hilight    
                     >svg 
@@ -73,13 +79,12 @@ body
 
                 >div:nth-child(3)
                     @include flex($justify: center, $gap: .5em)
-                    //! flex-grow: 1
                     grid-column: span 1
                     padding-right: 1em
                     @include bs.from(xl)
-                        //! flex-grow: 2
-                        grid-column: span 4
+                        grid-column: span 7
                         gap: 1em
+                        padding-right: 0
                     @include animated-nav-bar
                     #bars
                         order: 2
@@ -111,7 +116,7 @@ body
                     transition: $trs-basic
                     grid-column: span 8
                     height: 0
-                    z-index: 10
+                    //? z-index: -2
                     overflow: hidden
                     >ul
                         @include flex($direction: column)

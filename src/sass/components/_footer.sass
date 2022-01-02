@@ -2,6 +2,8 @@
 @use "../../../node_modules/breakpoint-slicer" as bs
     
 footer
+    position: relative
+    z-index: 10
     margin-top: 1em
     padding: 1em .5em 0 .5em
     @include bs.from(xl)
@@ -42,6 +44,7 @@ footer
                 width: 11em
                 display: inline-block
                 border-bottom: 1px solid white
+                transition: $trs-basic
                 &:hover
                     background-color: $bgc-hilight
                 >a

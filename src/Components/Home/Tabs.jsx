@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import { FaWindows } from 'react-icons/fa'
 import { useGlobalContext } from '../../context'
 
@@ -7,8 +8,8 @@ const Tabs = ({toggle, name, background_image, genres, id}) => {
     const { tabCurrent } = tabActives
 
     return (
-        <a 
-            href='/' 
+        <Link 
+            to={`/Detail/${id}`}
             className={ tabCurrent === id ? 'tab-item active' : 'tab-item'}
             onMouseEnter={() => hoverTabItem(id, toggle)}
         >
@@ -35,7 +36,7 @@ const Tabs = ({toggle, name, background_image, genres, id}) => {
                     </div>
                 </div>
             </div>
-        </a>
+        </Link>
     )
 }
 

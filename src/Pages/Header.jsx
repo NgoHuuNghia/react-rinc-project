@@ -10,34 +10,54 @@ const Header = () => {
     const {expandNavLink, ToggleNavLink} = useGlobalContext()
     const mobileNavContainerRef = useRef(null)
     const mobileNavRef = useRef(null)
-    useEffect(() => {
-    const mobileNavsHeight = mobileNavRef.current.getBoundingClientRect().height //method to get elements attributes like width, height, cordinates
-    if (expandNavLink) { //if showLinks state is true then change container height to equal of the links height
-        mobileNavContainerRef.current.style.height = `${mobileNavsHeight}px`
-    }
-    else { //else default to 0px
-        mobileNavContainerRef.current.style.height = '0px'
-    }
-    }, [expandNavLink]) //run every time showLinks state changed
-
     const location = useLocation().pathname
-    const detailHeader = () => {
-        if (location.includes('Detail')) {
-            if(expandNavLink){
-                return 'overlay'
+        // useEffect(() => {
+        //     const mobileNavsHeight = mobileNavRef.current.getBoundingClientRect().height //method to get elements attributes like width, height, cordinates
+        //     if (expandNavLink) { //if showLinks state is true then change container height to equal of the links height
+        //         mobileNavContainerRef.current.style.height = `${mobileNavsHeight}px`
+        //     }
+        //     else { //else default to 0px
+        //         mobileNavContainerRef.current.style.height = '0px'
+        //     }
+        // }, [expandNavLink]) //run every time showLinks state changed
+
+        useEffect(() => {
+            const mobileNavsHeight = mobileNavRef.current.getBoundingClientRect().height
+            //height 0 and opacity 0
+            if (expandNavLink && !location.includes('Detail')) {
+                mobileNavContainerRef.current.style.height = `${mobileNavsHeight}px`
             }
-            if (!expandNavLink){
-                return 'transparent'
+            if (expandNavLink && location.includes('Detail')) {
+                mobileNavContainerRef.current.style.opacity = `1`
+                mobileNavContainerRef.current.style.zIndex = `2`
+                
             }
-        } else {
-            if(expandNavLink){
-                return 'overlay'
+            else if (!expandNavLink && location.includes('Detail')){
+                mobileNavContainerRef.current.style.height = `${mobileNavsHeight}px`
+                mobileNavContainerRef.current.style.opacity = `0`
+                mobileNavContainerRef.current.style.zIndex = `-2`
             }
-            if (!expandNavLink){
-                return ''
+            else if (!expandNavLink && !location.includes('Detail')) {
+                mobileNavContainerRef.current.style.height = '0px'
+            }
+        }, [expandNavLink]) //run every time showLinks state changed
+        const detailHeader = () => {
+            if (location.includes('Detail')) {
+                if(expandNavLink){
+                    return 'overlay'
+                }
+                if (!expandNavLink){
+                    return 'transparent'
+                }
+            } else {
+                if(expandNavLink){
+                    return 'overlay'
+                }
+                if (!expandNavLink){
+                    return ''
+                }
             }
         }
-    }
 
     return (
         <header className={detailHeader()}>
