@@ -14,9 +14,9 @@
     grid-template-rows: $rows
     grid-template-columns: $columns
     gap: $gap
-@mixin gradient($deg-gradient: 180deg, $first-gradient: $bgc-default,$first-percent: 65%, $second-gradient: $bgc-subtle, $second-percent: 100% )
-    background: $first-gradient
-    background: linear-gradient($deg-gradient, $first-gradient $first-percent, $second-gradient $second-percent)
+@mixin gradient($type: background,$deg-gradient: 180deg, $first-gradient: $bgc-default,$first-percent: 65%, $second-gradient: $bgc-subtle, $second-percent: 100% )
+    #{$type}: $first-gradient
+    #{$type}: linear-gradient($deg-gradient, $first-gradient $first-percent, $second-gradient $second-percent)
 
 @mixin animated-nav-bar
     #bars

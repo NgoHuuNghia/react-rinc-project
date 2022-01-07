@@ -199,6 +199,7 @@
                 @include bs.from(l)
                     max-width: 70vw
                 @include bs.from(xl)
+                    height: 350px
                     max-width: unset
                     flex-direction: row
                 >img
@@ -207,19 +208,27 @@
                         width: 620px
                         height: 350px
                     z-index: 1
+                //! CONTINUE TO MAKE THE DESC OVERLFOWTHING
                 >div
                     @include flex($direction: column, $justify: space-between, $align: flex-start, $gap: 2em)
                     padding: 1.25em
                     @include bs.from(xl)
                         padding: 1.75em
-                    >p
-                        @include card-text
-                        max-width: 616px // paragraph expanding workaround
+                    >div:first-child
+                        position: relative
+                        flex: 1
+                        overflow: hidden
                         display: inline-block
-                        color: $fc-important
-                        @include bs.from(xl)
-                            font-size: 1.1em
-                    >div.movie-card-comment
+                        flex-basis: 6em
+                        @include bs.from(l)
+                            height: unset
+                        >p
+                            @include card-text
+                            max-width: 616px // paragraph expanding workaround
+                            color: $fc-important
+                            @include bs.from(xl)
+                                font-size: 1.1em
+                    >div:last-child
                         @include flex($justify: flex-start)
                         >img
                             height: 42px

@@ -26,11 +26,11 @@ const Header = () => {
             //height 0 and opacity 0
             if (expandNavLink && !location.includes('Detail')) {
                 mobileNavContainerRef.current.style.height = `${mobileNavsHeight}px`
+                mobileNavContainerRef.current.style.zIndex = `2`
             }
             if (expandNavLink && location.includes('Detail')) {
                 mobileNavContainerRef.current.style.opacity = `1`
                 mobileNavContainerRef.current.style.zIndex = `2`
-                
             }
             else if (!expandNavLink && location.includes('Detail')){
                 mobileNavContainerRef.current.style.height = `${mobileNavsHeight}px`
@@ -94,7 +94,6 @@ const Header = () => {
                         <li><a href="/">Community</a></li>
                         <li><a href="/">About</a></li>
                         <li><a href="/">Support</a></li>
-
                     </ul>
                 </div>
             </nav>

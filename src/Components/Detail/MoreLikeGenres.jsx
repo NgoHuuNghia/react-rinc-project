@@ -11,7 +11,7 @@ const MoreLikeGenres = ({ genres }) => {
     useEffect(() => {
         try {
             const getGamesGenres = async () => {
-                const gameGenresResponse = await fetch(`${BasicUrl}${APIkey}&page_size=3&genres=${genres.map((item) => {return item.slug + ','})}`)
+                const gameGenresResponse = await fetch(`${BasicUrl}${APIkey}&page_size=3&genres=${genres.map((item) => {return item.slug})}`)
                 const gameGenresData = await gameGenresResponse.json()
                 const {results} = gameGenresData
                 setGames(results)
@@ -21,7 +21,7 @@ const MoreLikeGenres = ({ genres }) => {
         catch (error){
             throw new Error(error)
         }
-    }, [genres])
+    }, [])
     
     if(games){
         return (

@@ -393,21 +393,21 @@ body #main-container header nav > div:nth-child(4) > ul > li > a {
 }
 .main-section > .main-card-container > button.previous {
   left: -7%;
-  background: transparent;
-  background: linear-gradient(270deg, transparent 40%, #313438 100%);
+  270deg: 40%;
+  270deg: linear-gradient(transparent, 40% #313438, 100% 100%);
 }
 .main-section > .main-card-container > button.previous:hover {
-  background: transparent;
-  background: linear-gradient(270deg, transparent 15%, #565b61 100%);
+  270deg: 15%;
+  270deg: linear-gradient(transparent, 15% #565b61, 100% 100%);
 }
 .main-section > .main-card-container > button.next {
   right: -7%;
-  background: transparent;
-  background: linear-gradient(90deg, transparent 40%, #313438 100%);
+  90deg: 40%;
+  90deg: linear-gradient(transparent, 40% #313438, 100% 100%);
 }
 .main-section > .main-card-container > button.next:hover {
-  background: transparent;
-  background: linear-gradient(90deg, transparent 15%, #565b61 100%);
+  90deg: 15%;
+  90deg: linear-gradient(transparent, 15% #565b61, 100% 100%);
 }
 .main-section > .main-card-container > div.slider {
   box-shadow: black 0px 20px 30px -10px;
@@ -749,21 +749,21 @@ body #main-container header nav > div:nth-child(4) > ul > li > a {
 }
 .main-section > .movie-card-container > button.previous {
   left: -7%;
-  background: transparent;
-  background: linear-gradient(270deg, transparent 40%, #313438 100%);
+  270deg: 40%;
+  270deg: linear-gradient(transparent, 40% #313438, 100% 100%);
 }
 .main-section > .movie-card-container > button.previous:hover {
-  background: transparent;
-  background: linear-gradient(270deg, transparent 15%, #565b61 100%);
+  270deg: 15%;
+  270deg: linear-gradient(transparent, 15% #565b61, 100% 100%);
 }
 .main-section > .movie-card-container > button.next {
   right: -7%;
-  background: transparent;
-  background: linear-gradient(90deg, transparent 40%, #313438 100%);
+  90deg: 40%;
+  90deg: linear-gradient(transparent, 40% #313438, 100% 100%);
 }
 .main-section > .movie-card-container > button.next:hover {
-  background: transparent;
-  background: linear-gradient(90deg, transparent 15%, #565b61 100%);
+  90deg: 15%;
+  90deg: linear-gradient(transparent, 15% #565b61, 100% 100%);
 }
 .main-section > .movie-card-container > div.slider {
   box-shadow: black 0px 20px 30px -10px;
@@ -790,6 +790,7 @@ body #main-container header nav > div:nth-child(4) > ul > li > a {
 }
 @media (min-width: 1000px) {
   .main-section > .movie-card-container > div.slider > a {
+    height: 350px;
     max-width: unset;
     flex-direction: row;
   }
@@ -820,40 +821,51 @@ body #main-container header nav > div:nth-child(4) > ul > li > a {
     padding: 1.75em;
   }
 }
-.main-section > .movie-card-container > div.slider > a > div > p {
+.main-section > .movie-card-container > div.slider > a > div > div:first-child {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  display: inline-block;
+  flex-basis: 6em;
+}
+@media (min-width: 800px) {
+  .main-section > .movie-card-container > div.slider > a > div > div:first-child {
+    height: unset;
+  }
+}
+.main-section > .movie-card-container > div.slider > a > div > div:first-child > p {
   font-size: 0.85em;
   font-weight: 400;
   display: block;
   max-width: 616px;
-  display: inline-block;
   color: white;
 }
 @media (min-width: 1000px) {
-  .main-section > .movie-card-container > div.slider > a > div > p {
+  .main-section > .movie-card-container > div.slider > a > div > div:first-child > p {
     font-size: 1.1em;
   }
 }
-.main-section > .movie-card-container > div.slider > a > div > div.movie-card-comment {
+.main-section > .movie-card-container > div.slider > a > div > div:last-child {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   gap: 0;
 }
-.main-section > .movie-card-container > div.slider > a > div > div.movie-card-comment > img {
+.main-section > .movie-card-container > div.slider > a > div > div:last-child > img {
   height: 42px;
   width: 42px;
 }
-.main-section > .movie-card-container > div.slider > a > div > div.movie-card-comment > div {
+.main-section > .movie-card-container > div.slider > a > div > div:last-child > div {
   margin-left: 0.75em;
 }
-.main-section > .movie-card-container > div.slider > a > div > div.movie-card-comment > div * {
+.main-section > .movie-card-container > div.slider > a > div > div:last-child > div * {
   display: block;
 }
-.main-section > .movie-card-container > div.slider > a > div > div.movie-card-comment > div > h6 {
+.main-section > .movie-card-container > div.slider > a > div > div:last-child > div > h6 {
   font-size: 0.85em;
 }
-.main-section > .movie-card-container > div.slider > a > div > div.movie-card-comment > div > p {
+.main-section > .movie-card-container > div.slider > a > div > div:last-child > div > p {
   margin-top: 0.25em;
   font-size: 0.6em;
   font-weight: 300;
@@ -1303,7 +1315,6 @@ div.subsidiary-section div.subsidiary-container > section.tab-container > div.ta
 footer {
   position: relative;
   z-index: 10;
-  margin-top: 1em;
   padding: 1em 0.5em 0 0.5em;
 }
 @media (min-width: 1000px) {
@@ -1452,15 +1463,21 @@ footer > div > ul:nth-child(5) > li {
 
 div.detail-container div.detail-background {
   position: absolute;
-  top: 0;
   left: 0;
   width: 100%;
   height: 75vh;
   background-size: cover;
-  background-position: center top;
   background-repeat: no-repeat;
   opacity: 0.2;
   z-index: -100;
+}
+div.detail-container div.detail-background.top {
+  top: 0;
+  background-position: center top;
+}
+div.detail-container div.detail-background.bottom {
+  bottom: 0;
+  background-position: center bottom;
 }
 div.detail-container > div.breadcrumbs {
   position: relative;
@@ -1513,8 +1530,11 @@ div.detail-container > div.breadcrumbs > svg {
   }
 }
 div.detail-container div.detail {
+  position: relative;
   margin: 0 0.5em;
   position: relative;
+  overflow: hidden;
+  transition: all 0.3s linear;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1534,17 +1554,32 @@ div.detail-container div.detail {
     gap: 2em;
   }
 }
-div.detail-container div.detail > div.detail-desktop-primary {
+div.detail-container div.detail > .read-more {
+  position: absolute;
+  bottom: 0;
+  left: 1em;
+  z-index: 10;
+  color: white;
+  cursor: pointer;
+}
+div.detail-container div.detail > .read-more:hover {
+  color: #d90037 !important;
+}
+div.detail-container div.detail > div.detail-primary {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
   gap: 1em;
-  background: rgba(0, 0, 0, 0);
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(21, 21, 21, 0.75) 100%);
 }
 @media (min-width: 1000px) {
-  div.detail-container div.detail > div.detail-desktop-primary {
+  div.detail-container div.detail > div.detail-primary {
+    mask-image: rgba(0, 0, 0, 0);
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, #151515 30%);
+  }
+}
+@media (min-width: 1000px) {
+  div.detail-container div.detail > div.detail-primary {
     display: flex;
     flex-direction: column;
     justify-content: unset;
@@ -1552,55 +1587,58 @@ div.detail-container div.detail > div.detail-desktop-primary {
     gap: 1.5em;
     width: 60%;
   }
+  div.detail-container div.detail > div.detail-primary .read-more {
+    display: unset;
+  }
 }
 @media (min-width: 1000px) {
-  div.detail-container div.detail > div.detail-desktop-primary > section.trailer-mobile {
+  div.detail-container div.detail > div.detail-primary > section.trailer-mobile {
     display: none;
   }
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.trailer-mobile > * {
+div.detail-container div.detail > div.detail-primary > section.trailer-mobile > * {
   display: block;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.trailer-mobile > a.trailer-main {
+div.detail-container div.detail > div.detail-primary > section.trailer-mobile > a.trailer-main {
   margin-top: 1em;
   margin-bottom: 0.5em;
 }
 @media (min-width: 1000px) {
-  div.detail-container div.detail > div.detail-desktop-primary > section.trailer-mobile > a.trailer-main {
+  div.detail-container div.detail > div.detail-primary > section.trailer-mobile > a.trailer-main {
     margin-top: 0;
   }
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.trailer-mobile > a.trailer-main > img {
+div.detail-container div.detail > div.detail-primary > section.trailer-mobile > a.trailer-main > img {
   border-radius: 3px;
   width: 100%;
   display: block;
   box-shadow: black 0px 20px 30px -10px;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.trailer-mobile > div.trailer-slider {
+div.detail-container div.detail > div.detail-primary > section.trailer-mobile > div.trailer-slider {
   display: grid;
   grid-template-rows: none;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.5em;
 }
 @media (min-width: 1000px) {
-  div.detail-container div.detail > div.detail-desktop-primary > section.trailer-mobile > div.trailer-slider {
+  div.detail-container div.detail > div.detail-primary > section.trailer-mobile > div.trailer-slider {
     display: grid;
     grid-template-rows: none;
     grid-template-columns: 1fr 1fr;
     gap: 0.5em;
   }
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.trailer-mobile > div.trailer-slider > a {
+div.detail-container div.detail > div.detail-primary > section.trailer-mobile > div.trailer-slider > a {
   display: block;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.trailer-mobile > div.trailer-slider > a img {
+div.detail-container div.detail > div.detail-primary > section.trailer-mobile > div.trailer-slider > a img {
   border-radius: 3px;
   height: auto;
   width: 100%;
   display: block;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.trailer-mobile > div.head {
+div.detail-container div.detail > div.detail-primary > section.trailer-mobile > div.head {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1608,7 +1646,7 @@ div.detail-container div.detail > div.detail-desktop-primary > section.trailer-m
   gap: 1em;
 }
 @media (min-width: 1000px) {
-  div.detail-container div.detail > div.detail-desktop-primary > section.trailer-mobile > div.head {
+  div.detail-container div.detail > div.detail-primary > section.trailer-mobile > div.head {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -1616,7 +1654,7 @@ div.detail-container div.detail > div.detail-desktop-primary > section.trailer-m
     gap: 1em;
   }
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.trailer-mobile > div.head > div.head-release {
+div.detail-container div.detail > div.detail-primary > section.trailer-mobile > div.head > div.head-release {
   padding: 0.1em 0.4em;
   border-radius: 6px;
   background-color: #f2ecff;
@@ -1624,7 +1662,7 @@ div.detail-container div.detail > div.detail-desktop-primary > section.trailer-m
   letter-spacing: 0.1em;
   font-size: 0.9em;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.trailer-mobile > div.head > div.consoles {
+div.detail-container div.detail > div.detail-primary > section.trailer-mobile > div.head > div.consoles {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1632,7 +1670,7 @@ div.detail-container div.detail > div.detail-desktop-primary > section.trailer-m
   gap: 0.3em;
   font-size: 1.1em;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance {
+div.detail-container div.detail > div.detail-primary > section.glance {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1641,11 +1679,11 @@ div.detail-container div.detail > div.detail-desktop-primary > section.glance {
   align-items: stretch;
   color: white;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.head {
+div.detail-container div.detail > div.detail-primary > section.glance > div.head {
   display: none;
 }
 @media (min-width: 1000px) {
-  div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.head {
+  div.detail-container div.detail > div.detail-primary > section.glance > div.head {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -1654,7 +1692,7 @@ div.detail-container div.detail > div.detail-desktop-primary > section.glance > 
   }
 }
 @media (min-width: 1000px) and (min-width: 1000px) {
-  div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.head {
+  div.detail-container div.detail > div.detail-primary > section.glance > div.head {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -1663,7 +1701,7 @@ div.detail-container div.detail > div.detail-desktop-primary > section.glance > 
   }
 }
 @media (min-width: 1000px) {
-  div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.head > div.head-release {
+  div.detail-container div.detail > div.detail-primary > section.glance > div.head > div.head-release {
     padding: 0.1em 0.4em;
     border-radius: 6px;
     background-color: #f2ecff;
@@ -1673,7 +1711,7 @@ div.detail-container div.detail > div.detail-desktop-primary > section.glance > 
   }
 }
 @media (min-width: 1000px) {
-  div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.head > div.consoles {
+  div.detail-container div.detail > div.detail-primary > section.glance > div.head > div.consoles {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -1682,46 +1720,45 @@ div.detail-container div.detail > div.detail-desktop-primary > section.glance > 
     font-size: 1.1em;
   }
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > h1 {
-  white-space: nowrap;
+div.detail-container div.detail > div.detail-primary > section.glance > h1 {
   letter-spacing: 0.05em;
   font-size: 2.5em;
 }
 @media (min-width: 1000px) {
-  div.detail-container div.detail > div.detail-desktop-primary > section.glance > h1 {
+  div.detail-container div.detail > div.detail-primary > section.glance > h1 {
     font-size: 4em;
   }
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.glance-info {
+div.detail-container div.detail > div.detail-primary > section.glance > div.glance-info {
   display: grid;
   grid-template-rows: none;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 0.2em;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.glance-info > p:not(p:last-child) {
+div.detail-container div.detail > div.detail-primary > section.glance > div.glance-info > p:not(p:last-child) {
   grid-column: span 1;
   color: white;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.glance-info > a {
+div.detail-container div.detail > div.detail-primary > section.glance > div.glance-info > a {
   grid-column: span 2;
   color: #6dc849;
   transition: 0.2s;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.glance-info > a:hover {
+div.detail-container div.detail > div.detail-primary > section.glance > div.glance-info > a:hover {
   color: #d90037;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.glance-info > p:last-child {
+div.detail-container div.detail > div.detail-primary > section.glance > div.glance-info > p:last-child {
   grid-column: span 2;
   color: white;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.tag-container > p {
+div.detail-container div.detail > div.detail-primary > section.glance > div.tag-container > p {
   font-size: 1.2em;
   color: #939393;
   margin-bottom: 0.5em;
   text-transform: uppercase;
   display: block;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.tag-container > div {
+div.detail-container div.detail > div.detail-primary > section.glance > div.tag-container > div {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -1730,7 +1767,7 @@ div.detail-container div.detail > div.detail-desktop-primary > section.glance > 
   gap: 0.5em;
   overflow: hidden;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.tag-container > div > a {
+div.detail-container div.detail > div.detail-primary > section.glance > div.tag-container > div > a {
   padding: 0.5em 1.25em;
   border-radius: 0.5em;
   font-size: 0.9em;
@@ -1739,18 +1776,18 @@ div.detail-container div.detail > div.detail-desktop-primary > section.glance > 
   transition: 0.2s;
   white-space: nowrap;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.tag-container > div > a:hover {
+div.detail-container div.detail > div.detail-primary > section.glance > div.tag-container > div > a:hover {
   background-color: #c0bbca;
   color: #302c3a;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.ratings-container {
+div.detail-container div.detail > div.detail-primary > section.glance > div.ratings-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: normal;
   gap: 1em;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > p {
+div.detail-container div.detail > div.detail-primary > section.glance > div.ratings-container > p {
   font-size: 1.2em;
   color: #939393;
   margin-bottom: 0.5em;
@@ -1759,14 +1796,14 @@ div.detail-container div.detail > div.detail-desktop-primary > section.glance > 
   margin: 0;
   width: 100%;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings {
+div.detail-container div.detail > div.detail-primary > section.glance > div.ratings-container > div.ratings {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 0;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) {
+div.detail-container div.detail > div.detail-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) {
   flex-grow: 2;
   display: grid;
   grid-template-rows: none;
@@ -1775,7 +1812,7 @@ div.detail-container div.detail > div.detail-desktop-primary > section.glance > 
   row-gap: 0.25em;
   text-align: center;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) > div:nth-child(1) {
+div.detail-container div.detail > div.detail-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) > div:nth-child(1) {
   grid-column: 1/span 2;
   display: flex;
   flex-direction: row;
@@ -1783,39 +1820,40 @@ div.detail-container div.detail > div.detail-desktop-primary > section.glance > 
   align-items: center;
   gap: 0.3em;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) > div:nth-child(1) > h4 {
+div.detail-container div.detail > div.detail-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) > div:nth-child(1) > h4 {
   text-transform: capitalize;
   font-size: 1.3em;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) > div:nth-child(1) > img {
+div.detail-container div.detail > div.detail-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) > div:nth-child(1) > img {
   width: 2.5em;
   height: auto;
+  margin-bottom: 0.25em;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) > div:nth-child(2) {
+div.detail-container div.detail > div.detail-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) > div:nth-child(2) {
   grid-column: 1/span 2;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) a {
+div.detail-container div.detail > div.detail-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) a {
   color: #4c565d;
   text-transform: uppercase;
   font-size: 1.1em;
   text-decoration: underline;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) a:hover {
+div.detail-container div.detail > div.detail-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) a:hover {
   color: #c6d4df;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) > p {
+div.detail-container div.detail > div.detail-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) > p {
   font-size: 1.2em;
 }
 @media (min-width: 1000px) {
-  div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) > p {
+  div.detail-container div.detail > div.detail-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(1) > p {
     display: none;
   }
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(2) {
+div.detail-container div.detail > div.detail-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(2) {
   display: none;
 }
 @media (min-width: 1000px) {
-  div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(2) {
+  div.detail-container div.detail > div.detail-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(2) {
     display: grid;
     grid-template-rows: none;
     grid-template-columns: 1fr 1fr 1fr;
@@ -1825,23 +1863,23 @@ div.detail-container div.detail > div.detail-desktop-primary > section.glance > 
     border-right: 1px solid #4c565d;
   }
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(2) > p {
+div.detail-container div.detail > div.detail-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(2) > p {
   grid-column: span 1;
   font-size: 1.6em;
   text-align: right;
   padding-right: 0.25em;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(2) > a {
+div.detail-container div.detail > div.detail-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(2) > a {
   grid-column: span 2;
   color: #4c565d;
   text-transform: uppercase;
   text-decoration: underline;
   font-size: 1.4em;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(2) > a:hover {
+div.detail-container div.detail > div.detail-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(2) > a:hover {
   color: #c6d4df;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(3) {
+div.detail-container div.detail > div.detail-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(3) {
   flex-grow: 2;
   display: flex;
   flex-direction: column;
@@ -1850,154 +1888,194 @@ div.detail-container div.detail > div.detail-desktop-primary > section.glance > 
   gap: 0;
   gap: 0.4em;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(3) > h4 {
+div.detail-container div.detail > div.detail-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(3) > h4 {
   font-size: 1.2em;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(3) > p {
+div.detail-container div.detail > div.detail-primary > section.glance > div.ratings-container > div.ratings > div:nth-child(3) > p {
   font-size: 1.4em;
   padding: 0.3em;
   color: #6dc849;
   border-radius: 0.2em;
   border: 1px solid rgba(109, 200, 73, 0.4);
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.glance-about {
+div.detail-container div.detail > div.detail-primary > section.glance > div.glance-about {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   gap: 0.3em;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.glance-about > p:first-child {
+div.detail-container div.detail > div.detail-primary > section.glance > div.glance-about > h4 {
   font-size: 1.2em;
   color: #939393;
   margin-bottom: 0.5em;
   text-transform: uppercase;
   display: block;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.glance-about > p:not(p:first-child) {
+div.detail-container div.detail > div.detail-primary > section.glance > div.glance-about > p {
   line-height: 1.3em;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.glance-about > h3 {
+div.detail-container div.detail > div.detail-primary > section.glance > div.glance-about > h3 {
   color: #939393;
   display: block;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.glance-general {
+div.detail-container div.detail > div.detail-primary > section.glance > div.glance-general {
   display: grid;
   grid-template-rows: none;
   grid-template-columns: 1fr 1fr;
   gap: 1em;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.glance-general > div > p:first-child {
+div.detail-container div.detail > div.detail-primary > section.glance > div.glance-general > div > p:first-child {
   color: #939393;
   display: block;
   font-size: 1.1em;
   padding-bottom: 0.5em;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.glance-general > div > p:last-child {
+div.detail-container div.detail > div.detail-primary > section.glance > div.glance-general > div > p:last-child {
   display: block;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.glance-general > .linkables > div {
+div.detail-container div.detail > div.detail-primary > section.glance > div.glance-general > .linkables > div {
   line-height: 1.5em;
   word-spacing: 0.15em;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.glance-general > .linkables > div > span {
+div.detail-container div.detail > div.detail-primary > section.glance > div.glance-general > .linkables > div > span {
   transition: all 0.3s linear;
   padding-bottom: 0.1px;
   border-bottom: 2px solid #939393;
   cursor: pointer;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.glance-general > .linkables > div > span:hover {
+div.detail-container div.detail > div.detail-primary > section.glance > div.glance-general > .linkables > div > span:hover {
   color: #4c565d;
   border-bottom: 2px solid #4c565d;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.glance-general > .linkables > div > strong {
+div.detail-container div.detail > div.detail-primary > section.glance > div.glance-general > .linkables > div > strong {
   cursor: default;
 }
-div.detail-container div.detail > div.detail-desktop-primary > section.glance > div.glance-general > .glance-tags {
+div.detail-container div.detail > div.detail-primary > section.glance > div.glance-general > .glance-tags {
   grid-column: span 2;
 }
-div.detail-container div.detail > div.detail-desktop-secondary {
+div.detail-container div.detail > div.detail-primary > section.glance > div.glance-system {
+  margin-bottom: 1em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  gap: 1.5em;
+  gap: 0.75em;
 }
 @media (min-width: 1000px) {
-  div.detail-container div.detail > div.detail-desktop-secondary {
+  div.detail-container div.detail > div.detail-primary > section.glance > div.glance-system {
+    padding-bottom: 1em;
+  }
+}
+div.detail-container div.detail > div.detail-primary > section.glance > div.glance-system > h2 {
+  font-size: 1.2em;
+  color: #939393;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  display: block;
+}
+div.detail-container div.detail > div.detail-primary > section.glance > div.glance-system > div > strong {
+  color: #939393;
+  display: block;
+  margin-bottom: 0.5em;
+}
+div.detail-container div.detail > div.detail-primary > section.glance > div.glance-system > div > div > p {
+  font-size: 0.9em;
+}
+div.detail-container div.detail > div.detail-secondary {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 0;
+}
+@media (min-width: 1000px) {
+  div.detail-container div.detail > div.detail-secondary {
     display: flex;
     flex-direction: column;
     justify-content: unset;
     align-items: stretch;
-    gap: 1em;
+    gap: 0;
     width: 40%;
   }
 }
-div.detail-container div.detail > div.detail-desktop-secondary > section.trailer-desktop {
+div.detail-container div.detail > div.detail-secondary > div.height-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1em;
+}
+@media (min-width: 1000px) {
+  div.detail-container div.detail > div.detail-secondary > div.height-container {
+    gap: 1.5em;
+  }
+}
+div.detail-container div.detail > div.detail-secondary > div.height-container > section.trailer-desktop {
   display: none;
 }
 @media (min-width: 1000px) {
-  div.detail-container div.detail > div.detail-desktop-secondary > section.trailer-desktop {
+  div.detail-container div.detail > div.detail-secondary > div.height-container > section.trailer-desktop {
     display: unset;
   }
 }
-div.detail-container div.detail > div.detail-desktop-secondary > section.trailer-desktop > * {
+div.detail-container div.detail > div.detail-secondary > div.height-container > section.trailer-desktop > * {
   display: block;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > section.trailer-desktop > a.trailer-main {
+div.detail-container div.detail > div.detail-secondary > div.height-container > section.trailer-desktop > a.trailer-main {
   margin-top: 1em;
   margin-bottom: 0.5em;
 }
 @media (min-width: 1000px) {
-  div.detail-container div.detail > div.detail-desktop-secondary > section.trailer-desktop > a.trailer-main {
+  div.detail-container div.detail > div.detail-secondary > div.height-container > section.trailer-desktop > a.trailer-main {
     margin-top: 0;
   }
 }
-div.detail-container div.detail > div.detail-desktop-secondary > section.trailer-desktop > a.trailer-main > img {
+div.detail-container div.detail > div.detail-secondary > div.height-container > section.trailer-desktop > a.trailer-main > img {
   border-radius: 3px;
   width: 100%;
   display: block;
   box-shadow: black 0px 20px 30px -10px;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > section.trailer-desktop > div.trailer-slider {
+div.detail-container div.detail > div.detail-secondary > div.height-container > section.trailer-desktop > div.trailer-slider {
   display: grid;
   grid-template-rows: none;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.5em;
 }
 @media (min-width: 1000px) {
-  div.detail-container div.detail > div.detail-desktop-secondary > section.trailer-desktop > div.trailer-slider {
+  div.detail-container div.detail > div.detail-secondary > div.height-container > section.trailer-desktop > div.trailer-slider {
     display: grid;
     grid-template-rows: none;
     grid-template-columns: 1fr 1fr;
     gap: 0.5em;
   }
 }
-div.detail-container div.detail > div.detail-desktop-secondary > section.trailer-desktop > div.trailer-slider > a {
+div.detail-container div.detail > div.detail-secondary > div.height-container > section.trailer-desktop > div.trailer-slider > a {
   display: block;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > section.trailer-desktop > div.trailer-slider > a img {
+div.detail-container div.detail > div.detail-secondary > div.height-container > section.trailer-desktop > div.trailer-slider > a img {
   border-radius: 3px;
   height: auto;
   width: 100%;
   display: block;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
   gap: 1.5em;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.stores-container > p {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.stores-container > p {
   font-size: 1.2em;
   color: #939393;
   margin-bottom: 0.5em;
   text-transform: uppercase;
   display: block;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.stores-container > div {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.stores-container > div {
   overflow-x: auto;
   display: flex;
   flex-direction: row;
@@ -2007,7 +2085,7 @@ div.detail-container div.detail > div.detail-desktop-secondary > div.interaction
   flex-wrap: nowrap;
   scrollbar-width: none !important;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.stores-container > div > a {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.stores-container > div > a {
   min-width: 32%;
   display: flex;
   flex-direction: row;
@@ -2021,47 +2099,47 @@ div.detail-container div.detail > div.detail-desktop-secondary > div.interaction
   cursor: pointer;
   transition: 0.2s;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.stores-container > div > a:hover {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.stores-container > div > a:hover {
   background-color: #c0bbca;
   color: #302c3a;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.stores-container > div > a > h4 {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.stores-container > div > a > h4 {
   text-transform: capitalize;
   font-size: 0.9em;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.stores-container > div > a > svg {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.stores-container > div > a > svg {
   font-size: 1.5em;
 }
 @media (min-width: 1000px) {
-  div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.stores-container > div {
+  div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.stores-container > div {
     display: grid;
     grid-template-rows: none;
     grid-template-columns: 1fr 1fr;
     gap: 1em;
   }
-  div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.stores-container > div > a {
+  div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.stores-container > div > a {
     min-width: none;
     padding: 0.4em 0;
   }
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.chart-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
   gap: 0.5em;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > p {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.chart-container > p {
   color: #939393;
   display: block;
   align-self: flex-start;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.chart-container > div.chart {
   margin: 0.25em 0 1em 0;
   width: 100%;
   height: 3em;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart > div {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.chart-container > div.chart > div {
   height: 100%;
   width: 25%;
   display: inline-block;
@@ -2070,45 +2148,45 @@ div.detail-container div.detail > div.detail-desktop-secondary > div.interaction
   transition: all 0.2s linear;
   cursor: pointer;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart > div > img {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.chart-container > div.chart > div > img {
   height: auto;
   width: 3.5em;
   position: absolute;
   bottom: -0.75em;
   left: -1em;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart .active {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.chart-container > div.chart .active {
   box-shadow: white 0 1px 10px;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart > .exceptional {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.chart-container > div.chart > .exceptional {
   background-image: linear-gradient(180deg, #b4ec51, #429321);
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart > .exceptional > img {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.chart-container > div.chart > .exceptional > img {
   bottom: -0.5em;
   left: -0.5em;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart > .recommended {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.chart-container > div.chart > .recommended {
   background-image: linear-gradient(1800deg, #4354b9, #649bff);
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart > .meh {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.chart-container > div.chart > .meh {
   background-image: linear-gradient(180deg, #fad961, #f76b1c);
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart > .skip {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.chart-container > div.chart > .skip {
   background-image: linear-gradient(180deg, #ff5764, #f11a2a);
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart > div:first-child {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.chart-container > div.chart > div:first-child {
   border-radius: 0.5em 0 0 0.5em;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart > div:last-child {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.chart-container > div.chart > div:last-child {
   border-radius: 0 0.5em 0.5em 0;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart-label {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.chart-container > div.chart-label {
   display: grid;
   grid-template-rows: none;
   grid-template-columns: 1fr 1fr;
   gap: 0;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart-label > div {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.chart-container > div.chart-label > div {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -2121,47 +2199,47 @@ div.detail-container div.detail > div.detail-desktop-secondary > div.interaction
   transition: all 0.2s linear;
   cursor: pointer;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart-label > div > * {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.chart-container > div.chart-label > div > * {
   display: inline;
   font-size: 0.9em;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart-label > div > p {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.chart-container > div.chart-label > div > p {
   color: #4c565d;
   text-transform: capitalize;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart-label .active {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.chart-container > div.chart-label .active {
   border: 3px solid #c0bbca;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart-label .active > p {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.chart-container > div.chart-label .active > p {
   color: white;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart-label > .exceptional > svg {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.chart-container > div.chart-label > .exceptional > svg {
   color: #429321;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart-label > .recommended > svg {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.chart-container > div.chart-label > .recommended > svg {
   color: #4354b9;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart-label > .meh > svg {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.chart-container > div.chart-label > .meh > svg {
   color: #f76b1c;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > div.chart-container > div.chart-label > .skip > svg {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > div.chart-container > div.chart-label > .skip > svg {
   color: #f11a2a;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
   gap: 1em;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-action {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-action {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 0;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-action > a {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-action > a {
   padding: 0.5em 0.75em 0.5em 0.5em;
   background-color: #6f001c;
   display: flex;
@@ -2171,25 +2249,25 @@ div.detail-container div.detail > div.detail-desktop-secondary > div.interaction
   gap: 0;
   transition: 0.2s;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-action > a > svg {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-action > a > svg {
   margin: auto;
   font-size: 1.5em;
   color: #c6d4df;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-action > a:hover {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-action > a:hover {
   background-color: #c0bbca;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-action > a:hover > svg {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-action > a:hover > svg {
   color: #302c3a;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-play {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-play {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
   gap: 1em;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-play > div {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-play > div {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -2199,7 +2277,7 @@ div.detail-container div.detail > div.detail-desktop-secondary > div.interaction
   background: linear-gradient(60deg, #6f001c 5%, #3f0010 95%);
   padding: 1.25em;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-play > div > div:nth-child(1) {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-play > div > div:nth-child(1) {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -2208,10 +2286,10 @@ div.detail-container div.detail > div.detail-desktop-secondary > div.interaction
   width: 100%;
   margin-bottom: 0.75em;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-play > div > div:nth-child(1) > h5 {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-play > div > div:nth-child(1) > h5 {
   font-size: 1em;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-play > div > div:nth-child(2) {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-play > div > div:nth-child(2) {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -2222,44 +2300,44 @@ div.detail-container div.detail > div.detail-desktop-secondary > div.interaction
   overflow: hidden;
   border-radius: 4px;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-play > div > div:nth-child(2) > * {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-play > div > div:nth-child(2) > * {
   display: inline-block;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-play > div > div:nth-child(2) > p {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-play > div > div:nth-child(2) > p {
   padding: 0 0.5em;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-play > div > div:nth-child(2) > a {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-play > div > div:nth-child(2) > a {
   padding: 0.5em;
   background-color: #4c6b22;
   color: #a4d007;
   border: 4px solid black;
   transition: 0.2s;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-play > div > div:nth-child(2) > a:hover {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-play > div > div:nth-child(2) > a:hover {
   background-color: #c0bbca;
   color: #302c3a;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-play > div.play-demo {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-play > div.play-demo {
   background: linear-gradient(60deg, rgba(117, 176, 34, 0.7) 5%, rgba(88, 138, 27, 0.6) 95%);
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-play > div.play-demo > div:nth-child(2) {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-play > div.play-demo > div:nth-child(2) {
   display: none;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-dlc {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
   gap: 0.5em;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(1) {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-dlc > div:nth-child(1) {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 0;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(1) > p {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-dlc > div:nth-child(1) > p {
   font-size: 1.2em;
   color: #939393;
   margin-bottom: 0.5em;
@@ -2267,23 +2345,23 @@ div.detail-container div.detail > div.detail-desktop-secondary > div.interaction
   display: block;
   margin: 0;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(1) > a {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-dlc > div:nth-child(1) > a {
   font-size: 0.9em;
   color: #c6d4df;
   padding: 0.5em 0.75em;
   border: 1px #313438 solid;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(1) > a:hover {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-dlc > div:nth-child(1) > a:hover {
   border: 1px #f2ecff solid;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(2) {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-dlc > div:nth-child(2) {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
   gap: 0.2em;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(2) > a {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-dlc > div:nth-child(2) > a {
   background: #6f001c;
   background: linear-gradient(60deg, #6f001c 5%, #3f0010 95%);
   display: flex;
@@ -2293,28 +2371,28 @@ div.detail-container div.detail > div.detail-desktop-secondary > div.interaction
   gap: 0;
   padding: 0.75em;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(2) > a > * {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-dlc > div:nth-child(2) > a > * {
   display: inline-block;
   font-size: 0.85em;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(2) > a > h6 {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-dlc > div:nth-child(2) > a > h6 {
   color: #939393;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(2) > a > p {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-dlc > div:nth-child(2) > a > p {
   color: #c6d4df;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(3) {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-dlc > div:nth-child(3) {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
   gap: 0.5em;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(3) > p {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-dlc > div:nth-child(3) > p {
   font-size: 1.1em;
   color: #939393;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(3) > a {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-dlc > div:nth-child(3) > a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -2324,52 +2402,23 @@ div.detail-container div.detail > div.detail-desktop-secondary > div.interaction
   background-color: #6f001c;
   color: #c6d4df;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(3) > a:hover {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-dlc > div:nth-child(3) > a:hover {
   background-color: #8b0023;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(3) > a > p {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-dlc > div:nth-child(3) > a > p {
   font-size: 0.9em;
 }
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.action > div.action-dlc > div:nth-child(3) > a > svg {
+div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-dlc > div:nth-child(3) > a > svg {
   font-size: 1.2em;
-}
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.system {
-  margin-bottom: 1em;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
-  gap: 0.75em;
-}
-@media (min-width: 1000px) {
-  div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.system {
-    padding-bottom: 1em;
-    border-bottom: 1px solid #c0bbca;
-  }
-}
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.system > h3 {
-  font-size: 1.2em;
-  color: #939393;
-  margin-bottom: 0.5em;
-  text-transform: uppercase;
-  display: block;
-}
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.system > div > strong {
-  color: #939393;
-  display: block;
-  margin-bottom: 0.5em;
-}
-div.detail-container div.detail > div.detail-desktop-secondary > div.interaction > section.system > div > div > p {
-  font-size: 0.9em;
 }
 div.detail-container > div.recommendations {
-  margin: 0 0.5em;
+  margin: 1em 0.5em;
   position: relative;
 }
 @media (min-width: 600px) {
   div.detail-container > div.recommendations {
     width: 575px;
-    margin: 0 auto;
+    margin: 1.5em auto;
   }
 }
 @media (min-width: 1000px) {

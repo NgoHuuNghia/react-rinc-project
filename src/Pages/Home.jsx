@@ -5,10 +5,11 @@ import FeaturedRecomended from '../Components/Home/FeaturedRecomended'
 import FeaturedSim from '../Components/Home/FeaturedSim'
 import Tabs from '../Components/Home/Tabs'
 import TabViewer from '../Components/Home/TabViewer'
+
 import { FaChevronLeft, FaChevronRight, FaWindows } from 'react-icons/fa'
 import { useGlobalContext } from '../context'
 
-const Home = () => {
+const Home = () => { //! since all these states are loaded using context it might give better performace and less buggy
     const { 
         featuredList, 
         featuredListRecent, 
@@ -18,7 +19,7 @@ const Home = () => {
         tabActives,
         toggleTab,
     } = useGlobalContext()
-    const { tabToggle, tabCurrent } = tabActives
+    const { tabToggle } = tabActives
 
     //? Types
     const sliderMain = 'sliderMain'
