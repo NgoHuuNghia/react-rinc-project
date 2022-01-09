@@ -4,12 +4,13 @@ import { FaWindows } from 'react-icons/fa'
 import { useGlobalContext } from '../../context'
 
 const Tabs = ({toggle, name, background_image, genres, id}) => {
-    const { hoverTabItem, tabActives } = useGlobalContext()
+    const { hoverTabItem, tabActives, ToTop } = useGlobalContext()
     const { tabCurrent } = tabActives
 
     return (
         <Link 
             to={`/Detail/${id}`}
+            onClick={() => ToTop()}
             className={ tabCurrent === id ? 'tab-item active' : 'tab-item'}
             onMouseEnter={() => hoverTabItem(id, toggle)}
         >

@@ -4,7 +4,7 @@ import { FaWindows } from 'react-icons/fa'
 import { useGlobalContext } from '../../context'
 
 const FeaturedSlider = ({id, name, background_image, short_screenshots, index}) => {
-    const { sliderIndexMain, featuredList } = useGlobalContext()
+    const { sliderIndexMain, featuredList, ToTop } = useGlobalContext()
 
     let position = 'nextSlide'
     if (index === sliderIndexMain) {
@@ -15,7 +15,7 @@ const FeaturedSlider = ({id, name, background_image, short_screenshots, index}) 
     }
 
     return (
-        <Link to={`/Detail/${id}`} className={position}>
+        <Link to={`/Detail/${id}`} onClick={() => ToTop()} className={position}>
             <img src={background_image} alt="" />
             <div>
                 <h4>{name}</h4>

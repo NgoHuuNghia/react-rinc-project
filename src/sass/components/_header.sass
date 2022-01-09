@@ -39,6 +39,7 @@ body
                     width: 950px
                     margin: 0 auto
                     @include grid( $columns: repeat(16, 1fr), $gap: .5em)
+
                 >div:nth-child(1)
                     @include flex($justify: center)
                     grid-column: span 1
@@ -47,8 +48,9 @@ body
                         grid-column: span 1
                         @include flex($justify: flex-start)
                         padding: 0
-                    >img
-                        width: 3em
+                    >a
+                        >img
+                            width: 3.5em
 
                 >form
                     @include flex($justify: space-around)

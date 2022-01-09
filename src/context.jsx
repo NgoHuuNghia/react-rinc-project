@@ -98,6 +98,8 @@ export const AppProvider = ({ children }) => {
     dispatch({type: 'TOGGLE_NAV_LINK'})
   }
 
+  const ToTop = () => window.scrollTo(0, 0)
+
   return (
     <AppContext.Provider
       value={{
@@ -106,6 +108,7 @@ export const AppProvider = ({ children }) => {
         toggleTab,
         hoverTabItem,
         ToggleNavLink,
+        ToTop,
       }}>
         {children}
     </AppContext.Provider>

@@ -13,7 +13,6 @@ import Error from './Pages/Error'
 //? import common components
 
 function App() { //remember there <body> before this div
-
   const {expandNavLink} = useGlobalContext()
 
   return (
@@ -33,7 +32,7 @@ function App() { //remember there <body> before this div
               <Support />
             </Route>
             <Route path='/Detail/:id'>
-              <Detail />
+              <Detail />{/*//! no idea how to give gameDetail a key here */}
             </Route>
             <Route path='*'>
               <Error />

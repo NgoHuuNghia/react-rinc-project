@@ -222,6 +222,7 @@
                         flex-basis: 6em
                         @include bs.from(l)
                             height: unset
+                            @include gradient($type: mask-image, $deg-gradient: to top, $first-gradient: $bgc-transparent ,$first-percent: 0%, $second-gradient: $bgc-default, $second-percent: 30% )
                         >p
                             @include card-text
                             max-width: 616px // paragraph expanding workaround

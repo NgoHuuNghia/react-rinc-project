@@ -7,7 +7,7 @@ const detailUrl = 'https://api.rawg.io/api/games/'
 const APIkey = '?key=8988510ce7664ac580a6c3b238a28e69'
 
 const FeaturedRecomended = ({id, background_image, index}) => {
-    const { sliderIndexRecomended, featuredList } = useGlobalContext()
+    const { sliderIndexRecomended, featuredList, ToTop } = useGlobalContext()
     const [ desc, setDesc ] = useState()
 
     useEffect(() => {
@@ -27,7 +27,7 @@ const FeaturedRecomended = ({id, background_image, index}) => {
         position = 'lastSlide'
     }
     return (
-        <Link to={`/Detail/${id}`} className={position}> {/* map here 3 times */}
+        <Link to={`/Detail/${id}`} onClick={() => ToTop()} className={position}> {/* map here 3 times */}
             <div>
                 <div>
                     {desc ? parse(desc) : "loading description"}

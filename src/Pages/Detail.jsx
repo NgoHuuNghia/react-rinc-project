@@ -10,7 +10,7 @@ import DetailAgeRating from '../Components/Detail/DetailAgeRating'
 import ratingIcons from '../assets/logo/ratingIcons'
 import storeIcons from '../assets/logo/storeIcons'
 
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import {
     FaChevronRight, FaWindows, FaFlag, FaShareAlt, FaCircle, FaStopCircle //? general icons
 } from 'react-icons/fa'
@@ -68,21 +68,33 @@ const GameDetail = () => {
             platforms, stores, developers, genres, tags, publishers, esrb_rating
         } = detail
         
+        let readMoreDecider = () => null
         if(detailContainer.current !== null){
-            const secondaryHeight = detailContainer.current.children[1].children[0].getBoundingClientRect().height
+            let primaryHeight = detailContainer.current.children[0].children[1].getBoundingClientRect().height
+            let secondaryHeight = detailContainer.current.children[1].children[0].getBoundingClientRect().height
+            let primaryMask = detailContainer.current.children[0]
+            let primaryReadMore = detailContainer.current.children[2]
+            
             if(windowWidth < 1000) detailContainer.current.style.height = ``
             if(windowWidth >= 1000){
                 if(!readMore) {
                     detailContainer.current.style.height = `${secondaryHeight}px`
-                    detailContainer.current.children[0].style.maskImage = `linear-gradient(to top, rgba(0, 0, 0, 0) 0%, #151515 30%)`}
-                    detailContainer.current.children[2].style.color = 'white'
+                    primaryMask.style.maskImage = (primaryHeight > secondaryHeight) ? `linear-gradient(to top, rgba(0, 0, 0, 0) 0%, #151515 30%)`: 'none'}
+                    primaryReadMore.style.color = 'white'
                 if(readMore) {
-                    detailContainer.current.style.height = (detailContainer.current.children[0].children[1].getBoundingClientRect().height + 30) + 'px'
-                    detailContainer.current.children[2].style.color = '#9b0027'
-                    detailContainer.current.children[0].style.maskImage = `none`}
+                    detailContainer.current.style.height = (primaryHeight + 30) + 'px'
+                    primaryReadMore.style.color = '#9b0027'
+                    primaryMask.style.maskImage = `none`}
+            }
+
+            readMoreDecider = () => {
+                if(primaryHeight > secondaryHeight){
+                    if(!readMore) return 'Read more...'
+                    else return 'Collapse...'
+                }
+                else return null
             }
         }
-        
 
         const returnRatingIcon = (index, chart, percent) => {
             let ratingIcon = ''
@@ -435,7 +447,7 @@ const GameDetail = () => {
                         </div>
                     </div>
 
-                    <p className='read-more' onClick={() => setReadMore(!readMore)}>{!readMore ? 'Read more...' : 'Collapse...'}</p>
+                    <p className='read-more' onClick={() => setReadMore(!readMore)}>{readMoreDecider()}</p>
                 </div>
                 <div className='recommendations'>
                     <section className="recommended">

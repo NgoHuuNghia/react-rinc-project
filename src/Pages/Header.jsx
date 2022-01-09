@@ -2,24 +2,15 @@ import React, {useRef, useEffect} from 'react'
 import { FaBars, FaSearch } from 'react-icons/fa'
 import logo from '../assets/logo/rinc-white-v2.png'
 import { useGlobalContext } from '../context'
-import {useLocation} from 'react-router-dom'
+import {useLocation, Link} from 'react-router-dom'
 
 
 const Header = () => {
 
-    const {expandNavLink, ToggleNavLink} = useGlobalContext()
+    const {expandNavLink, ToggleNavLink, ToTop} = useGlobalContext()
     const mobileNavContainerRef = useRef(null)
     const mobileNavRef = useRef(null)
     const location = useLocation().pathname
-        // useEffect(() => {
-        //     const mobileNavsHeight = mobileNavRef.current.getBoundingClientRect().height //method to get elements attributes like width, height, cordinates
-        //     if (expandNavLink) { //if showLinks state is true then change container height to equal of the links height
-        //         mobileNavContainerRef.current.style.height = `${mobileNavsHeight}px`
-        //     }
-        //     else { //else default to 0px
-        //         mobileNavContainerRef.current.style.height = '0px'
-        //     }
-        // }, [expandNavLink]) //run every time showLinks state changed
 
         useEffect(() => {
             const mobileNavsHeight = mobileNavRef.current.getBoundingClientRect().height
@@ -63,7 +54,7 @@ const Header = () => {
         <header className={detailHeader()}>
             <nav>
                 <div>
-                    <img src={logo} alt="" />
+                    <Link to='/' onClick={() => ToTop()}><img src={logo} alt="" /></Link>
                 </div>
                 <form action="">
                     <FaSearch />
@@ -80,20 +71,20 @@ const Header = () => {
                         <span></span>
                     </div>
                     <ul>
-                        <li><a href="/">Store</a></li>
-                        <li><a href="/">Community</a></li>
-                        <li><a href="/">About</a></li>
-                        <li><a href="/">Support</a></li>
+                        <li><Link to='/' onClick={() => ToTop()}>Store</Link></li>
+                        <li><Link to='/' onClick={() => ToTop()}>Community</Link></li>
+                        <li><Link to='/' onClick={() => ToTop()}>About</Link></li>
+                        <li><Link to='/' onClick={() => ToTop()}>Support</Link></li>
                     </ul>
                     <img src="https://media.rawg.io/media/resize/80/-/avatars/654/6549f85d93a1b4653d6030fe6bd407bf.jpg" alt="avatar" />
                 </div>
                 <div ref={mobileNavContainerRef}>
                     <ul ref={mobileNavRef}>
-                        <li><a href="/">Login / Signup</a></li>
-                        <li><a href="/">Store</a></li>
-                        <li><a href="/">Community</a></li>
-                        <li><a href="/">About</a></li>
-                        <li><a href="/">Support</a></li>
+                        <li><Link to='/' onClick={() => ToTop()}>Login / Signup</Link></li>
+                        <li><Link to='/' onClick={() => ToTop()}>Store</Link></li>
+                        <li><Link to='/' onClick={() => ToTop()}>Community</Link></li>
+                        <li><Link to='/' onClick={() => ToTop()}>About</Link></li>
+                        <li><Link to='/' onClick={() => ToTop()}>Support</Link></li>
                     </ul>
                 </div>
             </nav>

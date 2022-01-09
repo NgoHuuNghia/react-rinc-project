@@ -104,8 +104,8 @@ body #main-container header nav > div:nth-child(1) {
     padding: 0;
   }
 }
-body #main-container header nav > div:nth-child(1) > img {
-  width: 3em;
+body #main-container header nav > div:nth-child(1) > a > img {
+  width: 3.5em;
 }
 body #main-container header nav > form {
   display: flex;
@@ -393,21 +393,21 @@ body #main-container header nav > div:nth-child(4) > ul > li > a {
 }
 .main-section > .main-card-container > button.previous {
   left: -7%;
-  270deg: 40%;
-  270deg: linear-gradient(transparent, 40% #313438, 100% 100%);
+  background: transparent;
+  background: linear-gradient(270deg, transparent 40%, #313438 100%);
 }
 .main-section > .main-card-container > button.previous:hover {
-  270deg: 15%;
-  270deg: linear-gradient(transparent, 15% #565b61, 100% 100%);
+  background: transparent;
+  background: linear-gradient(270deg, transparent 15%, #565b61 100%);
 }
 .main-section > .main-card-container > button.next {
   right: -7%;
-  90deg: 40%;
-  90deg: linear-gradient(transparent, 40% #313438, 100% 100%);
+  background: transparent;
+  background: linear-gradient(90deg, transparent 40%, #313438 100%);
 }
 .main-section > .main-card-container > button.next:hover {
-  90deg: 15%;
-  90deg: linear-gradient(transparent, 15% #565b61, 100% 100%);
+  background: transparent;
+  background: linear-gradient(90deg, transparent 15%, #565b61 100%);
 }
 .main-section > .main-card-container > div.slider {
   box-shadow: black 0px 20px 30px -10px;
@@ -749,21 +749,21 @@ body #main-container header nav > div:nth-child(4) > ul > li > a {
 }
 .main-section > .movie-card-container > button.previous {
   left: -7%;
-  270deg: 40%;
-  270deg: linear-gradient(transparent, 40% #313438, 100% 100%);
+  background: transparent;
+  background: linear-gradient(270deg, transparent 40%, #313438 100%);
 }
 .main-section > .movie-card-container > button.previous:hover {
-  270deg: 15%;
-  270deg: linear-gradient(transparent, 15% #565b61, 100% 100%);
+  background: transparent;
+  background: linear-gradient(270deg, transparent 15%, #565b61 100%);
 }
 .main-section > .movie-card-container > button.next {
   right: -7%;
-  90deg: 40%;
-  90deg: linear-gradient(transparent, 40% #313438, 100% 100%);
+  background: transparent;
+  background: linear-gradient(90deg, transparent 40%, #313438 100%);
 }
 .main-section > .movie-card-container > button.next:hover {
-  90deg: 15%;
-  90deg: linear-gradient(transparent, 15% #565b61, 100% 100%);
+  background: transparent;
+  background: linear-gradient(90deg, transparent 15%, #565b61 100%);
 }
 .main-section > .movie-card-container > div.slider {
   box-shadow: black 0px 20px 30px -10px;
@@ -831,6 +831,8 @@ body #main-container header nav > div:nth-child(4) > ul > li > a {
 @media (min-width: 800px) {
   .main-section > .movie-card-container > div.slider > a > div > div:first-child {
     height: unset;
+    mask-image: rgba(0, 0, 0, 0);
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, #151515 30%);
   }
 }
 .main-section > .movie-card-container > div.slider > a > div > div:first-child > p {
@@ -2276,6 +2278,7 @@ div.detail-container div.detail > div.detail-secondary > div.height-container > 
   background: #6f001c;
   background: linear-gradient(60deg, #6f001c 5%, #3f0010 95%);
   padding: 1.25em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction > section.action > div.action-play > div > div:nth-child(1) {
   display: flex;

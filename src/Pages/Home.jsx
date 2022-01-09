@@ -6,7 +6,7 @@ import FeaturedSim from '../Components/Home/FeaturedSim'
 import Tabs from '../Components/Home/Tabs'
 import TabViewer from '../Components/Home/TabViewer'
 
-import { FaChevronLeft, FaChevronRight, FaWindows } from 'react-icons/fa'
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { useGlobalContext } from '../context'
 
 const Home = () => { //! since all these states are loaded using context it might give better performace and less buggy
