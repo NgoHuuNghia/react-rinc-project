@@ -6,6 +6,7 @@ import MoreLikeGenres from '../Components/Detail/MoreLikeGenres'
 import MoreLikeSeries from '../Components/Detail/MoreLikeSeries'
 import DetailIConsoleIcons from '../Components/Detail/DetailIConsoleIcons'
 import DetailAgeRating from '../Components/Detail/DetailAgeRating'
+import DetailChartContainerBar from '../Components/Detail/DetailChartContainerBar'
 
 import ratingIcons from '../assets/logo/ratingIcons'
 import storeIcons from '../assets/logo/storeIcons'
@@ -27,7 +28,6 @@ const GameDetail = () => {
     const [ detail, setDetail ] = useState()
     const [ screenshots, setScreenshots] = useState()
     const [ gameSeries, setGameSeries ] = useState()
-    const [ curretRating, setCurretRating ] = useState()
     const [ readMore, setReadMore ] = useState(false)
 
     const detailContainer = useRef(null)
@@ -329,39 +329,7 @@ const GameDetail = () => {
                                 </div>
 
                                 <div className='chart-container'>
-                                    <p>Click to rate</p>
-                                    <div className='chart'> {/* this is so gonna take some work might do last */}
-
-                                        {ratings.map((item, index) => {
-                                            return (
-                                                <div
-                                                    onMouseEnter={() => setCurretRating(index)}
-                                                    key={item.id}
-                                                    className={index === curretRating
-                                                        ? item.title + " active"
-                                                        : item.title
-                                                    }
-                                                    style={{width: `${item.percent}%`}}>
-                                                        <img src={returnRatingIcon(index, true, item.percent)}/>
-                                                </div>
-                                            )
-                                        })}
-                                    </div>
-                                    <div className='chart-label'>
-                                        {ratings.map((item, index) => {
-                                            return (
-                                                <div
-                                                    onMouseEnter={() => setCurretRating(index)}
-                                                    className={index === curretRating
-                                                        ? item.title + " active"
-                                                        : item.title
-                                                }>
-                                                    <FaCircle />
-                                                    <p>{item.title}</p>
-                                                    <p>{item.count}</p>
-                                                </div>)
-                                        })}
-                                    </div>
+                                    <DetailChartContainerBar returnRatingIcon={returnRatingIcon} ratingIcons={ratingIcons} ratings={ratings}/>
                                 </div>
 
                                 <section className='action'>

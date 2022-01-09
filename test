@@ -1,0 +1,179 @@
+[33mcommit 7c2fe6d77b13b9b25923400fcf7af7f21558d951[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Nghia <silassunsolaire@gmail.com>
+Date:   Sun Jan 9 15:32:42 2022 +0700
+
+    can't start app
+
+[33mcommit 015c59dae2c9cace25b755fe6c913e15de5a98f2[m
+Author: Nghia <silassunsolaire@gmail.com>
+Date:   Fri Jan 7 17:28:09 2022 +0700
+
+    finish alot on detail pretty pround
+
+[33mcommit 33da9e1e0afe970ab1135b956011b3c097670f35[m
+Author: Nghia <silassunsolaire@gmail.com>
+Date:   Sun Jan 2 14:24:10 2022 +0700
+
+    Polishing
+
+[33mcommit d41d36650abe081467c0b7e602e25c59b9b58aeb[m[33m ([m[1;31mreact-rinc/master[m[33m)[m
+Author: Nghia <silassunsolaire@gmail.com>
+Date:   Fri Dec 10 10:51:29 2021 +0700
+
+    Changing the head's overlay again
+
+[33mcommit fdb2525a003f749a1e3bd82d50e2b8ba917c7be4[m
+Author: Nghia <silassunsolaire@gmail.com>
+Date:   Wed Dec 8 10:07:28 2021 +0700
+
+    gonna redo the detail sass again
+
+[33mcommit 4203cd67de50ceafae4640d3f7c167b9ab76e361[m
+Author: Nghia <silassunsolaire@gmail.com>
+Date:   Sun Nov 28 17:13:19 2021 +0700
+
+    Finish the home page react
+
+[33mcommit 0cc0bdeb604b83a23fb3c55529a4a34ce33c3f9e[m
+Author: Nghia <silassunsolaire@gmail.com>
+Date:   Thu Nov 25 10:53:04 2021 +0700
+
+    working on tabs with react
+
+[33mcommit aba77b7758f6a146cfa26d3de4c11e871950c57a[m
+Author: Nghia <silassunsolaire@gmail.com>
+Date:   Sat Nov 13 18:55:33 2021 +0700
+
+    Finish basic map for feature
+
+[33mcommit ae34633f0bfd5d617f467388743e8eb0147b8984[m
+Author: Nghia <silassunsolaire@gmail.com>
+Date:   Fri Nov 12 17:00:09 2021 +0700
+
+    First react impimention
+
+[33mcommit 75f31ee23a51eacdc525f42cc8e1b64bd8564246[m
+Author: Nghia <silassunsolaire@gmail.com>
+Date:   Fri Nov 12 16:59:08 2021 +0700
+
+    revision with react
+
+[33mcommit e8cd1fd8a1698d67bf3b3fd1e75a8ac53f2ca98c[m
+Author: Ngo Huu Nghia <silassunsolaire@gmail.com>
+Date:   Sun Oct 24 21:28:29 2021 +0700
+
+    fix netlify compability
+
+[33mcommit bdd3bb31f9f4553cac7a2433f7e8ea53146bf452[m
+Author: Ngo Huu Nghia <silassunsolaire@gmail.com>
+Date:   Sun Oct 24 20:55:19 2021 +0700
+
+    temporary uploading on netlify
+
+[33mcommit 00a3bb31f5442ba37dc05675a79dbee5422a8ac3[m
+Author: Ngo Huu Nghia <silassunsolaire@gmail.com>
+Date:   Mon Oct 4 19:28:00 2021 +0700
+
+    done detail.css for now
+
+[33mcommit a2cdfc1488ac2c8c27c34d41f840e488f519d394[m
+Author: Ngo Huu Nghia <silassunsolaire@gmail.com>
+Date:   Fri Oct 1 16:30:55 2021 +0700
+
+    Starting responsive detail.css
+
+[33mcommit 884cd6970af296a0398fcc80ac1976db5ee7c6c4[m
+Author: Ngo Huu Nghia <silassunsolaire@gmail.com>
+Date:   Fri Oct 1 16:29:45 2021 +0700
+
+    Finish responsive home.css
+
+[33mcommit 50c438ac30c3a743ce2caa83b99960c781024e4b[m
+Author: Ngo Huu Nghia <silassunsolaire@gmail.com>
+Date:   Wed Sep 29 14:21:55 2021 +0700
+
+    finish responsive home.css
+
+[33mcommit a417b071d72c2e9d88aae78f55ef85d83bca45fb[m
+Author: Ngo Huu Nghia <silassunsolaire@gmail.com>
+Date:   Sat Sep 25 09:26:08 2021 +0700
+
+    Finish detail.css
+
+[33mcommit d36b2ccd3f5ac106a7385a1e0067616671e827c7[m
+Author: Ngo Huu Nghia <silassunsolaire@gmail.com>
+Date:   Sun Sep 19 18:21:27 2021 +0700
+
+    sustainable sass conversion
+
+[33mcommit ac3e2705ca110d7cf1f9b2002d6e3aec416b0702[m
+Author: Ngo Huu Nghia <silassunsolaire@gmail.com>
+Date:   Sun Sep 19 12:33:58 2021 +0700
+
+    finish the mobile version of home.html
+
+[33mcommit 8b8c75ba5d5eec574586c3a0fae95fb7dedfc095[m
+Author: Ngo Huu Nghia <silassunsolaire@gmail.com>
+Date:   Fri Sep 17 19:55:50 2021 +0700
+
+    finish the home.html 0.0.1v
+
+[33mcommit b3347d94aa9e27a86fb71f27ff638416ea0800d0[m
+Author: Ngo Huu Nghia <silassunsolaire@gmail.com>
+Date:   Thu Sep 16 21:29:40 2021 +0700
+
+    finish basic mixins, variables, 75% of home.css
+
+[33mcommit 6965cda213d5089121ee0f4d7b37b75362990fd4[m
+Author: Ngo Huu Nghia <silassunsolaire@gmail.com>
+Date:   Tue Sep 14 16:09:31 2021 +0700
+
+    header 0.1v
+
+[33mcommit 162cbf45ab612f95080fb6bf2c9577977c49eaf2[m
+Author: Ngo Huu Nghia <silassunsolaire@gmail.com>
+Date:   Tue Sep 14 09:38:29 2021 +0700
+
+    Finish the basic skeletons
+
+[33mcommit 057eae539e2e487a01142a3b4b84cfb227c7a871[m
+Author: Ngo Huu Nghia <silassunsolaire@gmail.com>
+Date:   Sun Sep 12 22:15:09 2021 +0700
+
+    html some html skeleton and use correct react-icon
+
+[33mcommit eac05b980939f9a32ec28eb6578ec65cb8678fc6[m
+Author: Ngo Huu Nghia <silassunsolaire@gmail.com>
+Date:   Sun Sep 12 13:12:35 2021 +0700
+
+    sass initialzed
+
+[33mcommit 8f400f76500b871663181e4c4b29d24d9fbfad81[m
+Author: Ngo Huu Nghia <silassunsolaire@gmail.com>
+Date:   Sun Sep 12 13:12:19 2021 +0700
+
+    sass initialized
+
+[33mcommit 5cc6ff0d39d709d65ece371866a0ae646379bf1e[m
+Author: Ngo Huu Nghia <silassunsolaire@gmail.com>
+Date:   Sun Sep 12 10:54:35 2021 +0700
+
+    initial commit, let get started\
+
+[33mcommit e108576398894947eae33548fbb484c9e6f7268d[m
+Author: Ngo Huu Nghia <silassunsolaire@gmail.com>
+Date:   Sun Sep 12 10:15:25 2021 +0700
+
+    Test commit
+
+[33mcommit 1b078625acfaf9f52f7950af7abc09733be5e3b1[m
+Author: Ngo Huu Nghia <silassunsolaire@gmail.com>
+Date:   Sun Sep 12 08:51:15 2021 +0700
+
+    first commit-config npm
+
+[33mcommit 73d0ea8dacebef3c80cc749b8c5890747d3e6dfe[m
+Author: Ngo Huu Nghia <silassunsolaire@gmail.com>
+Date:   Sun Sep 12 08:35:29 2021 +0700
+
+    Initialize project using Create React App
