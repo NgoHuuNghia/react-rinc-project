@@ -19,50 +19,60 @@ const initialState = {
     tabToggle: '',
     tabCurrent: (0),
   },
+  searchTerm: '',
 }
 
 export const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
+  const response = async ({
+    listSize = 8, listGenres = null, listOrder = '', 
+    listPeroid = 2, reducerType = 'DISPLAY_FEATURED_LIST', listType
+    }={}) => {
+    let size = (number) => '&page_size=' + number
+    let genres = (string) => {
+      if (typeof string === 'string' || string instanceof String){
+        return '&genres=' + string
+      } else {
+        return ''
+      }
+    }
+    let ordering = (string) => '&ordering=' + string
+    let date = (peroid) => {
+      const today  = new Date();
+      const dd = String(today.getDate()).padStart(2, '0')
+      const mm = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
+      const yyyy = today.getFullYear()
+      const yyyyPeroid = yyyy - peroid
+
+      return '&dates=' + yyyyPeroid + '-' + mm + '-' + dd + ',' + yyyy + '-' + mm + '-' + dd
+    }
+
+    const response = await fetch(`${BasicUrl}${APIkey}${size(listSize)}${genres(listGenres)}${ordering(listOrder)}${date(listPeroid)}`)
+    const data = await response.json()
+    const {results} = data
+
+    dispatch({type: reducerType, payload: {results, listType}})
+  }
   useEffect(() => {
     try {
-      const response = async (listSize, listGenres, listOrder, listPeroid, reducerType, listType) => {
-        let size = (number) => '&page_size=' + number
-        let genres = (string) => {
-          if (typeof string === 'string' || string instanceof String){
-            return '&genres=' + string
-          } else {
-            return ''
-          }
-        }
-        let ordering = (string) => '&ordering=' + string
-        let date = (peroid) => {
-          const today  = new Date();
-          const dd = String(today.getDate()).padStart(2, '0')
-          const mm = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
-          const yyyy = today.getFullYear()
-          const yyyyPeroid = yyyy - peroid
-    
-          return '&dates=' + yyyyPeroid + '-' + mm + '-' + dd + ',' + yyyy + '-' + mm + '-' + dd
-        }
-
-        const response = await fetch(`${BasicUrl}${APIkey}${size(listSize)}${genres(listGenres)}${ordering(listOrder)}${date(listPeroid)}`)
-        const data = await response.json()
-        const {results} = data
-
-        dispatch({type: reducerType, payload: {results, listType}})
-      }
-
-      response(8, null, '-rating', 2, 'DISPLAY_FEATURED_LIST', 'featured')
-      response(8, null, '', 3 , 'DISPLAY_FEATURED_LIST', 'special')
-      response(8, null, '-metacritic', 3 , 'DISPLAY_FEATURED_LIST', 'recommended')
-      response(8, 'simulation', '', 3 , 'DISPLAY_FEATURED_LIST', 'sim')
-      
+      response({listOrder: '-rating',listPeroid: 2, listType: 'featured'})
+      response({listType: 'special'})
+      response({listOrder: '-metacritic', listType: 'recommended'})
+      response({listGenres: 'simulation', listType: 'sim'})
     }
     catch (error){
       throw new Error(error)
     }
   }, [])
+  useEffect(() => {
+    try {
+      console.log(state.searchTerm)
+    }
+    catch (error){
+      throw new Error(error)
+    }
+  }, [state.searchTerm])
 
   useEffect(() => {
     dispatch({type: 'SET_LIST_POSITION', payload: 'sliderMain'})
@@ -98,6 +108,11 @@ export const AppProvider = ({ children }) => {
     dispatch({type: 'TOGGLE_NAV_LINK'})
   }
 
+  const RunSearch = (searchTerm) => {
+    dispatch({type: 'RUN_SEARCH', payload: searchTerm})
+  
+  }
+
   const ToTop = () => window.scrollTo(0, 0)
 
   return (
@@ -109,6 +124,7 @@ export const AppProvider = ({ children }) => {
         hoverTabItem,
         ToggleNavLink,
         ToTop,
+        RunSearch,
       }}>
         {children}
     </AppContext.Provider>

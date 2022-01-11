@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useGlobalContext } from '../../context'
 
 const MoreLikeGenresComponent = ({ name, id, background_image }) => {
+    const {ToTop} = useGlobalContext()
+
     return (
-        <Link to={`/Detail/${id}`}>
+        <Link to={`/Detail/${id}`} onClick={() => ToTop()}>
             <div>
                 <div>
                     <img src={background_image} alt={name} />

@@ -287,6 +287,12 @@ body #main-container header nav > div:nth-child(4) > ul > li > a {
   height: 100%;
   font-size: 1.3em;
 }
+body #main-container header nav > div:nth-child(4) > ul > li:hover {
+  background-color: #f2ecff;
+}
+body #main-container header nav > div:nth-child(4) > ul > li:hover > a {
+  color: black;
+}
 @media (min-width: 1000px) {
   body #main-container header nav > div:nth-child(4) {
     height: 0 !important;
@@ -1640,6 +1646,18 @@ div.detail-container div.detail > div.detail-primary > section.trailer-mobile > 
   display: block;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
+div.detail-container div.detail > div.detail-primary > section.trailer-mobile > div:not(.trailer-slider) {
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+div.detail-container div.detail > div.detail-primary > section.trailer-mobile > div:not(.trailer-slider) > svg {
+  color: red;
+  margin-top: 0.1em;
+}
 div.detail-container div.detail > div.detail-primary > section.trailer-mobile > div.head {
   display: flex;
   flex-direction: row;
@@ -2062,6 +2080,18 @@ div.detail-container div.detail > div.detail-secondary > div.height-container > 
   width: 100%;
   display: block;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+div.detail-container div.detail > div.detail-secondary > div.height-container > section.trailer-desktop > div:not(.trailer-slider) {
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+div.detail-container div.detail > div.detail-secondary > div.height-container > section.trailer-desktop > div:not(.trailer-slider) > svg {
+  color: red;
+  margin-top: 0.1em;
 }
 div.detail-container div.detail > div.detail-secondary > div.height-container > div.interaction {
   display: flex;

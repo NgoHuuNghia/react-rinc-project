@@ -4,6 +4,7 @@ import parse from 'html-react-parser'
 import getWindowDimensions from '../Components/getWindowDimensions'
 import MoreLikeGenres from '../Components/Detail/MoreLikeGenres'
 import MoreLikeSeries from '../Components/Detail/MoreLikeSeries'
+import DetailBackgrounds from '../Components/Detail/DetailBackgrounds'
 import DetailIConsoleIcons from '../Components/Detail/DetailIConsoleIcons'
 import DetailAgeRating from '../Components/Detail/DetailAgeRating'
 import DetailChartContainerBar from '../Components/Detail/DetailChartContainerBar'
@@ -12,9 +13,8 @@ import ratingIcons from '../assets/logo/ratingIcons'
 import storeIcons from '../assets/logo/storeIcons'
 
 import { useParams } from 'react-router-dom'
-import {
-    FaChevronRight, FaWindows, FaFlag, FaShareAlt, FaCircle, FaStopCircle //? general icons
-} from 'react-icons/fa'
+import {FaChevronRight, FaWindows, FaFlag, FaShareAlt, FaStopCircle} from 'react-icons/fa'
+import {AiOutlineStop} from 'react-icons/ai'
 //! not using: FaThumbsDown, FaMeh
 
 const detailUrl = 'https://api.rawg.io/api/games/'
@@ -88,7 +88,7 @@ const GameDetail = () => {
             }
 
             readMoreDecider = () => {
-                if(primaryHeight > secondaryHeight){
+                if(primaryHeight > secondaryHeight && windowWidth >= 1000){
                     if(!readMore) return 'Read more...'
                     else return 'Collapse...'
                 }
@@ -107,20 +107,7 @@ const GameDetail = () => {
 
         return (
             <div className='detail-container'>
-                <div className='detail-background top' style={{
-                    backgroundImage:
-                        `linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, #151515),
-                        linear-gradient(to left, rgba(0, 0, 0, 0) 100%, #151515),
-                        linear-gradient(to right, rgba(0, 0, 0, 0) 100%, #151515),
-                        url(${background_image})`
-                }}></div>
-                <div className='detail-background bottom' style={{
-                    backgroundImage:
-                        `linear-gradient(to top, rgba(0, 0, 0, 0) 60%, #151515),
-                        linear-gradient(to left, rgba(0, 0, 0, 0) 100%, #151515),
-                        linear-gradient(to right, rgba(0, 0, 0, 0) 100%, #151515),
-                        url(${background_image_additional})`
-                }}></div>
+                <DetailBackgrounds background_image={background_image} background_image_additional={background_image_additional}/>
                 <div className='breadcrumbs desktop'>
                     <div>
                         <a href='/'>{genres[0].name}</a>
@@ -295,15 +282,19 @@ const GameDetail = () => {
 
                         <div className='height-container'>
                             <section className='trailer-desktop'>
-                                <a href='/' className="trailer-main"><img src={screenshots[0].image} alt="" /></a>
-                                <div className='trailer-slider'>{/* map here 8 times */}
-                                    {screenshots
-                                        .slice(1, 5)
-                                        .map((item) => {
-                                            return <a href="/" key={item.id}><img src={item.image} alt={name} /></a>
-                                        })
-                                    }
-                                </div>
+                                {screenshots.length > 1
+                                    ?
+                                        <><a href='/' className="trailer-main"><img src={screenshots[0].image} alt="" /></a>
+                                        <div className='trailer-slider'>{/* map here 8 times */}
+                                            {screenshots
+                                                .slice(1, 5)
+                                                .map((item) => {
+                                                    return <a href="/" key={item.id}><img src={item.image} alt={name} /></a>
+                                                })
+                                            }
+                                        </div></>
+                                    : 
+                                        <div><AiOutlineStop /> No screenshots founded <AiOutlineStop /></div>}
                             </section>
 
                             <div className='interaction'>

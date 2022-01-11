@@ -1,15 +1,17 @@
 import React, {useRef, useEffect} from 'react'
-import { FaBars, FaSearch } from 'react-icons/fa'
+import { FaSearch } from 'react-icons/fa'
 import logo from '../assets/logo/rinc-white-v2.png'
 import { useGlobalContext } from '../context'
-import {useLocation, Link} from 'react-router-dom'
+import {useHistory, useLocation, Link, Redirect} from 'react-router-dom'
 
 
 const Header = () => {
 
-    const {expandNavLink, ToggleNavLink, ToTop} = useGlobalContext()
+    const {expandNavLink, ToggleNavLink, ToTop, RunSearch} = useGlobalContext()
     const mobileNavContainerRef = useRef(null)
     const mobileNavRef = useRef(null)
+    const searchValue = useRef('')
+    let history = useHistory()
     const location = useLocation().pathname
 
         useEffect(() => {
@@ -32,6 +34,17 @@ const Header = () => {
                 mobileNavContainerRef.current.style.height = '0px'
             }
         }, [expandNavLink]) //run every time showLinks state changed
+
+        const handleSubmit = (e) => { //prevent the user from reloading the page when submiting
+            e.preventDefault()
+            history.push('/ass')
+        }
+        let searchTimeout = null
+        const startSearch = () => {
+            clearTimeout(searchTimeout)
+            searchTimeout = setTimeout(() => RunSearch(searchValue.current.value), 1000)
+        }
+
         const detailHeader = () => {
             if (location.includes('Detail')) {
                 if(expandNavLink){
@@ -56,9 +69,13 @@ const Header = () => {
                 <div>
                     <Link to='/' onClick={() => ToTop()}><img src={logo} alt="" /></Link>
                 </div>
-                <form action="">
+                <form onSubmit={handleSubmit}>
                     <FaSearch />
-                    <input type="text" placeholder='search'/>
+                    <input 
+                        type="text" 
+                        placeholder='search'
+                        ref={searchValue}
+                        onChange={startSearch}/>
                 </form>
                 <div>
                     <div 
