@@ -22,14 +22,14 @@
 
 .main-section
     @include flex($direction: column, $gap: 1.5em)
-    margin: 0 .5em
+    margin: 0 1em
     @include bs.from(xl)
-        width: 950px
-        margin: 0 auto
+        @include desktop-container
         >*
             width: 100%
     >.main-card-container
         position: relative
+        max-width: calc(600px + 1em)
         @include bs.from(xl)
             height: 380px
             max-width: 950px
@@ -40,69 +40,11 @@
             box-shadow: $bs-card-lg
             overflow: hidden
             position: relative
+            @include flexible-card
             >a
                 position: absolute
                 top: 0
                 left: 0
-                transition: $trs-basic
-                @include gradient
-                @include flex($direction: column, $align: stretch)
-                @include bs.from(l)
-                    max-width: 70vw
-                @include bs.from(xl)
-                    max-width: unset
-                    flex-direction: row
-                >img
-                    @include card-img
-                    @include bs.from(xl)
-                        width: 620px
-                        height: 350px
-                    z-index: 1
-                >div
-                    @include grid($columns: 1fr 1fr, $gap: .5em)
-                    >h4
-                        @include card-title
-                        grid-column: span 2
-                        margin: .5em 0 0 20px
-                        z-index: 1
-                        font-size: 1.4em
-                    >img
-                        display: none
-                        @include bs.from(xl)
-                            grid-column: span 1
-                            height: 91px
-                            width: 100%
-                            display: inline-block
-                    >div:nth-last-child(2)
-                        display: none
-                        @include bs.from(xl)
-                            @include flex($direction: column,$justify: none, $align: flex-start, $gap: .3em)
-                            grid-column: span 2
-                            margin-left: 20px
-                            >div:first-child
-                                font-size: 1.05em
-                            >div:last-child
-                                font-size: .8em
-                                padding: .2em .6em
-                                background-color: $bgc-subsidiary
-                    >div:last-child
-                        @include flex($justify: space-between)
-                        grid-column: span 2
-                        margin: 0 20px .5em 20px
-                        z-index: 1
-                        >div
-                            @include flex
-                            background-color: $bgc-important
-                            font-size: .8em
-                            * 
-                                display: inline-block
-                                padding: 0.2em .4em
-                            >div:nth-child(1)
-                                background-color: $bgc-discounted
-                                color: $fc-discounted
-                            >div:nth-child(2)
-                                @include flex($direction: row)
-                                @include card-price
             >a.nextSlide
                 opacity: 0
                 pointer-events: none
@@ -179,6 +121,7 @@
 
     >.movie-card-container
         position: relative
+        max-width: calc(600px + 1em)
         @include bs.from(xl)
             height: 380px
             max-width: 950px
@@ -194,11 +137,12 @@
                 top: 0
                 left: 0
                 transition: $trs-basic
-                @include gradient
+                @include gradient($deg-gradient: 0deg)
                 @include flex($direction: column, $align: stretch)
                 @include bs.from(l)
                     max-width: 70vw
                 @include bs.from(xl)
+                    @include gradient()
                     height: 350px
                     max-width: unset
                     flex-direction: row
@@ -451,6 +395,9 @@ div.subsidiary-section
                             margin: 0
 
             >div.tab-viewer
+                display: none
+                @include bs.from(xl)
+                    display: unset
                 position: relative
                 >div
                     position: absolute

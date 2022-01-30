@@ -1,9 +1,11 @@
 @use '../abstracts' as *
+@use '../abstracts/mixins/_header-mixins' as *
 @use "../../../node_modules/breakpoint-slicer" as bs
     
 //? Header
 body 
     #main-container
+        position: relative
         &.overlay
             height: 100vh
             overflow: hidden
@@ -13,10 +15,10 @@ body
             background: $bgc-default
             padding: .5em 0
             &::after
-                position: relative
                 opacity: 0
                 content: ''
                 position: absolute
+                z-index: -1
                 transition: $trs-basic
                 top: 70px
                 left: 0
@@ -36,8 +38,7 @@ body
                 @include grid( $columns: repeat(8, 1fr), $gap: .5em)
                 align-items: center
                 @include bs.from(xl)
-                    width: 950px
-                    margin: 0 auto
+                    @include desktop-container
                     @include grid( $columns: repeat(16, 1fr), $gap: .5em)
 
                 >div:nth-child(1)
@@ -53,34 +54,49 @@ body
                             width: 3.5em
 
                 >form
-                    @include flex($justify: space-around)
-                    //! flex-grow: 4
+                    @include flex($gap: .2em)
+                    align-self: center
                     grid-column: span 6
-                    padding: .2em 0
                     background-color: $bgc-subtle
                     border-radius: 1em
                     transition: 0.3s
+                    overflow: hidden
+                    position: relative
                     @include bs.from(xl)
-                        //! flex-grow: 2
                         grid-column: span 8
+                    ::placeholder
+                        text-transform: capitalize
                     &:hover
                         background-color: $bgc-hilight
-                    >svg 
-                        margin: 0 .75em
+                    >svg
+                        flex: 1
+                        cursor: pointer
+                        transition: $trs-instant
+                    >svg:first-child
+                        padding: .25em 0
                         color: $fc-default
-                        height: 20px
-                        width: 20px
+                        font-size: 2.3em
+                        &:hover
+                            color: $fc-subsidiary !important
+                    >svg:last-child
+                        opacity: 0
+                        color: $fc-subsidiary-hilight
+                        font-size: 1.5em
+                        z-index: -5
+                        &:hover
+                            opacity: 1 !important
                     >input
-                        width: 100%
+                        flex: 11
                         background: none
                         border: none
                         color: $fc-default
-                        font-size: 1.25em
-                    &:hover > input,&:hover > svg
+                        font-size: 1.15em
+                    &:hover > input,&:hover > svg:first-child
                         color: $bgc-important
 
                 >div:nth-child(3)
-                    @include flex($justify: center, $gap: .5em)
+                    @include flex($justify: center, $align: stretch, $gap: .5em)
+                    align-self: stretch
                     grid-column: span 1
                     padding-right: 1em
                     @include bs.from(xl)
@@ -90,23 +106,27 @@ body
                     @include animated-nav-bar
                     #bars
                         order: 2
+                        align-self: center
                         @include bs.from(xl)
                             display: none
                     >ul 
                         display: none
                         order: 1
                         @include bs.from(xl)
-                            @include flex($gap: .8em)
+                            @include flex($align: stretch, $gap: .8em)
                         >li
                             display: inline-block
+                            @include flex($align: stretch)
                             >a
                                 color: $fc-default
                                 text-transform: uppercase
                                 font-size: 1.1em
                                 font-weight: 700
+                                @include flex($align: center)
                                 &:hover
                                     color: $fc-important
                     >img
+                        align-self: center
                         height: 2.5em
                         border-radius: 25px
                         order: 1
@@ -118,7 +138,6 @@ body
                     transition: $trs-basic
                     grid-column: span 8
                     height: 0
-                    //? z-index: -2
                     overflow: hidden
                     >ul
                         @include flex($direction: column)
@@ -141,3 +160,5 @@ body
                     @include bs.from(xl)
                         &
                             height: 0!important
+
+        @include submenu

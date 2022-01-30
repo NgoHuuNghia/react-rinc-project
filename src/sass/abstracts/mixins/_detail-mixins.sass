@@ -76,12 +76,16 @@
         letter-spacing: .15em
         margin: 1em 0
         @include flex($justify: center)
+        flex-wrap: wrap
+        @include bs.to(s)
+            gap: .25em
         @include bs.from(xl)
             justify-content: flex-start
         *
             color: $fc-tag
         >div
             @include flex($gap: .1em)
+            white-space: nowrap
             >a, >p
                 transition: .2s
                 text-transform: uppercase
@@ -94,6 +98,8 @@
             >span
                 font-size: 1.2em
                 pointer-events: none
+            &:last-child > p
+                @include active-breadcrumb
         >svg
             font-size: .8em
             margin: 0 .1em

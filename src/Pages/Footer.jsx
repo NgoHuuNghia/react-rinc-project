@@ -1,9 +1,12 @@
 import React from 'react'
 import logo from '../assets/logo/rinc-white-v2.png'
+import { useGlobalContext } from '../context'
 
 const Footer = () => {
+    const {closeSubmenu} = useGlobalContext()
+
     return (
-        <footer>
+        <footer onMouseOver={closeSubmenu}>
             <div>
                 <div>
                     <img src={logo} alt="" />

@@ -5,7 +5,7 @@ import getWindowDimensions from '../Components/getWindowDimensions'
 import MoreLikeGenres from '../Components/Detail/MoreLikeGenres'
 import MoreLikeSeries from '../Components/Detail/MoreLikeSeries'
 import DetailBackgrounds from '../Components/Detail/DetailBackgrounds'
-import DetailIConsoleIcons from '../Components/Detail/DetailIConsoleIcons'
+import ConsoleIcons from '../Components/ConsoleIcons'
 import DetailAgeRating from '../Components/Detail/DetailAgeRating'
 import DetailChartContainerBar from '../Components/Detail/DetailChartContainerBar'
 
@@ -108,7 +108,7 @@ const GameDetail = () => {
         return (
             <div className='detail-container'>
                 <DetailBackgrounds background_image={background_image} background_image_additional={background_image_additional}/>
-                <div className='breadcrumbs desktop'>
+                <div className='breadcrumbs'>
                     <div>
                         <a href='/'>{genres[0].name}</a>
                         {genres[1] ? (
@@ -134,7 +134,7 @@ const GameDetail = () => {
                         <section className='trailer-mobile'>
                             <div className='head'>
                                 <div className='head-release'>{released}</div>
-                                <DetailIConsoleIcons platforms={platforms}/>
+                                <ConsoleIcons platforms={platforms}/>
                             </div>
                             <a href='/' className="trailer-main"><img src={background_image} alt="" /></a>
                             <div className='trailer-slider'>{/* map here 8 times */}
@@ -149,15 +149,15 @@ const GameDetail = () => {
                         <section className='glance'> {/* ADD AGE RATING AND WEBSITE */}
                             <div className='head'>
                                 <div className='head-release'>{released}</div>
-                                <DetailIConsoleIcons platforms={platforms}/>
+                                <ConsoleIcons platforms={platforms}/>
                             </div>
                             <h1>{name}</h1>
                             <div className='glance-info'>
-                                <p>Developer</p>
+                                <p>Developer:</p>
                                 <a href="/">{developers[0].name}</a>
-                                <p>Publisher</p>
+                                <p>Publisher:</p>
                                 <a href="/">{publishers.length >= 1 ? publishers[0].name : developers[0].name}</a>
-                                <p>Released</p>
+                                <p>Released:</p>
                                 <p>{released}</p>
                             </div>
                             <div className='tag-container'>

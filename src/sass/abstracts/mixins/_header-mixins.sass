@@ -1,0 +1,20 @@
+@use '../_fonts' as *
+@use '../_varibles' as *
+@use './_common-mixins' as *
+@use '../../../../node_modules/breakpoint-slicer' as bs
+    
+@mixin submenu
+    >.submenu
+        transition: $trs-basic
+        position: absolute
+        transform: translateX(-50%)
+        width: 30vw
+        height: 400px
+        background-color: white
+        box-shadow: $bs-card-lg
+        opacity: 0
+        z-index: -1
+        &.open
+            opacity: 1
+            z-index: 5
+    

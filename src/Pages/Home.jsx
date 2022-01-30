@@ -34,7 +34,7 @@ const Home = () => { //! since all these states are loaded using context it migh
     )
 
     return (
-        <>
+        <section className='home-container'>
             <div className='hero'>
                 {/* bg_mobile_english or bg_english to switch */}
                 <a href="/" className='hero-bg-mobile'>
@@ -187,7 +187,7 @@ const Home = () => { //! since all these states are loaded using context it migh
                 {/* under 200.000d */}
                 {/*//todo Maybe a grid display here if we have the time wink wink */}
             </div>
-        </>
+        </section>
     )
 }
 

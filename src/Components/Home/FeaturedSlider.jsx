@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { FaWindows } from 'react-icons/fa'
+import ConsoleIcons from '../../Components/ConsoleIcons'
 import { useGlobalContext } from '../../context'
 
-const FeaturedSlider = ({id, name, background_image, short_screenshots, index}) => {
+const FeaturedSlider = ({id, name, background_image, short_screenshots, index, platforms}) => {
     const { sliderIndexMain, featuredList, ToTop } = useGlobalContext()
 
     let position = 'nextSlide'
@@ -22,10 +22,6 @@ const FeaturedSlider = ({id, name, background_image, short_screenshots, index}) 
                 {short_screenshots.slice(1, 5).map((item) => {
                     return <img src={item.image} key={item.id} alt={item.id} />
                 })}
-                {/* <img src={screenshotsImage[1].img} alt={name} />
-                <img src={screenshotsImage[2]} alt={name} />
-                <img src={screenshotsImage[3]} alt={name} />
-                <img src={screenshotsImage[4]} alt={name} /> */}
                 <div>
                     <div>Now available</div>
                     <div>Top seller</div>
@@ -38,7 +34,7 @@ const FeaturedSlider = ({id, name, background_image, short_screenshots, index}) 
                             <p>134.000d</p>
                         </div>
                     </div>
-                    <FaWindows />
+                    <ConsoleIcons platforms={platforms}/>
                 </div>
             </div>
         </Link>

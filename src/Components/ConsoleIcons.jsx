@@ -1,7 +1,7 @@
 import React from 'react'
 import {FaPlaystation, FaWindows, FaXbox} from 'react-icons/fa'
 
-const DetailIConsoleIcons = ({platforms}) => {
+const ConsoleIcons = ({platforms}) => {
     let playstationIcon = false, xboxIcon = false, windowIcon = false
     platforms.forEach((item) => {
         if(item.platform.slug === 'playstation5' || item.platform.slug === 'playstation4'){playstationIcon = true}
@@ -18,4 +18,4 @@ const DetailIConsoleIcons = ({platforms}) => {
     )
 }
 
-export default DetailIConsoleIcons
+export default ConsoleIcons

@@ -1,16 +1,21 @@
 import React, {useRef, useEffect} from 'react'
 import { FaSearch } from 'react-icons/fa'
+import { TiCancel } from 'react-icons/ti'
 import logo from '../assets/logo/rinc-white-v2.png'
 import { useGlobalContext } from '../context'
-import {useHistory, useLocation, Link, Redirect} from 'react-router-dom'
+import {useHistory, useLocation, Link} from 'react-router-dom'
 
 //asss
 const Header = () => {
-
-    const {expandNavLink, ToggleNavLink, ToTop, RunSearch} = useGlobalContext()
+    const {
+        expandNavLink, submenu: {sublinks}, totalGamesCount,
+        ToggleNavLink, ToTop, RunSearch, openSubmenu, closeSubmenu
+    } = useGlobalContext()
+    
     const mobileNavContainerRef = useRef(null)
     const mobileNavRef = useRef(null)
     const searchValue = useRef('')
+    
     let history = useHistory()
     const location = useLocation().pathname
 
@@ -35,9 +40,18 @@ const Header = () => {
             }
         }, [expandNavLink]) //run every time showLinks state changed
 
+        const displaySubmenu = (e) => {
+            const page = e.target.textContent //textContent method give us the button value
+            const tempBtn = e.target.getBoundingClientRect() //getBoundingClientRect method to get the location
+            const center = (tempBtn.left + tempBtn.right) / 2 //getting the center with this equation
+            const bottom = tempBtn.bottom //getting the bottom by minus 3 pixel
+
+            openSubmenu(page, { center, bottom })
+        }
+
         const handleSubmit = (e) => { //prevent the user from reloading the page when submiting
             e.preventDefault()
-            history.push('/ass')
+            history.push(`/Search`)
         }
         let searchTimeout = null
         const startSearch = () => {
@@ -64,44 +78,56 @@ const Header = () => {
         }
 
     return (
-        <header className={detailHeader()}>
+        <header className={`header ${detailHeader()}`} onMouseOver={closeSubmenu}>
             <nav>
                 <div>
                     <Link to='/' onClick={() => ToTop()}><img src={logo} alt="" /></Link>
                 </div>
                 <form onSubmit={handleSubmit}>
-                    <FaSearch />
+                    <FaSearch onClick={() => history.push(`/Search`)}/>
                     <input 
                         type="text" 
-                        placeholder='search'
+                        placeholder={`search over ${totalGamesCount} games...`}
                         ref={searchValue}
                         onChange={startSearch}/>
+                    <TiCancel 
+                        style={searchValue.current.value ? {opacity: .6, zIndex: 0} : null}
+                        onClick={() => {
+                            RunSearch('')
+                            searchValue.current.value = ''
+                        }}/>
                 </form>
                 <div>
                     <div 
                         className={expandNavLink ? 'open' : ''} 
                         id="bars" 
-                        onClick={() => {ToggleNavLink()}}
+                        onClick={() => ToggleNavLink()}
                     >
                         <span></span>
                         <span></span>
                         <span></span>
                     </div>
                     <ul>
-                        <li><Link to='/' onClick={() => ToTop()}>Store</Link></li>
-                        <li><Link to='/' onClick={() => ToTop()}>Community</Link></li>
-                        <li><Link to='/' onClick={() => ToTop()}>About</Link></li>
-                        <li><Link to='/' onClick={() => ToTop()}>Support</Link></li>
+                        {sublinks.map((item) => {
+                            return <li>
+                                <Link 
+                                    className='nav-links'
+                                    to='/' 
+                                    onClick={() => ToTop()}
+                                    onMouseOver={displaySubmenu}
+                                >
+                                    {item.page}
+                                </Link>
+                            </li>
+                        })}
                     </ul>
                     <img src="https://media.rawg.io/media/resize/80/-/avatars/654/6549f85d93a1b4653d6030fe6bd407bf.jpg" alt="avatar" />
                 </div>
                 <div ref={mobileNavContainerRef}>
                     <ul ref={mobileNavRef}>
-                        <li><Link to='/' onClick={() => ToTop()}>Login / Signup</Link></li>
-                        <li><Link to='/' onClick={() => ToTop()}>Store</Link></li>
-                        <li><Link to='/' onClick={() => ToTop()}>Community</Link></li>
-                        <li><Link to='/' onClick={() => ToTop()}>About</Link></li>
-                        <li><Link to='/' onClick={() => ToTop()}>Support</Link></li>
+                        {sublinks.map((item) => {
+                            return <li><Link to='/' onClick={() => ToTop()}>{item.page}</Link></li>
+                        })}
                     </ul>
                 </div>
             </nav>

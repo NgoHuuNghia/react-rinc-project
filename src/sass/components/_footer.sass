@@ -3,15 +3,15 @@
     
 footer
     position: relative
-    z-index: 10
-    padding: 1em .5em 0 .5em
+    z-index: 0
+    padding: 1em .5em 1em .5em
     @include bs.from(xl)
         padding: 1em 0 0 0
     >div
         @include grid($columns: repeat(6, 1fr), $gap: 1em)
         font-size: .9em
         @include bs.from(xl)
-            width: 975px
+            @include desktop-container
             margin: 0 auto .75em auto
         >div:nth-child(1)
             grid-column: span 3
