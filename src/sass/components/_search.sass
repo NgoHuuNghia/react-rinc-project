@@ -14,7 +14,7 @@ section.search-container
         >.main-search
             @include flex($direction: column, $gap: 1em)
             margin: 0 1em
-            max-width: calc(600px + 1em)
+            max-width: 30em
             @include bs.from(xl)
                 max-width: unset
                 margin: 0
@@ -22,6 +22,10 @@ section.search-container
                 align-self: flex-start
                 @include flex($gap: .5em)
                 flex-wrap: nowrap
+                >button:nth-child(2)
+                    display: none
+                    @include bs.from(s)
+                        display: unset
                 >button
                     @include flex($display: inline-flex, $gap: .2em)
                     padding: .75em .5em
@@ -50,7 +54,7 @@ section.search-container
                 @include bs.from(xl)
                     @include flex($direction: row, $align: flex-start, $gap: 1em)
                 >div
-                    @include flexible-card //? This belong on _home-mixins
+                    @include flexible-card //! This belong on _home-mixins
                     >div
                         box-shadow: $bs-card-lg
     

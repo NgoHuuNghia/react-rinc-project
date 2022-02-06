@@ -40,6 +40,14 @@
         font-size: .95em
         text-decoration: line-through
         color: $fc-unimportant
+@mixin border-line
+    &::after
+        content: ''
+        position: absolute
+        width: 50em
+        left: 0
+        bottom: -8px
+        border-bottom: 1px solid $bgc-subsidiary-hilight
 
 // slider
 @mixin arrows
@@ -70,20 +78,21 @@
 @mixin flexible-card
     >a
         transition: $trs-basic
-        max-width: 100%
+        width: 100%
         box-shadow: $bs-card-lg
         overflow: hidden
         @include gradient
         @include flex($direction: column, $align: stretch)
         @include bs.from(xl)
-            width: 100%
             flex-direction: row
         >img
+            flex: 2
             @include card-img
             @include bs.from(xl)
                 width: 620px
                 height: 350px
         >div
+            flex: 1
             @include grid($columns: 1fr 1fr, $gap: .5em, $place-content: space-evenly)
             padding: .5em
             @include bs.from(xl)
@@ -146,15 +155,51 @@
         display: none
         @include bs.from(xl)
             @include flex($direction: column, $gap: 1em)
+    &.mobile-results-search, &.desktop-results-search
         >a
-            @include flex($direction: column, $justify: space-between)
+            @include flex($direction: column, $justify: space-between, $align: stretch)
             border-radius: .6em
             >img
                 width: 100%
                 height: 10em
-            >div
-                padding: 1em .5em
+            >div.basic
+                padding: 1em 1.5em
+                @include bs.from(xl)
+                    padding: 1em .5em
                 >* 
                     margin: 0 !important
                 >div
-                    @include flex($direction: column, $align: flex-start, $gap: 1em)
+                    @include flex($direction: column, $align: flex-start, $gap: .5em)
+                    overflow-y: hidden
+                    >div.price
+                        @include flex()
+                        @include bs.to(l)
+                            @include border-line
+                    >div.rating
+                        display: none
+                        @include bs.from(xl)
+                            @include flex($justify: center, $align: center, $gap: .3em)
+                            @include rating-icon-title
+                        >h4
+                            font-size: 1.1em
+                    >div.subsidiary-rating
+                        align-self: stretch
+                        @include flex($align: space-)
+                        >.consoles
+                            @include console-icons
+                        >div.rating
+                            @include flex($justify: center, $align: center, $gap: .3em)
+                            @include rating-icon-title
+                            @include bs.from(xl)
+                                display: none
+                        >p
+                            @include metascore($size: 1em)
+                    >*
+                        position: relative
+                        @include border-line
+                    @include bs.from(xl)
+                        >div.price
+                            position: unset
+                            border: none
+            
+            >div.expanded

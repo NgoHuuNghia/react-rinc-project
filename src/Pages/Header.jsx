@@ -41,10 +41,10 @@ const Header = () => {
         }, [expandNavLink]) //run every time showLinks state changed
 
         const displaySubmenu = (e) => {
-            const page = e.target.textContent //textContent method give us the button value
-            const tempBtn = e.target.getBoundingClientRect() //getBoundingClientRect method to get the location
+            const page = e.target.textContent                 //textContent method give us the button value
+            const tempBtn = e.target.getBoundingClientRect()  //getBoundingClientRect method to get the location
             const center = (tempBtn.left + tempBtn.right) / 2 //getting the center with this equation
-            const bottom = tempBtn.bottom //getting the bottom by minus 3 pixel
+            const bottom = tempBtn.bottom                     //getting the bottom by minus 3 pixel
 
             openSubmenu(page, { center, bottom })
         }
@@ -87,7 +87,7 @@ const Header = () => {
                     <FaSearch onClick={() => history.push(`/Search`)}/>
                     <input 
                         type="text" 
-                        placeholder={`search over ${totalGamesCount} games...`}
+                        placeholder={totalGamesCount ? `search over ${totalGamesCount} games...` : `loading...`}
                         ref={searchValue}
                         onChange={startSearch}/>
                     <TiCancel 

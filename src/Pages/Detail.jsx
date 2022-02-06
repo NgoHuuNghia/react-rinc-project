@@ -8,8 +8,8 @@ import DetailBackgrounds from '../Components/Detail/DetailBackgrounds'
 import ConsoleIcons from '../Components/ConsoleIcons'
 import DetailAgeRating from '../Components/Detail/DetailAgeRating'
 import DetailChartContainerBar from '../Components/Detail/DetailChartContainerBar'
+import ReturnRatingIcon from '../Components/ReturnRatingIcon'
 
-import ratingIcons from '../assets/logo/ratingIcons'
 import storeIcons from '../assets/logo/storeIcons'
 
 import { useParams } from 'react-router-dom'
@@ -79,12 +79,14 @@ const GameDetail = () => {
             if(windowWidth >= 1000){
                 if(!readMore) {
                     detailContainer.current.style.height = `${secondaryHeight}px`
-                    primaryMask.style.maskImage = (primaryHeight > secondaryHeight) ? `linear-gradient(to top, rgba(0, 0, 0, 0) 0%, #151515 30%)`: 'none'}
+                    primaryMask.style.maskImage = (primaryHeight > secondaryHeight) ? `linear-gradient(to top, rgba(0, 0, 0, 0) 0%, #151515 30%)`: 'none'
                     primaryReadMore.style.color = 'white'
+                }
                 if(readMore) {
                     detailContainer.current.style.height = (primaryHeight + 30) + 'px'
                     primaryReadMore.style.color = '#9b0027'
-                    primaryMask.style.maskImage = `none`}
+                    primaryMask.style.maskImage = `none`
+                }
             }
 
             readMoreDecider = () => {
@@ -92,17 +94,8 @@ const GameDetail = () => {
                     if(!readMore) return 'Read more...'
                     else return 'Collapse...'
                 }
-                else return null
+                else primaryMask.style.maskImage = `none`
             }
-        }
-
-        const returnRatingIcon = (index, chart, percent) => {
-            let ratingIcon = ''
-            ratingIcons.forEach((icon) => {
-                if(ratings[index].title === icon.title && chart && percent > 15) {ratingIcon = icon.url}
-                if(ratings[index].title === icon.title && !chart) {ratingIcon = icon.url}
-            })
-            return ratingIcon
         }
 
         return (
@@ -179,7 +172,7 @@ const GameDetail = () => {
                                     <div>
                                         <div>
                                             <h4>{ratings[0].title}</h4>
-                                            <img src={returnRatingIcon(0, false)} alt={ratings[0].title}/>
+                                            <ReturnRatingIcon title={ratings[0].title} chart={false}/>
                                         </div>
                                         <div><a href="/">{ratings[0].count} Ratings</a></div>{/* //!  link to rating part of page */}
                                         <p># 10 <a href="/">RPG</a></p>
@@ -320,7 +313,7 @@ const GameDetail = () => {
                                 </div>
 
                                 <div className='chart-container'>
-                                    <DetailChartContainerBar returnRatingIcon={returnRatingIcon} ratingIcons={ratingIcons} ratings={ratings}/>
+                                    <DetailChartContainerBar ratings={ratings}/>
                                 </div>
 
                                 <section className='action'>

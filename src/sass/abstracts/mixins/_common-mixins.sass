@@ -24,12 +24,12 @@
 
 @mixin custom-checkbox
     text-transform: capitalize
-    white-space: nowrap
     cursor: pointer
     @include grid($columns: 1em auto, $gap: .5em)
+    white-space: nowrap
     >span
         transition: $trs-instant
-    >input[type="checkbox"] //input[type="radio"] //! make a radio version
+    >input[type="checkbox"], >input[type="radio"]
         appearance: none
         margin: 0
         font: inherit
@@ -37,7 +37,6 @@
         width: 1.15em
         height: 1.15em
         border: 0.15em solid currentColor
-        border-radius: 0.15em
         @include grid($place-content: center)
         &::before
             content: ""
@@ -45,9 +44,15 @@
             height: 0.5em
             transform: scale(0)
             transition: 120ms transform ease-in-out
-            box-shadow: inset 1em 1em red
+            box-shadow: inset 1em 1em $bgc-subsidiary-hilight
         &:checked::before
             transform: scale(1)
+    >input[type="checkbox"]
+        border-radius: 0.15em
+    >input[type="radio"]
+        border-radius: 50%
+        &::before
+            border-radius: 50% 
 
 @mixin animated-nav-bar
     #bars
@@ -110,3 +115,28 @@
 @mixin desktop-container
     width: 1000px
     margin: 0 auto
+
+@mixin console-icons
+    @include flex($justify: center, $gap: .4em)
+    font-size: 1.1em
+
+@mixin rating-icon-title
+    >h4
+        text-transform: capitalize
+        font-size: 1.3em
+    >img, >svg
+        color: $fc-important
+        width: 2.5em
+        height: auto
+        transform: translateY(-.2em)
+@mixin metascore($size: 1em)
+    font-size: $size
+    padding: .3em
+    color: $fc-meta
+    border-radius: .2em
+    border: 1px solid $bgc-meta
+    &.empty
+        color: $fc-subsidiary-hilight
+        border: 1px solid $bgc-subsidiary-hilight
+    >svg
+        display: block

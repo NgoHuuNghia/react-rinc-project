@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
+import ReturnRatingIcon from '../../Components/ReturnRatingIcon'
 import {FaCircle} from 'react-icons/fa'
 
-const DetailChartContainerBar = ({ ratingIcons, ratings, returnRatingIcon }) => {
+const DetailChartContainerBar = ({ ratings }) => {
 
     const chartContainerWidth = ratings.reduce((currentTotal, item) => {
         return item.percent + currentTotal
@@ -25,7 +26,8 @@ const DetailChartContainerBar = ({ ratingIcons, ratings, returnRatingIcon }) => 
                                     ? {width: `${item.percent - (chartContainerWidth - 100)}%`}
                                     : {width: `${item.percent}%`}
                                 }>
-                                    <img src={returnRatingIcon(index, true, item.percent)}/>
+                                    {/* <img src={returnRatingIcon(index, true, item.percent)}/> */}
+                                    <ReturnRatingIcon title={item.title} chart={true} percent={item.percent}/>
                             </div>
                         )
                     }

@@ -4,7 +4,7 @@ import { FaChevronDown } from 'react-icons/fa'
 import SearchesComponents from '../Components/Search/SearchesComponents'
 
 const Search = () => {
-    const {searches: {searchList, searchCount}} = useGlobalContext()
+    const {searches: {searchFilteredList, searchCount}} = useGlobalContext()
     const [firstSearchesColumn, setFirstSearchesColumn] = useState([])
     const [secondSearchesColumn, setSecondSearchesColumn] = useState([])
     const [thirdSearchesColumn, setThirdSearchesColumn] = useState([])
@@ -19,15 +19,15 @@ const Search = () => {
     //! make the mobile menu button an all searching tool 
 
     useEffect(() => {
-        let firstFilter = 0, firstSearchesColumn = searchList.filter((item, index) => {if(index === firstFilter) return item, firstFilter = firstFilter + 4})
+        let firstFilter = 0, firstSearchesColumn = searchFilteredList.filter((item, index) => {if(index === firstFilter) return item, firstFilter = firstFilter + 4})
         setFirstSearchesColumn(firstSearchesColumn)
-        let secondFilter = 1, secondSearchesColumn = searchList.filter((item, index) => {if(index === secondFilter) return item, secondFilter = secondFilter + 4})
+        let secondFilter = 1, secondSearchesColumn = searchFilteredList.filter((item, index) => {if(index === secondFilter) return item, secondFilter = secondFilter + 4})
         setSecondSearchesColumn(secondSearchesColumn)
-        let thirdFilter = 2, thirdSearchesColumn = searchList.filter((item, index) => {if(index === thirdFilter) return item, thirdFilter = thirdFilter + 4})
+        let thirdFilter = 2, thirdSearchesColumn = searchFilteredList.filter((item, index) => {if(index === thirdFilter) return item, thirdFilter = thirdFilter + 4})
         setThirdSearchesColumn(thirdSearchesColumn)
-        let fourthFilter = 3, fourthSearchesColumn = searchList.filter((item, index) => {if(index === fourthFilter) return item, fourthFilter = fourthFilter + 4})
+        let fourthFilter = 3, fourthSearchesColumn = searchFilteredList.filter((item, index) => {if(index === fourthFilter) return item, fourthFilter = fourthFilter + 4})
         setFourthSearchesColumn(fourthSearchesColumn)
-    }, [searchList])
+    }, [searchFilteredList])
 
 
     return (
@@ -35,7 +35,7 @@ const Search = () => {
             <div className='primary-search'>
                 <div className='main-search'>
                     <div className='heading-search'>
-                        <p>Found {searchCount} games...</p>
+                        <p>{searchCount ? `Found ${searchCount} games` : `Loading`}...</p>
                     </div>
                     <div className="basic-filter-search">
                         <button>
@@ -50,7 +50,7 @@ const Search = () => {
                     </div>
                     <div className='scrollable-search'>
                         <div className='mobile-results-search'>
-                            {searchList.map((item) => <SearchesComponents key={item.id} {...item}/>)}
+                            {searchFilteredList.map((item) => <SearchesComponents key={item.id} {...item}/>)}
                         </div>
                         <div className='desktop-results-search'>
                             {firstSearchesColumn.map((item) => <SearchesComponents key={item.id} {...item}/>)}
@@ -115,7 +115,7 @@ const Search = () => {
                         </label>
                         <label htmlFor='sort-switch'>
                             <input id='sort-switch' type="radio" name='sortPlatforms' value='sortSwitch'/>
-                            <span>Nintendo</span> Switch
+                            <span>Nintendo Switch</span>
                         </label>
                     </div>
                 </form>

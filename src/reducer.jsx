@@ -17,7 +17,7 @@ const reducer = (state, action) => {
         if (type === 'special') return {...state, featuredListRecent: results, loading: false, totalGamesCount: action.payload.count}
         if (type === 'recommended') return {...state, featuredListRecommended: results, loading: false}
         if (type === 'sim') return {...state, featuredListSim: results, loading: false}
-        if (type === 'search') return {...state, searches: {searchTerm: state.searches.searchTerm, searchList: results, searchCount: action.payload.count}, loading: false}
+        if (type === 'search') return {...state, searches: {searchTerm: state.searches.searchTerm, searchList: results, searchFilteredList: results, searchCount: action.payload.count}, loading: false}
     }
 
     if (action.type === 'SET_LIST_POSITION'){
@@ -69,7 +69,7 @@ const reducer = (state, action) => {
 
     if (action.type === 'TOGGLE_NAV_LINK') return {...state, expandNavLink: !state.expandNavLink}
 
-    if (action.type === 'RUN_SEARCH') return {...state, searches: {searchTerm: action.payload, searchList: state.searches.searchList}}
+    if (action.type === 'RUN_SEARCH') return {...state, searches: {...state.searches ,searchTerm: action.payload}}
 
     throw new Error('no matching type ' + Error)
 }
