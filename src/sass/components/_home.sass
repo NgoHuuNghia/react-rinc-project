@@ -86,20 +86,7 @@
                 >div
                     padding: 0 .5em .75em 0        
                     div
-                        @include flex($justify: space-between)
-                        background-color: $bgc-important
-                        *
-                            display: inline-block
-                        >div:nth-child(1)
-                            background-color: $bgc-discounted
-                            color: $fc-discounted
-                            font-size: 1.6em
-                            padding: .1em
-                        >div:nth-child(2)
-                            @include card-price
-                            @include flex($direction: column, $align: flex-end)
-                            *
-                                display: block
+                        @include card-price
             >div:nth-child(1)
                 grid-area: a
             >div:nth-child(2)

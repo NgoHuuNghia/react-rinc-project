@@ -50,7 +50,8 @@ section.search-container
                     font-size: 1.6em
                     color: $fc-tag
             >.scrollable-search
-                @include flex($direction: column)
+                @include flex($direction: column, $align: stretch)
+                align-self: stretch
                 @include bs.from(xl)
                     @include flex($direction: row, $align: flex-start, $gap: 1em)
                 >div

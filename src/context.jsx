@@ -4,7 +4,7 @@ import sublinks from './assets/tempData'
 
 const BasicUrl = 'https://api.rawg.io/api/games'
 // see rawg api doc for more info on how to use it https://api.rawg.io/docs/#operation/games_list
-const APIkey = '?key=8988510ce7664ac580a6c3b238a28e69'
+const APIkey = '?key=8988510ce7664ac580a6c3b238a28e69' //! hide this will you?
 const AppContext = React.createContext()
 
 const initialState = {
@@ -125,7 +125,6 @@ export const AppProvider = ({ children }) => {
   const RunSearch = (searchTerm) => dispatch({type: 'RUN_SEARCH', payload: searchTerm})
 
   //? End of reducer's functions
-
 
   const ToTop = () => window.scrollTo(0, 0)
 

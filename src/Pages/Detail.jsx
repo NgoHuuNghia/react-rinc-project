@@ -65,11 +65,11 @@ const GameDetail = () => {
     else {
         const {
             name, description, metacritic, released, updated, background_image, background_image_additional, ratings,
-            platforms, stores, developers, genres, tags, publishers, esrb_rating
+            platforms, parent_platforms, stores, developers, genres, tags, publishers, esrb_rating
         } = detail
         
         let readMoreDecider = () => null
-        if(detailContainer.current !== null){
+        if(detailContainer.current !== null){ //! simplify this with useEffect like in searchesComponents.jxs when u had time
             let primaryHeight = detailContainer.current.children[0].children[1].getBoundingClientRect().height
             let secondaryHeight = detailContainer.current.children[1].children[0].getBoundingClientRect().height
             let primaryMask = detailContainer.current.children[0]
@@ -127,7 +127,7 @@ const GameDetail = () => {
                         <section className='trailer-mobile'>
                             <div className='head'>
                                 <div className='head-release'>{released}</div>
-                                <ConsoleIcons platforms={platforms}/>
+                                <ConsoleIcons parent_platforms={parent_platforms}/>
                             </div>
                             <a href='/' className="trailer-main"><img src={background_image} alt="" /></a>
                             <div className='trailer-slider'>{/* map here 8 times */}
@@ -142,7 +142,7 @@ const GameDetail = () => {
                         <section className='glance'> {/* ADD AGE RATING AND WEBSITE */}
                             <div className='head'>
                                 <div className='head-release'>{released}</div>
-                                <ConsoleIcons platforms={platforms}/>
+                                <ConsoleIcons parent_platforms={parent_platforms}/>
                             </div>
                             <h1>{name}</h1>
                             <div className='glance-info'>
@@ -249,7 +249,7 @@ const GameDetail = () => {
                                     </div>
                                 }
                             </div>
-                            {platforms[platforms.length - 1].platform.slug === 'pc'
+                            {/* {platforms[platforms.length - 1].platform.slug === 'pc'
                                 ? (
                                     <div className='glance-system'>
                                         <h2>System Requirements for PC</h2>
@@ -268,7 +268,26 @@ const GameDetail = () => {
                                     </div>
                                 )
                                 : null
-                            }
+                            } */}
+                            {platforms.map((item) => {
+                                if(item.platform.slug === 'pc' && Object.keys(item.requirements).length > 1 ){
+                                    return <div className='glance-system'>
+                                        <h2>System Requirements for PC</h2>
+                                        <div className="minimum">
+                                            <strong>Minimum:</strong>
+                                            <div>
+                                                <p>{item.requirements.minimum}</p>
+                                            </div>
+                                        </div>
+                                        <div className="recommended">
+                                            <strong>Recommended:</strong>
+                                            <div>
+                                                <p>{item.requirements.recommended}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                } else return null
+                            })}
                         </section>
                     </div>
                     <div className='detail-secondary'>

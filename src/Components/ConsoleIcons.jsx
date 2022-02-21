@@ -1,11 +1,11 @@
 import React from 'react'
 import {FaPlaystation, FaWindows, FaXbox, FaApple} from 'react-icons/fa'
 
-const ConsoleIcons = ({platforms}) => {
+const ConsoleIcons = ({parent_platforms}) => {
     let playstationIcon = false, xboxIcon = false, windowIcon = false, iosIcon = false
-    platforms.forEach((item) => {
-        if(item.platform.slug === 'playstation5' || item.platform.slug === 'playstation4'){playstationIcon = true}
-        if(item.platform.slug === 'xbox-series-x' || item.platform.slug === 'xbox-one'){xboxIcon = true}
+    parent_platforms.forEach((item) => {
+        if(item.platform.slug === 'playstation'){playstationIcon = true}
+        if(item.platform.slug === 'xbox'){xboxIcon = true}
         if(item.platform.slug === 'pc'){windowIcon = true}
         if(item.platform.slug === 'ios'){iosIcon = true}
     })

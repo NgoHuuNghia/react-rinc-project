@@ -487,10 +487,10 @@ body #main-container > .submenu > ul > li > a:hover {
   overflow: hidden;
   position: relative;
 }
-.main-section > .main-card-container > div.slider > a {
+.main-section > .main-card-container > div.slider > a, .main-section > .main-card-container > div.slider > div {
   transition: all 0.3s linear;
-  width: 100%;
   box-shadow: black 0px 20px 30px -10px;
+  width: 100%;
   overflow: hidden;
   background: #151515;
   background: linear-gradient(180deg, #151515 65%, #313438 100%);
@@ -501,11 +501,11 @@ body #main-container > .submenu > ul > li > a:hover {
   gap: 0;
 }
 @media (min-width: 1000px) {
-  .main-section > .main-card-container > div.slider > a {
+  .main-section > .main-card-container > div.slider > a, .main-section > .main-card-container > div.slider > div {
     flex-direction: row;
   }
 }
-.main-section > .main-card-container > div.slider > a > img {
+.main-section > .main-card-container > div.slider > a > img, .main-section > .main-card-container > div.slider > div > img {
   flex: 2;
   height: auto;
   max-width: 100%;
@@ -514,12 +514,12 @@ body #main-container > .submenu > ul > li > a:hover {
   object-fit: cover;
 }
 @media (min-width: 1000px) {
-  .main-section > .main-card-container > div.slider > a > img {
+  .main-section > .main-card-container > div.slider > a > img, .main-section > .main-card-container > div.slider > div > img {
     width: 620px;
     height: 350px;
   }
 }
-.main-section > .main-card-container > div.slider > a > div {
+.main-section > .main-card-container > div.slider > a > div, .main-section > .main-card-container > div.slider > div > div {
   flex: 1;
   display: grid;
   grid-template-rows: none;
@@ -530,40 +530,36 @@ body #main-container > .submenu > ul > li > a:hover {
   padding: 0.5em;
 }
 @media (min-width: 1000px) {
-  .main-section > .main-card-container > div.slider > a > div {
+  .main-section > .main-card-container > div.slider > a > div, .main-section > .main-card-container > div.slider > div > div {
     padding: 0;
   }
 }
-.main-section > .main-card-container > div.slider > a > div > h4, .main-section > .main-card-container > div.slider > a > div > a {
+.main-section > .main-card-container > div.slider > a > div > h4, .main-section > .main-card-container > div.slider > a > div > a, .main-section > .main-card-container > div.slider > div > div > h4, .main-section > .main-card-container > div.slider > div > div > a {
   font-size: 1.1em;
   text-transform: capitalize;
   display: block;
   grid-column: span 2;
   font-size: 1.4em;
 }
-.main-section > .main-card-container > div.slider > a > div > a:hover {
-  color: white;
-  transition: all 0.3s linear;
-}
-.main-section > .main-card-container > div.slider > a > div > img {
+.main-section > .main-card-container > div.slider > a > div > img, .main-section > .main-card-container > div.slider > div > div > img {
   display: none;
 }
 @media (min-width: 1000px) {
-  .main-section > .main-card-container > div.slider > a > div > img {
+  .main-section > .main-card-container > div.slider > a > div > img, .main-section > .main-card-container > div.slider > div > div > img {
     grid-column: span 1;
     height: 91px;
     width: 100%;
     display: inline-block;
   }
 }
-.main-section > .main-card-container > div.slider > a > div > *:not(img) {
+.main-section > .main-card-container > div.slider > a > div > *:not(img), .main-section > .main-card-container > div.slider > div > div > *:not(img) {
   margin-left: 0.5em;
 }
-.main-section > .main-card-container > div.slider > a > div > div:nth-last-child(2) {
+.main-section > .main-card-container > div.slider > a > div > div.home-copoment-extra, .main-section > .main-card-container > div.slider > div > div > div.home-copoment-extra {
   display: none;
 }
 @media (min-width: 1000px) {
-  .main-section > .main-card-container > div.slider > a > div > div:nth-last-child(2) {
+  .main-section > .main-card-container > div.slider > a > div > div.home-copoment-extra, .main-section > .main-card-container > div.slider > div > div > div.home-copoment-extra {
     display: flex;
     flex-direction: column;
     justify-content: none;
@@ -571,16 +567,16 @@ body #main-container > .submenu > ul > li > a:hover {
     gap: 0.3em;
     grid-column: span 2;
   }
-  .main-section > .main-card-container > div.slider > a > div > div:nth-last-child(2) > div:first-child {
+  .main-section > .main-card-container > div.slider > a > div > div.home-copoment-extra > div:first-child, .main-section > .main-card-container > div.slider > div > div > div.home-copoment-extra > div:first-child {
     font-size: 1.05em;
   }
-  .main-section > .main-card-container > div.slider > a > div > div:nth-last-child(2) > div:last-child {
+  .main-section > .main-card-container > div.slider > a > div > div.home-copoment-extra > div:last-child, .main-section > .main-card-container > div.slider > div > div > div.home-copoment-extra > div:last-child {
     font-size: 0.8em;
     padding: 0.2em 0.6em;
     background-color: #8b0023;
   }
 }
-.main-section > .main-card-container > div.slider > a > div > div:last-child {
+.main-section > .main-card-container > div.slider > a > div > div.home-copomnent-main, .main-section > .main-card-container > div.slider > div > div > div.home-copomnent-main {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -589,39 +585,53 @@ body #main-container > .submenu > ul > li > a:hover {
   grid-column: span 2;
   margin: 0 0.5em;
 }
-.main-section > .main-card-container > div.slider > a > div > div:last-child > div:first-child {
+.main-section > .main-card-container > div.slider > a > div > div.home-copomnent-main > div.price-container.price-container, .main-section > .main-card-container > div.slider > div > div > div.home-copomnent-main > div.price-container.price-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
   gap: 0;
   background-color: black;
   font-size: 0.8em;
 }
-.main-section > .main-card-container > div.slider > a > div > div:last-child > div:first-child * {
+.main-section > .main-card-container > div.slider > a > div > div.home-copomnent-main > div.price-container.price-container > div.discount-percent, .main-section > .main-card-container > div.slider > div > div > div.home-copomnent-main > div.price-container.price-container > div.discount-percent {
   display: inline-block;
   padding: 0.2em 0.4em;
-}
-.main-section > .main-card-container > div.slider > a > div > div:last-child > div:first-child > div:nth-child(1) {
   background-color: #4c6b22;
   color: #a4d007;
 }
-.main-section > .main-card-container > div.slider > a > div > div:last-child > div:first-child > div:nth-child(2) {
+.main-section > .main-card-container > div.slider > a > div > div.home-copomnent-main > div.price-container.price-container > div.price, .main-section > .main-card-container > div.slider > div > div > div.home-copomnent-main > div.price-container.price-container > div.price {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 0;
+  gap: 0.5em;
   display: inline-flex;
   font-size: 0.85em;
   padding: 0 0.5em 0 0.5em;
 }
-.main-section > .main-card-container > div.slider > a > div > div:last-child > div:first-child > div:nth-child(2) span {
+.main-section > .main-card-container > div.slider > a > div > div.home-copomnent-main > div.price-container.price-container > div.price span, .main-section > .main-card-container > div.slider > div > div > div.home-copomnent-main > div.price-container.price-container > div.price span {
   font-size: 0.95em;
   text-decoration: line-through;
   color: #4c565d;
 }
-.main-section > .main-card-container > div.slider > a > div > div:last-child > div:last-child {
+.main-section > .main-card-container > div.slider > a > div > div.home-copomnent-main > div.price-container.price-2col > div.discount-percent, .main-section > .main-card-container > div.slider > div > div > div.home-copomnent-main > div.price-container.price-2col > div.discount-percent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  font-size: 1.2em;
+}
+.main-section > .main-card-container > div.slider > a > div > div.home-copomnent-main > div.price-container.price-2col > div.price, .main-section > .main-card-container > div.slider > div > div > div.home-copomnent-main > div.price-container.price-2col > div.price {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.1em;
+  padding: 0.3em 0.5em;
+}
+.main-section > .main-card-container > div.slider > a > div > div.home-copomnent-main > div:last-child, .main-section > .main-card-container > div.slider > div > div > div.home-copomnent-main > div:last-child {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -653,88 +663,129 @@ body #main-container > .submenu > ul > li > a:hover {
     gap: 1em;
   }
 }
-.main-section > .main-card-container > div.slider.mobile-results-search > a, .main-section > .main-card-container > div.slider.desktop-results-search > a {
+.main-section > .main-card-container > div.slider.mobile-results-search > a, .main-section > .main-card-container > div.slider.mobile-results-search > div, .main-section > .main-card-container > div.slider.desktop-results-search > a, .main-section > .main-card-container > div.slider.desktop-results-search > div {
+  border-radius: 0.6em;
+}
+@media (min-width: 1000px) {
+  .main-section > .main-card-container > div.slider.mobile-results-search > a, .main-section > .main-card-container > div.slider.mobile-results-search > div, .main-section > .main-card-container > div.slider.desktop-results-search > a, .main-section > .main-card-container > div.slider.desktop-results-search > div {
+    flex-direction: column;
+  }
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > a > img, .main-section > .main-card-container > div.slider.mobile-results-search > div > a > img, .main-section > .main-card-container > div.slider.desktop-results-search > a > a > img, .main-section > .main-card-container > div.slider.desktop-results-search > div > a > img {
+  height: auto;
+  max-width: 100%;
+  display: block;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  object-fit: cover;
+  width: 30em;
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  gap: 0;
-  border-radius: 0.6em;
+  gap: 0.75em;
+  padding: 0.5em 0.5em;
 }
-.main-section > .main-card-container > div.slider.mobile-results-search > a > img, .main-section > .main-card-container > div.slider.desktop-results-search > a > img {
-  width: 100%;
-  height: 10em;
-}
-.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic {
-  padding: 1em 1.5em;
-}
-@media (min-width: 1000px) {
-  .main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic {
-    padding: 1em 0.5em;
-  }
-}
-.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > *, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > * {
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > *, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > *, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > *, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > * {
   margin: 0 !important;
 }
-.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div {
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 0.5em;
+  gap: 1em;
   overflow-y: hidden;
 }
-.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div > div.price, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div > div.price {
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.price-container, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.price-container, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.price-container, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.price-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 0;
 }
-@media (max-width: 999px) {
-  .main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div > div.price::after, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div > div.price::after {
-    content: "";
-    position: absolute;
-    width: 50em;
-    left: 0;
-    bottom: -8px;
-    border-bottom: 1px solid #ff0040;
-  }
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-container, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-container, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-container, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 0;
+  background-color: black;
+  font-size: 0.8em;
 }
-.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div > div.rating, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div > div.rating {
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-container > div.discount-percent, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-container > div.discount-percent, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-container > div.discount-percent, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-container > div.discount-percent {
+  display: inline-block;
+  padding: 0.2em 0.4em;
+  background-color: #4c6b22;
+  color: #a4d007;
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-container > div.price, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-container > div.price, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-container > div.price, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-container > div.price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+  display: inline-flex;
+  font-size: 0.85em;
+  padding: 0 0.5em 0 0.5em;
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-container > div.price span, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-container > div.price span, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-container > div.price span, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-container > div.price span {
+  font-size: 0.95em;
+  text-decoration: line-through;
+  color: #4c565d;
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-2col > div.discount-percent, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-2col > div.discount-percent, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-2col > div.discount-percent, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-2col > div.discount-percent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  font-size: 1.2em;
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-2col > div.price, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-2col > div.price, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-2col > div.price, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-2col > div.price {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.1em;
+  padding: 0.3em 0.5em;
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.rating, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.rating, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.rating, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.rating {
+  align-self: stretch;
   display: none;
 }
 @media (min-width: 1000px) {
-  .main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div > div.rating, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div > div.rating {
+  .main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.rating, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.rating, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.rating, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.rating {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 0.3em;
   }
-  .main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div > div.rating > h4, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div > div.rating > h4 {
+  .main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.rating > h4, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.rating > h4, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.rating > h4, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.rating > h4 {
     text-transform: capitalize;
     font-size: 1.3em;
   }
-  .main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div > div.rating > img, .main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div > div.rating > svg, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div > div.rating > img, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div > div.rating > svg {
+  .main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.rating > img, .main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.rating > svg, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.rating > img, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.rating > svg, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.rating > img, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.rating > svg, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.rating > img, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.rating > svg {
     color: white;
     width: 2.5em;
     height: auto;
     transform: translateY(-0.2em);
   }
 }
-.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div > div.rating > h4, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div > div.rating > h4 {
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.rating > h4, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.rating > h4, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.rating > h4, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.rating > h4 {
   font-size: 1.1em;
 }
-.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div > div.subsidiary-rating, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div > div.subsidiary-rating {
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating {
   align-self: stretch;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: space-;
+  align-items: center;
   gap: 0;
 }
-.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div > div.subsidiary-rating > .consoles, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div > div.subsidiary-rating > .consoles {
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > .consoles, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > .consoles, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > .consoles, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > .consoles {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -742,58 +793,165 @@ body #main-container > .submenu > ul > li > a:hover {
   gap: 0.4em;
   font-size: 1.1em;
 }
-.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div > div.subsidiary-rating > div.rating, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div > div.subsidiary-rating > div.rating {
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 0.3em;
 }
-.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div > div.subsidiary-rating > div.rating > h4, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div > div.subsidiary-rating > div.rating > h4 {
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > h4, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > h4, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > h4, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > h4 {
   text-transform: capitalize;
   font-size: 1.3em;
 }
-.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div > div.subsidiary-rating > div.rating > img, .main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div > div.subsidiary-rating > div.rating > svg, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div > div.subsidiary-rating > div.rating > img, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div > div.subsidiary-rating > div.rating > svg {
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > img, .main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > svg, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > img, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > svg, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > img, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > svg, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > img, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > svg {
   color: white;
   width: 2.5em;
   height: auto;
   transform: translateY(-0.2em);
 }
 @media (min-width: 1000px) {
-  .main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div > div.subsidiary-rating > div.rating, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div > div.subsidiary-rating > div.rating {
+  .main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating {
     display: none;
   }
 }
-.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div > div.subsidiary-rating > p, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div > div.subsidiary-rating > p {
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > p, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > p, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > p, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > p {
   font-size: 1em;
   padding: 0.3em;
   color: #6dc849;
   border-radius: 0.2em;
   border: 1px solid rgba(109, 200, 73, 0.4);
 }
-.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div > div.subsidiary-rating > p.empty, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div > div.subsidiary-rating > p.empty {
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > p.empty, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > p.empty, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > p.empty, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > p.empty {
   color: #d90037;
   border: 1px solid #ff0040;
 }
-.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div > div.subsidiary-rating > p > svg, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div > div.subsidiary-rating > p > svg {
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > p > svg, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > p > svg, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > p > svg, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > p > svg {
   display: block;
 }
-.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div > *, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div > * {
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div:not(div:first-child), .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div:not(div:first-child), .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div:not(div:first-child), .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div:not(div:first-child) {
   position: relative;
 }
-.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div > *::after, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div > *::after {
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div:not(div:first-child)::after, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div:not(div:first-child)::after, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div:not(div:first-child)::after, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div:not(div:first-child)::after {
   content: "";
   position: absolute;
-  width: 50em;
+  width: 100%;
   left: 0;
-  bottom: -8px;
+  bottom: -5px;
   border-bottom: 1px solid #ff0040;
 }
 @media (min-width: 1000px) {
-  .main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div > div.price, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div > div.price {
+  .main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-main > div.price, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-main > div.price, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-main > div.price, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-main > div.price {
     position: unset;
     border: none;
   }
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-expander, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-expander, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-expander, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-expander {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  padding: 0.5em 0;
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-expander > p, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-expander > p, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-expander > p, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-expander > p {
+  position: relative;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: all 0.1s linear;
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-expander > p::after, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-expander > p::after, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-expander > p::after, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-expander > p::after {
+  content: "";
+  position: absolute;
+  bottom: -0.1em;
+  left: 0;
+  width: 100%;
+  height: 0.05em;
+  background-color: #c0bbca;
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-expander > p:hover, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-expander > p:hover, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-expander > p:hover, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-expander > p:hover {
+  color: #d90037;
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-expander > p:hover::after, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-expander > p:hover::after, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-expander > p:hover::after, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-expander > p:hover::after {
+  background-color: #d90037;
+}
+@media (min-width: 1000px) {
+  .main-section > .main-card-container > div.slider.mobile-results-search > a > div.basic > div.search-copomnent-expander, .main-section > .main-card-container > div.slider.mobile-results-search > div > div.basic > div.search-copomnent-expander, .main-section > .main-card-container > div.slider.desktop-results-search > a > div.basic > div.search-copomnent-expander, .main-section > .main-card-container > div.slider.desktop-results-search > div > div.basic > div.search-copomnent-expander {
+    display: none;
+  }
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > ul.expanded, .main-section > .main-card-container > div.slider.mobile-results-search > div > ul.expanded, .main-section > .main-card-container > div.slider.desktop-results-search > a > ul.expanded, .main-section > .main-card-container > div.slider.desktop-results-search > div > ul.expanded {
+  padding: 0.5em 0.5em 1em 0.5em;
+  font-size: 0.9em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1.25em;
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > ul.expanded > li, .main-section > .main-card-container > div.slider.mobile-results-search > div > ul.expanded > li, .main-section > .main-card-container > div.slider.desktop-results-search > a > ul.expanded > li, .main-section > .main-card-container > div.slider.desktop-results-search > div > ul.expanded > li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  position: relative;
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > ul.expanded > li::after, .main-section > .main-card-container > div.slider.mobile-results-search > div > ul.expanded > li::after, .main-section > .main-card-container > div.slider.desktop-results-search > a > ul.expanded > li::after, .main-section > .main-card-container > div.slider.desktop-results-search > div > ul.expanded > li::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: -5px;
+  border-bottom: 1px solid #ff0040;
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > ul.expanded > li > p:first-child, .main-section > .main-card-container > div.slider.mobile-results-search > div > ul.expanded > li > p:first-child, .main-section > .main-card-container > div.slider.desktop-results-search > a > ul.expanded > li > p:first-child, .main-section > .main-card-container > div.slider.desktop-results-search > div > ul.expanded > li > p:first-child {
+  color: #939393;
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > ul.expanded > li:last-child, .main-section > .main-card-container > div.slider.mobile-results-search > div > ul.expanded > li:last-child, .main-section > .main-card-container > div.slider.desktop-results-search > a > ul.expanded > li:last-child, .main-section > .main-card-container > div.slider.desktop-results-search > div > ul.expanded > li:last-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  padding: 0.5em 0;
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > ul.expanded > li:last-child::after, .main-section > .main-card-container > div.slider.mobile-results-search > div > ul.expanded > li:last-child::after, .main-section > .main-card-container > div.slider.desktop-results-search > a > ul.expanded > li:last-child::after, .main-section > .main-card-container > div.slider.desktop-results-search > div > ul.expanded > li:last-child::after {
+  content: none;
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > ul.expanded > li:last-child > p, .main-section > .main-card-container > div.slider.mobile-results-search > div > ul.expanded > li:last-child > p, .main-section > .main-card-container > div.slider.desktop-results-search > a > ul.expanded > li:last-child > p, .main-section > .main-card-container > div.slider.desktop-results-search > div > ul.expanded > li:last-child > p {
+  position: relative;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: all 0.1s linear;
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > ul.expanded > li:last-child > p::after, .main-section > .main-card-container > div.slider.mobile-results-search > div > ul.expanded > li:last-child > p::after, .main-section > .main-card-container > div.slider.desktop-results-search > a > ul.expanded > li:last-child > p::after, .main-section > .main-card-container > div.slider.desktop-results-search > div > ul.expanded > li:last-child > p::after {
+  content: "";
+  position: absolute;
+  bottom: -0.1em;
+  left: 0;
+  width: 100%;
+  height: 0.05em;
+  background-color: #c0bbca;
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > ul.expanded > li:last-child > p:hover, .main-section > .main-card-container > div.slider.mobile-results-search > div > ul.expanded > li:last-child > p:hover, .main-section > .main-card-container > div.slider.desktop-results-search > a > ul.expanded > li:last-child > p:hover, .main-section > .main-card-container > div.slider.desktop-results-search > div > ul.expanded > li:last-child > p:hover {
+  color: #d90037;
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > ul.expanded > li:last-child > p:hover::after, .main-section > .main-card-container > div.slider.mobile-results-search > div > ul.expanded > li:last-child > p:hover::after, .main-section > .main-card-container > div.slider.desktop-results-search > a > ul.expanded > li:last-child > p:hover::after, .main-section > .main-card-container > div.slider.desktop-results-search > div > ul.expanded > li:last-child > p:hover::after {
+  background-color: #d90037;
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > ul.expanded > li:last-child > p, .main-section > .main-card-container > div.slider.mobile-results-search > div > ul.expanded > li:last-child > p, .main-section > .main-card-container > div.slider.desktop-results-search > a > ul.expanded > li:last-child > p, .main-section > .main-card-container > div.slider.desktop-results-search > div > ul.expanded > li:last-child > p {
+  padding: 1em 1em;
+  border-radius: 0.6em;
+  color: white;
+  background-color: #8b0023;
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > ul.expanded > li:last-child > p:hover, .main-section > .main-card-container > div.slider.mobile-results-search > div > ul.expanded > li:last-child > p:hover, .main-section > .main-card-container > div.slider.desktop-results-search > a > ul.expanded > li:last-child > p:hover, .main-section > .main-card-container > div.slider.desktop-results-search > div > ul.expanded > li:last-child > p:hover {
+  color: #10161b;
+  background-color: #f2ecff;
+}
+.main-section > .main-card-container > div.slider.mobile-results-search > a > ul.expanded > li:last-child > p::after, .main-section > .main-card-container > div.slider.mobile-results-search > div > ul.expanded > li:last-child > p::after, .main-section > .main-card-container > div.slider.desktop-results-search > a > ul.expanded > li:last-child > p::after, .main-section > .main-card-container > div.slider.desktop-results-search > div > ul.expanded > li:last-child > p::after {
+  content: none;
 }
 .main-section > .main-card-container > div.slider > a {
   position: absolute;
@@ -889,40 +1047,51 @@ body #main-container > .submenu > ul > li > a:hover {
 .main-section > .secondary-card-container > div.slider > div > div {
   padding: 0 0.5em 0.75em 0;
 }
-.main-section > .secondary-card-container > div.slider > div > div div {
+.main-section > .secondary-card-container > div.slider > div > div div.price-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 0;
+  background-color: black;
+  font-size: 0.8em;
+}
+.main-section > .secondary-card-container > div.slider > div > div div.price-container > div.discount-percent {
+  display: inline-block;
+  padding: 0.2em 0.4em;
+  background-color: #4c6b22;
+  color: #a4d007;
+}
+.main-section > .secondary-card-container > div.slider > div > div div.price-container > div.price {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 0;
-  background-color: black;
-}
-.main-section > .secondary-card-container > div.slider > div > div div * {
-  display: inline-block;
-}
-.main-section > .secondary-card-container > div.slider > div > div div > div:nth-child(1) {
-  background-color: #4c6b22;
-  color: #a4d007;
-  font-size: 1.6em;
-  padding: 0.1em;
-}
-.main-section > .secondary-card-container > div.slider > div > div div > div:nth-child(2) {
+  gap: 0.5em;
   display: inline-flex;
   font-size: 0.85em;
   padding: 0 0.5em 0 0.5em;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 0;
 }
-.main-section > .secondary-card-container > div.slider > div > div div > div:nth-child(2) span {
+.main-section > .secondary-card-container > div.slider > div > div div.price-container > div.price span {
   font-size: 0.95em;
   text-decoration: line-through;
   color: #4c565d;
 }
-.main-section > .secondary-card-container > div.slider > div > div div > div:nth-child(2) * {
-  display: block;
+.main-section > .secondary-card-container > div.slider > div > div div.price-2col > div.discount-percent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  font-size: 1.2em;
+}
+.main-section > .secondary-card-container > div.slider > div > div div.price-2col > div.price {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.1em;
+  padding: 0.3em 0.5em;
 }
 .main-section > .secondary-card-container > div.slider > div:nth-child(1) {
   grid-area: a;
@@ -1266,18 +1435,56 @@ body #main-container > .submenu > ul > li > a:hover {
   gap: 0;
 }
 .main-section > .special-card-container > div:nth-child(2) > a > div > p {
-  display: inline-flex;
-  font-size: 0.85em;
-  padding: 0 0.5em 0 0.5em;
   padding: 0.1em 0.35em;
   background-color: black;
   color: white;
   font-weight: 700;
 }
-.main-section > .special-card-container > div:nth-child(2) > a > div > p span {
+.main-section > .special-card-container > div:nth-child(2) > a > div > p.price-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 0;
+  background-color: black;
+  font-size: 0.8em;
+}
+.main-section > .special-card-container > div:nth-child(2) > a > div > p.price-container > div.discount-percent {
+  display: inline-block;
+  padding: 0.2em 0.4em;
+  background-color: #4c6b22;
+  color: #a4d007;
+}
+.main-section > .special-card-container > div:nth-child(2) > a > div > p.price-container > div.price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+  display: inline-flex;
+  font-size: 0.85em;
+  padding: 0 0.5em 0 0.5em;
+}
+.main-section > .special-card-container > div:nth-child(2) > a > div > p.price-container > div.price span {
   font-size: 0.95em;
   text-decoration: line-through;
   color: #4c565d;
+}
+.main-section > .special-card-container > div:nth-child(2) > a > div > p.price-2col > div.discount-percent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  font-size: 1.2em;
+}
+.main-section > .special-card-container > div:nth-child(2) > a > div > p.price-2col > div.price {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.1em;
+  padding: 0.3em 0.5em;
 }
 .main-section > .special-card-container > div:nth-child(2) > a:nth-child(3) {
   display: none;
@@ -2985,8 +3192,9 @@ section.search-container > .primary-search > .main-search > .scrollable-search {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
   gap: 0;
+  align-self: stretch;
 }
 @media (min-width: 1000px) {
   section.search-container > .primary-search > .main-search > .scrollable-search {
@@ -2997,10 +3205,10 @@ section.search-container > .primary-search > .main-search > .scrollable-search {
     gap: 1em;
   }
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div > a {
+section.search-container > .primary-search > .main-search > .scrollable-search > div > a, section.search-container > .primary-search > .main-search > .scrollable-search > div > div {
   transition: all 0.3s linear;
-  width: 100%;
   box-shadow: black 0px 20px 30px -10px;
+  width: 100%;
   overflow: hidden;
   background: #151515;
   background: linear-gradient(180deg, #151515 65%, #313438 100%);
@@ -3011,11 +3219,11 @@ section.search-container > .primary-search > .main-search > .scrollable-search >
   gap: 0;
 }
 @media (min-width: 1000px) {
-  section.search-container > .primary-search > .main-search > .scrollable-search > div > a {
+  section.search-container > .primary-search > .main-search > .scrollable-search > div > a, section.search-container > .primary-search > .main-search > .scrollable-search > div > div {
     flex-direction: row;
   }
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div > a > img {
+section.search-container > .primary-search > .main-search > .scrollable-search > div > a > img, section.search-container > .primary-search > .main-search > .scrollable-search > div > div > img {
   flex: 2;
   height: auto;
   max-width: 100%;
@@ -3024,12 +3232,12 @@ section.search-container > .primary-search > .main-search > .scrollable-search >
   object-fit: cover;
 }
 @media (min-width: 1000px) {
-  section.search-container > .primary-search > .main-search > .scrollable-search > div > a > img {
+  section.search-container > .primary-search > .main-search > .scrollable-search > div > a > img, section.search-container > .primary-search > .main-search > .scrollable-search > div > div > img {
     width: 620px;
     height: 350px;
   }
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div {
+section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div, section.search-container > .primary-search > .main-search > .scrollable-search > div > div > div {
   flex: 1;
   display: grid;
   grid-template-rows: none;
@@ -3040,40 +3248,36 @@ section.search-container > .primary-search > .main-search > .scrollable-search >
   padding: 0.5em;
 }
 @media (min-width: 1000px) {
-  section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div {
+  section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div, section.search-container > .primary-search > .main-search > .scrollable-search > div > div > div {
     padding: 0;
   }
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > h4, section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > a {
+section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > h4, section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > a, section.search-container > .primary-search > .main-search > .scrollable-search > div > div > div > h4, section.search-container > .primary-search > .main-search > .scrollable-search > div > div > div > a {
   font-size: 1.1em;
   text-transform: capitalize;
   display: block;
   grid-column: span 2;
   font-size: 1.4em;
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > a:hover {
-  color: white;
-  transition: all 0.3s linear;
-}
-section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > img {
+section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > img, section.search-container > .primary-search > .main-search > .scrollable-search > div > div > div > img {
   display: none;
 }
 @media (min-width: 1000px) {
-  section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > img {
+  section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > img, section.search-container > .primary-search > .main-search > .scrollable-search > div > div > div > img {
     grid-column: span 1;
     height: 91px;
     width: 100%;
     display: inline-block;
   }
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > *:not(img) {
+section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > *:not(img), section.search-container > .primary-search > .main-search > .scrollable-search > div > div > div > *:not(img) {
   margin-left: 0.5em;
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > div:nth-last-child(2) {
+section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > div.home-copoment-extra, section.search-container > .primary-search > .main-search > .scrollable-search > div > div > div > div.home-copoment-extra {
   display: none;
 }
 @media (min-width: 1000px) {
-  section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > div:nth-last-child(2) {
+  section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > div.home-copoment-extra, section.search-container > .primary-search > .main-search > .scrollable-search > div > div > div > div.home-copoment-extra {
     display: flex;
     flex-direction: column;
     justify-content: none;
@@ -3081,16 +3285,16 @@ section.search-container > .primary-search > .main-search > .scrollable-search >
     gap: 0.3em;
     grid-column: span 2;
   }
-  section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > div:nth-last-child(2) > div:first-child {
+  section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > div.home-copoment-extra > div:first-child, section.search-container > .primary-search > .main-search > .scrollable-search > div > div > div > div.home-copoment-extra > div:first-child {
     font-size: 1.05em;
   }
-  section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > div:nth-last-child(2) > div:last-child {
+  section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > div.home-copoment-extra > div:last-child, section.search-container > .primary-search > .main-search > .scrollable-search > div > div > div > div.home-copoment-extra > div:last-child {
     font-size: 0.8em;
     padding: 0.2em 0.6em;
     background-color: #8b0023;
   }
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > div:last-child {
+section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > div.home-copomnent-main, section.search-container > .primary-search > .main-search > .scrollable-search > div > div > div > div.home-copomnent-main {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -3099,39 +3303,53 @@ section.search-container > .primary-search > .main-search > .scrollable-search >
   grid-column: span 2;
   margin: 0 0.5em;
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > div:last-child > div:first-child {
+section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > div.home-copomnent-main > div.price-container.price-container, section.search-container > .primary-search > .main-search > .scrollable-search > div > div > div > div.home-copomnent-main > div.price-container.price-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
   gap: 0;
   background-color: black;
   font-size: 0.8em;
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > div:last-child > div:first-child * {
+section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > div.home-copomnent-main > div.price-container.price-container > div.discount-percent, section.search-container > .primary-search > .main-search > .scrollable-search > div > div > div > div.home-copomnent-main > div.price-container.price-container > div.discount-percent {
   display: inline-block;
   padding: 0.2em 0.4em;
-}
-section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > div:last-child > div:first-child > div:nth-child(1) {
   background-color: #4c6b22;
   color: #a4d007;
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > div:last-child > div:first-child > div:nth-child(2) {
+section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > div.home-copomnent-main > div.price-container.price-container > div.price, section.search-container > .primary-search > .main-search > .scrollable-search > div > div > div > div.home-copomnent-main > div.price-container.price-container > div.price {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 0;
+  gap: 0.5em;
   display: inline-flex;
   font-size: 0.85em;
   padding: 0 0.5em 0 0.5em;
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > div:last-child > div:first-child > div:nth-child(2) span {
+section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > div.home-copomnent-main > div.price-container.price-container > div.price span, section.search-container > .primary-search > .main-search > .scrollable-search > div > div > div > div.home-copomnent-main > div.price-container.price-container > div.price span {
   font-size: 0.95em;
   text-decoration: line-through;
   color: #4c565d;
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > div:last-child > div:last-child {
+section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > div.home-copomnent-main > div.price-container.price-2col > div.discount-percent, section.search-container > .primary-search > .main-search > .scrollable-search > div > div > div > div.home-copomnent-main > div.price-container.price-2col > div.discount-percent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  font-size: 1.2em;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > div.home-copomnent-main > div.price-container.price-2col > div.price, section.search-container > .primary-search > .main-search > .scrollable-search > div > div > div > div.home-copomnent-main > div.price-container.price-2col > div.price {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.1em;
+  padding: 0.3em 0.5em;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div > a > div > div.home-copomnent-main > div:last-child, section.search-container > .primary-search > .main-search > .scrollable-search > div > div > div > div.home-copomnent-main > div:last-child {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -3163,88 +3381,129 @@ section.search-container > .primary-search > .main-search > .scrollable-search >
     gap: 1em;
   }
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a {
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div {
+  border-radius: 0.6em;
+}
+@media (min-width: 1000px) {
+  section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div {
+    flex-direction: column;
+  }
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > a > img, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > a > img, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > a > img, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > a > img {
+  height: auto;
+  max-width: 100%;
+  display: block;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  object-fit: cover;
+  width: 30em;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  gap: 0;
-  border-radius: 0.6em;
+  gap: 0.75em;
+  padding: 0.5em 0.5em;
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > img, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > img {
-  width: 100%;
-  height: 10em;
-}
-section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic {
-  padding: 1em 1.5em;
-}
-@media (min-width: 1000px) {
-  section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic {
-    padding: 1em 0.5em;
-  }
-}
-section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > *, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > * {
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > *, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > *, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > *, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > * {
   margin: 0 !important;
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div {
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 0.5em;
+  gap: 1em;
   overflow-y: hidden;
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div > div.price, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div > div.price {
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.price-container, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.price-container, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.price-container, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.price-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 0;
 }
-@media (max-width: 999px) {
-  section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div > div.price::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div > div.price::after {
-    content: "";
-    position: absolute;
-    width: 50em;
-    left: 0;
-    bottom: -8px;
-    border-bottom: 1px solid #ff0040;
-  }
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-container, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-container, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-container, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 0;
+  background-color: black;
+  font-size: 0.8em;
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div > div.rating, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div > div.rating {
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-container > div.discount-percent, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-container > div.discount-percent, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-container > div.discount-percent, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-container > div.discount-percent {
+  display: inline-block;
+  padding: 0.2em 0.4em;
+  background-color: #4c6b22;
+  color: #a4d007;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-container > div.price, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-container > div.price, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-container > div.price, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-container > div.price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+  display: inline-flex;
+  font-size: 0.85em;
+  padding: 0 0.5em 0 0.5em;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-container > div.price span, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-container > div.price span, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-container > div.price span, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-container > div.price span {
+  font-size: 0.95em;
+  text-decoration: line-through;
+  color: #4c565d;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-2col > div.discount-percent, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-2col > div.discount-percent, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-2col > div.discount-percent, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-2col > div.discount-percent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  font-size: 1.2em;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-2col > div.price, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-2col > div.price, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.price-container.price-2col > div.price, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.price-container.price-2col > div.price {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.1em;
+  padding: 0.3em 0.5em;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.rating, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.rating, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.rating, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.rating {
+  align-self: stretch;
   display: none;
 }
 @media (min-width: 1000px) {
-  section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div > div.rating, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div > div.rating {
+  section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.rating, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.rating, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.rating, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.rating {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 0.3em;
   }
-  section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div > div.rating > h4, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div > div.rating > h4 {
+  section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.rating > h4, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.rating > h4, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.rating > h4, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.rating > h4 {
     text-transform: capitalize;
     font-size: 1.3em;
   }
-  section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div > div.rating > img, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div > div.rating > svg, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div > div.rating > img, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div > div.rating > svg {
+  section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.rating > img, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.rating > svg, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.rating > img, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.rating > svg, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.rating > img, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.rating > svg, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.rating > img, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.rating > svg {
     color: white;
     width: 2.5em;
     height: auto;
     transform: translateY(-0.2em);
   }
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div > div.rating > h4, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div > div.rating > h4 {
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.rating > h4, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.rating > h4, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.rating > h4, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.rating > h4 {
   font-size: 1.1em;
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div > div.subsidiary-rating, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div > div.subsidiary-rating {
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating {
   align-self: stretch;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: space-;
+  align-items: center;
   gap: 0;
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div > div.subsidiary-rating > .consoles, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div > div.subsidiary-rating > .consoles {
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > .consoles, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > .consoles, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > .consoles, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > .consoles {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -3252,58 +3511,165 @@ section.search-container > .primary-search > .main-search > .scrollable-search >
   gap: 0.4em;
   font-size: 1.1em;
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div > div.subsidiary-rating > div.rating, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div > div.subsidiary-rating > div.rating {
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 0.3em;
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div > div.subsidiary-rating > div.rating > h4, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div > div.subsidiary-rating > div.rating > h4 {
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > h4, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > h4, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > h4, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > h4 {
   text-transform: capitalize;
   font-size: 1.3em;
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div > div.subsidiary-rating > div.rating > img, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div > div.subsidiary-rating > div.rating > svg, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div > div.subsidiary-rating > div.rating > img, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div > div.subsidiary-rating > div.rating > svg {
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > img, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > svg, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > img, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > svg, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > img, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > svg, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > img, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating > svg {
   color: white;
   width: 2.5em;
   height: auto;
   transform: translateY(-0.2em);
 }
 @media (min-width: 1000px) {
-  section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div > div.subsidiary-rating > div.rating, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div > div.subsidiary-rating > div.rating {
+  section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > div.rating {
     display: none;
   }
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div > div.subsidiary-rating > p, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div > div.subsidiary-rating > p {
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > p, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > p, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > p, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > p {
   font-size: 1em;
   padding: 0.3em;
   color: #6dc849;
   border-radius: 0.2em;
   border: 1px solid rgba(109, 200, 73, 0.4);
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div > div.subsidiary-rating > p.empty, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div > div.subsidiary-rating > p.empty {
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > p.empty, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > p.empty, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > p.empty, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > p.empty {
   color: #d90037;
   border: 1px solid #ff0040;
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div > div.subsidiary-rating > p > svg, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div > div.subsidiary-rating > p > svg {
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > p > svg, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > p > svg, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.subsidiary-rating > p > svg, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.subsidiary-rating > p > svg {
   display: block;
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div > *, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div > * {
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div:not(div:first-child), section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div:not(div:first-child), section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div:not(div:first-child), section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div:not(div:first-child) {
   position: relative;
 }
-section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div > *::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div > *::after {
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div:not(div:first-child)::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div:not(div:first-child)::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div:not(div:first-child)::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div:not(div:first-child)::after {
   content: "";
   position: absolute;
-  width: 50em;
+  width: 100%;
   left: 0;
-  bottom: -8px;
+  bottom: -5px;
   border-bottom: 1px solid #ff0040;
 }
 @media (min-width: 1000px) {
-  section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div > div.price, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div > div.price {
+  section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-main > div.price, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-main > div.price, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-main > div.price, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-main > div.price {
     position: unset;
     border: none;
   }
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-expander, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-expander, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-expander, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-expander {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  padding: 0.5em 0;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-expander > p, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-expander > p, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-expander > p, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-expander > p {
+  position: relative;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: all 0.1s linear;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-expander > p::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-expander > p::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-expander > p::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-expander > p::after {
+  content: "";
+  position: absolute;
+  bottom: -0.1em;
+  left: 0;
+  width: 100%;
+  height: 0.05em;
+  background-color: #c0bbca;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-expander > p:hover, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-expander > p:hover, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-expander > p:hover, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-expander > p:hover {
+  color: #d90037;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-expander > p:hover::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-expander > p:hover::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-expander > p:hover::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-expander > p:hover::after {
+  background-color: #d90037;
+}
+@media (min-width: 1000px) {
+  section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > div.basic > div.search-copomnent-expander, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > div.basic > div.search-copomnent-expander, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > div.basic > div.search-copomnent-expander, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > div.basic > div.search-copomnent-expander {
+    display: none;
+  }
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > ul.expanded, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > ul.expanded, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > ul.expanded, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > ul.expanded {
+  padding: 0.5em 0.5em 1em 0.5em;
+  font-size: 0.9em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1.25em;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > ul.expanded > li, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > ul.expanded > li, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > ul.expanded > li, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > ul.expanded > li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  position: relative;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > ul.expanded > li::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > ul.expanded > li::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > ul.expanded > li::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > ul.expanded > li::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: -5px;
+  border-bottom: 1px solid #ff0040;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > ul.expanded > li > p:first-child, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > ul.expanded > li > p:first-child, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > ul.expanded > li > p:first-child, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > ul.expanded > li > p:first-child {
+  color: #939393;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > ul.expanded > li:last-child, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > ul.expanded > li:last-child, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > ul.expanded > li:last-child, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > ul.expanded > li:last-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  padding: 0.5em 0;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > ul.expanded > li:last-child::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > ul.expanded > li:last-child::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > ul.expanded > li:last-child::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > ul.expanded > li:last-child::after {
+  content: none;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > ul.expanded > li:last-child > p, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > ul.expanded > li:last-child > p, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > ul.expanded > li:last-child > p, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > ul.expanded > li:last-child > p {
+  position: relative;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: all 0.1s linear;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > ul.expanded > li:last-child > p::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > ul.expanded > li:last-child > p::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > ul.expanded > li:last-child > p::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > ul.expanded > li:last-child > p::after {
+  content: "";
+  position: absolute;
+  bottom: -0.1em;
+  left: 0;
+  width: 100%;
+  height: 0.05em;
+  background-color: #c0bbca;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > ul.expanded > li:last-child > p:hover, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > ul.expanded > li:last-child > p:hover, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > ul.expanded > li:last-child > p:hover, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > ul.expanded > li:last-child > p:hover {
+  color: #d90037;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > ul.expanded > li:last-child > p:hover::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > ul.expanded > li:last-child > p:hover::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > ul.expanded > li:last-child > p:hover::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > ul.expanded > li:last-child > p:hover::after {
+  background-color: #d90037;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > ul.expanded > li:last-child > p, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > ul.expanded > li:last-child > p, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > ul.expanded > li:last-child > p, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > ul.expanded > li:last-child > p {
+  padding: 1em 1em;
+  border-radius: 0.6em;
+  color: white;
+  background-color: #8b0023;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > ul.expanded > li:last-child > p:hover, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > ul.expanded > li:last-child > p:hover, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > ul.expanded > li:last-child > p:hover, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > ul.expanded > li:last-child > p:hover {
+  color: #10161b;
+  background-color: #f2ecff;
+}
+section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > a > ul.expanded > li:last-child > p::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.mobile-results-search > div > ul.expanded > li:last-child > p::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > a > ul.expanded > li:last-child > p::after, section.search-container > .primary-search > .main-search > .scrollable-search > div.desktop-results-search > div > ul.expanded > li:last-child > p::after {
+  content: none;
 }
 section.search-container > .primary-search > .main-search > .scrollable-search > div > div {
   box-shadow: black 0px 20px 30px -10px;

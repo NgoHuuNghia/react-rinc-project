@@ -33,20 +33,61 @@
     font-weight: 400
     display: block
 @mixin card-price
-    display: inline-flex
-    font-size: .85em
-    padding: 0 .5em 0 .5em
-    span
-        font-size: .95em
-        text-decoration: line-through
-        color: $fc-unimportant
+    &.price-container
+        @include flex($align: stretch)
+        background-color: $bgc-important
+        font-size: .8em
+        >div.discount-percent
+            display: inline-block
+            padding: 0.2em .4em
+            background-color: $bgc-discounted
+            color: $fc-discounted
+        >div.price
+            @include flex($direction: row, $gap: .5em)
+            display: inline-flex
+            font-size: .85em
+            padding: 0 .5em 0 .5em
+            span
+                font-size: .95em
+                text-decoration: line-through
+                color: $fc-unimportant
+    &.price-2col
+        >div.discount-percent
+            @include flex($justify: center)
+            font-size: 1.2em
+        >div.price
+            @include flex($direction: column, $gap: .1em)
+            padding: .3em .5em
+
+@mixin expander
+    @include flex($justify: center)
+    padding: .5em 0
+    >p
+        position: relative
+        font-size: .9em
+        cursor: pointer
+        transition: $trs-instant
+        &::after
+            content: ''
+            position: absolute
+            bottom: -.1em
+            left: 0
+            width: 100%
+            height: .05em
+            background-color: $bgc-hilight-soft
+        &:hover
+            color: $fc-subsidiary-hilight
+            &::after
+                background-color: $fc-subsidiary-hilight
+
 @mixin border-line
+    position: relative
     &::after
         content: ''
         position: absolute
-        width: 50em
+        width: 100%
         left: 0
-        bottom: -8px
+        bottom: -5px
         border-bottom: 1px solid $bgc-subsidiary-hilight
 
 // slider
@@ -76,13 +117,13 @@
             @include gradient(background, 90deg, transparent, 15%, $bgc-hilight-subtle, 100%)
 
 @mixin flexible-card
-    >a
+    >a, >div
         transition: $trs-basic
-        width: 100%
         box-shadow: $bs-card-lg
+        width: 100%
         overflow: hidden
         @include gradient
-        @include flex($direction: column, $align: stretch)
+        @include flex($direction: column, $justify: space-between, $align: stretch)
         @include bs.from(xl)
             flex-direction: row
         >img
@@ -101,9 +142,6 @@
                 @include card-title
                 grid-column: span 2
                 font-size: 1.4em
-            >a:hover
-                color: $fc-important
-                transition: $trs-basic
             >img
                 display: none
                 @include bs.from(xl)
@@ -114,7 +152,7 @@
             >*:not(img)
                 margin-left: .5em
 
-            >div:nth-last-child(2)
+            >div.home-copoment-extra
                 display: none
                 @include bs.from(xl)
                     @include flex($direction: column,$justify: none, $align: flex-start, $gap: .3em)
@@ -125,24 +163,12 @@
                         font-size: .8em
                         padding: .2em .6em
                         background-color: $bgc-subsidiary
-
-            >div:last-child
+            >div.home-copomnent-main
                 @include flex($justify: space-between)
                 grid-column: span 2
                 margin: 0 .5em
-                >div:first-child
-                    @include flex
-                    background-color: $bgc-important
-                    font-size: .8em
-                    * 
-                        display: inline-block
-                        padding: 0.2em .4em
-                    >div:nth-child(1)
-                        background-color: $bgc-discounted
-                        color: $fc-discounted
-                    >div:nth-child(2)
-                        @include flex($direction: row)
-                        @include card-price
+                >div.price-container
+                    @include card-price
                 >div:last-child
                     @include flex($gap: .2em)
 
@@ -155,27 +181,29 @@
         display: none
         @include bs.from(xl)
             @include flex($direction: column, $gap: 1em)
+            
     &.mobile-results-search, &.desktop-results-search
-        >a
-            @include flex($direction: column, $justify: space-between, $align: stretch)
+        >a, >div
             border-radius: .6em
-            >img
-                width: 100%
-                height: 10em
+            @include bs.from(xl)
+                flex-direction: column
+            >a
+                >img
+                    @include card-img
+                    width: 30em //? determine the width of scrollable search
             >div.basic
-                padding: 1em 1.5em
-                @include bs.from(xl)
-                    padding: 1em .5em
+                @include flex($direction: column, $justify: space-between, $align: stretch, $gap: .75em)
+                padding: .5em .5em
                 >* 
                     margin: 0 !important
-                >div
-                    @include flex($direction: column, $align: flex-start, $gap: .5em)
+                >div.search-copomnent-main
+                    @include flex($direction: column, $align: flex-start, $gap: 1em)
                     overflow-y: hidden
-                    >div.price
+                    >div.price-container
                         @include flex()
-                        @include bs.to(l)
-                            @include border-line
+                        @include card-price
                     >div.rating
+                        align-self: stretch
                         display: none
                         @include bs.from(xl)
                             @include flex($justify: center, $align: center, $gap: .3em)
@@ -184,7 +212,7 @@
                             font-size: 1.1em
                     >div.subsidiary-rating
                         align-self: stretch
-                        @include flex($align: space-)
+                        @include flex()
                         >.consoles
                             @include console-icons
                         >div.rating
@@ -194,12 +222,40 @@
                                 display: none
                         >p
                             @include metascore($size: 1em)
-                    >*
-                        position: relative
+                    >div:not(div:first-child)
                         @include border-line
                     @include bs.from(xl)
                         >div.price
                             position: unset
                             border: none
-            
-            >div.expanded
+
+                >div.search-copomnent-expander
+                    @include expander
+                    @include bs.from(xl)
+                        display: none
+                        //! finish the rest of the card bich
+
+            >ul.expanded
+                padding: .5em .5em 1em .5em
+                font-size: .9em
+                @include flex($direction: column, $gap: 1.25em, $align: stretch)
+                >li
+                    @include flex
+                    @include border-line
+                    >p:first-child
+                        color: $fc-tag
+                    >p:last-child
+                >li:last-child
+                    &::after
+                        content: none
+                    @include expander
+                    >p
+                        padding: 1em 1em
+                        border-radius: .6em
+                        color: $fc-important
+                        background-color: $bgc-subsidiary
+                        &:hover
+                            color: $fc-hilight-subsidiary
+                            background-color: $bgc-hilight
+                        &::after
+                            content: none

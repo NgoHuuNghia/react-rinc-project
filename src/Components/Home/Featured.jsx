@@ -14,11 +14,11 @@ const Featured = ({ name, id, background_image }) => {
                 {name}
             </h5>
             <div>
-                <div>
-                    <div>-33%</div>
-                    <div>
-                        <span>1.000.000d</span>
-                        <p>670.000d</p>
+                <div className='price-container price-2col'>
+                    <div className='discount-percent'>-91%</div>
+                    <div className='price'>
+                        <span>588.000d</span>
+                        <p>134.000d</p>
                     </div>
                 </div>
             </div>
