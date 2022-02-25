@@ -1,12 +1,16 @@
 import React from 'react'
-import logo from '../assets/logo/rinc-white-v2.png'
 import { useGlobalContext } from '../context'
+import { useLocation } from 'react-router-dom'
 
-const Footer = () => {
+import logo from '../assets/logo/rinc-white-v2.png'
+
+const Footer = ({}) => {
     const {closeSubmenu} = useGlobalContext()
 
+    const location = useLocation().pathname
+
     return (
-        <footer onMouseOver={closeSubmenu}>
+        <footer className={(location.toLowerCase().includes('admin')) ? 'display-none' : ''} onMouseOver={closeSubmenu}>
             <div>
                 <div>
                     <img src={logo} alt="" />

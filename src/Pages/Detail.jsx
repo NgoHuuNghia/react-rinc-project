@@ -16,6 +16,7 @@ import { useParams } from 'react-router-dom'
 import {FaChevronRight, FaWindows, FaFlag, FaShareAlt, FaStopCircle} from 'react-icons/fa'
 import {AiOutlineStop} from 'react-icons/ai'
 //! not using: FaThumbsDown, FaMeh
+//$ maybe make a breadcrumbs component
 
 const detailUrl = 'https://api.rawg.io/api/games/'
 const screenshotsUrl = '/screenshots'

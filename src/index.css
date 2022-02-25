@@ -47,6 +47,9 @@ body #main-container header {
   background: #151515;
   padding: 0.5em 0;
 }
+body #main-container header.display-none {
+  display: none !important;
+}
 body #main-container header::after {
   opacity: 0;
   content: "";
@@ -350,6 +353,9 @@ body #main-container > .submenu {
   box-shadow: black 0px 20px 30px -10px;
   opacity: 0;
   z-index: -1;
+}
+body #main-container > .submenu.display-none {
+  display: none;
 }
 body #main-container > .submenu.open {
   opacity: 1;
@@ -1801,6 +1807,9 @@ footer {
   position: relative;
   z-index: 0;
   padding: 1em 0.5em 1em 0.5em;
+}
+footer.display-none {
+  display: none !important;
 }
 @media (min-width: 1000px) {
   footer {
@@ -3681,30 +3690,26 @@ section.search-container > .secondary-filter {
 }
 @media (min-width: 1000px) {
   section.search-container > .secondary-filter {
-    display: unset;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1em;
   }
 }
-section.search-container > .secondary-filter > form {
-  width: 100%;
+section.search-container > .secondary-filter > div {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   gap: 1em;
 }
-section.search-container > .secondary-filter > form > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1em;
-}
-section.search-container > .secondary-filter > form > div > h4 {
+section.search-container > .secondary-filter > div > h4 {
   font-size: 1.1em;
   text-transform: uppercase;
   white-space: nowrap;
 }
-section.search-container > .secondary-filter > form > div > label {
+section.search-container > .secondary-filter > div > label {
   font-size: 0.9em;
   color: white;
   text-transform: capitalize;
@@ -3717,10 +3722,10 @@ section.search-container > .secondary-filter > form > div > label {
   place-content: unset;
   white-space: nowrap;
 }
-section.search-container > .secondary-filter > form > div > label > span {
+section.search-container > .secondary-filter > div > label > span {
   transition: all 0.1s linear;
 }
-section.search-container > .secondary-filter > form > div > label > input[type=checkbox], section.search-container > .secondary-filter > form > div > label > input[type=radio] {
+section.search-container > .secondary-filter > div > label > input[type=checkbox], section.search-container > .secondary-filter > div > label > input[type=radio] {
   appearance: none;
   margin: 0;
   font: inherit;
@@ -3735,7 +3740,7 @@ section.search-container > .secondary-filter > form > div > label > input[type=c
   place-items: unset;
   place-content: center;
 }
-section.search-container > .secondary-filter > form > div > label > input[type=checkbox]::before, section.search-container > .secondary-filter > form > div > label > input[type=radio]::before {
+section.search-container > .secondary-filter > div > label > input[type=checkbox]::before, section.search-container > .secondary-filter > div > label > input[type=radio]::before {
   content: "";
   width: 0.5em;
   height: 0.5em;
@@ -3743,20 +3748,157 @@ section.search-container > .secondary-filter > form > div > label > input[type=c
   transition: 120ms transform ease-in-out;
   box-shadow: inset 1em 1em #ff0040;
 }
-section.search-container > .secondary-filter > form > div > label > input[type=checkbox]:checked::before, section.search-container > .secondary-filter > form > div > label > input[type=radio]:checked::before {
+section.search-container > .secondary-filter > div > label > input[type=checkbox]:checked::before, section.search-container > .secondary-filter > div > label > input[type=radio]:checked::before {
   transform: scale(1);
 }
-section.search-container > .secondary-filter > form > div > label > input[type=checkbox] {
+section.search-container > .secondary-filter > div > label > input[type=checkbox] {
   border-radius: 0.15em;
 }
-section.search-container > .secondary-filter > form > div > label > input[type=radio] {
+section.search-container > .secondary-filter > div > label > input[type=radio] {
   border-radius: 50%;
 }
-section.search-container > .secondary-filter > form > div > label > input[type=radio]::before {
+section.search-container > .secondary-filter > div > label > input[type=radio]::before {
   border-radius: 50%;
 }
-section.search-container > .secondary-filter > form > div > label > span:hover {
+section.search-container > .secondary-filter > div > label > span:hover {
   color: #d90037;
+}
+
+section.admin-container {
+  background: #eef0f1;
+  position: relative;
+}
+section.admin-container > div.terminal {
+  display: none;
+}
+section.admin-container > div.controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0;
+  color: #10161b;
+}
+section.admin-container > div.controls > div {
+  padding: 1em 1em;
+}
+section.admin-container > div.controls > .head {
+  background-color: #ffffff;
+  border-bottom: 1px solid #dee2e6;
+  color: #90989e;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1em;
+}
+section.admin-container > div.controls > .head > button {
+  background-color: #313438;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23) !important;
+  transition: all 0.1s linear;
+  width: 3em;
+  height: 3em;
+}
+section.admin-container > div.controls > .head > button > svg {
+  font-size: 1.5em;
+  color: #c6d4df;
+}
+section.admin-container > div.controls > .head > button:hover {
+  background-color: #ff0040;
+}
+section.admin-container > div.controls > .head > button:hover > svg {
+  color: #10161b;
+}
+section.admin-container > div.controls > .head > button > svg {
+  transform: translateY(0.05em);
+}
+section.admin-container > div.controls > .head > .breadcrumbs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.2em;
+}
+section.admin-container > div.controls > .head > .breadcrumbs > div > a {
+  color: inherit;
+}
+section.admin-container > div.controls > .head > .breadcrumbs > span {
+  cursor: default;
+}
+section.admin-container > div.controls > .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+}
+section.admin-container > div.controls > .title > h2 {
+  font-size: 2em;
+  font-weight: 400;
+}
+section.admin-container > div.controls > .title > button {
+  background-color: #313438;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23) !important;
+  transition: all 0.1s linear;
+  width: 3em;
+  height: 3em;
+}
+section.admin-container > div.controls > .title > button > svg {
+  font-size: 1.5em;
+  color: #c6d4df;
+}
+section.admin-container > div.controls > .title > button:hover {
+  background-color: #ff0040;
+}
+section.admin-container > div.controls > .title > button:hover > svg {
+  color: #10161b;
+}
+section.admin-container > div.controls > .title > button > svg {
+  transform: translateY(0.15em);
+}
+section.admin-container > div.controls > .list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1em;
+}
+section.admin-container > div.controls > .list-container > .search {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0;
+}
+section.admin-container > div.controls > .list-container > .search > input {
+  padding: 0.5em;
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+}
+section.admin-container > div.controls > .list-container > .search > button {
+  padding: 0 0.5em;
+  border: none;
+  background: #313438;
+}
+section.admin-container > div.controls > .list-container > .search > button > svg {
+  color: #c6d4df;
+}
+section.admin-container > div.controls > .list-container > ul.table {
+  display: grid;
+  grid-template-rows: none;
+  grid-template-columns: repeat(5, minmax(100px, 1fr)) 3em 3em;
+  gap: 1em 0.5em;
+  place-items: unset;
+  place-content: unset;
+  grid-auto-flow: row;
+  overflow-x: auto;
+}
+section.admin-container > div.filter-controls {
+  display: none;
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -5,6 +5,7 @@ import logo from '../assets/logo/rinc-white-v2.png'
 import { useGlobalContext } from '../context'
 import {useHistory, useLocation, Link} from 'react-router-dom'
 
+
 //asss
 const Header = () => {
     const {
@@ -16,7 +17,7 @@ const Header = () => {
     const mobileNavRef = useRef(null)
     const searchValue = useRef('')
     
-    let history = useHistory()
+    const history = useHistory()
     const location = useLocation().pathname
 
         useEffect(() => {
@@ -60,19 +61,23 @@ const Header = () => {
         }
 
         const detailHeader = () => {
-            if (location.includes('Detail')) {
-                if(expandNavLink){
-                    return 'overlay'
-                }
-                if (!expandNavLink){
-                    return 'transparent'
-                }
+            if (location.toLowerCase().includes('admin')) {
+                return 'display-none'
             } else {
-                if(expandNavLink){
-                    return 'overlay'
-                }
-                if (!expandNavLink){
-                    return ''
+                if (location.includes('Detail')) {
+                    if(expandNavLink){
+                        return 'overlay'
+                    }
+                    if (!expandNavLink){
+                        return 'transparent'
+                    }
+                } else {
+                    if(expandNavLink){
+                        return 'overlay'
+                    }
+                    if (!expandNavLink){
+                        return ''
+                    }
                 }
             }
         }

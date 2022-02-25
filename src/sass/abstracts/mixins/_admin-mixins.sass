@@ -1,0 +1,20 @@
+@use '../_fonts' as *
+@use '../_varibles' as *
+@use './_common-mixins' as *
+@use '../../../../node_modules/breakpoint-slicer' as bs
+
+@mixin sidebar-button()
+    background-color: $bgc-subtle
+    border-radius: 50%
+    border: none
+    box-shadow: $bs-sm
+    transition: $trs-instant
+    width: 3em
+    height: 3em
+    >svg
+        font-size: 1.5em
+        color: $fc-default
+    &:hover
+        background-color: $bgc-subsidiary-hilight
+        >svg
+            color: $fc-hilight-subsidiary

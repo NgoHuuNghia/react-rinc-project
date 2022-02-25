@@ -62,21 +62,18 @@ section.search-container
     >.secondary-filter
         display: none
         flex: 1
-        @include bs.from(xl)
-            display: unset
         width: 100%
-        >form
-            width: 100%
+        @include bs.from(xl)
             @include flex($direction: column, $align: flex-start, $gap: 1em)
-            >div
-                @include flex($direction: column, $align: flex-start, $gap: 1em)
-                >h4
-                    font-size: 1.1em
-                    text-transform: uppercase
-                    white-space: nowrap
-                >label
-                    font-size: .9em
-                    color: $fc-important
-                    @include custom-checkbox
-                    >span:hover
-                        color: $fc-subsidiary-hilight
+        >div
+            @include flex($direction: column, $align: flex-start, $gap: 1em)
+            >h4
+                font-size: 1.1em
+                text-transform: uppercase
+                white-space: nowrap
+            >label
+                font-size: .9em
+                color: $fc-important
+                @include custom-checkbox
+                >span:hover
+                    color: $fc-subsidiary-hilight

@@ -5,6 +5,8 @@
     
 @mixin submenu
     >.submenu
+        &.display-none
+            display: none
         transition: $trs-basic
         position: absolute
         transform: translateX(-50%)

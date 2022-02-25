@@ -12,6 +12,8 @@ import Support from './Pages/Support'
 import Detail from './Pages/Detail'
 import Footer from './Pages/Footer'
 import Error from './Pages/Error'
+//? Admin page components
+import Admin from './Components/Admin'
 //? import common components
 
 function App() { //remember there <body> before this div
@@ -43,10 +45,15 @@ function App() { //remember there <body> before this div
             <Route path='/Detail/:id'>
               <Detail />{/*//! no idea how to give gameDetail a key here */}
             </Route>
+
+            <Route path='/Admin'>
+              <Admin />
+            </Route>
+            
             <Route exact path='/*'>
               <Error />
             </Route>
-
+            
           </Switch>
           </div>
           <Footer />

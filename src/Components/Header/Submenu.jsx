@@ -1,11 +1,16 @@
 import React, {useState, useEffect, useRef} from 'react'
+import { useLocation } from 'react-router-dom'
+
 import { useGlobalContext } from '../../context'
 
 const Submenu = () => {
     const { 
         submenu: {submenuOpen, location, subpage: {page, links}},
     } = useGlobalContext()
-    //const [columns, setColumns] = useState('col-2') // in case u wana have col 
+
+    const urlLocation = useLocation().pathname
+
+    //const [columns, setColumns] = useState('col-2') //$ in case u wana have col 
     const subContainer = useRef(null)
 
     useEffect(() => {
@@ -26,7 +31,7 @@ const Submenu = () => {
 
     return (
         <div 
-            className={`submenu ${(submenuOpen) ? 'open' : ''}`}
+            className={`submenu ${(submenuOpen) ? 'open' : ''} ${(urlLocation.toLowerCase().includes('admin')) ? 'display-none' : ''}`}
             ref={subContainer}
         >
             <ul>

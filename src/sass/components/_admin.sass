@@ -1,0 +1,88 @@
+@use '../abstracts' as *
+@use "../../../node_modules/breakpoint-slicer" as bs
+@use '../abstracts/mixins/_admin-mixins' as *
+
+//? admin
+section.admin-container
+    background: $bgc-admin
+    position: relative
+    >div.terminal
+        //* temp
+        display: none
+        >.head, >.admin
+            >a
+                >img
+                >p
+        >.search
+            >input
+            >svg
+        >.dashboard
+            >ul
+                >li
+                    >span
+                    >svg
+                >li.activated
+            >p.extension-dashboard
+
+    >div.controls
+        @include flex($direction: column, $justify: center, $align: stretch)
+        color: $fc-admin
+        >div
+            padding: 1em 1em
+        
+        >.head
+            background-color: $bgc-admin-head
+            border-bottom: 1px solid $bgc-admin-line
+            color: #90989e
+            @include flex($justify: flex-start, $align: center, $gap: 1em)
+            >button
+                @include sidebar-button
+                >svg
+                    transform: translateY(.05em)
+            >.breadcrumbs
+                @include flex($gap: .2em)
+                >div
+                    >a
+                        color: inherit
+                >span
+                    cursor: default
+                    
+        >.title
+            @include flex
+            >h2
+                font-size: 2em
+                font-weight: 400
+            >button
+                @include sidebar-button
+                >svg
+                    transform: translateY(.15em)
+
+        >.list-container
+            @include flex($direction: column, $align: stretch, $gap: 1em)
+            >.search
+                @include flex($justify: flex-start, $align: stretch)
+                >input
+                    padding: .5em
+                    background: $bgc-admin-head
+                    border: 1px solid $bgc-admin-line
+                >button
+                    padding: 0 .5em
+                    border: none
+                    background: $bgc-subtle
+                    >svg
+                        color: $fc-default
+            >ul.table
+                @include grid($columns: repeat(5, minmax(100px, 1fr)) 3em 3em, $gap: 1em .5em)
+                grid-auto-flow: row
+                //grid-auto-columns: minmax(100px,1fr)
+                overflow-x: auto
+                >li
+
+                >li.table-head
+
+    >div.filter-controls
+        //* temp
+        display: none
+
+    >div.sidebar-overlay
+        &.sidebar-open
