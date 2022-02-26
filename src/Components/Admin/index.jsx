@@ -9,6 +9,10 @@ import AdminFilter from './AdminFilter'
 //todo convert the overlay in header like that too
 //todo utilize position static and absolute to achieve same structure
 
+//todo make functions for search, pagination
+
+//! Working on the AdminTerminal right now
+
 const Admin = () => {
     return (
         <section className='admin-container'>
@@ -18,7 +22,7 @@ const Admin = () => {
                 <AdminDashboard admin={true}/>
             </div>
             <AdminFilter />
-            <div className='sidebar-overlay'></div>
+            <div className='sidebar-overlay sidebar-open'></div>
         </section>
     )
 }
