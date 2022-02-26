@@ -44,7 +44,7 @@ body #main-container.overlay {
 body #main-container header {
   transition: all 0.3s linear;
   position: relative;
-  background: #151515;
+  background-color: #151515;
   padding: 0.5em 0;
 }
 body #main-container header.display-none {
@@ -3774,17 +3774,19 @@ section.admin-container > div.terminal {
 section.admin-container > div.controls {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: stretch;
   gap: 0;
   color: #10161b;
+  min-height: 100vh;
 }
-section.admin-container > div.controls > div {
-  padding: 1em 1em;
+section.admin-container > div.controls > div:not(:first-child) {
+  margin: 1em;
 }
 section.admin-container > div.controls > .head {
   background-color: #ffffff;
   border-bottom: 1px solid #dee2e6;
+  padding: 1em;
   color: #90989e;
   display: flex;
   flex-direction: row;
@@ -3800,6 +3802,7 @@ section.admin-container > div.controls > .head > button {
   transition: all 0.1s linear;
   width: 3em;
   height: 3em;
+  cursor: pointer;
 }
 section.admin-container > div.controls > .head > button > svg {
   font-size: 1.5em;
@@ -3815,6 +3818,8 @@ section.admin-container > div.controls > .head > button > svg {
   transform: translateY(0.05em);
 }
 section.admin-container > div.controls > .head > .breadcrumbs {
+  font-size: 1.1em;
+  text-transform: capitalize;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -3835,7 +3840,7 @@ section.admin-container > div.controls > .title {
   gap: 0;
 }
 section.admin-container > div.controls > .title > h2 {
-  font-size: 2em;
+  font-size: 1.7em;
   font-weight: 400;
 }
 section.admin-container > div.controls > .title > button {
@@ -3846,6 +3851,7 @@ section.admin-container > div.controls > .title > button {
   transition: all 0.1s linear;
   width: 3em;
   height: 3em;
+  cursor: pointer;
 }
 section.admin-container > div.controls > .title > button > svg {
   font-size: 1.5em;
@@ -3861,11 +3867,13 @@ section.admin-container > div.controls > .title > button > svg {
   transform: translateY(0.15em);
 }
 section.admin-container > div.controls > .list-container {
+  border: 2px solid rgba(0, 0, 0, 0.125);
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  gap: 1em;
+  gap: 0;
 }
 section.admin-container > div.controls > .list-container > .search {
   display: flex;
@@ -3873,11 +3881,13 @@ section.admin-container > div.controls > .list-container > .search {
   justify-content: flex-start;
   align-items: stretch;
   gap: 0;
+  padding: 1em;
 }
 section.admin-container > div.controls > .list-container > .search > input {
+  font-size: 1em;
   padding: 0.5em;
   background: #ffffff;
-  border: 1px solid #dee2e6;
+  border: 1px solid rgba(0, 0, 0, 0.3);
 }
 section.admin-container > div.controls > .list-container > .search > button {
   padding: 0 0.5em;
@@ -3890,15 +3900,93 @@ section.admin-container > div.controls > .list-container > .search > button > sv
 section.admin-container > div.controls > .list-container > ul.table {
   display: grid;
   grid-template-rows: none;
-  grid-template-columns: repeat(5, minmax(100px, 1fr)) 3em 3em;
-  gap: 1em 0.5em;
+  grid-template-columns: minmax(min-content, 1fr) minmax(10em, 2fr) repeat(5, minmax(min-content, 0.5fr));
+  gap: 0;
   place-items: unset;
   place-content: unset;
   grid-auto-flow: row;
   overflow-x: auto;
 }
+section.admin-container > div.controls > .list-container > ul.table > li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  padding: 0.5em 1em;
+  border-top: 2px solid rgba(0, 0, 0, 0.125);
+}
+section.admin-container > div.controls > .list-container > ul.table > li > svg {
+  font-size: 1.5em;
+}
+section.admin-container > div.controls > .list-container > ul.table .table-head {
+  padding: 0.75em 1em;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #10161b;
+}
+section.admin-container > div.controls > .list-container > ul.table .edit, section.admin-container > div.controls > .list-container > ul.table .delete {
+  justify-content: center;
+  transition: all 0.1s linear;
+  cursor: pointer;
+}
+section.admin-container > div.controls > .list-container > ul.table .edit:hover {
+  color: #04F404;
+}
+section.admin-container > div.controls > .list-container > ul.table .delete:hover {
+  color: #c70000;
+}
+section.admin-container > div.controls > .list-container > .pagination {
+  border-top: 2px solid rgba(0, 0, 0, 0.125);
+  padding: 1em;
+}
+section.admin-container > div.controls > .list-container > .pagination > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0;
+}
+section.admin-container > div.controls > .list-container > .pagination > ul > li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  padding: 0.5em;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-left: none;
+  transition: all 0.1s linear;
+  cursor: pointer;
+}
+section.admin-container > div.controls > .list-container > .pagination > ul li:not(.current):hover {
+  background-color: #ff0040;
+  color: #10161b;
+}
+section.admin-container > div.controls > .list-container > .pagination > ul > li:first-child {
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+}
+section.admin-container > div.controls > .list-container > .pagination > ul > li.current {
+  background-color: #007bff;
+  color: #eef0f1;
+}
 section.admin-container > div.filter-controls {
   display: none;
+}
+section.admin-container > div.sidebar-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -10;
+  opacity: 0;
+  background-color: rgba(3, 3, 3, 0.7);
+  transition: all 0.3s linear;
+}
+section.admin-container > div.sidebar-overlay.sidebar-open {
+  opacity: 1;
+  z-index: 10;
 }
 
 /*# sourceMappingURL=index.css.map */

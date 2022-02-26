@@ -1,5 +1,5 @@
 import React from 'react'
-import {FaBars, FaChevronRight} from 'react-icons/fa'
+import {FaBars} from 'react-icons/fa'
 
 const AdminHeader = () => {
     return (

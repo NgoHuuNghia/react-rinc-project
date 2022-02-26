@@ -1,8 +1,15 @@
 import React from 'react'
-import {FaFilter, FaSearch} from 'react-icons/fa'
-import {RiEditBoxFill, RiDeleteBack2Fill} from 'react-icons/ri'
+import {FaFilter, FaSearch, FaChevronLeft, FaChevronRight} from 'react-icons/fa'
+
+import { useGlobalContext } from '../../context'
+import AdminGamesList from './AdminGamesList'
 
 const AdminDashboard = () => {
+    const { 
+        featuredList, 
+        featuredListRecent
+    } = useGlobalContext()
+
     return (
         <>
             <div className='title'>
@@ -11,7 +18,7 @@ const AdminDashboard = () => {
             </div>
             <div className='list-container'>
                 <div className='search'>
-                    <input type="text" placeholder='Search...' />
+                    <input type="text" placeholder='Search slug...' />
                     <button><FaSearch /></button>
                 </div>
                 <ul className='table'>
@@ -19,24 +26,27 @@ const AdminDashboard = () => {
                     <li className='table-head'>slug</li>
                     <li className='table-head'>released</li>
                     <li className='table-head'>rating</li>
-                    <li className='table-head'>review_count</li>
-                    <li className='table-head'>Edit</li>
-                    <li className='table-head'>Delete</li>
-                    <li>23123</li>
-                    <li>asd-qwr-czxcs</li>
-                    <li>23-2-1999</li>
-                    <li>4.5</li>
-                    <li>5000</li>
-                    <li><RiEditBoxFill /></li>
-                    <li><RiDeleteBack2Fill /></li>
-                    <li>23123</li>
-                    <li>asd-qwr-czxcs</li>
-                    <li>23-2-1999</li>
-                    <li>4.5</li>
-                    <li>5000</li>
-                    <li><RiEditBoxFill /></li>
-                    <li><RiDeleteBack2Fill /></li>
+                    <li className='table-head'>reviews</li>
+                    <li className='table-head edit'>Edit</li>
+                    <li className='table-head delete'>Delete</li>
+                    {featuredList.map((item) => {
+                        return <AdminGamesList key={item.id} {...item}/>
+                    })}
+                    {featuredListRecent.map((item) => {
+                        return <AdminGamesList key={item.id} {...item}/>
+                    })}
                 </ul>
+                <div className='pagination'>
+                    <ul>
+                        <li><FaChevronLeft /></li>
+                        <li className='current'>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li><FaChevronRight /></li>
+                    </ul>
+                </div>
             </div>
         </>
     )
