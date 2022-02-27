@@ -1,10 +1,12 @@
 import React from 'react'
 import {FaBars} from 'react-icons/fa'
 
-const AdminHeader = () => {
+import { AdminArrow } from '../../assets/svg'
+
+const AdminHeader = ({sidebar, setSidebar}) => {
     return (
         <div className='head'>
-            <button><FaBars /></button>
+            <button onClick={() => setSidebar('terminal')}><AdminArrow /></button>
             <div className='breadcrumbs'>
                 <div>
                     <a href="/admin">current parent</a>

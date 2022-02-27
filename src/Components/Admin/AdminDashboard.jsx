@@ -18,7 +18,7 @@ const AdminDashboard = () => {
             </div>
             <div className='list-container'>
                 <div className='search'>
-                    <input type="text" placeholder='Search slug...' />
+                    <input type="text" placeholder='Search slug or id...' />
                     <button><FaSearch /></button>
                 </div>
                 <ul className='table'>

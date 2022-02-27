@@ -3765,11 +3765,199 @@ section.search-container > .secondary-filter > div > label > span:hover {
 }
 
 section.admin-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0;
   background: #eef0f1;
   position: relative;
 }
 section.admin-container > div.terminal {
   display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  z-index: -10;
+  background-color: #343a40;
+  overflow-y: auto;
+  transition: all 0.3s linear;
+  min-height: 100%;
+}
+@media (min-width: 1000px) {
+  section.admin-container > div.terminal {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0;
+    position: static;
+    transform: translateX(0);
+    z-index: 0;
+  }
+}
+section.admin-container > div.terminal.sidebar-open {
+  transform: translateX(0);
+  z-index: 15;
+}
+section.admin-container > div.terminal > * {
+  padding: 0.75em;
+}
+section.admin-container > div.terminal > .head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2em;
+  background-color: #25252d;
+  border-bottom: 1.5px solid #8b0023;
+}
+section.admin-container > div.terminal > .head > a {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5em;
+}
+section.admin-container > div.terminal > .head > a > img {
+  width: 2.5rem;
+  height: auto;
+  align-self: center;
+  border-radius: 25px;
+}
+section.admin-container > div.terminal > .head > a > p {
+  font-size: 1.2em;
+}
+section.admin-container > div.terminal > .head > button {
+  background: none;
+  border: none;
+  color: #eef0f1;
+}
+@media (min-width: 1000px) {
+  section.admin-container > div.terminal > .head > button {
+    display: none;
+  }
+}
+section.admin-container > div.terminal > .head > button > svg {
+  width: 2rem;
+  min-width: 2rem;
+  transform: rotate(180deg);
+  transition: all 0.1s linear;
+  cursor: pointer;
+}
+section.admin-container > div.terminal > .head > button > svg:hover {
+  color: #d90037;
+}
+section.admin-container > div.terminal > .admin {
+  background-color: #25252d;
+  border-bottom: 1.5px solid #8b0023;
+}
+section.admin-container > div.terminal > .admin > a {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5em;
+}
+section.admin-container > div.terminal > .admin > a > img {
+  width: 2.5rem;
+  height: auto;
+  align-self: center;
+  border-radius: 25px;
+}
+section.admin-container > div.terminal > .admin > a > p {
+  font-size: 1.2em;
+}
+section.admin-container > div.terminal > .search {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0;
+}
+section.admin-container > div.terminal > .search > input {
+  font-size: 0.9em;
+  padding: 0.5em;
+  background: #3f474e;
+  border: 1px solid #565757;
+  color: #eef0f1;
+  flex: 1;
+}
+section.admin-container > div.terminal > .search > button {
+  padding: 0 0.5em;
+  border: none;
+  background: #313438;
+}
+section.admin-container > div.terminal > .search > button > svg {
+  color: #eef0f1;
+}
+section.admin-container > div.terminal > .dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1.2em;
+  font-size: 0.9em;
+  letter-spacing: 0.05em;
+}
+section.admin-container > div.terminal > .dashboard > ul > li {
+  border-radius: 5px;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+section.admin-container > div.terminal > .dashboard > ul > li svg {
+  font-size: 1.6em;
+}
+section.admin-container > div.terminal > .dashboard > ul > li > a {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  padding: 0.75em;
+  margin-bottom: 0.5em;
+  border-radius: 5px;
+}
+section.admin-container > div.terminal > .dashboard > ul > li > a:hover {
+  background-color: #3f474e;
+}
+section.admin-container > div.terminal > .dashboard > ul > li > a.current {
+  background-color: #007bff;
+}
+section.admin-container > div.terminal > .dashboard > ul > li > a > span {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+}
+section.admin-container > div.terminal > .dashboard > ul > li > ul {
+  display: none;
+}
+section.admin-container > div.terminal > .dashboard > ul > li > ul.current {
+  display: block;
+}
+section.admin-container > div.terminal > .dashboard > ul > li > ul > li > a {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.5em 0.75em;
+  margin: 0 2em 0.5em 0;
+  border-radius: 5px;
+}
+section.admin-container > div.terminal > .dashboard > ul > li > ul > li > a:hover {
+  background-color: #3f474e;
+}
+section.admin-container > div.terminal > .dashboard > ul > li > ul > li > a.current {
+  background-color: #ebecec;
+  color: #10161b;
+}
+section.admin-container > div.terminal > .dashboard > p.label {
+  text-transform: uppercase;
 }
 section.admin-container > div.controls {
   display: flex;
@@ -3777,6 +3965,7 @@ section.admin-container > div.controls {
   justify-content: flex-start;
   align-items: stretch;
   gap: 0;
+  flex: 1;
   color: #10161b;
   min-height: 100vh;
 }
@@ -3815,6 +4004,8 @@ section.admin-container > div.controls > .head > button:hover > svg {
   color: #10161b;
 }
 section.admin-container > div.controls > .head > button > svg {
+  width: 1.4rem;
+  min-width: 1.4rem;
   transform: translateY(0.05em);
 }
 section.admin-container > div.controls > .head > .breadcrumbs {
@@ -3876,12 +4067,12 @@ section.admin-container > div.controls > .list-container {
   gap: 0;
 }
 section.admin-container > div.controls > .list-container > .search {
+  padding: 1em;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: stretch;
   gap: 0;
-  padding: 1em;
 }
 section.admin-container > div.controls > .list-container > .search > input {
   font-size: 1em;
@@ -3971,7 +4162,29 @@ section.admin-container > div.controls > .list-container > .pagination > ul > li
   color: #eef0f1;
 }
 section.admin-container > div.filter-controls {
-  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  transform: translateX(0);
+  z-index: 15;
+  background-color: #343a40;
+  overflow-y: auto;
+  transition: all 0.3s linear;
+  min-height: 100%;
+}
+section.admin-container > div.filter-controls > * {
+  padding: 0.75em;
+}
+section.admin-container > div.filter-controls > .head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2em;
+  background-color: #25252d;
+  border-bottom: 1.5px solid #8b0023;
+  font-size: 1.2em;
 }
 section.admin-container > div.sidebar-overlay {
   position: absolute;

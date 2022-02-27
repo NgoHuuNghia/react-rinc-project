@@ -4,28 +4,100 @@
 
 //? admin
 section.admin-container
+    @include flex($align: stretch, $justify: flex-start)
     background: $bgc-admin
     position: relative
     >div.terminal
-        //* temp
-        display: none
-        >.head, >.admin
+        display: none //! temp
+        position: fixed
+        top: 0
+        bottom: 0
+        left: 0
+        transform: translateX(-100%)
+        z-index: -10
+        background-color: $bgc-admin-terminal
+        overflow-y: auto
+        transition: $trs-basic
+        min-height: 100%
+        @include bs.from(xl)
+            @include flex($direction: column, $align: stretch, $justify: flex-start)
+            position: static
+            transform: translateX(0)
+            z-index: 0
+        &.sidebar-open
+            transform: translateX(0)
+            z-index: 15
+        >*
+            padding: .75em
+        >.head
+            @include flex($gap: 2em)
+            background-color: $bgc-admin-terminal-dark
+            border-bottom: 1.5px solid $bgc-subsidiary
             >a
-                >img
-                >p
+                @include headLink
+            >button 
+                background: none
+                border: none
+                color: $fc-admin-white
+                @include bs.from(xl)
+                    display: none
+                >svg
+                    width: 2rem
+                    min-width: 2rem
+                    transform: rotate(180deg)
+                    transition: $trs-instant
+                    cursor: pointer
+                    &:hover
+                        color: $fc-subsidiary-hilight
+        >.admin
+            background-color: $bgc-admin-terminal-dark
+            border-bottom: 1.5px solid $bgc-subsidiary
+            >a
+                @include headLink
         >.search
-            >input
-            >svg
+            @include AdminSearch($fc: $fc-admin-white, $bgc: $bgc-admin-terminal-soft, $bl: $fc-admin-white-soft)
         >.dashboard
+            @include flex($direction: column, $align: stretch, $gap: 1.2em)
+            font-size: .9em
+            letter-spacing: .05em
             >ul
                 >li
-                    >span
-                    >svg
-                >li.activated
-            >p.extension-dashboard
+                    border-radius: 5px
+                    text-transform: capitalize
+                    cursor: pointer
+                    svg
+                        font-size: 1.6em
+                    >a
+                        @include flex($justify: space-between, $align: center)
+                        padding: .75em
+                        margin-bottom: .5em
+                        border-radius: 5px
+                        &:hover
+                            background-color: $bgc-admin-terminal-soft
+                        &.current
+                            background-color: $bgc-admin-current
+                        >span
+                            @include flex($gap: .5em)
+                    >ul
+                        display: none
+                        &.current
+                            display: block
+                        >li >a
+                            @include flex($justify: flex-start, $align: center, $gap: .5em)
+                            padding: .5em .75em
+                            margin: 0 2em .5em 0
+                            border-radius: 5px
+                            &:hover
+                                background-color: $bgc-admin-terminal-soft
+                            &.current
+                                background-color: $bgc-admin-gray
+                                color: $fc-admin
+            >p.label
+                text-transform: uppercase
 
     >div.controls
         @include flex($direction: column, $justify: flex-start, $align: stretch)
+        flex: 1
         color: $fc-admin
         min-height: 100vh
         >div:not(:first-child)
@@ -40,6 +112,8 @@ section.admin-container
             >button
                 @include sidebar-button
                 >svg
+                    width: 1.4rem
+                    min-width: 1.4rem
                     transform: translateY(.05em)
             >.breadcrumbs
                 font-size: 1.1em
@@ -65,8 +139,8 @@ section.admin-container
             background-color: $bgc-admin-white
             @include flex($direction: column, $align: stretch)
             >.search
-                @include flex($justify: flex-start, $align: stretch)
                 padding: 1em
+                @include flex($justify: flex-start, $align: stretch)
                 >input
                     font-size: 1em
                     padding: .5em
@@ -121,12 +195,28 @@ section.admin-container
                     >li:first-child
                         border-left: 1px solid $bgc-admin-line-dark
                     >li.current
-                        background-color: $fc-admin-current
+                        background-color: $bgc-admin-current
                         color: $fc-admin-white
 
     >div.filter-controls
-        //* temp
-        display: none
+        //display: none //! temp
+        position: fixed
+        top: 0
+        bottom: 0
+        right: 0
+        transform: translateX(0) //! temp
+        z-index: 15 //! temp
+        background-color: $bgc-admin-terminal
+        overflow-y: auto
+        transition: $trs-basic
+        min-height: 100%
+        >*
+            padding: .75em
+        >.head
+            @include flex($gap: 2em)
+            background-color: $bgc-admin-terminal-dark
+            border-bottom: 1.5px solid $bgc-subsidiary
+            font-size: 1.2em
 
     >div.sidebar-overlay
         position: absolute

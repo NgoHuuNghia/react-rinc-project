@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import AdminTerminal from './AdminTerminal'
 import AdminHeader from './AdminHeader'
@@ -14,15 +14,17 @@ import AdminFilter from './AdminFilter'
 //! Working on the AdminTerminal right now
 
 const Admin = () => {
+    const [sidebar, setSidebar] = useState('')
+
     return (
         <section className='admin-container'>
-            <AdminTerminal />
+            <AdminTerminal sidebar={sidebar} setSidebar={setSidebar}/>
             <div className='controls'>
-                <AdminHeader />
-                <AdminDashboard admin={true}/>
+                <AdminHeader sidebar={sidebar} setSidebar={setSidebar}/>
+                <AdminDashboard/>
             </div>
-            <AdminFilter />
-            <div className='sidebar-overlay sidebar-open'></div>
+            <AdminFilter sidebar={sidebar} setSidebar={setSidebar}/>
+            <div onClick={() => setSidebar('')} className={`sidebar-overlay ${(sidebar.length > 0 ? 'sidebar-open' : '')}`}></div>
         </section>
     )
 }

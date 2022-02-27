@@ -3,7 +3,20 @@
 @use './_common-mixins' as *
 @use '../../../../node_modules/breakpoint-slicer' as bs
 
-@mixin sidebar-button()
+@mixin terminalLogo
+    width: 2.5rem
+    height: auto
+    align-self: center
+    border-radius: 25px
+
+@mixin headLink
+    @include flex($justify: flex-start ,$gap: .5em)
+    >img
+        @include terminalLogo
+    >p
+        font-size: 1.2em    
+
+@mixin sidebar-button
     background-color: $bgc-subtle
     border-radius: 50%
     border: none
@@ -19,3 +32,18 @@
         background-color: $bgc-subsidiary-hilight
         >svg
             color: $fc-hilight-subsidiary
+@mixin AdminSearch($fc: $fc-default, $bgc: $bgc-admin-white, $bl: $bgc-admin-line-dark)
+    @include flex($justify: flex-start, $align: stretch)
+    >input
+        font-size: .9em
+        padding: .5em
+        background: $bgc
+        border: 1px solid $bl
+        color: $fc
+        flex: 1
+    >button
+        padding: 0 .5em
+        border: none
+        background: $bgc-subtle
+        >svg
+            color: $fc
