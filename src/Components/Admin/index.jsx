@@ -21,7 +21,7 @@ const Admin = () => {
             <AdminTerminal sidebar={sidebar} setSidebar={setSidebar}/>
             <div className='controls'>
                 <AdminHeader sidebar={sidebar} setSidebar={setSidebar}/>
-                <AdminDashboard/>
+                <AdminDashboard sidebar={sidebar} setSidebar={setSidebar}/>
             </div>
             <AdminFilter sidebar={sidebar} setSidebar={setSidebar}/>
             <div onClick={() => setSidebar('')} className={`sidebar-overlay ${(sidebar.length > 0 ? 'sidebar-open' : '')}`}></div>

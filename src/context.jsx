@@ -98,7 +98,7 @@ export const AppProvider = ({ children }) => {
 
     let slider = setInterval(() => {
       dispatch({type: 'TOGGLE_INDEX', payload: {toggleType: 'increase', sliderType: 'sliderMain'}})
-    }, 500000000000)//! testing
+    }, 5000)
     return () => {clearInterval(slider)}
   }, [state.sliderIndexMain])
 

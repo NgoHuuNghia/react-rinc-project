@@ -4,7 +4,7 @@ import {FaFilter, FaSearch, FaChevronLeft, FaChevronRight} from 'react-icons/fa'
 import { useGlobalContext } from '../../context'
 import AdminGamesList from './AdminGamesList'
 
-const AdminDashboard = () => {
+const AdminDashboard = ({sidebar, setSidebar}) => {
     const { 
         featuredList, 
         featuredListRecent
@@ -14,7 +14,7 @@ const AdminDashboard = () => {
         <>
             <div className='title'>
                 <h2>Dash title</h2>
-                <button><FaFilter /></button>
+                <button onClick={() => setSidebar('filter')}><FaFilter /></button>
             </div>
             <div className='list-container'>
                 <div className='search'>

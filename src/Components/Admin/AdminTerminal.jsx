@@ -15,7 +15,7 @@ const AdminTerminal = ({sidebar, setSidebar}) => {
     const { ToTop } = useGlobalContext()
 
     return (
-        <div className={`terminal ${sidebar === 'terminal' ? 'sidebar-open' : ''}`}>
+        <nav className={`terminal ${sidebar === 'terminal' ? 'sidebar-open' : ''}`}>
             <div className='head'>
                 <Link to='/' onClick={() => ToTop()}>
                     <img src={logo} alt="" />
@@ -45,7 +45,7 @@ const AdminTerminal = ({sidebar, setSidebar}) => {
                     </li>
                     <li>
                         <a><span><MdWidgets />test stuff</span><MdKeyboardArrowLeft /></a>
-                        <ul>
+                        <ul className='test'>
                             <li><a href=""><AiOutlineRightSquare />Dashboard</a></li>
                             <li><a href=""><AiOutlineRightSquare />Dashboard</a></li>
                             <li><a href=""><AiOutlineRightSquare />Dashboard</a></li>
@@ -136,7 +136,7 @@ const AdminTerminal = ({sidebar, setSidebar}) => {
                     </li>
                 </ul>
             </div>
-        </div>
+        </nav>
     )
 }
 

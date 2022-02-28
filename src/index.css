@@ -3772,22 +3772,28 @@ section.admin-container {
   gap: 0;
   background: #eef0f1;
   position: relative;
+  letter-spacing: 0.025em;
 }
-section.admin-container > div.terminal {
-  display: none;
+section.admin-container > nav.terminal {
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   transform: translateX(-100%);
   z-index: -10;
+  opacity: 0;
   background-color: #343a40;
   overflow-y: auto;
   transition: all 0.3s linear;
   min-height: 100%;
 }
+section.admin-container > nav.terminal.sidebar-open {
+  transform: translateX(0);
+  z-index: 15;
+  opacity: 1;
+}
 @media (min-width: 1000px) {
-  section.admin-container > div.terminal {
+  section.admin-container > nav.terminal {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -3795,17 +3801,15 @@ section.admin-container > div.terminal {
     gap: 0;
     position: static;
     transform: translateX(0);
+    min-width: 12em;
     z-index: 0;
+    opacity: 1;
   }
 }
-section.admin-container > div.terminal.sidebar-open {
-  transform: translateX(0);
-  z-index: 15;
-}
-section.admin-container > div.terminal > * {
+section.admin-container > nav.terminal > * {
   padding: 0.75em;
 }
-section.admin-container > div.terminal > .head {
+section.admin-container > nav.terminal > .head {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -3814,150 +3818,181 @@ section.admin-container > div.terminal > .head {
   background-color: #25252d;
   border-bottom: 1.5px solid #8b0023;
 }
-section.admin-container > div.terminal > .head > a {
+section.admin-container > nav.terminal > .head > a {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   gap: 0.5em;
 }
-section.admin-container > div.terminal > .head > a > img {
+section.admin-container > nav.terminal > .head > a > img {
   width: 2.5rem;
   height: auto;
   align-self: center;
   border-radius: 25px;
 }
-section.admin-container > div.terminal > .head > a > p {
+section.admin-container > nav.terminal > .head > a > p {
   font-size: 1.2em;
+  white-space: nowrap;
 }
-section.admin-container > div.terminal > .head > button {
+section.admin-container > nav.terminal > .head > button {
   background: none;
   border: none;
   color: #eef0f1;
 }
 @media (min-width: 1000px) {
-  section.admin-container > div.terminal > .head > button {
+  section.admin-container > nav.terminal > .head > button {
     display: none;
   }
 }
-section.admin-container > div.terminal > .head > button > svg {
+section.admin-container > nav.terminal > .head > button > svg {
   width: 2rem;
   min-width: 2rem;
   transform: rotate(180deg);
   transition: all 0.1s linear;
   cursor: pointer;
 }
-section.admin-container > div.terminal > .head > button > svg:hover {
+section.admin-container > nav.terminal > .head > button > svg:hover {
   color: #d90037;
 }
-section.admin-container > div.terminal > .admin {
+section.admin-container > nav.terminal > .admin {
   background-color: #25252d;
   border-bottom: 1.5px solid #8b0023;
 }
-section.admin-container > div.terminal > .admin > a {
+section.admin-container > nav.terminal > .admin > a {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   gap: 0.5em;
 }
-section.admin-container > div.terminal > .admin > a > img {
+section.admin-container > nav.terminal > .admin > a > img {
   width: 2.5rem;
   height: auto;
   align-self: center;
   border-radius: 25px;
 }
-section.admin-container > div.terminal > .admin > a > p {
+section.admin-container > nav.terminal > .admin > a > p {
   font-size: 1.2em;
+  white-space: nowrap;
 }
-section.admin-container > div.terminal > .search {
+section.admin-container > nav.terminal > .search {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: stretch;
   gap: 0;
 }
-section.admin-container > div.terminal > .search > input {
+section.admin-container > nav.terminal > .search > input {
   font-size: 0.9em;
   padding: 0.5em;
   background: #3f474e;
   border: 1px solid #565757;
-  color: #eef0f1;
+  color: #c6d4df;
   flex: 1;
+  min-width: 6em;
 }
-section.admin-container > div.terminal > .search > button {
+section.admin-container > nav.terminal > .search > button {
   padding: 0 0.5em;
   border: none;
   background: #313438;
 }
-section.admin-container > div.terminal > .search > button > svg {
+section.admin-container > nav.terminal > .search > button > svg {
   color: #eef0f1;
 }
-section.admin-container > div.terminal > .dashboard {
+section.admin-container > nav.terminal > .dashboard {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
   gap: 1.2em;
   font-size: 0.9em;
-  letter-spacing: 0.05em;
 }
-section.admin-container > div.terminal > .dashboard > ul > li {
-  border-radius: 5px;
-  text-transform: capitalize;
-  cursor: pointer;
-}
-section.admin-container > div.terminal > .dashboard > ul > li svg {
+section.admin-container > nav.terminal > .dashboard > ul > li svg {
   font-size: 1.6em;
 }
-section.admin-container > div.terminal > .dashboard > ul > li > a {
+section.admin-container > nav.terminal > .dashboard > ul > li > a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 0;
+  gap: 0.5em;
   padding: 0.75em;
   margin-bottom: 0.5em;
   border-radius: 5px;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: all 0.1s linear;
+  background-color: none;
 }
-section.admin-container > div.terminal > .dashboard > ul > li > a:hover {
+section.admin-container > nav.terminal > .dashboard > ul > li > a:hover {
   background-color: #3f474e;
 }
-section.admin-container > div.terminal > .dashboard > ul > li > a.current {
+section.admin-container > nav.terminal > .dashboard > ul > li > a.current {
   background-color: #007bff;
+  color: unset;
 }
-section.admin-container > div.terminal > .dashboard > ul > li > a > span {
+section.admin-container > nav.terminal > .dashboard > ul > li > a > span {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 0.5em;
 }
-section.admin-container > div.terminal > .dashboard > ul > li > ul {
+section.admin-container > nav.terminal > .dashboard > ul > li > ul {
   display: none;
+  height: 0;
+  opacity: 0;
+  transition: all 0.3s linear;
 }
-section.admin-container > div.terminal > .dashboard > ul > li > ul.current {
+section.admin-container > nav.terminal > .dashboard > ul > li > ul.current {
   display: block;
+  height: unset;
+  opacity: 1;
 }
-section.admin-container > div.terminal > .dashboard > ul > li > ul > li > a {
+section.admin-container > nav.terminal > .dashboard > ul > li > ul.test {
+  display: block;
+  height: unset;
+  opacity: 1;
+}
+section.admin-container > nav.terminal > .dashboard > ul > li > ul > li > a {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   gap: 0.5em;
+  padding: 0.75em;
+  margin-bottom: 0.5em;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: all 0.1s linear;
+  background-color: none;
   padding: 0.5em 0.75em;
   margin: 0 2em 0.5em 0;
-  border-radius: 5px;
 }
-section.admin-container > div.terminal > .dashboard > ul > li > ul > li > a:hover {
+section.admin-container > nav.terminal > .dashboard > ul > li > ul > li > a:hover {
   background-color: #3f474e;
 }
-section.admin-container > div.terminal > .dashboard > ul > li > ul > li > a.current {
+section.admin-container > nav.terminal > .dashboard > ul > li > ul > li > a.current {
   background-color: #ebecec;
   color: #10161b;
 }
-section.admin-container > div.terminal > .dashboard > p.label {
+section.admin-container > nav.terminal > .dashboard > ul > li > ul > li > a > span {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+}
+section.admin-container > nav.terminal > .dashboard > p.label {
   text-transform: uppercase;
+  background-color: #25252d;
+  align-self: flex-start;
+  padding: 0.5em;
+  margin-left: 0.5em;
+  border-radius: 5px;
+  font-weight: bolder;
 }
 section.admin-container > div.controls {
   display: flex;
@@ -3976,7 +4011,6 @@ section.admin-container > div.controls > .head {
   background-color: #ffffff;
   border-bottom: 1px solid #dee2e6;
   padding: 1em;
-  color: #90989e;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -4003,25 +4037,57 @@ section.admin-container > div.controls > .head > button:hover {
 section.admin-container > div.controls > .head > button:hover > svg {
   color: #10161b;
 }
+@media (min-width: 1000px) {
+  section.admin-container > div.controls > .head > button {
+    display: none;
+  }
+}
 section.admin-container > div.controls > .head > button > svg {
   width: 1.4rem;
   min-width: 1.4rem;
   transform: translateY(0.05em);
 }
 section.admin-container > div.controls > .head > .breadcrumbs {
-  font-size: 1.1em;
-  text-transform: capitalize;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 0.2em;
+  font-size: 1.1em;
+  text-transform: capitalize;
+  color: #90989e;
 }
-section.admin-container > div.controls > .head > .breadcrumbs > div > a {
+section.admin-container > div.controls > .head > .breadcrumbs > div:not(:first-child) > a {
   color: inherit;
+}
+section.admin-container > div.controls > .head > .breadcrumbs > div:first-child > a {
+  color: #007bff !important;
 }
 section.admin-container > div.controls > .head > .breadcrumbs > span {
   cursor: default;
+}
+section.admin-container > div.controls > .head > .links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  margin-left: auto;
+}
+section.admin-container > div.controls > .head > .links > a {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  padding: 0.15em 0.25em;
+  background-color: #ebecec;
+  color: #313438;
+  font-size: 2em;
+  transition: all 0.1s linear;
+}
+section.admin-container > div.controls > .head > .links > a:hover {
+  background-color: #ff0040;
 }
 section.admin-container > div.controls > .title {
   display: flex;
@@ -4058,27 +4124,37 @@ section.admin-container > div.controls > .title > button > svg {
   transform: translateY(0.15em);
 }
 section.admin-container > div.controls > .list-container {
-  border: 2px solid rgba(0, 0, 0, 0.125);
-  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
   gap: 0;
+  border: 2px solid rgba(0, 0, 0, 0.125);
+  background-color: #ffffff;
+  width: 95vw;
+  margin: 1em auto !important;
+}
+@media (min-width: 1000px) {
+  section.admin-container > div.controls > .list-container {
+    width: unset;
+  }
 }
 section.admin-container > div.controls > .list-container > .search {
-  padding: 1em;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: stretch;
   gap: 0;
+  padding: 1em;
 }
 section.admin-container > div.controls > .list-container > .search > input {
-  font-size: 1em;
+  font-size: 0.9em;
   padding: 0.5em;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.3);
+  color: #10161b;
+  flex: none;
+  min-width: 6em;
 }
 section.admin-container > div.controls > .list-container > .search > button {
   padding: 0 0.5em;
@@ -4091,12 +4167,12 @@ section.admin-container > div.controls > .list-container > .search > button > sv
 section.admin-container > div.controls > .list-container > ul.table {
   display: grid;
   grid-template-rows: none;
-  grid-template-columns: minmax(min-content, 1fr) minmax(10em, 2fr) repeat(5, minmax(min-content, 0.5fr));
+  grid-template-columns: minmax(min-content, 1fr) minmax(min-content, 2fr) repeat(5, minmax(min-content, 0.5fr));
   gap: 0;
   place-items: unset;
   place-content: unset;
-  grid-auto-flow: row;
   overflow-x: auto;
+  white-space: nowrap;
 }
 section.admin-container > div.controls > .list-container > ul.table > li {
   display: flex;
@@ -4166,25 +4242,283 @@ section.admin-container > div.filter-controls {
   top: 0;
   bottom: 0;
   right: 0;
-  transform: translateX(0);
-  z-index: 15;
+  transform: translateX(100%);
+  z-index: -10;
+  opacity: 0;
   background-color: #343a40;
   overflow-y: auto;
   transition: all 0.3s linear;
   min-height: 100%;
+  max-width: 20em;
+}
+section.admin-container > div.filter-controls.sidebar-open {
+  transform: translateX(0);
+  z-index: 15;
+  opacity: 1;
+}
+@media (min-width: 1000px) {
+  section.admin-container > div.filter-controls {
+    max-width: 25em;
+  }
 }
 section.admin-container > div.filter-controls > * {
   padding: 0.75em;
 }
 section.admin-container > div.filter-controls > .head {
+  background-color: #25252d;
+  border-bottom: 1.5px solid #8b0023;
+  font-size: 1.2em;
+}
+section.admin-container > div.filter-controls > .head > p {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 2em;
+}
+section.admin-container > div.filter-controls > .head > p > button {
+  background-color: #ebecec;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23) !important;
+  transition: all 0.1s linear;
+  width: 3em;
+  height: 3em;
+  cursor: pointer;
+}
+section.admin-container > div.filter-controls > .head > p > button > svg {
+  font-size: 1.5em;
+  color: #10161b;
+}
+section.admin-container > div.filter-controls > .head > p > button:hover {
+  background-color: #ff0040;
+}
+section.admin-container > div.filter-controls > .head > p > button:hover > svg {
+  color: #10161b;
+}
+section.admin-container > div.filter-controls > .head > p > button > svg {
+  transform: rotate(180deg);
+}
+section.admin-container > div.filter-controls > form {
+  display: grid;
+  grid-template-rows: none;
+  grid-template-columns: 1fr;
+  gap: 1em;
+  place-items: unset;
+  place-content: unset;
+}
+@media (min-width: 1000px) {
+  section.admin-container > div.filter-controls > form {
+    display: grid;
+    grid-template-rows: none;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    place-items: unset;
+    place-content: unset;
+  }
+}
+section.admin-container > div.filter-controls > form > div.option {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 0;
+}
+@media (min-width: 1000px) {
+  section.admin-container > div.filter-controls > form > div.option.col-2 {
+    grid-column: span 2;
+  }
+}
+section.admin-container > div.filter-controls > form > div.option svg {
+  font-size: 1.6em;
+}
+section.admin-container > div.filter-controls > form > div.option > label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.75em;
+  margin-bottom: 0.5em;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: all 0.1s linear;
   background-color: #25252d;
-  border-bottom: 1.5px solid #8b0023;
+  border-radius: 5px 5px 0 0;
+  cursor: default;
+  margin-bottom: 0;
+}
+section.admin-container > div.filter-controls > form > div.option > label:hover {
+  background-color: none;
+}
+section.admin-container > div.filter-controls > form > div.option > label.current {
+  background-color: #007bff;
+  color: unset;
+}
+section.admin-container > div.filter-controls > form > div.option > label > span {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+}
+section.admin-container > div.filter-controls > form > div.option > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0;
+  background-color: #3f474e;
+}
+section.admin-container > div.filter-controls > form > div.option > div > button {
+  text-align: start;
+  border: none;
+  background: none;
+  padding: 0.5em 0.75em;
+  margin-bottom: 0.25em;
+  color: #c6d4df;
+  font-size: 1em;
+  position: relative;
+  cursor: pointer;
+}
+section.admin-container > div.filter-controls > form > div.option > div > button.current::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 1.5px;
+  height: 100%;
+  border: 1.5px solid #007bff;
+}
+section.admin-container > div.filter-controls > form > div.option > div > button:hover:not(.current)::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 1.5px;
+  height: 100%;
+  border: 1.5px solid #04F404;
+}
+section.admin-container > div.filter-controls > form > div.selection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 0;
+}
+@media (min-width: 1000px) {
+  section.admin-container > div.filter-controls > form > div.selection.col-2 {
+    grid-column: span 2;
+  }
+}
+section.admin-container > div.filter-controls > form > div.selection svg {
+  font-size: 1.6em;
+}
+section.admin-container > div.filter-controls > form > div.selection > label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.75em;
+  margin-bottom: 0.5em;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: all 0.1s linear;
+  background-color: #25252d;
+  border-radius: 5px 5px 0 0;
+  cursor: default;
+  margin-bottom: 0;
+}
+section.admin-container > div.filter-controls > form > div.selection > label:hover {
+  background-color: none;
+}
+section.admin-container > div.filter-controls > form > div.selection > label.current {
+  background-color: #007bff;
+  color: unset;
+}
+section.admin-container > div.filter-controls > form > div.selection > label > span {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+}
+section.admin-container > div.filter-controls > form > div.selection > div > .applied {
+  padding: 0.5em 0.75em;
+  background-color: #3f474e;
+}
+section.admin-container > div.filter-controls > form > div.selection > div > .applied > p {
+  font-weight: bold;
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+}
+section.admin-container > div.filter-controls > form > div.selection > div > .applied > div > button {
+  border: none;
+  padding: 0.25em;
+  margin: 0.25em;
+  border-radius: 5px;
+  background-color: #007bff;
+  transition: all 0.1s linear;
+  cursor: pointer;
+}
+section.admin-container > div.filter-controls > form > div.selection > div > .applied > div > button:hover {
+  filter: brightness(150%);
+}
+section.admin-container > div.filter-controls > form > div.selection > div > .selector {
+  padding: 0.5em 0.75em;
+  background-color: #56616a;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0;
+}
+section.admin-container > div.filter-controls > form > div.selection > div > .selector > .search {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0;
+  align-self: flex-end;
+  margin-bottom: 0.5em;
+}
+section.admin-container > div.filter-controls > form > div.selection > div > .selector > .search > input {
+  font-size: 0.9em;
+  padding: 0.5em;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  color: #10161b;
+  flex: 1;
+  min-width: 6em;
+}
+section.admin-container > div.filter-controls > form > div.selection > div > .selector > .search > button {
+  padding: 0 0.5em;
+  border: none;
+  background: #313438;
+}
+section.admin-container > div.filter-controls > form > div.selection > div > .selector > .search > button > svg {
+  color: #c6d4df;
+}
+section.admin-container > div.filter-controls > form > div.selection > div > .selector > .search > input {
+  padding: 0.5em;
+}
+section.admin-container > div.filter-controls > form > div.selection > div > .selector > .search > button > svg {
   font-size: 1.2em;
+}
+section.admin-container > div.filter-controls > form > div.selection > div > .selector > .option > button {
+  border: none;
+  padding: 0.25em;
+  margin: 0.25em;
+  border-radius: 5px;
+  background-color: #04F404;
+  transition: all 0.1s linear;
+  cursor: pointer;
+}
+section.admin-container > div.filter-controls > form > div.selection > div > .selector > .option > button:hover {
+  filter: brightness(50%);
 }
 section.admin-container > div.sidebar-overlay {
   position: absolute;

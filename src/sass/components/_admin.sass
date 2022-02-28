@@ -7,26 +7,16 @@ section.admin-container
     @include flex($align: stretch, $justify: flex-start)
     background: $bgc-admin
     position: relative
-    >div.terminal
-        display: none //! temp
-        position: fixed
-        top: 0
-        bottom: 0
-        left: 0
-        transform: translateX(-100%)
-        z-index: -10
-        background-color: $bgc-admin-terminal
-        overflow-y: auto
-        transition: $trs-basic
-        min-height: 100%
+    letter-spacing: .025em
+    >nav.terminal
+        @include sidebar-body($trsX: translateX(-100%))
         @include bs.from(xl)
             @include flex($direction: column, $align: stretch, $justify: flex-start)
             position: static
             transform: translateX(0)
+            min-width: 12em
             z-index: 0
-        &.sidebar-open
-            transform: translateX(0)
-            z-index: 15
+            opacity: 1
         >*
             padding: .75em
         >.head
@@ -55,45 +45,41 @@ section.admin-container
             >a
                 @include headLink
         >.search
-            @include AdminSearch($fc: $fc-admin-white, $bgc: $bgc-admin-terminal-soft, $bl: $fc-admin-white-soft)
+            @include AdminSearch($fc-svg: $fc-admin-white, $bgc: $bgc-admin-terminal-soft, $bl: $fc-admin-white-soft)
         >.dashboard
             @include flex($direction: column, $align: stretch, $gap: 1.2em)
             font-size: .9em
-            letter-spacing: .05em
-            >ul
-                >li
-                    border-radius: 5px
-                    text-transform: capitalize
-                    cursor: pointer
-                    svg
-                        font-size: 1.6em
-                    >a
-                        @include flex($justify: space-between, $align: center)
-                        padding: .75em
-                        margin-bottom: .5em
-                        border-radius: 5px
-                        &:hover
-                            background-color: $bgc-admin-terminal-soft
-                        &.current
-                            background-color: $bgc-admin-current
-                        >span
-                            @include flex($gap: .5em)
-                    >ul
-                        display: none
-                        &.current
-                            display: block
-                        >li >a
-                            @include flex($justify: flex-start, $align: center, $gap: .5em)
-                            padding: .5em .75em
-                            margin: 0 2em .5em 0
-                            border-radius: 5px
-                            &:hover
-                                background-color: $bgc-admin-terminal-soft
-                            &.current
-                                background-color: $bgc-admin-gray
-                                color: $fc-admin
+            >ul >li
+                svg
+                    font-size: 1.6em
+                >a
+                    @include sidebar-link
+                >ul
+                    display: none
+                    height: 0
+                    opacity: 0
+                    //! working on onclick height thing
+                    transition: $trs-basic
+                    &.current
+                        display: block
+                        height: unset
+                        opacity: 1
+                    &.test
+                        display: block
+                        height: unset
+                        opacity: 1
+                    >li >a
+                        @include sidebar-link($bgc-hover: $bgc-admin-terminal-soft, $bgc-current: $bgc-admin-gray, $fc-current: $fc-admin, $justify-content: flex-start)
+                        padding: .5em .75em
+                        margin: 0 2em .5em 0
             >p.label
                 text-transform: uppercase
+                background-color: $bgc-admin-terminal-dark
+                align-self: flex-start
+                padding: .5em
+                margin-left: .5em
+                border-radius: 5px
+                font-weight: bolder
 
     >div.controls
         @include flex($direction: column, $justify: flex-start, $align: stretch)
@@ -102,28 +88,42 @@ section.admin-container
         min-height: 100vh
         >div:not(:first-child)
             margin: 1em
-        
         >.head
             background-color: $bgc-admin-white
             border-bottom: 1px solid $bgc-admin-line
             padding: 1em
-            color: #90989e
             @include flex($justify: flex-start, $align: center, $gap: 1em)
             >button
                 @include sidebar-button
+                @include bs.from(xl)
+                    display: none
                 >svg
                     width: 1.4rem
                     min-width: 1.4rem
                     transform: translateY(.05em)
             >.breadcrumbs
+                @include flex($gap: .2em)
                 font-size: 1.1em
                 text-transform: capitalize
-                @include flex($gap: .2em)
-                >div >a
+                color: #90989e
+                >div:not(:first-child) >a
                     color: inherit
+                >div:first-child >a
+                    color: $bgc-admin-current !important
                 >span
                     cursor: default
-                    
+            >.links
+                @include flex
+                margin-left: auto
+                >a
+                    @include flex
+                    padding: .15em .25em
+                    background-color: $bgc-admin-gray
+                    color: $bgc-subtle
+                    font-size: 2em
+                    transition: $trs-instant
+                    &:hover
+                        background-color: $bgc-subsidiary-hilight
         >.title
             @include flex
             >h2
@@ -135,29 +135,20 @@ section.admin-container
                     transform: translateY(.15em)
 
         >.list-container
+            @include flex($direction: column, $align: stretch)
             border: 2px solid $bgc-admin-line-gray
             background-color: $bgc-admin-white
-            @include flex($direction: column, $align: stretch)
+            width: 95vw
+            margin: 1em auto !important
+            @include bs.from(xl)
+                width: unset
             >.search
+                @include AdminSearch($fc: $fc-admin, $bgc: $bgc-admin-white, $bl: $bgc-admin-line-dark, $flex-short: none)
                 padding: 1em
-                @include flex($justify: flex-start, $align: stretch)
-                >input
-                    font-size: 1em
-                    padding: .5em
-                    background: $bgc-admin-white
-                    border: 1px solid $bgc-admin-line-dark
-                >button
-                    padding: 0 .5em
-                    border: none
-                    background: $bgc-subtle
-                    >svg
-                        color: $fc-default
             >ul.table
-                //border: 1px solid black
-                //padding: .5em
-                @include grid($columns: minmax(min-content, 1fr) minmax(10em, 2fr) repeat(5, minmax(min-content, .5fr)))
-                grid-auto-flow: row
+                @include grid($columns: minmax(min-content, 1fr) minmax(min-content, 2fr) repeat(5, minmax(min-content, .5fr)))
                 overflow-x: auto
+                white-space: nowrap
                 >li
                     @include flex()
                     padding: .5em 1em
@@ -199,24 +190,34 @@ section.admin-container
                         color: $fc-admin-white
 
     >div.filter-controls
-        //display: none //! temp
-        position: fixed
-        top: 0
-        bottom: 0
-        right: 0
-        transform: translateX(0) //! temp
-        z-index: 15 //! temp
-        background-color: $bgc-admin-terminal
-        overflow-y: auto
-        transition: $trs-basic
-        min-height: 100%
+        @include sidebar-body($trsX: translateX(100%), $direction: right)
+        max-width: 20em
+        @include bs.from(xl)
+            max-width: 25em
         >*
             padding: .75em
         >.head
-            @include flex($gap: 2em)
             background-color: $bgc-admin-terminal-dark
             border-bottom: 1.5px solid $bgc-subsidiary
             font-size: 1.2em
+            >p 
+                @include flex($gap: 2em)
+                >button
+                    @include sidebar-button($bgc: $bgc-admin-gray, $fc: $fc-admin)
+                    >svg
+                        transform: rotate(180deg)
+        >form
+            @include grid($columns: 1fr, $gap: 1em)
+            @include bs.from(xl)
+                @include grid($columns: 1fr 1fr, $gap: 1em)
+            >div.option
+                @include filterSkeleton
+                >div
+                    @include filterOptionButton
+            >div.selection
+                @include filterSkeleton
+                >div
+                    @include filterSelection
 
     >div.sidebar-overlay
         position: absolute

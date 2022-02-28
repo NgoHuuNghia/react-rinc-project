@@ -2,6 +2,8 @@ import React from 'react'
 import {FaBars} from 'react-icons/fa'
 
 import { AdminArrow } from '../../assets/svg'
+import { MdWidgets } from 'react-icons/md'
+import {AiFillDashboard, AiFillLayout} from 'react-icons/ai'
 
 const AdminHeader = ({sidebar, setSidebar}) => {
     return (
@@ -15,10 +17,11 @@ const AdminHeader = ({sidebar, setSidebar}) => {
                 <div>
                     <a href="/admin">Current</a>
                 </div>
-                {/* <span>/</span>
-                <div>
-                    <p href="/">{name}</p>
-                </div> */}
+            </div>
+            <div className='links'>
+                <a href="/"><MdWidgets /></a>
+                <a href="/"><AiFillDashboard /></a>
+                <a href="/"><AiFillLayout /></a>
             </div>
         </div>
     )
